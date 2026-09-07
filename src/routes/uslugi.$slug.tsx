@@ -1,0 +1,441 @@
+import { Link, createFileRoute, notFound } from "@tanstack/react-router";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
+import { ArrowRight, ArrowUpRight, Check, CircleHelp, Hammer, Phone } from "lucide-react";
+import { Header } from "@/components/landing/Header";
+import { Footer } from "@/components/landing/Footer";
+import { StickyCallBar } from "@/components/landing/StickyCallBar";
+import { MobileCarousel } from "@/components/landing/MobileCarousel";
+import { DarkEyebrow } from "@/components/landing/DarkEyebrow";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { getService, SERVICE_PROCESS, SERVICES, type Service } from "@/lib/services";
+import { getServiceRealizationCards } from "@/lib/realization-cards";
+import { ServiceRealizations } from "@/components/landing/ServiceRealizations";
+import { Reveal } from "@/components/landing/Reveal";
+import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
+import { motion, useReducedMotion } from "framer-motion";
+import imgPompy from "@/assets/service-pompy-ciepla.jpg";
+import imgKlima from "@/assets/service-klimatyzacja.png";
+import imgKotly from "@/assets/service-kotly.png";
+import imgPodlogowe from "@/assets/service-podlogowe.jpg";
+import imgRecup from "@/assets/service-rekuperacja.jpg";
+import imgSerwis from "@/assets/service-serwis.jpg";
+import thumbPompy from "@/assets/work-heatpump.jpg";
+import thumbKlima from "@/assets/work-ac.jpg";
+import thumbKotly from "@/assets/service-kotly.png";
+import thumbPodlogowe from "@/assets/work-underfloor.jpg";
+import thumbRecup from "@/assets/work-rekuperacja-2.jpg";
+import thumbSerwis from "@/assets/work-ac-outdoor.jpg";
+
+const IMAGES: Record<
+  string,
+  { src: string; alt: string; position: string; heroPosition?: string; heroZoom?: number }
+> = {
+  "pompy-ciepla": {
+    src: imgPompy,
+    alt: "Jednostka zewnętrzna pompy ciepła przy nowoczesnym domu",
+    position: "78% 48%",
+  },
+  klimatyzacja: {
+    src: imgKlima,
+    alt: "Ścienna jednostka klimatyzacji w jasnym, nowoczesnym salonie",
+    position: "58% 48%",
+    heroPosition: "88% 16%",
+    heroZoom: 1.38,
+  },
+  kotly: {
+    src: imgKotly,
+    alt: "Nowoczesny kocioł gazowy kondensacyjny w kotłowni",
+    position: "55% 45%",
+  },
+  "ogrzewanie-podlogowe": {
+    src: imgPodlogowe,
+    alt: "Rozdzielacz ogrzewania podłogowego w pomieszczeniu technicznym",
+    position: "76% 48%",
+  },
+  rekuperacja: {
+    src: imgRecup,
+    alt: "Centrala rekuperacji z kanałami w pomieszczeniu technicznym",
+    position: "82% 42%",
+  },
+  serwis: {
+    src: imgSerwis,
+    alt: "Jednostki zewnętrzne instalacji HVAC przy budynku",
+    position: "74% 46%",
+  },
+};
+
+/** Tight crops for „Inne usługi” cards — not the wide hero frames. */
+const CARD_THUMBS: Record<string, { src: string; position: string }> = {
+  "pompy-ciepla": { src: thumbPompy, position: "55% 45%" },
+  klimatyzacja: { src: thumbKlima, position: "72% 18%" },
+  kotly: { src: thumbKotly, position: "55% 40%" },
+  "ogrzewanie-podlogowe": { src: thumbPodlogowe, position: "48% 42%" },
+  rekuperacja: { src: thumbRecup, position: "55% 40%" },
+  serwis: { src: thumbSerwis, position: "48% 45%" },
+};
+
+function OtherServiceCard({ item }: { item: (typeof SERVICES)[number] }) {
+  const thumb = CARD_THUMBS[item.slug];
+
+  return (
+    <Link
+      to="/uslugi/$slug"
+      params={{ slug: item.slug }}
+      resetScroll
+      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border/70 bg-card max-md:shadow-none md:transition-all md:duration-300 md:hover:border-accent/40 md:hover:shadow-card"
+    >
+      {thumb ? (
+        <img
+          src={thumb.src}
+          alt=""
+          className="aspect-[16/10] w-full object-cover md:transition-transform md:duration-500 md:group-hover:scale-[1.03]"
+          style={{ objectPosition: thumb.position }}
+        />
+      ) : null}
+      <span className="flex flex-1 flex-col p-5 text-left">
+        <span className="flex items-center justify-between gap-3">
+          <span className="font-semibold text-foreground">{item.title}</span>
+          <span
+            aria-hidden
+            className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-accent/12 text-accent transition-all duration-300 group-hover:bg-gradient-cyan group-hover:text-white"
+          >
+            <ArrowUpRight className="size-4" />
+          </span>
+        </span>
+        <span className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{item.short}</span>
+      </span>
+    </Link>
+  );
+}
+
+function ServiceFaq({ service }: { service: Service }) {
+  const leftRef = useRef<HTMLDivElement>(null);
+  const [openItem, setOpenItem] = useState("");
+  const [ctaHeight, setCtaHeight] = useState<number>();
+  const openRef = useRef(openItem);
+  openRef.current = openItem;
+
+  const measureClosed = useCallback(() => {
+    const el = leftRef.current;
+    if (!el || openRef.current) return;
+    setCtaHeight(el.getBoundingClientRect().height);
+  }, []);
+
+  useLayoutEffect(() => {
+    setOpenItem("");
+    openRef.current = "";
+    const id = window.requestAnimationFrame(() => measureClosed());
+    return () => window.cancelAnimationFrame(id);
+  }, [service.slug, measureClosed]);
+
+  useEffect(() => {
+    const onResize = () => measureClosed();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [measureClosed]);
+
+  return (
+    <section>
+      <DarkEyebrow icon={CircleHelp}>FAQ</DarkEyebrow>
+
+      <div className="mt-5 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,28rem)] lg:gap-8">
+        <div ref={leftRef} className="flex flex-col">
+          <h2 className="font-display text-3xl font-bold text-navy-foreground sm:text-5xl">
+            Często zadawane <span className="text-gradient-cyan">pytania</span>
+          </h2>
+          <p className="mt-4 max-w-md text-navy-foreground/70 lg:max-w-none lg:whitespace-nowrap">
+            Nie znalazłeś odpowiedzi? Zadzwoń albo napisz - oddzwonimy w ciągu jednego dnia
+            roboczego.
+          </p>
+          <Accordion
+            type="single"
+            collapsible
+            value={openItem}
+            onValueChange={setOpenItem}
+            className="mt-8 flex flex-col gap-3"
+          >
+            {service.faq.slice(0, 2).map((item, i) => (
+              <AccordionItem
+                key={item.q}
+                value={`faq-${i}`}
+                className="rounded-2xl border-0 bg-navy-foreground/8 px-6 text-navy-foreground shadow-none ring-1 ring-navy-foreground/15"
+              >
+                <AccordionTrigger className="py-5 text-left text-base font-semibold text-navy-foreground hover:no-underline [&>svg]:text-navy-foreground/55">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="pb-5 text-sm leading-relaxed text-navy-foreground/65">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+
+        <div
+          className="flex min-h-[14rem] flex-col justify-between gap-6 self-start overflow-hidden rounded-3xl bg-gradient-cyan p-7 text-white sm:p-8 lg:h-[var(--service-cta-h,auto)] lg:min-h-0 lg:p-9"
+          style={
+            ctaHeight
+              ? ({ "--service-cta-h": `${ctaHeight}px` } as CSSProperties)
+              : undefined
+          }
+        >
+          <div>
+            <h2 className="font-display text-2xl font-black sm:text-3xl">Potrzebujesz wyceny?</h2>
+            <p className="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
+              Napisz albo zadzwoń. Pierwsza konsultacja i wycena nic nie kosztują.
+            </p>
+          </div>
+          <Button
+            asChild
+            variant="ghost"
+            size="xl"
+            className="w-full bg-white font-semibold text-navy shadow-none hover:scale-100 hover:bg-white/90 hover:text-navy"
+          >
+            <Link to="/" hash="kontakt-formularz">
+              Formularz kontaktowy <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export const Route = createFileRoute("/uslugi/$slug")({
+  loader: ({ params }) => {
+    const service = getService(params.slug);
+    if (!service) throw notFound();
+    return { service };
+  },
+  head: ({ params }) => {
+    const service = getService(params.slug);
+    const title = service ? `${service.title} | ${SITE_NAME}` : SITE_NAME;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: service?.intro ?? "" },
+        { property: "og:title", content: title },
+        { property: "og:description", content: service?.intro ?? "" },
+      ],
+    };
+  },
+  component: ServicePage,
+});
+
+function ServicePage() {
+  const { service } = Route.useLoaderData();
+  const media = IMAGES[service.slug];
+  const others = SERVICES.filter((s) => s.slug !== service.slug);
+  const related = getServiceRealizationCards(service.slug);
+  const reduce = useReducedMotion();
+  const ease = [0.22, 1, 0.36, 1] as const;
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header alwaysSolid />
+      <main>
+        <section className="relative isolate overflow-hidden bg-navy">
+          {media ? (
+            <div className="absolute inset-0 overflow-hidden">
+              <div
+                className="size-full"
+                style={
+                  media.heroZoom
+                    ? {
+                        transform: `scale(${media.heroZoom})`,
+                        transformOrigin: media.heroPosition ?? media.position,
+                      }
+                    : undefined
+                }
+              >
+                <motion.img
+                  src={media.src}
+                  alt=""
+                  initial={reduce ? false : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: reduce ? 0 : 1.05, ease }}
+                  className="size-full object-cover"
+                  style={{ objectPosition: media.heroPosition ?? media.position }}
+                />
+              </div>
+            </div>
+          ) : null}
+          <div
+            className="absolute inset-0"
+            style={{ backgroundImage: "var(--gradient-service-hero)" }}
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0"
+            style={{ backgroundImage: "var(--gradient-service-hero-side)" }}
+            aria-hidden
+          />
+
+          <div className="relative mx-auto flex min-h-[28rem] max-w-[1360px] flex-col justify-end px-5 pt-32 pb-14 sm:min-h-[32rem] sm:pt-36 sm:pb-16 lg:min-h-[36rem] lg:px-8 lg:pb-20">
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: reduce ? 0 : 0.7, ease }}
+            >
+              <h1 className="max-w-3xl font-display text-4xl font-black tracking-tight text-navy-foreground sm:text-5xl lg:text-6xl">
+                {service.title}
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-navy-foreground/92 sm:text-lg">
+                {service.intro}
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button asChild variant="cyan" size="xl">
+                  <Link to="/" hash="kontakt-formularz">
+                    Bezpłatna wycena <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="hero" size="xl">
+                  <a href={PHONE_HREF}>
+                    <Phone className="size-4 text-accent" /> {PHONE_DISPLAY}
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="bg-background">
+          <div className="mx-auto max-w-[1360px] px-5 py-14 sm:py-16 lg:px-8 lg:py-20">
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch lg:gap-12">
+              <div className="flex flex-col justify-center gap-8 lg:col-span-6 xl:col-span-7 xl:gap-10">
+                {service.sections.map((section, i) => (
+                  <Reveal key={section.heading} delay={i * 0.08}>
+                    <section>
+                      <h2 className="flex items-center gap-3 font-display text-2xl font-black text-foreground sm:text-3xl">
+                        <span className="h-8 w-1 shrink-0 rounded-full bg-gradient-cyan" aria-hidden />
+                        {section.heading}
+                      </h2>
+                      <p className="mt-3 max-w-prose pl-4 text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-[1.05rem] sm:leading-8">
+                        {section.body}
+                      </p>
+                    </section>
+                  </Reveal>
+                ))}
+              </div>
+
+              {media ? (
+                <Reveal delay={0.1} className="relative lg:col-span-6 xl:col-span-5" scale>
+                  <div
+                    className="absolute -inset-3 rounded-[2rem] bg-gradient-cyan opacity-25 blur-2xl"
+                    aria-hidden
+                  />
+                  <img
+                    src={media.src}
+                    alt={media.alt}
+                    className="relative h-56 w-full rounded-3xl object-cover shadow-card ring-2 ring-accent/35 sm:h-72 lg:h-full lg:min-h-[18rem]"
+                    style={{ objectPosition: media.position }}
+                  />
+                </Reveal>
+              ) : null}
+            </div>
+
+            <Reveal delay={0.08} className="mt-10 sm:mt-12" scale>
+              <div className="rounded-3xl border border-accent/25 bg-accent/[0.06] p-7 sm:p-8">
+                <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
+                  Oferta
+                </span>
+                <h2 className="mt-2 font-display text-xl font-black text-foreground">Zakres prac</h2>
+                <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {service.bullets.map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-sm leading-snug text-foreground/80">
+                      <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-accent/20">
+                        <Check className="size-3.5 text-accent" />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+
+        <div className="bg-navy">
+          <div className="mx-auto max-w-[1360px] px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
+            <section>
+              <Reveal>
+                <DarkEyebrow icon={Hammer}>Proces</DarkEyebrow>
+                <h2 className="mt-5 font-display text-3xl font-bold text-navy-foreground sm:text-5xl">
+                  Jak <span className="text-gradient-cyan">pracujemy</span>
+                </h2>
+              </Reveal>
+              <ol className="mt-8 grid gap-5 sm:grid-cols-3 sm:gap-6">
+                {SERVICE_PROCESS.map((item, i) => (
+                  <Reveal key={item.step} delay={0.06 + i * 0.07} y={16} scale>
+                    <li className="rounded-3xl bg-navy-foreground/8 p-7 ring-1 ring-navy-foreground/15 sm:p-8">
+                      <span className="font-display text-xs font-semibold tracking-[0.18em] text-accent uppercase">
+                        {item.step}
+                      </span>
+                      <p className="mt-4 font-semibold text-navy-foreground">{item.title}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-navy-foreground/65">{item.body}</p>
+                    </li>
+                  </Reveal>
+                ))}
+              </ol>
+            </section>
+          </div>
+        </div>
+
+        <ServiceRealizations titleOf={service.titleOf} items={related} />
+
+        <div className="bg-navy">
+          <div className="mx-auto max-w-[1360px] px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
+            <ServiceFaq service={service} />
+          </div>
+        </div>
+
+        <div className="bg-background">
+          <section className="mx-auto max-w-[1360px] px-5 pt-12 pb-8 text-center sm:py-16 lg:px-8 lg:py-20">
+            <Reveal>
+              <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
+                Oferta
+              </span>
+              <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-5xl">
+                Inne <span className="text-gradient-cyan">usługi</span>
+              </h2>
+            </Reveal>
+            <div className="mt-8">
+              <MobileCarousel
+                key={service.slug}
+                items={others}
+                renderItem={(item) => <OtherServiceCard item={item} />}
+              />
+              <ul className="hidden gap-5 md:flex md:flex-wrap md:justify-center">
+                {others.map((item, i) => (
+                  <li
+                    key={item.slug}
+                    className="w-full md:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]"
+                  >
+                    <Reveal delay={i * 0.06} scale className="h-full">
+                      <OtherServiceCard item={item} />
+                    </Reveal>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        </div>
+      </main>
+      <Footer />
+      <StickyCallBar />
+    </div>
+  );
+}
