@@ -43,7 +43,7 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
         to="/uslugi/$slug"
         params={{ slug: service.slug }}
         resetScroll
-        className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-accent-foreground/80 transition-all duration-300 ease-out hover:gap-2.5 hover:text-accent"
+        className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:gap-2.5 hover:text-accent"
       >
         Dowiedz się więcej <ArrowUpRight className="size-4" />
       </Link>
@@ -64,13 +64,14 @@ export function Services() {
               Nasze Usługi
             </span>
             <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl md:whitespace-nowrap lg:text-5xl">
-              Wszystko czego potrzebuje
+              Instalacje HVAC
               <span className="hidden md:inline"> </span>
               <br className="md:hidden" />
-              <span className="text-gradient-cyan">Twój dom</span>
+              <span className="text-gradient-cyan">pod jeden dach</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Jeden zespół specjalistów odpowiada za dobór, montaż i opiekę nad Twoją instalacją.
+              Pompy ciepła, klimatyzacja, pellet, rekuperacja i instalacje wodno-sanitarne.
+              Dobór, montaż i serwis w Namysłowie, Opolu i okolicach.
             </p>
           </div>
         </Reveal>

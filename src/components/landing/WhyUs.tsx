@@ -1,12 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  BadgeCheck,
-  ClipboardCheck,
-  Handshake,
-  MapPinned,
-  ShieldCheck,
-  Wrench,
-} from "lucide-react";
+import { BadgeCheck, ClipboardCheck, MapPinned } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const ITEMS: { title: string; body: string; icon: LucideIcon }[] = [
@@ -25,59 +18,49 @@ const ITEMS: { title: string; body: string; icon: LucideIcon }[] = [
     body: "Namysłów, Opole i okolice. Jesteśmy blisko inwestycji.",
     icon: MapPinned,
   },
-  {
-    title: "Sprawdzone marki",
-    body: "Urządzenia znanych producentów, m.in. Midea.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Montaż i uruchomienie",
-    body: "Nie zostawiamy instalacji w połowie. Uruchamiamy i instruujemy.",
-    icon: Handshake,
-  },
-  {
-    title: "Serwis i opieka",
-    body: "Wsparcie także po oddaniu instalacji: przeglądy i pomoc.",
-    icon: Wrench,
-  },
 ];
 
 export function WhyUs() {
   return (
-    <section id="dlaczego-my" className="pt-20 pb-16 sm:pt-24 sm:pb-20">
+    <section id="dlaczego-my" className="pt-8 pb-16 sm:pt-10 sm:pb-20">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
-        <Reveal className="max-w-3xl md:mx-auto md:text-center">
-          <span
-            data-scroll-target
-            className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
-          >
-            Dlaczego my
-          </span>
-          <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
-            Co zyskujesz, wybierając{" "}
-            <span className="text-gradient-cyan">AJM Technikę</span>
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Prosty proces, lokalny dojazd i kompletna oferta pod jeden dach.
-          </p>
-        </Reveal>
+        <Reveal y={16} scale>
+          <div className="rounded-3xl border border-accent/25 bg-accent/[0.06] p-7 sm:p-8 lg:p-10">
+            <div className="max-w-3xl">
+              <span
+                data-scroll-target
+                className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
+              >
+                Dlaczego my
+              </span>
+              <h2 className="mt-2 font-display text-2xl font-black text-foreground sm:text-3xl lg:text-4xl">
+                Co zyskujesz, wybierając{" "}
+                <span className="text-gradient-cyan">nas</span>
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Lokalny dojazd, czytelny proces i kompletna oferta instalacji HVAC.
+              </p>
+            </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
-          {ITEMS.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <Reveal key={item.title} delay={i * 0.05} y={16} scale className="h-full">
-                <article className="flex h-full flex-col rounded-2xl border border-border/70 bg-card p-6 md:p-7 md:shadow-card md:transition-all md:duration-500 md:hover:-translate-y-1 md:hover:border-accent/40 md:hover:shadow-lift">
-                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-gradient-cyan text-white">
-                    <Icon className="size-5" />
-                  </span>
-                  <h3 className="mt-5 text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-5">
+              {ITEMS.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <article
+                    key={item.title}
+                    className="flex h-full flex-col rounded-2xl border border-accent/20 bg-background/80 p-5 sm:p-6"
+                  >
+                    <span className="inline-flex size-10 items-center justify-center rounded-xl bg-gradient-cyan text-white">
+                      <Icon className="size-5" />
+                    </span>
+                    <h3 className="mt-4 text-base font-semibold sm:text-lg">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

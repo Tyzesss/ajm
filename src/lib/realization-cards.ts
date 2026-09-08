@@ -20,10 +20,35 @@ export type RealizationCard = {
   scope: string;
   image: string;
   alt: string;
+  /** object-position — kadr na urządzenie */
+  focus?: string;
 };
 
+/** Domyślne kadry po pliku zdjęcia (wspólne dla usług). */
+const FOCUS: Record<string, string> = {
+  [ajmPompaPanasonic]: "50% 40%",
+  [ajmPompaMideaDach]: "50% 36%",
+  [ajmPompaStiebel]: "58% 40%",
+  [ajmJednostkiDuo]: "36% 28%",
+  [ajmKotlowniaMidea]: "46% 38%",
+  [ajmKotlowniaPanasonic]: "48% 40%",
+  [ajmKotlowniaHydrobox]: "50% 42%",
+  [ajmKotlowniaRotenso]: "55% 32%",
+  [ajmKotlowniaZbiorniki]: "50% 40%",
+  [ajmKotlowniaGalmet]: "48% 42%",
+  [ajmInstalacjaWilo]: "50% 45%",
+  [ajmKociolHlazar]: "64% 36%",
+  [ajmKotlowniaPellet]: "52% 38%",
+  [ajmPodlogowka]: "50% 68%",
+  [ajmSterownikStiebel]: "50% 40%",
+};
+
+function withFocus(card: Omit<RealizationCard, "focus">): RealizationCard {
+  return { ...card, focus: FOCUS[card.image] ?? "50% 42%" };
+}
+
 /** Zdjęcia z realnych realizacji AJM Technika. */
-const BY_SERVICE: Record<string, RealizationCard[]> = {
+const BY_SERVICE: Record<string, Omit<RealizationCard, "focus">[]> = {
   "pompy-ciepla": [
     {
       title: "Panasonic Aquarea",
@@ -297,5 +322,5 @@ const BY_SERVICE: Record<string, RealizationCard[]> = {
 };
 
 export function getServiceRealizationCards(slug: string): RealizationCard[] {
-  return (BY_SERVICE[slug] ?? []).slice(0, 4);
+  return (BY_SERVICE[slug] ?? []).slice(0, 4).map(withFocus);
 }

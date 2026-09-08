@@ -74,14 +74,13 @@ export function Contact() {
           >
             Kontakt
           </span>
-          <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl md:whitespace-nowrap lg:text-5xl">
-            Porozmawiajmy o
-            <span className="hidden md:inline"> </span>
-            <br className="md:hidden" />
-            <span className="text-gradient-cyan">Twoim projekcie</span>
+          <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
+            Bezpłatna wycena
+            <br />
+            <span className="text-gradient-cyan">i konsultacja</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Odpowiadamy w ciągu jednego dnia roboczego. Audyt i wycena są bezpłatne.
+            Napisz lub zadzwoń. Odpowiadamy w ciągu jednego dnia roboczego.
           </p>
         </Reveal>
 
@@ -127,7 +126,7 @@ export function Contact() {
             </Reveal>
 
             <Reveal delay={0.08} className="order-3 flex min-h-44 flex-col lg:min-h-0 lg:flex-1" scale>
-              <div className="relative flex min-h-44 overflow-hidden rounded-2xl border border-border/70 bg-[oklch(0.32_0.055_242)] shadow-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-full lg:flex-1 md:hover:-translate-y-0.5">
+              <div className="relative flex min-h-44 overflow-hidden rounded-2xl border border-border/70 bg-[oklch(0.22_0.05_242)] shadow-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-full lg:flex-1 md:hover:-translate-y-0.5">
                 <div
                   className="absolute inset-0 opacity-60"
                   style={{

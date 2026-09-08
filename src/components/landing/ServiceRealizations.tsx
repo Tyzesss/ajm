@@ -34,7 +34,8 @@ function RealizationCardView({
         <img
           src={item.image}
           alt={item.alt}
-          className="size-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:scale-[1.03]"
+          className="size-full scale-[1.05] object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:scale-[1.08]"
+          style={{ objectPosition: item.focus ?? "50% 42%" }}
         />
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
@@ -149,7 +150,7 @@ function RealizationFocusCarousel({ items }: { items: RealizationCard[] }) {
                   className={cn(
                     "origin-center cursor-pointer rounded-2xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                     active
-                      ? "z-10 scale-100 opacity-100 shadow-[0_10px_28px_oklch(0.23_0.05_242/0.08)] md:scale-[1.14]"
+                      ? "z-10 scale-100 opacity-100 shadow-[0_10px_28px_oklch(0.155_0.045_242/0.1)] md:scale-[1.14]"
                       : "z-0 scale-[0.88] opacity-35 md:scale-[0.68]",
                     canLoop && dist > 1 && "scale-[0.82] opacity-15 md:scale-[0.58]",
                   )}

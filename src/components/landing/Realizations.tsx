@@ -27,7 +27,15 @@ const PROJECTS: {
   title: string;
   place: string;
   alt: string;
+  /** object-position — kadr na urządzenie, mniej tła/śmieci */
+  focus: string;
+  focusMobile?: string;
+  /** dodatkowy zoom kadru (object-cover) — większy = ciaśniej */
+  zoom?: number;
+  zoomMobile?: number;
   featured?: boolean;
+  /** PC: wąski wysoki kafelek (1×2) — wypełnia dziurę w siatce */
+  tall?: boolean;
 }[] = [
   {
     image: ajmPompaPanasonic,
@@ -36,15 +44,11 @@ const PROJECTS: {
     title: "Panasonic Aquarea",
     place: "Dom jednorodzinny, woj. opolskie",
     alt: "Jednostka zewnętrzna Panasonic Aquarea na stopach betonowych",
+    focus: "48% 48%",
+    focusMobile: "50% 42%",
+    zoom: 1.02,
+    zoomMobile: 1.04,
     featured: true,
-  },
-  {
-    image: ajmKociolHlazar,
-    imageMobile: ajmKociolHlazar,
-    category: "Kotły pelletowe",
-    title: "Kocioł Hlazar Smart Fire",
-    place: "Kotłownia, woj. opolskie",
-    alt: "Kocioł pelletowy Hlazar Smart Fire w kotłowni",
   },
   {
     image: ajmJednostkiDuo,
@@ -53,6 +57,10 @@ const PROJECTS: {
     title: "Jednostki zewnętrzne Midea",
     place: "Dom jednorodzinny, woj. opolskie",
     alt: "Dwie jednostki zewnętrzne Midea na bloczkach betonowych",
+    focus: "52% 26%",
+    focusMobile: "50% 30%",
+    zoom: 1.14,
+    zoomMobile: 1.12,
   },
   {
     image: ajmKotlowniaMidea,
@@ -61,6 +69,10 @@ const PROJECTS: {
     title: "Kotłownia z hydroboxem Midea",
     place: "Pomieszczenie techniczne, woj. opolskie",
     alt: "Kotłownia z jednostką Midea, zasobnikiem Galmet i orurowaniem",
+    focus: "40% 44%",
+    focusMobile: "38% 40%",
+    zoom: 1.1,
+    zoomMobile: 1.08,
   },
   {
     image: ajmPodlogowka,
@@ -69,6 +81,10 @@ const PROJECTS: {
     title: "Pętle przed wylewką",
     place: "Remont, woj. opolskie",
     alt: "Pętle ogrzewania podłogowego na izolacji refleksyjnej",
+    focus: "62% 74%",
+    focusMobile: "58% 70%",
+    zoom: 1.16,
+    zoomMobile: 1.12,
   },
   {
     image: ajmPompaMideaDach,
@@ -77,6 +93,23 @@ const PROJECTS: {
     title: "Midea na dachu płaskim",
     place: "Obiekt, woj. opolskie",
     alt: "Jednostka zewnętrzna Midea zamontowana na dachu",
+    focus: "46% 28%",
+    focusMobile: "48% 32%",
+    zoom: 1.18,
+    zoomMobile: 1.12,
+  },
+  {
+    image: ajmKociolHlazar,
+    imageMobile: ajmKociolHlazar,
+    category: "Kotły pelletowe",
+    title: "Kocioł Hlazar Smart Fire",
+    place: "Kotłownia, woj. opolskie",
+    alt: "Kocioł pelletowy Hlazar Smart Fire w kotłowni",
+    focus: "70% 42%",
+    focusMobile: "68% 38%",
+    zoom: 1.06,
+    zoomMobile: 1.06,
+    tall: true,
   },
   {
     image: ajmKotlowniaRotenso,
@@ -85,6 +118,10 @@ const PROJECTS: {
     title: "Rotenso z filtracją wody",
     place: "Kotłownia, woj. opolskie",
     alt: "Hydrobox Rotenso, zasobnik Galmet i stacja filtrów",
+    focus: "54% 34%",
+    focusMobile: "52% 36%",
+    zoom: 1.12,
+    zoomMobile: 1.1,
   },
   {
     image: ajmPompaStiebel,
@@ -93,6 +130,10 @@ const PROJECTS: {
     title: "Stiebel Eltron",
     place: "Budowa, woj. opolskie",
     alt: "Jednostka zewnętrzna Stiebel Eltron na cegłach",
+    focus: "62% 34%",
+    focusMobile: "58% 36%",
+    zoom: 1.14,
+    zoomMobile: 1.1,
   },
 ];
 
@@ -105,6 +146,9 @@ function ProjectCard({
   featured: boolean;
   onOpen: () => void;
 }) {
+  const zoom = project.zoom ?? 1.08;
+  const zoomMobile = project.zoomMobile ?? project.zoom ?? 1.08;
+
   return (
     <button
       type="button"
@@ -115,26 +159,37 @@ function ProjectCard({
         "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-0",
         "md:transition-all md:duration-500 md:ease-[cubic-bezier(0.22,1,0.36,1)] md:hover:-translate-y-1 md:hover:border-accent/40",
         featured && "md:min-h-full",
+        project.tall && "md:min-h-full",
       )}
     >
-      <img
-        src={project.imageMobile}
-        alt={project.alt}
-        width={1024}
-        height={1536}
-        loading="lazy"
-        className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-out md:hidden"
-      />
-      <img
-        src={project.image}
-        alt=""
-        width={1536}
-        height={1024}
-        loading="lazy"
-        className="absolute inset-0 hidden size-full object-cover object-center transition-transform duration-700 ease-out md:block md:group-hover:scale-[1.04]"
-      />
+      <div className="absolute inset-0 overflow-hidden transition-transform duration-700 ease-out md:group-hover:scale-[1.04]">
+        <img
+          src={project.imageMobile}
+          alt={project.alt}
+          width={1024}
+          height={1536}
+          loading="lazy"
+          className="absolute inset-0 size-full object-cover [filter:brightness(1.07)_contrast(1.12)_saturate(1.06)] md:hidden"
+          style={{
+            objectPosition: project.focusMobile ?? project.focus,
+            transform: `scale(${zoomMobile})`,
+          }}
+        />
+        <img
+          src={project.image}
+          alt=""
+          width={1536}
+          height={1024}
+          loading="lazy"
+          className="absolute inset-0 hidden size-full object-cover [filter:brightness(1.07)_contrast(1.12)_saturate(1.06)] md:block"
+          style={{
+            objectPosition: project.focus,
+            transform: `scale(${zoom})`,
+          }}
+        />
+      </div>
       <div
-        className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/25 to-navy/5"
+        className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-navy/5"
         aria-hidden
       />
       <div className="relative flex h-full min-h-[inherit] flex-col justify-end p-4 sm:p-5">
@@ -197,14 +252,13 @@ export function Realizations() {
           <DarkEyebrow data-scroll-target icon={Images}>
             Realizacje
           </DarkEyebrow>
-          <h2 className="mt-5 font-display text-3xl font-bold sm:text-5xl md:whitespace-nowrap">
-            Instalacje, które
-            <span className="hidden md:inline"> </span>
-            <br className="md:hidden" />
+          <h2 className="mt-5 font-display text-3xl font-bold sm:text-5xl">
+            Montaże, które
+            <br />
             <span className="text-gradient-cyan">już działają</span>
           </h2>
           <p className="mt-4 max-w-2xl text-navy-foreground/70">
-            Zobacz, jak wygląda montaż pomp ciepła, klimatyzacji i kotłów u naszych klientów.
+            Pompy ciepła, klimatyzacja, kotły i instalacje u klientów z Namysłowa, Opola i okolic.
           </p>
         </Reveal>
 
@@ -224,6 +278,7 @@ export function Realizations() {
           <div className="hidden gap-4 md:grid md:grid-cols-12 md:auto-rows-[minmax(15.25rem,auto)]">
             {PROJECTS.map((project, i) => {
               const featured = Boolean(project.featured);
+              const tall = Boolean(project.tall);
               return (
                 <Reveal
                   key={project.title}
@@ -232,7 +287,8 @@ export function Realizations() {
                   className={cn(
                     "h-full",
                     featured && "md:col-span-8 md:row-span-2",
-                    !featured && "md:col-span-4",
+                    tall && "md:col-span-4 md:row-span-2",
+                    !featured && !tall && "md:col-span-4",
                   )}
                 >
                   <ProjectCard
@@ -294,7 +350,7 @@ export function Realizations() {
                       alt={current.alt}
                       width={1536}
                       height={1024}
-                      className="max-h-[min(72vh,44rem)] w-auto max-w-full rounded-xl object-contain shadow-lift"
+                      className="max-h-[min(72vh,44rem)] w-auto max-w-full rounded-xl object-contain shadow-lift [filter:brightness(1.06)_contrast(1.1)_saturate(1.05)]"
                     />
                     <figcaption className="mt-4 flex items-center gap-1.5 text-sm text-navy-foreground/70">
                       <MapPin className="size-3.5 shrink-0" />

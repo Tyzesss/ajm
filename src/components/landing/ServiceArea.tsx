@@ -186,8 +186,8 @@ export function ServiceArea() {
               <span className="text-gradient-cyan">i okolice</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Działamy głównie w województwie opolskim. Poniższa lista miejscowości jest robocza i
-              może się zmieniać.
+              Działamy głównie w województwie opolskim. Lista miejscowości jest robocza i może się
+              zmieniać.
             </p>
             <p className="mt-3 flex items-start gap-2 text-sm text-muted-foreground">
               <MapPinned className="mt-0.5 size-4 shrink-0 text-accent" />
@@ -222,7 +222,7 @@ export function ServiceArea() {
               <a
                 href="#kontakt"
                 onClick={goTo("#kontakt")}
-                className="font-medium text-accent-foreground underline-offset-4 hover:text-accent hover:underline"
+                className="font-medium text-foreground underline-offset-4 hover:text-accent hover:underline"
               >
                 Napisz lub zadzwoń
               </a>

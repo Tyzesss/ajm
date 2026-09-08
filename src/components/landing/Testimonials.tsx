@@ -177,7 +177,7 @@ function ReviewCarousel() {
                   className={cn(
                     "origin-center cursor-pointer rounded-2xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                     active
-                      ? "z-10 scale-100 shadow-[0_10px_28px_oklch(0.23_0.05_242/0.10)] opacity-100 md:scale-[1.14]"
+                      ? "z-10 scale-100 shadow-[0_10px_28px_oklch(0.155_0.045_242/0.12)] opacity-100 md:scale-[1.14]"
                       : "z-0 scale-[0.88] opacity-35 md:scale-[0.68] md:opacity-35",
                     dist > 1 && "scale-[0.82] opacity-15 md:scale-[0.58] md:opacity-15",
                   )}
@@ -243,10 +243,10 @@ export function Testimonials() {
             Opinie klientów
           </span>
           <h2 className="mt-5 font-display text-3xl font-bold sm:text-5xl">
-            Co mówią o nas <span className="text-gradient-cyan">klienci?</span>
+            Co mówią <span className="text-gradient-cyan">klienci</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Opinie z naszego profilu Google Maps.
+            Opinie z wizytówki Google Maps.
           </p>
           <a
             href={GOOGLE_REVIEWS_URL}

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { PHONE_HREF, SERVICE_AREA } from "@/lib/site";
 import { Counter } from "./Counter";
-import heroImage from "@/assets/hero-hvac.png";
+import heroImage from "@/assets/hero-ajm-technika.png";
 
 const STATS = [
   { value: 15, suffix: "+", label: "Lat doświadczenia" },
@@ -27,16 +27,17 @@ export function Hero() {
       className="relative z-20 isolate overflow-x-clip bg-navy max-md:min-h-[118svh] md:h-[calc(100svh-5rem)] md:min-h-[32rem] lg:h-[calc(100svh-5.5rem)]"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="size-full origin-[80%_65%] scale-[1.18] -translate-x-[5%] translate-y-[2%] max-md:origin-[80%_42%] max-md:scale-[1.2] max-md:translate-x-0 max-md:-translate-y-[10%] lg:scale-[1.15] lg:-translate-x-[6%]">
+        {/* Wider than viewport so scale + left shift never reveal bg-navy on the right */}
+        <div className="absolute inset-y-0 left-[-12%] h-full w-[124%] origin-[75%_40%] scale-[1.08] -translate-x-[2%] max-md:left-[-8%] max-md:w-[116%] max-md:origin-[80%_32%] max-md:scale-[1.14] max-md:translate-x-0 max-md:-translate-y-[4%] lg:scale-[1.06] lg:-translate-x-[3%]">
           <motion.img
             src={heroImage}
-            alt="Nowoczesny dom z pompą ciepła o zmierzchu"
-            width={1920}
-            height={1280}
+            alt="Polski dom z pompą ciepła i klimatyzacją — montaż AJM Technika"
+            width={1280}
+            height={720}
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: reduce ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="size-full object-cover object-[88%_60%] max-md:object-[88%_38%]"
+            className="size-full object-cover object-[78%_36%] max-md:object-[82%_30%]"
           />
         </div>
       </div>
@@ -60,11 +61,11 @@ export function Hero() {
             </span>
 
             <h1 className="mt-4 font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:mt-5 sm:text-6xl sm:tracking-normal lg:text-[4.15rem]">
-              Ogrzewanie.
+              Pompy ciepła.
               <br />
               Klimatyzacja.
               <br />
-              <span className="text-gradient-cyan">Montaż i&nbsp;serwis.</span>
+              <span className="text-gradient-cyan">Montaż z&nbsp;Namysłowa.</span>
             </h1>
 
             <p className="mt-4 max-w-xl text-sm text-navy-foreground/75 sm:mt-5 sm:text-lg">

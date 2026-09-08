@@ -1,4 +1,4 @@
-import aboutImage from "@/assets/ajm-pompa-panasonic-aquarea.jpg";
+import aboutImage from "@/assets/ajm-jednostki-zew-midea-duo.jpg";
 import { Reveal } from "./Reveal";
 
 const STEPS = [
@@ -13,14 +13,14 @@ export function About() {
     <section id="o-nas" className="pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-32 lg:pt-36 lg:pb-24">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="order-2 lg:order-1 lg:col-span-5">
             <figure className="relative h-[22rem] overflow-hidden rounded-2xl sm:h-[26rem] lg:h-[30rem]">
               <img
                 src={aboutImage}
-                alt="Jednostka zewnętrzna pompy ciepła Panasonic Aquarea — realizacja AJM Technika"
+                alt="Jednostki zewnętrzne Midea — realizacja AJM Technika"
                 width={900}
                 height={1200}
-                className="absolute inset-0 size-full scale-[1.08] object-cover object-[50%_40%]"
+                className="absolute inset-0 size-full scale-[1.14] object-cover object-[50%_28%] [filter:brightness(1.07)_contrast(1.12)_saturate(1.06)]"
               />
               <div
                 className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-navy/15"
@@ -43,7 +43,7 @@ export function About() {
 
           <Reveal
             delay={0.08}
-            className="flex flex-col gap-6 lg:col-span-7 lg:gap-7"
+            className="order-1 flex flex-col gap-6 lg:order-2 lg:col-span-7 lg:gap-7"
           >
             <div>
               <span

@@ -20,7 +20,7 @@ export function Brands() {
       <div className="mx-auto flex max-w-[1360px] justify-center px-5 lg:px-8">
         <Reveal>
           <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
-            Autoryzowany partner marek
+            Marki w realizacjach
           </span>
         </Reveal>
       </div>
