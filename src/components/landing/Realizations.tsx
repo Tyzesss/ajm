@@ -253,8 +253,8 @@ export function Realizations() {
             Realizacje
           </DarkEyebrow>
           <h2 className="mt-5 font-display text-3xl font-bold sm:text-5xl">
-            Montaże, które
-            <br />
+            Instalacje, które{" "}
+            <br className="md:hidden" />
             <span className="text-gradient-cyan">już działają</span>
           </h2>
           <p className="mt-4 max-w-2xl text-navy-foreground/70">

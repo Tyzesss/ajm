@@ -16,7 +16,7 @@ export function Brands() {
   const strip = [...BRANDS, ...BRANDS];
 
   return (
-    <section className="bg-navy pb-8 pt-6 sm:pb-10 md:pt-8 md:pb-12" aria-label="Partnerzy">
+    <section className="pb-8 pt-6 sm:pb-10 md:pt-8 md:pb-12" aria-label="Partnerzy">
       <div className="mx-auto flex max-w-[1360px] justify-center px-5 lg:px-8">
         <Reveal>
           <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">

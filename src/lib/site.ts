@@ -13,7 +13,7 @@ const WHATSAPP_TEXT = encodeURIComponent("Dzień dobry, chciałbym zgłosić zle
 export const WHATSAPP_HREF = `https://wa.me/${PHONE_E164.replace("+", "")}?text=${WHATSAPP_TEXT}`;
 
 export const ADDRESS = "Łączańska 22C, 46-100 Namysłów";
-export const SERVICE_AREA = "Namysłów, Opole i okolice, woj. opolskie";
+export const SERVICE_AREA = "Namysłów, Opole i okolice";
 /** Robocza lista miejscowości (do wglądu / zmiany). */
 export const SERVICE_TOWNS = [
   "Namysłów",

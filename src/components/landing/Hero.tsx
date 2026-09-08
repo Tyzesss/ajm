@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { PHONE_HREF, SERVICE_AREA } from "@/lib/site";
 import { Counter } from "./Counter";
-import heroImage from "@/assets/hero-ajm-technika.png";
+import heroImage from "@/assets/hero-hvac.png";
+import heroRightFill from "@/assets/hero-hvac-right.png";
 
 const STATS = [
   { value: 15, suffix: "+", label: "Lat doświadczenia" },
@@ -24,21 +25,33 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative z-20 isolate overflow-x-clip bg-navy max-md:min-h-[118svh] md:h-[calc(100svh-5rem)] md:min-h-[32rem] lg:h-[calc(100svh-5.5rem)]"
+      className="relative z-20 isolate overflow-x-clip bg-navy max-md:min-h-[118svh] md:h-svh md:min-h-svh"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Wider than viewport so scale + left shift never reveal bg-navy on the right */}
-        <div className="absolute inset-y-0 left-[-12%] h-full w-[124%] origin-[75%_40%] scale-[1.08] -translate-x-[2%] max-md:left-[-8%] max-md:w-[116%] max-md:origin-[80%_32%] max-md:scale-[1.14] max-md:translate-x-0 max-md:-translate-y-[4%] lg:scale-[1.06] lg:-translate-x-[3%]">
+        {/* Same crop as demo-v4; right fill is glued outside the photo so framing stays identical */}
+        <div className="relative size-full origin-[80%_65%] scale-[1.2] -translate-x-[1%] translate-y-[2%] max-md:origin-[80%_42%] max-md:scale-[1.2] max-md:translate-x-0 max-md:-translate-y-[10%] lg:scale-[1.18] lg:translate-x-[1%]">
           <motion.img
             src={heroImage}
-            alt="Polski dom z pompą ciepła i klimatyzacją — montaż AJM Technika"
-            width={1280}
-            height={720}
+            alt="Nowoczesny dom z pompą ciepła o zmierzchu"
+            width={1536}
+            height={1024}
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: reduce ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="size-full object-cover object-[78%_36%] max-md:object-[82%_30%]"
+            className="size-full object-cover object-[88%_60%] max-md:object-[88%_38%]"
           />
+          <div
+            className="pointer-events-none absolute inset-y-0 left-full w-[18%] max-md:hidden"
+            aria-hidden
+          >
+            <img
+              src={heroRightFill}
+              alt=""
+              width={276}
+              height={1024}
+              className="size-full object-cover object-left"
+            />
+          </div>
         </div>
       </div>
       <div
@@ -48,32 +61,34 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex max-md:min-h-[118svh] flex-col md:h-full">
-        <div className="relative z-0 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center gap-6 px-5 pb-10 max-md:justify-start max-md:gap-0 max-md:pt-[calc(8rem+env(safe-area-inset-top,0px))] max-md:pb-6 md:pt-24 md:pb-28 lg:px-8 lg:pt-24 lg:pb-28 sm:gap-10">
+        <div className="relative z-0 mx-auto flex w-full max-w-[1360px] flex-1 flex-col justify-center gap-6 px-5 pb-10 max-md:justify-start max-md:gap-0 max-md:pt-[calc(8rem+env(safe-area-inset-top,0px))] max-md:pb-6 md:pt-24 md:pb-16 lg:px-8 lg:pt-28 lg:pb-16 sm:gap-10">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduce ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="flex w-full max-w-2xl flex-col items-center text-center sm:items-start sm:text-left lg:max-w-3xl"
+            className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-4xl lg:max-w-5xl"
           >
             <span className="glass-panel inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide text-navy-foreground uppercase">
               <ShieldCheck className="size-3.5 text-accent" />
               Certyfikowany instalator
             </span>
 
-            <h1 className="mt-4 font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:mt-5 sm:text-6xl sm:tracking-normal lg:text-[4.15rem]">
-              Pompy ciepła.
+            <h1 className="mt-4 font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:mt-5 sm:text-7xl sm:tracking-normal lg:text-[4.85rem]">
+              <span className="sm:whitespace-nowrap">Instalacje grzewcze,</span>
               <br />
-              Klimatyzacja.
-              <br />
-              <span className="text-gradient-cyan">Montaż z&nbsp;Namysłowa.</span>
+              <span className="text-gradient-cyan sm:whitespace-nowrap">
+                chłodnicze i&nbsp;sanitarne.
+              </span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-sm text-navy-foreground/75 sm:mt-5 sm:text-lg">
-              Jedna ekipa od doboru sprzętu po uruchomienie.
+            <p className="mt-4 max-w-xl text-sm text-navy-foreground/75 sm:mt-5 sm:max-w-3xl sm:text-lg">
+              <span className="sm:whitespace-nowrap">
+                Jedna ekipa od doboru sprzętu przez montaż po uruchomienie i&nbsp;serwis.
+              </span>
               <br /> {SERVICE_AREA}.
             </p>
 
-            <div className="mt-6 flex w-full max-w-md flex-col items-stretch gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:gap-4">
+            <div className="mt-6 flex w-full max-w-md flex-col items-stretch gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
               <Button asChild variant="cyan" size="xl">
                 <a
                   href="#uslugi"
@@ -92,27 +107,28 @@ export function Hero() {
                 </a>
               </Button>
             </div>
-          </motion.div>
 
-          {/* Mobile stats */}
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto mt-10 grid w-full max-w-[58rem] shrink-0 grid-cols-2 gap-x-6 gap-y-3.5 md:hidden"
-          >
-            {STATS.slice(0, 2).map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center justify-center text-center">
-                <div className="font-display text-3xl font-bold text-accent">
-                  <Counter to={stat.value} />
-                  <span>{stat.suffix}</span>
+            <div className="mt-8 flex w-full flex-wrap items-start justify-center gap-x-8 gap-y-5 sm:mt-14 sm:gap-x-10 md:mt-16 md:gap-x-12">
+              {STATS.map((stat, i) => (
+                <div
+                  key={stat.label}
+                  className={
+                    i === 2
+                      ? "hidden flex-col items-center text-center sm:flex"
+                      : "flex flex-col items-center text-center"
+                  }
+                >
+                  <div className="text-gradient-cyan font-display text-3xl font-bold md:text-4xl">
+                    <Counter to={stat.value} />
+                    <span>{stat.suffix}</span>
+                  </div>
+                  <p className="mt-1 text-[11px] leading-snug font-medium tracking-wide text-navy-foreground/70 uppercase">
+                    {stat.label}
+                  </p>
+                  <span className="mt-2.5 h-0.5 w-7 rounded-full bg-accent/75" aria-hidden />
                 </div>
-                <p className="mt-1 text-[11px] leading-snug font-medium tracking-wide text-navy-foreground/70 uppercase">
-                  {stat.label}
-                </p>
-                <span className="mt-2.5 h-0.5 w-7 rounded-full bg-accent/75" aria-hidden />
-              </div>
-            ))}
+              ))}
+            </div>
           </motion.div>
 
           <motion.a
@@ -135,36 +151,6 @@ export function Hero() {
           </motion.a>
         </div>
       </div>
-
-      {/* Desktop / tablet trust card */}
-      <motion.div
-        initial={reduce ? false : { opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-x-0 bottom-0 z-30 hidden translate-y-1/2 px-3 sm:px-5 md:block lg:px-6"
-      >
-        <div className="mx-auto grid max-w-6xl grid-cols-3 overflow-hidden rounded-2xl bg-background shadow-card ring-1 ring-accent/25 sm:rounded-3xl">
-          {STATS.map((stat, i) => (
-            <div
-              key={stat.label}
-              className={
-                i < STATS.length - 1
-                  ? "flex flex-col items-center justify-center border-r border-accent/20 px-1.5 py-5 text-center sm:px-4 sm:py-5 md:px-6 md:py-6"
-                  : "flex flex-col items-center justify-center px-1.5 py-5 text-center sm:px-4 sm:py-5 md:px-6 md:py-6"
-              }
-            >
-              <div className="text-gradient-cyan font-display text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
-                <Counter to={stat.value} />
-                <span>{stat.suffix}</span>
-              </div>
-              <p className="mt-1.5 max-w-[9rem] text-[9px] leading-snug font-medium tracking-[0.06em] text-muted-foreground uppercase sm:mt-1.5 sm:text-[10px] md:text-xs">
-                {stat.label}
-              </p>
-              <span className="mt-2.5 h-0.5 w-7 rounded-full bg-accent/75 sm:mt-3" aria-hidden />
-            </div>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }

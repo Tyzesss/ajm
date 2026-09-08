@@ -113,21 +113,13 @@
   --sidebar-border: oklch(0.91 0.014 242);
   --sidebar-ring: oklch(0.59 0.14 242);
 
-  /* Gradients — hero overlay kept; cyan CTA aligned to logo blue */
+  /* Gradients — same --navy as navbar, hero, footer, and dark sections */
   --gradient-hero: linear-gradient(
     180deg,
-    oklch(0.19 0.06 265 / 0.94) 0%,
-    oklch(0.19 0.06 265 / 0.82) 10%,
-    oklch(0.19 0.06 265 / 0.7) 45%,
-    oklch(0.19 0.06 265 / 0.94) 100%
-  );
-  --gradient-hero-fade: linear-gradient(
-    to right,
-    #000 0%,
-    #000 38%,
-    rgb(0 0 0 / 0.55) 62%,
-    rgb(0 0 0 / 0.15) 82%,
-    transparent 100%
+    oklch(from var(--navy) l c h / 0.94) 0%,
+    oklch(from var(--navy) l c h / 0.82) 10%,
+    oklch(from var(--navy) l c h / 0.7) 45%,
+    oklch(from var(--navy) l c h / 0.94) 100%
   );
   --gradient-service-hero: linear-gradient(
     180deg,
@@ -153,7 +145,7 @@
   --shadow-glow: 0 12px 40px oklch(0.59 0.14 242 / 0.32);
 
   /* Glass */
-  --glass-bg: oklch(1 0 0 / 0.08);
+  --glass-bg: oklch(1 0 0 / 0.14);
   --glass-border: oklch(1 0 0 / 0.16);
 }
 
@@ -258,8 +250,6 @@
 @utility glass-panel {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 @utility bg-gradient-cyan {

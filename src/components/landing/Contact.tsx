@@ -67,19 +67,17 @@ export function Contact() {
   return (
     <section id="kontakt" className="pt-20 pb-10 md:py-20">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
-        <Reveal className="mx-auto max-w-4xl text-center">
+        <Reveal className="max-w-3xl text-left">
           <span
             data-scroll-target
-            className="mx-auto block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
+            className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
           >
             Kontakt
           </span>
-          <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
-            Bezpłatna wycena
-            <br />
-            <span className="text-gradient-cyan">i konsultacja</span>
+          <h2 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
+            Porozmawiajmy o <span className="text-gradient-cyan">Twojej instalacji</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-muted-foreground">
             Napisz lub zadzwoń. Odpowiadamy w ciągu jednego dnia roboczego.
           </p>
         </Reveal>

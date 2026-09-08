@@ -38,7 +38,7 @@ function AreaMap() {
         <motion.path
           ref={pathRef}
           d={OPOLSKIE_PATH}
-          fill="oklch(0.59 0.14 242 / 0.07)"
+          fill="oklch(0.59 0.14 242)"
           stroke="oklch(0.59 0.14 242)"
           strokeWidth={2}
           strokeLinejoin="round"

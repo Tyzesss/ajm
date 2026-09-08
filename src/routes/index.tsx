@@ -59,12 +59,10 @@ function Index() {
         </div>
         <div className="bg-background">
           <Testimonials />
-          <WhyUs />
         </div>
-        <div className="bg-navy">
-          <Faq />
-        </div>
+        <WhyUs />
         <div className="bg-background">
+          <Faq />
           <ServiceArea />
           <Contact />
         </div>

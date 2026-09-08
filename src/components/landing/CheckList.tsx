@@ -21,7 +21,7 @@ export function CheckList({
     >
       {items.map((item, i) => (
         <Reveal key={item} delay={0.08 + i * 0.06} y={10}>
-          <li className="flex items-center gap-3 text-sm text-navy-foreground/80">
+          <li className="flex items-center gap-3 text-sm text-foreground/80">
             <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-accent/20 transition-transform duration-300 ease-out">
               <Check className="size-3.5 text-accent" />
             </span>
