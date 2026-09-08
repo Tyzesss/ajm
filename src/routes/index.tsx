@@ -17,7 +17,7 @@ import { scrollToSection } from "@/lib/scroll-to-section";
 
 const title = "AJM Technika - Pompy ciepła, klimatyzacja i kotły | Namysłów";
 const description =
-  "AJM Technika: instalacje HVAC w Namysłowie i na Opolszczyźnie: pompy ciepła, klimatyzacja, kotły i rekuperacja. Bezpłatna wycena, montaż i serwis.";
+  "AJM Technika: instalacje grzewcze, chłodnicze i sanitarne w Namysłowie i na Opolszczyźnie: pompy ciepła, klimatyzacja, kotły i rekuperacja. Bezpłatna wycena, montaż i serwis.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

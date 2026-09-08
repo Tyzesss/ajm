@@ -113,7 +113,7 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Mobile stats — 2 badges */}
+            {/* Mobile stats - 2 badges */}
             <div className="mt-10 flex w-full flex-wrap items-start justify-center gap-x-8 gap-y-5 md:hidden">
               {STATS.slice(0, 2).map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center text-center">
@@ -151,7 +151,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Desktop scroll cue — within first 100vh fold */}
+      {/* Desktop scroll cue - within first 100vh fold */}
       <motion.a
         href="#o-nas"
         aria-label="Przewiń dalej"
@@ -174,7 +174,7 @@ export function Hero() {
         <ChevronDown className="size-6 stroke-[1.5]" />
       </motion.a>
 
-      {/* Desktop / tablet white trust card — fully below 100vh fold */}
+      {/* Desktop / tablet white trust card - fully below 100vh fold */}
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 32 }}
         whileInView={reduce ? undefined : { opacity: 1, y: 0 }}

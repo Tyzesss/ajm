@@ -67,11 +67,10 @@ export function Services() {
             >
               Nasze Usługi
             </span>
-            <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl md:whitespace-nowrap lg:text-5xl">
-              Instalacje HVAC
-              <span className="hidden md:inline"> </span>
-              <br className="md:hidden" />
-              <span className="text-gradient-cyan">pod jeden dach</span>
+            <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
+              Kompleksowe systemy
+              <br />
+              <span className="text-gradient-cyan">dla domu i biznesu</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
               Pompy ciepła, klimatyzacja, pellet, rekuperacja i instalacje wodno-sanitarne.

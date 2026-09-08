@@ -16,7 +16,7 @@ export const ADDRESS = "Łączańska 22C, 46-100 Namysłów";
 export const SERVICE_AREA = "Namysłów, Opole i okolice";
 export const MAPS_URL = "https://maps.app.goo.gl/BDcWmc6Xc1RwhVsj9";
 export const MAPS_EMBED_URL =
-  "https://maps.google.com/maps?q=51.0732554,17.7261595&z=16&output=embed";
+  "https://maps.google.com/maps?q=Pompy+ciep%C5%82a+AJM+Namys%C5%82%C3%B3w,+%C5%81%C4%85cza%C5%84ska+22C,+46-100+Namys%C5%82%C3%B3w&hl=pl&z=17&output=embed";
 /** Robocza lista miejscowości (do wglądu / zmiany). */
 export const SERVICE_TOWNS = [
   "Namysłów",

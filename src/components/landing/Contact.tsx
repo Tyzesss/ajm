@@ -127,27 +127,16 @@ export function Contact() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="order-3 flex min-h-44 flex-col lg:min-h-0 lg:flex-1" scale>
-              <div className="relative flex min-h-44 overflow-hidden rounded-2xl border border-border/70 bg-navy shadow-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-full lg:min-h-[16rem] lg:flex-1 md:hover:-translate-y-0.5">
+            <Reveal delay={0.08} className="order-3 flex min-h-44 flex-col lg:min-h-0 lg:flex-1">
+              <div className="relative min-h-52 overflow-hidden rounded-2xl bg-muted shadow-card lg:h-full lg:min-h-0 lg:flex-1">
                 <iframe
-                  title={`Mapa — ${ADDRESS}`}
+                  title={`Mapa Google: ${ADDRESS}`}
                   src={MAPS_EMBED_URL}
-                  className="absolute inset-0 size-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute -inset-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)] max-w-none border-0"
                   allowFullScreen
                 />
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-navy/95 via-navy/55 to-transparent p-4 pt-14 transition-opacity hover:opacity-95"
-                >
-                  <span className="flex items-center gap-2 text-sm font-medium text-navy-foreground">
-                    <MapPin className="size-4 shrink-0 text-accent" />
-                    {ADDRESS}
-                  </span>
-                </a>
               </div>
             </Reveal>
           </div>

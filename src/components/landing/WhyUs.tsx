@@ -53,7 +53,8 @@ export function WhyUs() {
             <span className="text-gradient-cyan">nas</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-navy-foreground/70 sm:text-lg">
-            Lokalny dojazd, czytelny proces i kompletna oferta instalacji HVAC.
+            Lokalny dojazd, czytelny proces i kompletna oferta instalacji
+            grzewczych, chłodniczych i sanitarnych.
           </p>
         </Reveal>
 

@@ -20,7 +20,7 @@ function easeOutCubic(t: number) {
   return 1 - (1 - t) ** 3;
 }
 
-/** Collapsed navbar offset — measures the top bar only, not #mobile-nav. */
+/** Collapsed navbar offset - measures the top bar only, not #mobile-nav. */
 function getNavScrollOffset() {
   const header = document.querySelector("header");
   if (!header) return 88 + SECTION_GAP;
@@ -87,9 +87,9 @@ export function scrollToSection(href: string) {
     return;
   }
 
-  // Measure the section box, not Reveal children — their initial transform
+  // Measure the section box, not Reveal children - their initial transform
   // would skew the offset when the section is still off-screen.
-  // Skip padding for form anchors — we want the card itself under the nav.
+  // Skip padding for form anchors - we want the card itself under the nav.
   const paddingTop =
     id === "kontakt-formularz"
       ? 0
@@ -108,7 +108,7 @@ export function scrollToSection(href: string) {
       desktopNudge,
   );
 
-  // Hash update without a matching id — otherwise the browser native-scrolls
+  // Hash update without a matching id - otherwise the browser native-scrolls
   // to scroll-margin (higher than our target) after the animation.
   section.removeAttribute("id");
   if (location.hash !== `#${id}`) {

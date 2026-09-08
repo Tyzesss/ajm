@@ -1,6 +1,6 @@
 import { useEffect, useState, type ComponentType } from "react";
 
-/** Loads Vercel Analytics only in production, on the client — skips Vite SSR on localhost. */
+/** Loads Vercel Analytics only in production, on the client - skips Vite SSR on localhost. */
 export function VercelAnalytics() {
   const [Analytics, setAnalytics] = useState<ComponentType | null>(null);
 

@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * AJM Technika design system — premium HVAC.
+ * AJM Technika design system - premium HVAC.
  * Brand blue from logo AJM: #0784C7 → oklch(0.59 0.14 242).
  */
 
@@ -62,8 +62,8 @@
 :root {
   --radius: 1rem;
 
-  /* Cool light surfaces (logo silver undertone) */
-  --background: oklch(0.985 0.007 242);
+  /* Cool light surfaces */
+  --background: oklch(1 0 0);
   --foreground: oklch(0.24 0.04 242);
 
   --card: oklch(1 0 0);
@@ -113,7 +113,7 @@
   --sidebar-border: oklch(0.91 0.014 242);
   --sidebar-ring: oklch(0.59 0.14 242);
 
-  /* Gradients — same --navy as navbar, hero, footer, and dark sections */
+  /* Gradients - same --navy as navbar, hero, footer, and dark sections */
   --gradient-hero: linear-gradient(
     180deg,
     oklch(from var(--navy) l c h / 0.94) 0%,
@@ -194,7 +194,7 @@
    * iOS 26+ Safari ignores theme-color. It tints Liquid Glass from
    * fixed/sticky edge backgrounds (including opacity:0 overlays) then body.
    * Bottom bleed sits fully below the visual viewport so navy paints
-   * behind the URL bar without a hairline in the page — also after scroll.
+   * behind the URL bar without a hairline in the page - also after scroll.
    */
   .safari-toolbar-tint {
     display: none;
@@ -289,7 +289,7 @@
   padding-block: 5rem;
 }
 
-/* Brands — seamless marquee (mobile) */
+/* Brands - seamless marquee (mobile) */
 .partners-marquee {
   position: relative;
   overflow: hidden;
@@ -339,7 +339,7 @@
   opacity: 1;
 }
 
-/* Brand wordmarks — public font approximations of each mark’s character */
+/* Brand wordmarks - public font approximations of each mark’s character */
 .brand-wordmark {
   display: inline-block;
   line-height: 1;

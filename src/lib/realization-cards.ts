@@ -20,7 +20,7 @@ export type RealizationCard = {
   scope: string;
   image: string;
   alt: string;
-  /** object-position — kadr na urządzenie */
+  /** object-position - kadr na urządzenie */
   focus?: string;
 };
 
@@ -65,9 +65,9 @@ const BY_SERVICE: Record<string, Omit<RealizationCard, "focus">[]> = {
       alt: "Kotłownia z jednostką Panasonic i zasobnikiem Galmet",
     },
     {
-      title: "Midea na dachu",
+      title: "Montaż dachowy Midea",
       year: "2025",
-      scope: "Montaż jednostki zewnętrznej na dachu płaskim.",
+      scope: "Montaż jednostki zewnętrznej na dachu.",
       image: ajmPompaMideaDach,
       alt: "Jednostka zewnętrzna Midea zamontowana na dachu",
     },
@@ -81,11 +81,11 @@ const BY_SERVICE: Record<string, Omit<RealizationCard, "focus">[]> = {
   ],
   "kotly-pelletowe": [
     {
-      title: "Kocioł Hlazar Smart Fire",
+      title: "Kocioł Lazar Smart Fire",
       year: "2025",
       scope: "Montaż kotła pelletowego w kotłowni.",
       image: ajmKociolHlazar,
-      alt: "Kocioł pelletowy Hlazar Smart Fire w kotłowni",
+      alt: "Kocioł pelletowy Lazar Smart Fire w kotłowni",
     },
     {
       title: "Kotłownia z zasobnikami",
@@ -148,11 +148,11 @@ const BY_SERVICE: Record<string, Omit<RealizationCard, "focus">[]> = {
       alt: "Dwie jednostki zewnętrzne Midea przy elewacji",
     },
     {
-      title: "Midea na dachu",
+      title: "Montaż dachowy Midea",
       year: "2025",
-      scope: "Jednostka zewnętrzna na dachu płaskim.",
+      scope: "Jednostka zewnętrzna na dachu obiektu.",
       image: ajmPompaMideaDach,
-      alt: "Jednostka zewnętrzna Midea na dachu",
+      alt: "Jednostka zewnętrzna Midea zamontowana na dachu",
     },
     {
       title: "Panasonic Aquarea",

@@ -1,6 +1,5 @@
 import type { MouseEvent } from "react";
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { BrandMark } from "./BrandMark";
 import { Reveal } from "./Reveal";
 import { scrollToSection } from "@/lib/scroll-to-section";
@@ -25,8 +24,6 @@ const LINKS = [
   { label: "Kontakt", href: "/#kontakt" },
 ];
 
-const SOCIALS = [Facebook, Instagram, Linkedin];
-
 const goTo = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
   const id = href.includes("#") ? href.slice(href.indexOf("#") + 1) : href.replace("#", "");
   if (!document.getElementById(id)) return;
@@ -43,21 +40,10 @@ export function Footer() {
             <div>
               <BrandMark />
               <p className="mt-5 max-w-xs text-sm text-navy-foreground/60">
-                Instalacje HVAC w Namysłowie i na Opolszczyźnie: pompy ciepła,
-                klimatyzacja, kotły pelletowe i więcej. Montaż i serwis.
+                Instalacje grzewcze, chłodnicze i sanitarne w Namysłowie i na
+                Opolszczyźnie: pompy ciepła, klimatyzacja, kotły pelletowe i więcej.
+                Montaż i serwis.
               </p>
-              <div className="mt-6 flex gap-3">
-                {SOCIALS.map((Icon, i) => (
-                  <a
-                    key={i}
-                    href="#top"
-                    aria-label="Social media"
-                    className="glass-panel flex size-10 items-center justify-center rounded-xl transition-all duration-300 ease-out hover:scale-105 hover:bg-accent/25"
-                  >
-                    <Icon className="size-4" />
-                  </a>
-                ))}
-              </div>
             </div>
 
             <div>

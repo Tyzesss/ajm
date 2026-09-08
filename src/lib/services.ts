@@ -25,23 +25,23 @@ export type Service = {
 export const SERVICE_PROCESS = [
   {
     step: "01",
-    title: "Oględziny i bezpłatna konsultacja",
-    body: "Oglądamy budynek lub dokumentację, rozmawiamy o oczekiwaniach i dobieramy kierunek rozwiązania, bez zobowiązań.",
+    title: "Oględziny i konsultacja",
+    body: "Oglądamy budynek, ustalamy potrzeby i kierunek - bez zobowiązań.",
   },
   {
     step: "02",
     title: "Wycena",
-    body: "Przygotowujemy jasny kosztorys zakresu prac i urządzeń, bez zbędnych pozycji i niespodzianek.",
+    body: "Jasny kosztorys zakresu i urządzeń, bez niespodzianek.",
   },
   {
     step: "03",
     title: "Montaż i uruchomienie",
-    body: "Montujemy instalację, uruchamiamy ją na miejscu i zostawiamy instrukcję obsługi oraz warunki gwarancji.",
+    body: "Montaż, uruchomienie na miejscu i instrukcja obsługi.",
   },
   {
     step: "04",
     title: "Serwis",
-    body: "Po oddaniu instalacji jesteśmy do dyspozycji przy przeglądach, regulacji i wsparciu pogwarancyjnym.",
+    body: "Przeglądy, regulacja i wsparcie po oddaniu instalacji.",
   },
 ] as const;
 
@@ -71,12 +71,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Bezpłatna konsultacja i oględziny",
-      "Bezpłatna wycena po audycie",
-      "Dobór mocy do budynku i izolacji",
-      "Montaż, uruchomienie i ustawienia",
-      "Integracja z podłogówką i CWU",
-      "Serwis i opieka po montażu",
+      "Obliczenie mocy do strat ciepła budynku",
+      "Jednostka zewnętrzna + hydrobox / bufor",
+      "Podłączenie do c.o., podłogówki i CWU",
+      "Krzywa grzania i ustawienia automatyki",
+      "Uruchomienie z protokołem i instruktażem",
+      "Przeglądy sezonowe i wsparcie serwisowe",
     ],
     faq: [
       {
@@ -117,12 +117,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Dobór mocy kotła do budynku",
-      "Plan kotłowni i zbiornika na pellet",
-      "Podłączenie do c.o. i ciepłej wody",
-      "Uruchomienie i instruktaż",
-      "Bezpłatna konsultacja i wycena",
-      "Serwis po montażu",
+      "Dobór mocy kotła do strat ciepła",
+      "Układ kotłowni i magazynu pelletu",
+      "Podłączenie do instalacji c.o. i CWU",
+      "Automatyka podawania i sterowanie",
+      "Pierwszy rozruch i instruktaż obsługi",
+      "Czyszczenie, przeglądy i serwis",
     ],
     faq: [
       {
@@ -159,12 +159,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Dobór rozstawu pętli do pomieszczeń",
-      "Rozdzielacze i automatyka",
-      "Współpraca z pompą ciepła lub kotłem",
-      "Montaż w nowym budownictwie i modernizacjach",
-      "Uruchomienie i regulacja",
-      "Bezpłatna wycena",
+      "Projekt pętli i rozstawu na pomieszczenia",
+      "Izolacja, folia i mocowanie rur",
+      "Rozdzielacz ze strefami / siłownikami",
+      "Sparowanie z pompą ciepła lub kotłem",
+      "Próba ciśnieniowa przed wylewką",
+      "Regulacja obiegów po sezonowaniu",
     ],
     faq: [
       {
@@ -201,12 +201,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Split i multi-split",
-      "Dobór mocy do pomieszczeń",
-      "Estetyczny montaż freonu i skroplin",
-      "Uruchomienie i instruktaż",
-      "Bezpłatna wycena",
-      "Serwis i przeglądy",
+      "Dobór mocy do metrażu i nasłonecznienia",
+      "Układy split i multi-split",
+      "Trasowanie freonu, skroplin i zasilania",
+      "Montaż jednostek wewnętrznych i zewnętrznych",
+      "Próżnia, napełnienie i pomiar parametrów",
+      "Przeglądy, czyszczenie i serwis",
     ],
     faq: [
       {
@@ -243,12 +243,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Rozprowadzenie wody użytkowej",
-      "Przyłącza i modernizacje",
-      "Dobór materiałów do warunków",
-      "Próby szczelności",
-      "Bezpłatna konsultacja i wycena",
-      "Działamy lokalnie: Namysłów i okolice",
+      "Projekt rozprowadzenia zimnej i ciepłej wody",
+      "Przyłącze, zawory i zabezpieczenia",
+      "Wymiana odcinków lub całej instalacji",
+      "Dobór średnic pod ciśnienie i zużycie",
+      "Próby szczelności przed zabudową",
+      "Przygotowanie pod zmiękczacz / filtrację",
     ],
     faq: [
       {
@@ -285,12 +285,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Kanalizacja i podejścia",
-      "Wymiana pionów",
-      "Przygotowanie pod łazienki",
-      "Modernizacje w istniejących budynkach",
-      "Bezpłatna wycena po oględzinach",
-      "Lokalny montaż na Opolszczyźnie",
+      "Kanalizacja sanitarna i odpływy",
+      "Podejścia pod umywalki, WC, prysznic",
+      "Wymiana pionów w budynkach istniejących",
+      "Syfony, rewizje i dostęp serwisowy",
+      "Koordynacja z wodą i ogrzewaniem",
+      "Próby szczelności przed glazurą",
     ],
     faq: [
       {
@@ -327,12 +327,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Oględziny obiektu i analiza potrzeb",
-      "Wycena dopasowana do zakresu",
-      "Montaż i uruchomienie",
-      "Uwzględnienie ciągłości pracy",
-      "Opieka serwisowa według ustaleń",
-      "Działamy w regionie Namysłowa i Opola",
+      "Kotłownie i hydroboxy w obiektach firmowych",
+      "Pompy ciepła / klima pod kubaturę hali",
+      "Instalacje c.o., CWU i woda użytkowa",
+      "Harmonogram prac poza szczytem produkcji",
+      "Dokumentacja powykonawcza i rozruch",
+      "Umowy serwisowe i przeglądy okresowe",
     ],
     faq: [
       {
@@ -369,12 +369,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Dobór centrali do kubatury",
-      "Kanały, czerpnie i wyrzutnie",
-      "Filtracja powietrza",
-      "Odzysk ciepła z wywiewu",
-      "Regulacja przepływów",
-      "Bezpłatna konsultacja i wycena",
+      "Dobór centrali do kubatury i liczby osób",
+      "Trasy kanałów, anemostaty, czerpnia / wyrzutnia",
+      "Wymiennik ciepła (odzysk z wywiewu)",
+      "Filtry i łatwy dostęp do wymiany",
+      "Regulacja przepływów na pomieszczenia",
+      "Pomiary po rozruchu i instruktaż filtrów",
     ],
     faq: [
       {
@@ -411,12 +411,12 @@ export const SERVICES: Service[] = [
       },
     ],
     bullets: [
-      "Analiza potrzeb i dobór urządzenia",
-      "Zmiękczanie i filtracja",
-      "Ochrona instalacji i AGD",
-      "Montaż i uruchomienie",
-      "Bezpłatna konsultacja",
-      "Serwis według ustaleń",
+      "Dobór na podstawie twardości i zużycia",
+      "Zmiękczacze, filtry i stacje uzdatniania",
+      "Montaż na instalacji zimnej wody",
+      "Ustawienie regeneracji i instruktaż soli",
+      "Ochrona bojlera, baterii i AGD",
+      "Serwis, wymiana wkładów i przeglądy",
     ],
     faq: [
       {

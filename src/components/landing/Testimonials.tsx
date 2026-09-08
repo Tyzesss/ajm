@@ -79,7 +79,7 @@ export function Testimonials() {
             <br className="hidden sm:block" /> z Namysłowa i okolic
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Profesjonalizm, terminowy montaż i realne wsparcie — to najczęstsze słowa w opiniach
+            Profesjonalizm, terminowy montaż i realne wsparcie - to najczęstsze słowa w opiniach
             naszych klientów.
           </p>
         </Reveal>
