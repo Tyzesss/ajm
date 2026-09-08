@@ -76,7 +76,8 @@ export function Testimonials() {
             Zaufało nam ponad{" "}
             <span className="text-gradient-cyan">20 klientów</span>
             <br className="hidden sm:block" /> z Namysłowa
-            <br />
+            <br className="sm:hidden" />
+            <span className="hidden sm:inline"> </span>
             i okolic
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
