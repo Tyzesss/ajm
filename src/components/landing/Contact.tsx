@@ -65,7 +65,7 @@ export function Contact() {
   const [service, setService] = useState("");
 
   return (
-    <section id="kontakt" className="relative isolate overflow-hidden pt-20 pb-10 md:py-20">
+    <section id="kontakt" className="relative isolate overflow-hidden pt-12 pb-10 md:py-20">
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(52rem,92%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.03)_22%,oklch(0.59_0.14_242/0.08)_52%,oklch(0.59_0.14_242/0.16)_100%)] max-md:h-[min(40rem,95%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.04)_20%,oklch(0.59_0.14_242/0.1)_55%,oklch(0.59_0.14_242/0.18)_100%)]"
         aria-hidden

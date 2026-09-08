@@ -53,7 +53,7 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
 
 export function Services() {
   return (
-    <section id="uslugi" className="relative z-10 pt-24 pb-12 max-md:pb-8 sm:pt-28 sm:pb-14">
+    <section id="uslugi" className="relative z-10 pt-12 pb-12 max-md:pb-8 sm:pt-28 sm:pb-14">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-4xl md:mx-auto">
           <div className="flex flex-col items-start text-left md:items-center md:text-center">

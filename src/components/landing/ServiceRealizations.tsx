@@ -105,13 +105,37 @@ export function ServiceRealizations({
   const close = () => setActive(null);
   const openAt = (idx: number) => setActive(idx);
 
-  const showPrev = useCallback(() => {
-    setActive((i) => (i == null ? i : (i - 1 + projects.length) % projects.length));
-  }, [projects.length]);
-
   const showNext = useCallback(() => {
-    setActive((i) => (i == null ? i : (i + 1) % projects.length));
-  }, [projects.length]);
+    setActive((i) => {
+      if (i == null) return i;
+      const mobile =
+        typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+      let next = (i + 1) % projects.length;
+      if (mobile) {
+        for (let n = 0; n < projects.length; n++) {
+          if (!isHiddenOnMobile(projects[next]!)) return next;
+          next = (next + 1) % projects.length;
+        }
+      }
+      return next;
+    });
+  }, [projects]);
+
+  const showPrev = useCallback(() => {
+    setActive((i) => {
+      if (i == null) return i;
+      const mobile =
+        typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+      let prev = (i - 1 + projects.length) % projects.length;
+      if (mobile) {
+        for (let n = 0; n < projects.length; n++) {
+          if (!isHiddenOnMobile(projects[prev]!)) return prev;
+          prev = (prev - 1 + projects.length) % projects.length;
+        }
+      }
+      return prev;
+    });
+  }, [projects]);
 
   useEffect(() => {
     if (active == null) return;
@@ -150,9 +174,12 @@ export function ServiceRealizations({
             renderItem={(project) => (
               <ProjectCard
                 item={project}
-                onOpen={() =>
-                  openAt(projects.findIndex((p) => p.image === project.image && p.title === project.title))
-                }
+                onOpen={() => {
+                  const idx = projects.findIndex(
+                    (p) => p.image === project.image && p.title === project.title,
+                  );
+                  if (idx >= 0) openAt(idx);
+                }}
               />
             )}
           />

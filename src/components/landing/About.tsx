@@ -12,7 +12,7 @@ export function About() {
   return (
     <section
       id="o-nas"
-      className="pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-32 lg:pt-36 lg:pb-24"
+      className="pt-16 pb-8 sm:pt-20 sm:pb-20 md:pt-32 lg:pt-36 lg:pb-24"
     >
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <div className="grid items-center gap-6 lg:grid-cols-12 lg:items-stretch lg:gap-x-12 lg:gap-y-7">

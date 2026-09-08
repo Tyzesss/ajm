@@ -25,6 +25,7 @@ import { getServiceRealizationCards } from "@/lib/realization-cards";
 import { ServiceRealizations } from "@/components/landing/ServiceRealizations";
 import { Reveal } from "@/components/landing/Reveal";
 import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
+import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 import thumbPompy from "@/assets/ajm-pompa-panasonic-aquarea.jpg";
 import thumbKlima from "@/assets/ajm-jednostki-zew-midea-duo.jpg";

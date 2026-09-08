@@ -8,7 +8,7 @@ type BrandMarkProps = {
   wordmarkClassName?: string;
 };
 
-export function BrandMark({ className }: BrandMarkProps) {
+export function BrandMark({ className, wordmarkClassName }: BrandMarkProps) {
   return (
     <span className={cn("flex items-center", className)}>
       <img
@@ -16,7 +16,7 @@ export function BrandMark({ className }: BrandMarkProps) {
         alt={SITE_NAME}
         width={800}
         height={114}
-        className="h-8 w-auto sm:h-9"
+        className={cn("h-8 w-auto sm:h-9", wordmarkClassName)}
         decoding="async"
         style={{
           filter:
