@@ -66,12 +66,12 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex max-md:min-h-[118svh] flex-col md:h-full">
-        <div className="relative z-0 mx-auto flex w-full max-w-[1360px] flex-1 flex-col justify-center gap-6 px-5 pb-10 max-md:justify-start max-md:gap-0 max-md:pt-[calc(8rem+env(safe-area-inset-top,0px))] max-md:pb-6 md:pt-24 md:pb-28 lg:px-8 lg:pt-28 lg:pb-28 sm:gap-10">
+        <div className="relative z-0 mx-auto flex w-full max-w-[1360px] flex-1 flex-col justify-center gap-6 px-5 pb-10 max-md:justify-start max-md:gap-0 max-md:pt-[calc(8rem+env(safe-area-inset-top,0px))] max-md:pb-6 md:pt-14 md:pb-40 lg:px-8 lg:pt-16 lg:pb-44 sm:gap-10">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduce ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-4xl lg:max-w-5xl"
+            className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-4xl md:-translate-y-6 lg:max-w-5xl lg:-translate-y-8"
           >
             <span className="glass-panel inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide text-navy-foreground uppercase md:text-[0.8125rem]">
               <ShieldCheck className="size-3.5 text-accent" />
@@ -118,10 +118,7 @@ export function Hero() {
               {STATS.slice(0, 2).map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center text-center">
                   <div className="font-display text-3xl font-bold">
-                    <span className="inline-block text-gradient-cyan">
-                      <Counter to={stat.value} />
-                      {stat.suffix}
-                    </span>
+                    <Counter to={stat.value} suffix={stat.suffix} />
                   </div>
                   <p className="mt-1 text-[11px] leading-snug font-medium tracking-wide text-navy-foreground/70 uppercase">
                     {stat.label}
@@ -205,10 +202,7 @@ export function Hero() {
               }
             >
               <div className="font-display text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
-                <span className="inline-block text-gradient-cyan">
-                  <Counter to={stat.value} />
-                  {stat.suffix}
-                </span>
+                <Counter to={stat.value} suffix={stat.suffix} />
               </div>
               <p className="mt-1.5 max-w-[9rem] text-[9px] leading-snug font-medium tracking-[0.06em] text-muted-foreground uppercase sm:mt-1.5 sm:text-[10px] md:text-xs">
                 {stat.label}

@@ -87,10 +87,6 @@ export const SERVICES: Service[] = [
         q: "Jak głośna jest jednostka zewnętrzna?",
         a: "Nowoczesne pompy są znacznie cichsze niż starsze generacje. Lokalizację dobieramy tak, by nie przeszkadzać domownikom i sąsiadom. Omawiamy to na miejscu.",
       },
-      {
-        q: "Czy pomagacie z dofinansowaniem?",
-        a: "Doradzamy przy wyborze rozwiązania pod kątem programów wsparcia. Szczegóły aktualnych programów omawiamy indywidualnie przy wycenie.",
-      },
     ],
     match: ["pomp", "pompa ciepła", "hydrobox"],
   },

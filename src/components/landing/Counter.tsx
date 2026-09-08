@@ -1,6 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
-export function Counter({ to, duration = 1600 }: { to: number; duration?: number }) {
+export function Counter({
+  to,
+  duration = 1600,
+  suffix = "",
+  className,
+}: {
+  to: number;
+  duration?: number;
+  suffix?: string;
+  className?: string;
+}) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
@@ -29,5 +40,10 @@ export function Counter({ to, duration = 1600 }: { to: number; duration?: number
     return () => observer.disconnect();
   }, [to, duration]);
 
-  return <span ref={ref}>{value.toLocaleString("pl-PL")}</span>;
+  return (
+    <span ref={ref} className={cn("inline-block text-gradient-cyan", className)}>
+      {value.toLocaleString("pl-PL")}
+      {suffix}
+    </span>
+  );
 }

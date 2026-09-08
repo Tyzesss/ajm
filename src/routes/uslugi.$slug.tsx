@@ -272,7 +272,7 @@ function ServiceFaq({ service }: { service: Service }) {
               onValueChange={setOpenItem}
               className="mt-8 w-full"
             >
-              {service.faq.map((item, i) => (
+              {service.faq.slice(0, 2).map((item, i) => (
                 <AccordionItem
                   key={item.q}
                   value={`faq-${i}`}
@@ -466,7 +466,14 @@ function ServicePage() {
               </div>
 
               {media ? (
-                <Reveal delay={0.1} className="relative lg:col-span-6 xl:col-span-5" scale>
+                <Reveal
+                  delay={0.1}
+                  className={cn(
+                    "relative lg:col-span-6 xl:col-span-5",
+                    media.src === thumbPompy && "max-md:hidden",
+                  )}
+                  scale
+                >
                   <div
                     className="absolute -inset-3 rounded-[2rem] bg-gradient-cyan opacity-25 blur-2xl"
                     aria-hidden
