@@ -1,3 +1,5 @@
-# KLIMATPRO
+# AJM Technika (wcześniej demo KLIMATPRO)
 
-Landing HVAC: pompy ciepła, klimatyzacja, kotły. Stack: TanStack Start + Vite.
+Landing HVAC: pompy ciepła, klimatyzacja, kotły pelletowe, instalacje. Stack: TanStack Start + Vite.
+
+**Personalizacja pod klienta:** patrz `PERSONALIZACJA.md` (dane firmy, treści, usługi, decyzje — wdrażać według tego briefu).

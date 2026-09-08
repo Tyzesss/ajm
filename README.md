@@ -1,6 +1,8 @@
-# KLIMATPRO
+# AJM Technika
 
-Landing page firmy KLIMATPRO — pompy ciepła, klimatyzacja, kotły i rekuperacja.
+Landing page AJM Technika (Namysłów) — pompy ciepła, klimatyzacja, kotły i rekuperacja.
+
+Brief personalizacji: `PERSONALIZACJA.md`.
 
 ## Development
 

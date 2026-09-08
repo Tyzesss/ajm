@@ -2,9 +2,11 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 
 const BRANDS = [
-  { name: "Panasonic", className: "brand-wordmark--panasonic" },
-  { name: "LG", className: "brand-wordmark--lg" },
+  { name: "Midea", className: "brand-wordmark--midea" },
   { name: "Daikin", className: "brand-wordmark--daikin" },
+  { name: "Panasonic", className: "brand-wordmark--panasonic" },
+  { name: "Defro", className: "brand-wordmark--defro" },
+  { name: "LG", className: "brand-wordmark--lg" },
   { name: "Vaillant", className: "brand-wordmark--vaillant" },
   { name: "Mitsubishi", className: "brand-wordmark--mitsubishi" },
   { name: "Bosch", className: "brand-wordmark--bosch" },
@@ -43,13 +45,13 @@ export function Brands() {
       </div>
 
       <div className="mx-auto hidden max-w-[1360px] px-5 md:block lg:px-8">
-        <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-14 gap-y-6 lg:mt-12 lg:gap-x-16 xl:gap-x-20">
+        <ul className="mt-10 flex flex-nowrap items-center justify-between gap-x-3 lg:mt-12 lg:gap-x-5 xl:gap-x-8">
           {BRANDS.map((brand, i) => (
-            <li key={brand.name}>
+            <li key={brand.name} className="shrink min-w-0">
               <Reveal delay={0.04 + i * 0.05} y={12}>
                 <span
                   className={cn(
-                    "brand-wordmark text-3xl text-navy-foreground/55 transition-colors duration-300 hover:text-navy-foreground lg:text-4xl",
+                    "brand-wordmark block truncate text-[clamp(1.05rem,1.6vw,2rem)] text-navy-foreground/55 transition-colors duration-300 hover:text-navy-foreground",
                     brand.className,
                   )}
                 >

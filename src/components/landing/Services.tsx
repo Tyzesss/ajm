@@ -1,12 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowUpRight,
+  Droplets,
+  Factory,
   Fan,
   Flame,
   Gauge,
+  Pipette,
   Snowflake,
   Thermometer,
-  Wrench,
+  Waves,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
@@ -14,11 +17,14 @@ import { SERVICES } from "@/lib/services";
 
 const ICONS: Record<string, LucideIcon> = {
   "pompy-ciepla": Thermometer,
-  klimatyzacja: Snowflake,
-  kotly: Flame,
+  "kotly-pelletowe": Flame,
   "ogrzewanie-podlogowe": Gauge,
+  klimatyzacja: Snowflake,
+  "instalacje-wodne": Droplets,
+  "instalacje-sanitarne": Pipette,
+  "instalacje-przemyslowe": Factory,
   rekuperacja: Fan,
-  serwis: Wrench,
+  "uzdatnianie-wody": Waves,
 };
 
 function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {

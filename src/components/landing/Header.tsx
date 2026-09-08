@@ -5,14 +5,15 @@ import { ArrowLeft, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { scrollToSection } from "@/lib/scroll-to-section";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
 import { BrandMark } from "./BrandMark";
 
 const NAV = [
+  { label: "O nas", href: "#o-nas" },
   { label: "Usługi", href: "#uslugi" },
   { label: "Realizacje", href: "#realizacje" },
   { label: "Opinie", href: "#opinie" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Obszar", href: "#obszar" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 
@@ -108,12 +109,12 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
           transition={{ duration: reduce ? 0 : 0.55, ease: EASE }}
         >
           {alwaysSolid ? (
-            <Link to="/" aria-label="KLIMATPRO">
-              <BrandMark wordmarkClassName="text-navy-foreground" />
+            <Link to="/" aria-label={SITE_NAME}>
+              <BrandMark />
             </Link>
           ) : (
-            <a href="#top" aria-label="KLIMATPRO" onClick={goTo("#top")}>
-              <BrandMark wordmarkClassName="text-navy-foreground" />
+            <a href="#top" aria-label={SITE_NAME} onClick={goTo("#top")}>
+              <BrandMark />
             </a>
           )}
 

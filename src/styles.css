@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * KLIMATPRO design system - premium HVAC.
- * Deep navy + logo cyan / flame blue. All colors are oklch tokens.
+ * AJM Technika design system — premium HVAC.
+ * Brand blue from logo AJM: #0784C7 → oklch(0.59 0.14 242).
  */
 
 @theme inline {
@@ -62,61 +62,72 @@
 :root {
   --radius: 1rem;
 
-  --background: oklch(0.985 0.004 247);
-  --foreground: oklch(0.21 0.05 265);
+  /* Cool light surfaces (logo silver undertone) */
+  --background: oklch(0.985 0.007 242);
+  --foreground: oklch(0.24 0.04 242);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.05 265);
+  --card-foreground: oklch(0.24 0.04 242);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.05 265);
+  --popover-foreground: oklch(0.24 0.04 242);
 
-  --primary: oklch(0.24 0.075 264);
-  --primary-foreground: oklch(0.985 0.004 247);
+  --primary: oklch(0.28 0.055 242);
+  --primary-foreground: oklch(0.985 0.006 242);
 
-  --secondary: oklch(0.955 0.011 247);
-  --secondary-foreground: oklch(0.24 0.075 264);
+  --secondary: oklch(0.955 0.012 242);
+  --secondary-foreground: oklch(0.28 0.055 242);
 
-  --muted: oklch(0.955 0.011 247);
-  --muted-foreground: oklch(0.52 0.03 257);
+  --muted: oklch(0.955 0.012 242);
+  --muted-foreground: oklch(0.50 0.028 242);
 
-  --accent: oklch(0.70 0.14 220);
-  --accent-foreground: oklch(0.18 0.06 264);
+  /* Logo AJM blue #0784C7 */
+  --accent: oklch(0.59 0.14 242);
+  --accent-foreground: oklch(0.985 0.01 242);
 
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0.004 247);
+  --destructive-foreground: oklch(0.985 0.006 242);
 
-  --border: oklch(0.915 0.012 255);
-  --input: oklch(0.915 0.012 255);
-  --ring: oklch(0.70 0.14 220);
+  --border: oklch(0.91 0.014 242);
+  --input: oklch(0.91 0.014 242);
+  --ring: oklch(0.59 0.14 242);
 
-  --navy: oklch(0.19 0.06 265);
-  --navy-soft: oklch(0.26 0.07 265);
-  --navy-foreground: oklch(0.985 0.004 247);
-  --cyan: oklch(0.78 0.14 214);
-  --cyan-foreground: oklch(0.17 0.06 264);
+  /* Deep navy in the same blue family as the logo */
+  --navy: oklch(0.23 0.05 242);
+  --navy-soft: oklch(0.30 0.055 242);
+  --navy-foreground: oklch(0.97 0.01 242);
+  --cyan: oklch(0.66 0.13 240);
+  --cyan-foreground: oklch(0.20 0.05 242);
 
-  --chart-1: oklch(0.78 0.14 214);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --chart-1: oklch(0.66 0.13 240);
+  --chart-2: oklch(0.59 0.14 242);
+  --chart-3: oklch(0.42 0.07 242);
+  --chart-4: oklch(0.78 0.08 242);
+  --chart-5: oklch(0.55 0.12 245);
 
-  --sidebar: oklch(0.985 0.004 247);
-  --sidebar-foreground: oklch(0.21 0.05 265);
-  --sidebar-primary: oklch(0.24 0.075 264);
-  --sidebar-primary-foreground: oklch(0.985 0.004 247);
-  --sidebar-accent: oklch(0.955 0.011 247);
-  --sidebar-accent-foreground: oklch(0.24 0.075 264);
-  --sidebar-border: oklch(0.915 0.012 255);
-  --sidebar-ring: oklch(0.70 0.14 220);
+  --sidebar: oklch(0.985 0.007 242);
+  --sidebar-foreground: oklch(0.24 0.04 242);
+  --sidebar-primary: oklch(0.28 0.055 242);
+  --sidebar-primary-foreground: oklch(0.985 0.006 242);
+  --sidebar-accent: oklch(0.955 0.012 242);
+  --sidebar-accent-foreground: oklch(0.28 0.055 242);
+  --sidebar-border: oklch(0.91 0.014 242);
+  --sidebar-ring: oklch(0.59 0.14 242);
 
-  /* Gradients — same --navy as navbar, hero, footer, and dark sections */
+  /* Gradients — hero overlay kept; cyan CTA aligned to logo blue */
   --gradient-hero: linear-gradient(
     180deg,
-    oklch(from var(--navy) l c h / 0.94) 0%,
-    oklch(from var(--navy) l c h / 0.82) 10%,
-    oklch(from var(--navy) l c h / 0.7) 45%,
-    oklch(from var(--navy) l c h / 0.94) 100%
+    oklch(0.19 0.06 265 / 0.94) 0%,
+    oklch(0.19 0.06 265 / 0.82) 10%,
+    oklch(0.19 0.06 265 / 0.7) 45%,
+    oklch(0.19 0.06 265 / 0.94) 100%
+  );
+  --gradient-hero-fade: linear-gradient(
+    to right,
+    #000 0%,
+    #000 38%,
+    rgb(0 0 0 / 0.55) 62%,
+    rgb(0 0 0 / 0.15) 82%,
+    transparent 100%
   );
   --gradient-service-hero: linear-gradient(
     180deg,
@@ -130,16 +141,16 @@
     oklch(0 0 0 / 0.14) 48%,
     oklch(0 0 0 / 0.06) 100%
   );
-  --gradient-cyan: linear-gradient(135deg, oklch(0.82 0.14 214) 0%, oklch(0.63 0.15 247) 100%);
+  --gradient-cyan: linear-gradient(135deg, oklch(0.70 0.12 238) 0%, oklch(0.55 0.145 242) 100%);
   --gradient-navy-from: var(--navy);
   --gradient-navy-to: var(--navy);
   --gradient-navy: var(--navy);
-  --gradient-soft: linear-gradient(180deg, oklch(0.985 0.004 247) 0%, oklch(0.94 0.02 230) 100%);
+  --gradient-soft: linear-gradient(180deg, oklch(0.985 0.007 242) 0%, oklch(0.945 0.018 240) 100%);
 
   /* Shadows */
-  --shadow-card: 0 1px 2px oklch(0.19 0.06 265 / 0.05), 0 12px 32px oklch(0.19 0.06 265 / 0.08);
-  --shadow-lift: 0 2px 6px oklch(0.19 0.06 265 / 0.08), 0 24px 56px oklch(0.19 0.06 265 / 0.16);
-  --shadow-glow: 0 12px 40px oklch(0.70 0.14 220 / 0.35);
+  --shadow-card: 0 1px 2px oklch(0.23 0.05 242 / 0.05), 0 12px 32px oklch(0.23 0.05 242 / 0.08);
+  --shadow-lift: 0 2px 6px oklch(0.23 0.05 242 / 0.08), 0 24px 56px oklch(0.23 0.05 242 / 0.16);
+  --shadow-glow: 0 12px 40px oklch(0.59 0.14 242 / 0.32);
 
   /* Glass */
   --glass-bg: oklch(1 0 0 / 0.08);
@@ -147,23 +158,23 @@
 }
 
 .dark {
-  --background: oklch(0.16 0.05 265);
-  --foreground: oklch(0.985 0.004 247);
-  --card: oklch(0.22 0.06 265);
-  --card-foreground: oklch(0.985 0.004 247);
-  --popover: oklch(0.22 0.06 265);
-  --popover-foreground: oklch(0.985 0.004 247);
-  --primary: oklch(0.78 0.14 214);
-  --primary-foreground: oklch(0.17 0.06 264);
-  --secondary: oklch(0.27 0.05 262);
-  --secondary-foreground: oklch(0.985 0.004 247);
-  --muted: oklch(0.27 0.05 262);
-  --muted-foreground: oklch(0.72 0.03 257);
-  --accent: oklch(0.78 0.14 214);
-  --accent-foreground: oklch(0.17 0.06 264);
+  --background: oklch(0.18 0.04 242);
+  --foreground: oklch(0.97 0.01 242);
+  --card: oklch(0.24 0.05 242);
+  --card-foreground: oklch(0.97 0.01 242);
+  --popover: oklch(0.24 0.05 242);
+  --popover-foreground: oklch(0.97 0.01 242);
+  --primary: oklch(0.66 0.13 240);
+  --primary-foreground: oklch(0.18 0.05 242);
+  --secondary: oklch(0.28 0.045 242);
+  --secondary-foreground: oklch(0.97 0.01 242);
+  --muted: oklch(0.28 0.045 242);
+  --muted-foreground: oklch(0.72 0.03 242);
+  --accent: oklch(0.66 0.13 240);
+  --accent-foreground: oklch(0.18 0.05 242);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.78 0.14 214);
+  --ring: oklch(0.66 0.13 240);
 }
 
 @layer base {
@@ -252,7 +263,7 @@
 }
 
 @utility bg-gradient-cyan {
-  background-color: oklch(0.63 0.15 247);
+  background-color: oklch(0.55 0.145 242);
   background-image: var(--gradient-cyan);
 }
 
@@ -313,7 +324,7 @@
   font-size: clamp(1.25rem, 5.5vw, 1.75rem);
   line-height: 1;
   white-space: nowrap;
-  color: oklch(0.55 0.02 265);
+  color: oklch(0.55 0.02 242);
   opacity: 0.75;
   user-select: none;
   transition:
@@ -323,7 +334,7 @@
 
 .partners-marquee--on-hero .partners-marquee__item,
 .partners-marquee--on-navy .partners-marquee__item {
-  color: oklch(0.985 0.004 247);
+  color: oklch(0.985 0.004 242);
   opacity: 0.6;
 }
 
@@ -344,6 +355,20 @@
   line-height: 1;
   white-space: nowrap;
   user-select: none;
+}
+
+.brand-wordmark--midea {
+  font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brand-wordmark--defro {
+  font-family: Poppins, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .brand-wordmark--panasonic {

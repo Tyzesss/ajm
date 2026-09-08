@@ -1,26 +1,51 @@
-export const SITE_NAME = "KLIMATPRO";
-export const SITE_TITLE = "KLIMATPRO - pompy ciepła, klimatyzacja, kotły";
-export const COMPANY_LEGAL_NAME = "KLIMATPRO Instalacje Sp. z o.o.";
-export const EMAIL = "kontakt@klimatpro.pl";
+export const SITE_NAME = "AJM Technika";
+export const SITE_TITLE =
+  "AJM Technika - pompy ciepła, klimatyzacja, kotły | Namysłów";
+export const COMPANY_LEGAL_NAME = "AJM Sp. z o.o.";
+export const EMAIL = "kontakt@ajmtechnika.pl";
 export const EMAIL_HREF = `mailto:${EMAIL}`;
 
-export const PHONE_DISPLAY = "515 479 625";
-export const PHONE_E164 = "+48515479625";
+export const PHONE_DISPLAY = "793 570 967";
+export const PHONE_E164 = "+48793570967";
 export const PHONE_HREF = `tel:${PHONE_E164}`;
 
 const WHATSAPP_TEXT = encodeURIComponent("Dzień dobry, chciałbym zgłosić zlecenie serwisowe.");
 export const WHATSAPP_HREF = `https://wa.me/${PHONE_E164.replace("+", "")}?text=${WHATSAPP_TEXT}`;
 
-export const ADDRESS = "ul. Przykładowa 1, 00-000 Twoje miasto";
-export const SERVICE_AREA = "Twoje miasto i okolice, dojazd do klienta";
-export const NIP = "678-000-12-34";
-export const REGON = "123456789";
-export const HOURS = "Pn - Pt: 8:00 - 17:00";
+export const ADDRESS = "Łączańska 22C, 46-100 Namysłów";
+export const SERVICE_AREA = "Namysłów, Opole i okolice, woj. opolskie";
+/** Robocza lista miejscowości (do wglądu / zmiany). */
+export const SERVICE_TOWNS = [
+  "Namysłów",
+  "Byczyna",
+  "Wołczyn",
+  "Kluczbork",
+  "Domaszowice",
+  "Świerczów",
+  "Pokój",
+  "Murów",
+  "Brzeg",
+  "Lewin Brzeski",
+  "Opole",
+  "Oława",
+  "Bierutów",
+  "Oleśnica",
+  "Dobrzeń Wielki",
+] as const;
+export const SERVICE_COUNTIES = [
+  "namysłowski",
+  "kluczborski",
+  "brzeski",
+  "opolski",
+] as const;
+export const NIP = "5562796248";
+export const REGON = "521998239";
+export const HOURS = "Pn-Sb: 8:00-20:00, Nd: zamknięte";
 
-export const MAPS_URL = "https://maps.google.com/?q=ul.+Przyk%C5%82adowa+1,+Twoje+miasto";
+export const MAPS_URL = "https://maps.app.goo.gl/ksyT4XjYrnGUiFpv6";
 export const GOOGLE_REVIEWS_URL = MAPS_URL;
-export const GOOGLE_RATING = "4.9";
-export const GOOGLE_REVIEW_COUNT = 47;
+export const GOOGLE_RATING = "5.0";
+export const GOOGLE_REVIEW_COUNT = 5;
 
 /** Realizacje do podstron usług (dopasowanie po `match` w services.ts). */
 export const REALIZATIONS = [
@@ -45,9 +70,9 @@ export const REALIZATIONS = [
     scope: "Dwie jednostki zewnętrzne klimatyzacji na elewacji domu.",
   },
   {
-    title: "Kocioł gazowy kondensacyjny",
+    title: "Kocioł pelletowy",
     year: "2025",
-    scope: "Montaż kotła i uruchomienie kotłowni w domu jednorodzinnym.",
+    scope: "Montaż kotła na pellet i uruchomienie kotłowni w domu jednorodzinnym.",
   },
   {
     title: "Rekuperacja z odzyskiem ciepła",

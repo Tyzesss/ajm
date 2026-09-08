@@ -8,28 +8,22 @@ import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_URL } from "@/lib/si
 
 const REVIEWS = [
   {
-    name: "Marcin",
-    place: "Twoje miasto",
+    name: "Agata P.",
+    place: "Namysłów",
     service: "Pompa ciepła",
-    text: "Pompa ciepła zamontowana w dwa dni, ekipa zostawiła po sobie idealny porządek. Rachunki za ogrzewanie spadły o ponad połowę.",
+    text: "Szczerze polecam, naprawdę firma godna polecenia",
   },
   {
-    name: "Anna",
-    place: "Twoje miasto",
-    service: "Klimatyzacja",
-    text: "Pełen profesjonalizm od pierwszej rozmowy. Doradzili tańsze rozwiązanie niż to, o które pytałam. Klimatyzacja działa bezgłośnie.",
+    name: "M t",
+    place: "Namysłów",
+    service: "Pompa ciepła",
+    text: "Firmę cechuje profesjonalizm i doświadczenie w instalacji pomp ciepła.",
   },
   {
-    name: "Tomasz",
-    place: "Twoje miasto",
-    service: "Kotły gazowe",
-    text: "Wymiana kotła i drobne poprawki w kotłowni. Czysto, na czas, bez kombinowania.",
-  },
-  {
-    name: "Katarzyna",
-    place: "Twoje miasto",
-    service: "Audyt",
-    text: "Audyt konkretny, bez naciągania na zbędne urządzenia. Montaż w terminie, serwis oddzwania, gdy trzeba.",
+    name: "Adrian P.",
+    place: "Namysłów",
+    service: "Pompa ciepła",
+    text: "Super! Gorąco polecam",
   },
 ];
 
@@ -39,6 +33,14 @@ function loopOffset(index: number, selected: number, length: number) {
   if (delta > half) delta -= length;
   if (delta < -half) delta += length;
   return delta;
+}
+
+function loopSlides<T>(items: T[], min = 6): T[] {
+  if (items.length < 3) return items;
+  if (items.length >= min) return items;
+  const slides: T[] = [];
+  while (slides.length < min) slides.push(...items);
+  return slides;
 }
 
 function ReviewCard({
@@ -96,14 +98,21 @@ function ReviewCard({
 }
 
 function ReviewCarousel() {
+  const canLoop = REVIEWS.length >= 3;
+  const slides = canLoop ? loopSlides(REVIEWS) : REVIEWS;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
-    loop: true,
+    loop: canLoop,
     skipSnaps: false,
-    containScroll: false,
+    containScroll: canLoop ? false : "trimSnaps",
     duration: 28,
   });
   const [selected, setSelected] = useState(0);
+  const activeIndex = REVIEWS.length
+    ? canLoop
+      ? selected % REVIEWS.length
+      : selected
+    : 0;
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -145,12 +154,12 @@ function ReviewCarousel() {
 
       <div className="overflow-hidden py-5 md:px-8 md:pt-5 md:pb-14 lg:px-10" ref={emblaRef}>
         <div className="flex items-center touch-pan-y">
-          {REVIEWS.map((review, idx) => {
-            const dist = Math.abs(loopOffset(idx, selected, REVIEWS.length));
+          {slides.map((review, idx) => {
+            const dist = Math.abs(loopOffset(idx, selected, slides.length));
             const active = dist === 0;
             return (
               <div
-                key={review.name}
+                key={`${review.name}-${idx}`}
                 className="min-w-0 shrink-0 grow-0 basis-[95%] px-1.5 sm:basis-[70%] md:basis-[46%] md:px-0 lg:basis-[42%]"
               >
                 <div
@@ -168,7 +177,7 @@ function ReviewCarousel() {
                   className={cn(
                     "origin-center cursor-pointer rounded-2xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                     active
-                      ? "z-10 scale-100 shadow-[0_10px_28px_oklch(0.21_0.05_265/0.10)] opacity-100 md:scale-[1.14]"
+                      ? "z-10 scale-100 shadow-[0_10px_28px_oklch(0.23_0.05_242/0.10)] opacity-100 md:scale-[1.14]"
                       : "z-0 scale-[0.88] opacity-35 md:scale-[0.68] md:opacity-35",
                     dist > 1 && "scale-[0.82] opacity-15 md:scale-[0.58] md:opacity-15",
                   )}
@@ -187,11 +196,28 @@ function ReviewCarousel() {
             key={review.name}
             type="button"
             aria-label={`Opinia ${idx + 1}`}
-            aria-current={selected === idx}
-            onClick={() => emblaApi?.scrollTo(idx)}
+            aria-current={activeIndex === idx}
+            onClick={() => {
+              if (!emblaApi) return;
+              if (!canLoop) {
+                emblaApi.scrollTo(idx);
+                return;
+              }
+              let best = idx;
+              let bestDist = Infinity;
+              for (let i = 0; i < slides.length; i++) {
+                if (i % REVIEWS.length !== idx) continue;
+                const d = Math.abs(i - selected);
+                if (d < bestDist) {
+                  bestDist = d;
+                  best = i;
+                }
+              }
+              emblaApi.scrollTo(best);
+            }}
             className={cn(
               "transition-all duration-300 ease-out",
-              selected === idx
+              activeIndex === idx
                 ? "h-1.5 w-8 rounded-full bg-accent"
                 : "h-1.5 w-1.5 rounded-full bg-muted-foreground/30",
             )}

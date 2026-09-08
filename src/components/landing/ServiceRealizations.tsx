@@ -149,7 +149,7 @@ function RealizationFocusCarousel({ items }: { items: RealizationCard[] }) {
                   className={cn(
                     "origin-center cursor-pointer rounded-2xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                     active
-                      ? "z-10 scale-100 opacity-100 shadow-[0_10px_28px_oklch(0.21_0.05_265/0.08)] md:scale-[1.14]"
+                      ? "z-10 scale-100 opacity-100 shadow-[0_10px_28px_oklch(0.23_0.05_242/0.08)] md:scale-[1.14]"
                       : "z-0 scale-[0.88] opacity-35 md:scale-[0.68]",
                     canLoop && dist > 1 && "scale-[0.82] opacity-15 md:scale-[0.58]",
                   )}

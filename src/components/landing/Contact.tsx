@@ -51,7 +51,7 @@ const INFO = [
   },
 ];
 
-/** Matches one-color-template LeadForm field chrome (KLIMATPRO accent). */
+/** LeadForm field chrome (brand accent). */
 const inputClass =
   "h-11 w-full rounded-xl border border-[#e2e8f0] bg-card px-3.5 text-sm text-foreground outline-none transition-all duration-300 placeholder:text-muted-foreground focus:border-accent focus:ring-2 focus:ring-accent/20";
 
@@ -127,7 +127,7 @@ export function Contact() {
             </Reveal>
 
             <Reveal delay={0.08} className="order-3 flex min-h-44 flex-col lg:min-h-0 lg:flex-1" scale>
-              <div className="relative flex min-h-44 overflow-hidden rounded-2xl border border-border/70 bg-[oklch(0.32_0.06_265)] shadow-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-full lg:flex-1 md:hover:-translate-y-0.5">
+              <div className="relative flex min-h-44 overflow-hidden rounded-2xl border border-border/70 bg-[oklch(0.32_0.055_242)] shadow-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-full lg:flex-1 md:hover:-translate-y-0.5">
                 <div
                   className="absolute inset-0 opacity-60"
                   style={{
@@ -244,11 +244,14 @@ export function Contact() {
                     <SelectContent className="rounded-lg">
                       {[
                         "Pompy ciepła",
-                        "Klimatyzacja",
-                        "Kotły gazowe",
+                        "Kotły pelletowe",
                         "Ogrzewanie podłogowe",
+                        "Klimatyzacja",
+                        "Instalacje wodne",
+                        "Instalacje sanitarne",
+                        "Instalacje przemysłowe",
                         "Rekuperacja",
-                        "Serwis",
+                        "Uzdatnianie wody",
                       ].map((option) => (
                         <SelectItem key={option} value={option}>
                           {option}

@@ -1,24 +1,18 @@
-import workPompaPowietrzeWoda from "@/assets/work-pompa-powietrze-woda.png";
-import workKotlowniaHydrobox from "@/assets/work-kotlownia-hydrobox.png";
-import workPompaUruchomienie from "@/assets/work-pompa-uruchomienie.png";
-import workPompaZasobnik from "@/assets/work-pompa-zasobnik.png";
-import workAcSplit from "@/assets/work-ac-split-sypialnia.png";
-import workAcMultisplit from "@/assets/work-ac-multisplit.png";
-import workAcSalon from "@/assets/work-ac-salon.png";
-import workAcBiuro from "@/assets/work-ac-biuro.png";
-import workKotly from "@/assets/service-kotly.png";
-import workRozdzielacz from "@/assets/work-rozdzielacz-podlogowki.png";
-import workPodlogoweAutomatyka from "@/assets/work-podlogowe-automatyka.png";
-import workPodlogowePompa from "@/assets/work-podlogowe-pompa.png";
-import workPodlogowePetle from "@/assets/work-podlogowe-petle.png";
-import workRecupCentrala from "@/assets/work-recup-centrala.png";
-import workRecupKanaly from "@/assets/work-recup-kanaly.png";
-import workRecupNowyDom from "@/assets/work-recup-nowy-dom.png";
-import workRecupAnemostat from "@/assets/work-recup-anemostat.png";
-import workSerwisPompa from "@/assets/work-serwis-pompa.png";
-import workSerwisKlima from "@/assets/work-serwis-klima.png";
-import workSerwisOutdoor from "@/assets/work-serwis-outdoor.png";
-import workSerwisRecup from "@/assets/work-serwis-recup.png";
+import ajmPompaPanasonic from "@/assets/ajm-pompa-panasonic-aquarea.jpg";
+import ajmPompaMideaDach from "@/assets/ajm-pompa-midea-dach.jpg";
+import ajmPompaStiebel from "@/assets/ajm-pompa-stiebel-outdoor.jpg";
+import ajmJednostkiDuo from "@/assets/ajm-jednostki-zew-midea-duo.jpg";
+import ajmKotlowniaMidea from "@/assets/ajm-kotlownia-midea-czerwone.jpg";
+import ajmKotlowniaPanasonic from "@/assets/ajm-kotlownia-panasonic-galmet.jpg";
+import ajmKotlowniaHydrobox from "@/assets/ajm-kotlownia-hydrobox-r32.jpg";
+import ajmKotlowniaRotenso from "@/assets/ajm-kotlownia-rotenso-filtry.jpg";
+import ajmKotlowniaZbiorniki from "@/assets/ajm-kotlownia-zbiorniki.jpg";
+import ajmKotlowniaGalmet from "@/assets/ajm-kotlownia-galmet-pompy.jpg";
+import ajmInstalacjaWilo from "@/assets/ajm-instalacja-pompy-wilo.jpg";
+import ajmKociolHlazar from "@/assets/ajm-kociol-hlazar-pellet.jpg";
+import ajmKotlowniaPellet from "@/assets/ajm-kotlownia-pellet-zasobniki.jpg";
+import ajmPodlogowka from "@/assets/ajm-podlogowka-petle.jpg";
+import ajmSterownikStiebel from "@/assets/ajm-sterownik-stiebel.jpg";
 
 export type RealizationCard = {
   title: string;
@@ -28,186 +22,276 @@ export type RealizationCard = {
   alt: string;
 };
 
-/** Unique curated cards per service — no cross-service reuse / keyword mixing. */
+/** Zdjęcia z realnych realizacji AJM Technika. */
 const BY_SERVICE: Record<string, RealizationCard[]> = {
   "pompy-ciepla": [
     {
-      title: "Pompa ciepła powietrze-woda",
+      title: "Panasonic Aquarea",
       year: "2025",
-      scope: "Jednostka zewnętrzna przy domu jednorodzinnym.",
-      image: workPompaPowietrzeWoda,
-      alt: "Jednostka zewnętrzna pompy ciepła przy domu",
+      scope: "Jednostka zewnętrzna na stopach betonowych.",
+      image: ajmPompaPanasonic,
+      alt: "Jednostka zewnętrzna Panasonic Aquarea na stopach betonowych",
     },
     {
       title: "Kotłownia z hydroboxem",
       year: "2025",
-      scope: "Hydrobox i rozdzielacz podłogówki po montażu pompy ciepła.",
-      image: workKotlowniaHydrobox,
-      alt: "Hydrobox pompy ciepła i rozdzielacz w kotłowni",
+      scope: "Hydrobox, zasobnik Galmet i naczynie wzbiorcze.",
+      image: ajmKotlowniaPanasonic,
+      alt: "Kotłownia z jednostką Panasonic i zasobnikiem Galmet",
     },
     {
-      title: "Zasobnik CWU i hydrobox",
-      year: "2024",
-      scope: "Zasobnik ciepłej wody i hydrobox w pomieszczeniu technicznym.",
-      image: workPompaZasobnik,
-      alt: "Hydrobox i zasobnik CWU w kotłowni",
+      title: "Midea na dachu",
+      year: "2025",
+      scope: "Montaż jednostki zewnętrznej na dachu płaskim.",
+      image: ajmPompaMideaDach,
+      alt: "Jednostka zewnętrzna Midea zamontowana na dachu",
     },
     {
-      title: "Uruchomienie instalacji",
-      year: "2024",
-      scope: "Uruchomienie i ustawienie krzywych grzania po montażu.",
-      image: workPompaUruchomienie,
-      alt: "Jednostka zewnętrzna pompy ciepła po uruchomieniu",
+      title: "Stiebel Eltron",
+      year: "2025",
+      scope: "Jednostka zewnętrzna na budowie przy elewacji.",
+      image: ajmPompaStiebel,
+      alt: "Jednostka zewnętrzna Stiebel Eltron na cegłach",
     },
   ],
-  klimatyzacja: [
+  "kotly-pelletowe": [
     {
-      title: "Klimatyzacja split",
-      year: "2024",
-      scope: "Jednostka ścienna w sypialni.",
-      image: workAcSplit,
-      alt: "Klimatyzator ścienny w sypialni",
-    },
-    {
-      title: "Multi-split na elewacji",
-      year: "2024",
-      scope: "Jednostki zewnętrzne multi-split przy domu.",
-      image: workAcMultisplit,
-      alt: "Jednostki zewnętrzne klimatyzacji na elewacji",
-    },
-    {
-      title: "Klima w salonie",
+      title: "Kocioł Hlazar Smart Fire",
       year: "2025",
-      scope: "Estetyczny montaż freonu i skroplin w salonie.",
-      image: workAcSalon,
-      alt: "Klimatyzacja split w nowoczesnym salonie",
+      scope: "Montaż kotła pelletowego w kotłowni.",
+      image: ajmKociolHlazar,
+      alt: "Kocioł pelletowy Hlazar Smart Fire w kotłowni",
     },
     {
-      title: "Klimatyzacja w biurze",
+      title: "Kotłownia z zasobnikami",
       year: "2025",
-      scope: "Cicha jednostka ścienna w przestrzeni biurowej.",
-      image: workAcBiuro,
-      alt: "Klimatyzator ścienny w biurze",
-    },
-  ],
-  kotly: [
-    {
-      title: "Kocioł kondensacyjny",
-      year: "2025",
-      scope: "Montaż kotła gazowego w kotłowni domu jednorodzinnego.",
-      image: workKotly,
-      alt: "Nowoczesny kocioł gazowy kondensacyjny w kotłowni",
+      scope: "Kocioł pelletowy, zasobnik CWU i bufor.",
+      image: ajmKotlowniaPellet,
+      alt: "Kotłownia z kotłem pelletowym i zasobnikami",
     },
     {
-      title: "Kotłownia po montażu",
-      year: "2025",
-      scope: "Urządzenie grzewcze i orurowanie w pomieszczeniu technicznym.",
-      image: workKotlowniaHydrobox,
-      alt: "Kotłownia z urządzeniem grzewczym po montażu",
-    },
-    {
-      title: "Zasobnik i instalacja",
+      title: "Orurowanie kotłowni",
       year: "2024",
-      scope: "Zasobnik c.w.u. i podłączenia przy kotle.",
-      image: workPompaZasobnik,
-      alt: "Zasobnik i instalacja w pomieszczeniu technicznym",
+      scope: "Pompy obiegowe i izolowane przewody.",
+      image: ajmInstalacjaWilo,
+      alt: "Instalacja z pompami Wilo w pomieszczeniu technicznym",
     },
     {
-      title: "Uruchomienie kotłowni",
+      title: "Zasobnik i pompy",
       year: "2024",
-      scope: "Rozruch i ustawienia po montażu kotła.",
-      image: workPompaUruchomienie,
-      alt: "Uruchomienie instalacji w kotłowni",
+      scope: "Galmet z rozdzielaniem i pompami obiegowymi.",
+      image: ajmKotlowniaGalmet,
+      alt: "Zasobnik Galmet z pompami i armaturą",
     },
   ],
   "ogrzewanie-podlogowe": [
     {
-      title: "Rozdzielacz podłogówki",
-      year: "2025",
-      scope: "Rozdzielacz i pętle w kotłowni.",
-      image: workRozdzielacz,
-      alt: "Rozdzielacz ogrzewania podłogowego",
-    },
-    {
       title: "Pętle przed wylewką",
       year: "2025",
-      scope: "Ułożenie pętli na izolacji przed zalaniem.",
-      image: workPodlogowePetle,
+      scope: "Ułożenie pętli na izolacji refleksyjnej.",
+      image: ajmPodlogowka,
       alt: "Pętle ogrzewania podłogowego przed wylewką",
     },
     {
-      title: "Rozdzielacz i automatyka",
-      year: "2024",
-      scope: "Strefy grzewcze i uruchomienie po wylewce.",
-      image: workPodlogoweAutomatyka,
-      alt: "Rozdzielacz i automatyka podłogówki",
+      title: "Rozdzielacz i pompy",
+      year: "2025",
+      scope: "Rozdzielanie obiegów z pompami Wilo.",
+      image: ajmInstalacjaWilo,
+      alt: "Rozdzielacz i pompy obiegowe podłogówki",
     },
     {
-      title: "Podłogówka z pompą ciepła",
+      title: "Kotłownia z podłogówką",
+      year: "2024",
+      scope: "Hydrobox i orurowanie pod niską temperaturę.",
+      image: ajmKotlowniaHydrobox,
+      alt: "Hydrobox i instalacja pod ogrzewanie podłogowe",
+    },
+    {
+      title: "Automatyka kotłowni",
+      year: "2024",
+      scope: "Sterowanie i zabezpieczenia po montażu.",
+      image: ajmSterownikStiebel,
+      alt: "Sterownik i rozdzielnica przy instalacji grzewczej",
+    },
+  ],
+  klimatyzacja: [
+    {
+      title: "Jednostki zewnętrzne Midea",
+      year: "2023",
+      scope: "Dwie jednostki zewnętrzne na bloczkach betonowych.",
+      image: ajmJednostkiDuo,
+      alt: "Dwie jednostki zewnętrzne Midea przy elewacji",
+    },
+    {
+      title: "Midea na dachu",
       year: "2025",
-      scope: "Niskotemperaturowy układ z hydroboxem.",
-      image: workPodlogowePompa,
-      alt: "Hydrobox pompy ciepła z rozdzielaczem podłogówki",
+      scope: "Jednostka zewnętrzna na dachu płaskim.",
+      image: ajmPompaMideaDach,
+      alt: "Jednostka zewnętrzna Midea na dachu",
+    },
+    {
+      title: "Panasonic Aquarea",
+      year: "2025",
+      scope: "Jednostka zewnętrzna przy domu.",
+      image: ajmPompaPanasonic,
+      alt: "Jednostka zewnętrzna Panasonic przy domu",
+    },
+    {
+      title: "Stiebel Eltron outdoor",
+      year: "2025",
+      scope: "Montaż jednostki zewnętrznej na budowie.",
+      image: ajmPompaStiebel,
+      alt: "Jednostka zewnętrzna Stiebel Eltron",
+    },
+  ],
+  "instalacje-wodne": [
+    {
+      title: "Kotłownia Midea",
+      year: "2023",
+      scope: "Hydrobox, orurowanie i zasobnik CWU.",
+      image: ajmKotlowniaMidea,
+      alt: "Kotłownia z jednostką Midea i czerwonym orurowaniem",
+    },
+    {
+      title: "Zasobniki w kotłowni",
+      year: "2025",
+      scope: "Bufor i zasobnik z izolowanym orurowaniem.",
+      image: ajmKotlowniaZbiorniki,
+      alt: "Zbiorniki buforowe i CWU w kotłowni",
+    },
+    {
+      title: "Galmet i pompy",
+      year: "2025",
+      scope: "Zasobnik CWU z pompami obiegowymi.",
+      image: ajmKotlowniaGalmet,
+      alt: "Zasobnik Galmet z instalacją wodną",
+    },
+    {
+      title: "Hydrobox R32",
+      year: "2023",
+      scope: "Moduł hydrauliczny i podłączenia wodne.",
+      image: ajmKotlowniaHydrobox,
+      alt: "Hydrobox pompy ciepła z instalacją wodną",
+    },
+  ],
+  "instalacje-sanitarne": [
+    {
+      title: "Pomieszczenie techniczne",
+      year: "2025",
+      scope: "Rozprowadzenie i podejścia w kotłowni.",
+      image: ajmKotlowniaZbiorniki,
+      alt: "Instalacje w pomieszczeniu technicznym",
+    },
+    {
+      title: "Orurowanie i armatura",
+      year: "2024",
+      scope: "Izolowane przewody, zawory i pompy.",
+      image: ajmInstalacjaWilo,
+      alt: "Orurowanie z pompami w kotłowni",
+    },
+    {
+      title: "Kotłownia po montażu",
+      year: "2025",
+      scope: "Kompletna instalacja grzewczo-wodna.",
+      image: ajmKotlowniaMidea,
+      alt: "Kotłownia po montażu instalacji",
+    },
+    {
+      title: "Zasobnik CWU",
+      year: "2024",
+      scope: "Podłączenia sanitarne przy zasobniku.",
+      image: ajmKotlowniaGalmet,
+      alt: "Zasobnik CWU z podłączeniami",
+    },
+  ],
+  "instalacje-przemyslowe": [
+    {
+      title: "Jednostka na dachu",
+      year: "2025",
+      scope: "Montaż urządzenia na dachu obiektu.",
+      image: ajmPompaMideaDach,
+      alt: "Jednostka zewnętrzna na dachu obiektu",
+    },
+    {
+      title: "Jednostki zewnętrzne",
+      year: "2023",
+      scope: "Montaż urządzeń przy elewacji.",
+      image: ajmJednostkiDuo,
+      alt: "Jednostki zewnętrzne przy budynku",
+    },
+    {
+      title: "Zaplecze techniczne",
+      year: "2025",
+      scope: "Kotłownia z zasobnikami i orurowaniem.",
+      image: ajmKotlowniaZbiorniki,
+      alt: "Zaplecze techniczne instalacji",
+    },
+    {
+      title: "Sterowanie i rozdzielnica",
+      year: "2025",
+      scope: "Automatyka i zabezpieczenia instalacji.",
+      image: ajmSterownikStiebel,
+      alt: "Sterownik i rozdzielnica instalacji",
     },
   ],
   rekuperacja: [
     {
-      title: "Centrala rekuperacji",
+      title: "Kotłownia z automatyką",
+      year: "2025",
+      scope: "Pomieszczenie techniczne po montażu instalacji.",
+      image: ajmKotlowniaRotenso,
+      alt: "Pomieszczenie techniczne z automatyką",
+    },
+    {
+      title: "Instalacja w kotłowni",
       year: "2024",
-      scope: "Centrala i kanały w pomieszczeniu technicznym.",
-      image: workRecupCentrala,
-      alt: "Centrala rekuperacji z kanałami",
+      scope: "Orurowanie i urządzenia w części technicznej.",
+      image: ajmKotlowniaHydrobox,
+      alt: "Instalacja w pomieszczeniu technicznym",
     },
     {
-      title: "Montaż kanałów i czerpni",
+      title: "Sterowanie instalacją",
       year: "2025",
-      scope: "Prowadzenie kanałów i regulacja przepływów.",
-      image: workRecupKanaly,
-      alt: "Kanały i czerpnia rekuperacji po montażu",
+      scope: "Sterownik i rozdzielnica przy montażu.",
+      image: ajmSterownikStiebel,
+      alt: "Sterownik instalacji w kotłowni",
     },
     {
-      title: "Anemostaty nawiewne",
+      title: "Zbiorniki i kanały techniczne",
       year: "2025",
-      scope: "Nawiewniki sufitowe po regulacji instalacji.",
-      image: workRecupAnemostat,
-      alt: "Anemostat nawiewny rekuperacji w suficie",
-    },
-    {
-      title: "Rekuperacja w nowym domu",
-      year: "2025",
-      scope: "Dobór centrali do kubatury i filtracja powietrza.",
-      image: workRecupNowyDom,
-      alt: "Centrala rekuperacji w nowym domu",
+      scope: "Zaplecze techniczne budynku.",
+      image: ajmKotlowniaZbiorniki,
+      alt: "Zaplecze techniczne z zasobnikami",
     },
   ],
-  serwis: [
+  "uzdatnianie-wody": [
     {
-      title: "Przegląd pompy ciepła",
+      title: "Filtracja przy kotłowni",
       year: "2025",
-      scope: "Kontrola jednostki zewnętrznej i parametrów pracy.",
-      image: workSerwisPompa,
-      alt: "Przegląd jednostki zewnętrznej pompy ciepła",
+      scope: "Stacja filtrów i orurowanie przy zasobniku.",
+      image: ajmKotlowniaRotenso,
+      alt: "Filtry wody i hydrobox w kotłowni",
     },
     {
-      title: "Serwis klimatyzacji",
+      title: "Ochrona instalacji",
       year: "2025",
-      scope: "Czyszczenie i przegląd jednostek split.",
-      image: workSerwisKlima,
-      alt: "Serwis jednostki klimatyzacji split",
+      scope: "Uzdatnianie jako ochrona urządzeń grzewczych.",
+      image: ajmKotlowniaMidea,
+      alt: "Kotłownia z instalacją wodną",
     },
     {
-      title: "Przegląd jednostek zewnętrznych",
+      title: "Zasobnik CWU",
       year: "2024",
-      scope: "Kontrola freonu, skroplin i automatyki.",
-      image: workSerwisOutdoor,
-      alt: "Przegląd jednostek zewnętrznych klimatyzacji",
+      scope: "Podłączenia wodne przy zasobniku Galmet.",
+      image: ajmKotlowniaGalmet,
+      alt: "Zasobnik Galmet z instalacją wodną",
     },
     {
-      title: "Serwis rekuperacji",
-      year: "2025",
-      scope: "Wymiana filtrów i przegląd centrali rekuperacji.",
-      image: workSerwisRecup,
-      alt: "Serwis centrali rekuperacji i filtrów",
+      title: "Kotłownia po montażu",
+      year: "2024",
+      scope: "Kompletny układ wodny w pomieszczeniu technicznym.",
+      image: ajmKotlowniaPanasonic,
+      alt: "Kotłownia z zasobnikiem i instalacją wodną",
     },
   ],
 };

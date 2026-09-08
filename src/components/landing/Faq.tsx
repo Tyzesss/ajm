@@ -15,24 +15,24 @@ import { cn } from "@/lib/utils";
 
 const ITEMS = [
   {
-    q: "Ile trwa montaż pompy ciepła?",
-    a: "Zazwyczaj 2-3 dni robocze. Termin potwierdzamy po darmowym audycie technicznym.",
+    q: "Czy dojazd i pierwsza konsultacja są płatne?",
+    a: "Pierwsze oględziny i konsultacja w naszym obszarze działania są bezpłatne. Na ich podstawie przygotowujemy wycenę.",
   },
   {
-    q: "Czy zapewniacie serwis gwarancyjny i pogwarancyjny?",
-    a: "Tak, posiadamy autoryzowany serwis producentów i własny magazyn części zamiennych.",
+    q: "Jak długo trwa montaż pompy ciepła lub klimatyzacji?",
+    a: "Zależy od zakresu i przygotowania budynku. Po oględzinach podajemy realistyczny termin, zwykle od kilku dni roboczych przy typowych instalacjach.",
   },
   {
-    q: "Kiedy najlepiej zamontować klimatyzację?",
-    a: "Przed sezonem letnim, ale montujemy przez cały rok. Poza sezonem terminy są krótsze.",
+    q: "Czy pomagacie z dofinansowaniem (np. Czyste Powietrze)?",
+    a: "Doradzamy przy wyborze rozwiązania pod kątem programów wsparcia. Szczegóły aktualnych programów omawiamy indywidualnie.",
   },
   {
-    q: "Czy pomagacie w doborze sprzętu?",
-    a: "Tak, wykonujemy darmowy audyt i dobieramy moc urządzeń do realnych potrzeb budynku.",
+    q: "Na jakim terenie działacie?",
+    a: "Głównie województwo opolskie: Namysłów, Opole, Kluczbork, Brzeg i okoliczne miejscowości. Szczegóły w sekcji Obszar działania.",
   },
   {
-    q: "Czy audyt i wycena są płatne?",
-    a: "Nie. Audyt techniczny i orientacyjna wycena są bezpłatne i bez zobowiązań.",
+    q: "Czy robicie też serwis istniejących instalacji?",
+    a: "Tak. Przeglądy, uruchomienia i wsparcie pogwarancyjne w ramach oferty serwisowej powiązanej z montażami.",
   },
 ];
 
@@ -72,9 +72,9 @@ export function Faq() {
           </p>
           <CheckList
             items={[
-              "Oferujemy darmowy audyt techniczny",
-              "Pomagamy w dotacjach Czyste Powietrze",
-              "Wyceniamy bez zobowiązań",
+              "Bezpłatne oględziny i konsultacja",
+              "Pomoc przy programach wsparcia",
+              "Wycena bez zobowiązań",
             ]}
           />
           <div className="mt-8 hidden w-full lg:block">

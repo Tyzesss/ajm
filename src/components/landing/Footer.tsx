@@ -17,10 +17,11 @@ import {
 } from "@/lib/site";
 
 const LINKS = [
+  { label: "O nas", href: "/#o-nas" },
   { label: "Usługi", href: "/#uslugi" },
   { label: "Realizacje", href: "/#realizacje" },
   { label: "Opinie", href: "/#opinie" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "Obszar działania", href: "/#obszar" },
   { label: "Kontakt", href: "/#kontakt" },
 ];
 
@@ -40,10 +41,10 @@ export function Footer() {
         <Reveal>
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div>
-              <BrandMark wordmarkClassName="text-navy-foreground" />
+              <BrandMark />
               <p className="mt-5 max-w-xs text-sm text-navy-foreground/60">
-                Instalacje HVAC: pompy ciepła, klimatyzacja i kotły. Projekt,
-                montaż, serwis.
+                Instalacje HVAC w Namysłowie i na Opolszczyźnie: pompy ciepła,
+                klimatyzacja, kotły pelletowe i więcej. Montaż i serwis.
               </p>
               <div className="mt-6 flex gap-3">
                 {SOCIALS.map((Icon, i) => (

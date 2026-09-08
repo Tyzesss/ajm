@@ -1,36 +1,28 @@
-import logoMark from "@/assets/logo-mark.png";
+import logoAjm from "@/assets/logo-ajm-technika.png";
+import { SITE_NAME } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type BrandMarkProps = {
   className?: string;
+  /** Kept for call-site compatibility; logo is an image wordmark. */
   wordmarkClassName?: string;
 };
 
-export function BrandMark({ className, wordmarkClassName }: BrandMarkProps) {
+export function BrandMark({ className }: BrandMarkProps) {
   return (
-    <span className={cn("flex items-center gap-3", className)}>
-      <span
-        aria-hidden
-        className="size-11 shrink-0 bg-gradient-cyan sm:size-12"
+    <span className={cn("flex items-center", className)}>
+      <img
+        src={logoAjm}
+        alt={SITE_NAME}
+        width={800}
+        height={114}
+        className="h-8 w-auto sm:h-9"
+        decoding="async"
         style={{
-          maskImage: `url(${logoMark})`,
-          WebkitMaskImage: `url(${logoMark})`,
-          maskSize: "contain",
-          WebkitMaskSize: "contain",
-          maskRepeat: "no-repeat",
-          WebkitMaskRepeat: "no-repeat",
-          maskPosition: "center",
-          WebkitMaskPosition: "center",
+          filter:
+            "brightness(1.22) contrast(1.04) drop-shadow(0 1px 1px rgb(0 0 0 / 0.18))",
         }}
       />
-      <span
-        className={cn(
-          "font-display text-xl font-bold tracking-tight sm:text-2xl",
-          wordmarkClassName,
-        )}
-      >
-        KLIMAT<span className="text-gradient-cyan">PRO</span>
-      </span>
     </span>
   );
 }

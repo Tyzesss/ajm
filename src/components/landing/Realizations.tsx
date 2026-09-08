@@ -5,19 +5,20 @@ import { DarkEyebrow } from "./DarkEyebrow";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { MobileCarousel } from "./MobileCarousel";
-import workHeatpump from "@/assets/work-heatpump.jpg";
-import workAc from "@/assets/work-ac.jpg";
-import workRecup from "@/assets/work-recup.jpg";
-import workAcOutdoor from "@/assets/work-ac-outdoor.jpg";
-import workUnderfloor from "@/assets/work-underfloor.jpg";
-import workKotly from "@/assets/service-kotly.png";
-import workHeatpumpM from "@/assets/work-heatpump-m.jpg";
-import workAcM from "@/assets/work-ac-m.jpg";
-import workRecupM from "@/assets/work-recup-m.jpg";
-import workAcOutdoorM from "@/assets/work-ac-outdoor-m.jpg";
-import workUnderfloorM from "@/assets/work-underfloor-m.jpg";
+import ajmPompaPanasonic from "@/assets/ajm-pompa-panasonic-aquarea.jpg";
+import ajmKociolHlazar from "@/assets/ajm-kociol-hlazar-pellet.jpg";
+import ajmJednostkiDuo from "@/assets/ajm-jednostki-zew-midea-duo.jpg";
+import ajmKotlowniaMidea from "@/assets/ajm-kotlownia-midea-czerwone.jpg";
+import ajmPodlogowka from "@/assets/ajm-podlogowka-petle.jpg";
+import ajmPompaMideaDach from "@/assets/ajm-pompa-midea-dach.jpg";
+import ajmKotlowniaRotenso from "@/assets/ajm-kotlownia-rotenso-filtry.jpg";
+import ajmPompaStiebel from "@/assets/ajm-pompa-stiebel-outdoor.jpg";
 
-type Category = "Pompy ciepła" | "Klimatyzacja" | "Kotły" | "Rekuperacja";
+type Category =
+  | "Pompy ciepła"
+  | "Klimatyzacja"
+  | "Kotły pelletowe"
+  | "Ogrzewanie podłogowe";
 
 const PROJECTS: {
   image: string;
@@ -29,53 +30,69 @@ const PROJECTS: {
   featured?: boolean;
 }[] = [
   {
-    image: workHeatpump,
-    imageMobile: workHeatpumpM,
+    image: ajmPompaPanasonic,
+    imageMobile: ajmPompaPanasonic,
     category: "Pompy ciepła",
-    title: "Pompa ciepła powietrze-woda",
-    place: "Dom jednorodzinny, Twoje miasto",
-    alt: "Jednostka zewnętrzna pompy ciepła zamontowana na betonowych stopach przy domu",
+    title: "Panasonic Aquarea",
+    place: "Dom jednorodzinny, woj. opolskie",
+    alt: "Jednostka zewnętrzna Panasonic Aquarea na stopach betonowych",
     featured: true,
   },
   {
-    image: workKotly,
-    imageMobile: workKotly,
-    category: "Kotły",
-    title: "Kocioł gazowy w kotłowni",
-    place: "Dom jednorodzinny, Twoje miasto",
-    alt: "Nowoczesny kocioł gazowy kondensacyjny w kotłowni",
+    image: ajmKociolHlazar,
+    imageMobile: ajmKociolHlazar,
+    category: "Kotły pelletowe",
+    title: "Kocioł Hlazar Smart Fire",
+    place: "Kotłownia, woj. opolskie",
+    alt: "Kocioł pelletowy Hlazar Smart Fire w kotłowni",
   },
   {
-    image: workAc,
-    imageMobile: workAcM,
+    image: ajmJednostkiDuo,
+    imageMobile: ajmJednostkiDuo,
     category: "Klimatyzacja",
-    title: "Klimatyzacja split",
-    place: "Sypialnia, Twoje miasto",
-    alt: "Ścienna jednostka klimatyzacji w nowoczesnej sypialni",
+    title: "Jednostki zewnętrzne Midea",
+    place: "Dom jednorodzinny, woj. opolskie",
+    alt: "Dwie jednostki zewnętrzne Midea na bloczkach betonowych",
   },
   {
-    image: workRecup,
-    imageMobile: workRecupM,
-    category: "Rekuperacja",
-    title: "Rekuperacja z odzyskiem ciepła",
-    place: "Pomieszczenie techniczne, Twoje miasto",
-    alt: "Centrala rekuperacji z zaizolowanymi kanałami w pomieszczeniu technicznym",
-  },
-  {
-    image: workAcOutdoor,
-    imageMobile: workAcOutdoorM,
-    category: "Klimatyzacja",
-    title: "Jednostki zewnętrzne multi-split",
-    place: "Dom jednorodzinny, Twoje miasto",
-    alt: "Dwie jednostki zewnętrzne klimatyzacji zamontowane na elewacji domu",
-  },
-  {
-    image: workUnderfloor,
-    imageMobile: workUnderfloorM,
+    image: ajmKotlowniaMidea,
+    imageMobile: ajmKotlowniaMidea,
     category: "Pompy ciepła",
-    title: "Ogrzewanie podłogowe",
-    place: "Kotłownia, Twoje miasto",
-    alt: "Rozdzielacz ogrzewania podłogowego i hydrobox pompy ciepła w kotłowni",
+    title: "Kotłownia z hydroboxem Midea",
+    place: "Pomieszczenie techniczne, woj. opolskie",
+    alt: "Kotłownia z jednostką Midea, zasobnikiem Galmet i orurowaniem",
+  },
+  {
+    image: ajmPodlogowka,
+    imageMobile: ajmPodlogowka,
+    category: "Ogrzewanie podłogowe",
+    title: "Pętle przed wylewką",
+    place: "Remont, woj. opolskie",
+    alt: "Pętle ogrzewania podłogowego na izolacji refleksyjnej",
+  },
+  {
+    image: ajmPompaMideaDach,
+    imageMobile: ajmPompaMideaDach,
+    category: "Pompy ciepła",
+    title: "Midea na dachu płaskim",
+    place: "Obiekt, woj. opolskie",
+    alt: "Jednostka zewnętrzna Midea zamontowana na dachu",
+  },
+  {
+    image: ajmKotlowniaRotenso,
+    imageMobile: ajmKotlowniaRotenso,
+    category: "Pompy ciepła",
+    title: "Rotenso z filtracją wody",
+    place: "Kotłownia, woj. opolskie",
+    alt: "Hydrobox Rotenso, zasobnik Galmet i stacja filtrów",
+  },
+  {
+    image: ajmPompaStiebel,
+    imageMobile: ajmPompaStiebel,
+    category: "Pompy ciepła",
+    title: "Stiebel Eltron",
+    place: "Budowa, woj. opolskie",
+    alt: "Jednostka zewnętrzna Stiebel Eltron na cegłach",
   },
 ];
 

@@ -2,19 +2,22 @@ import { createFileRoute, useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
+import { About } from "@/components/landing/About";
 import { Services } from "@/components/landing/Services";
 import { Realizations } from "@/components/landing/Realizations";
 import { Brands } from "@/components/landing/Brands";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { WhyUs } from "@/components/landing/WhyUs";
 import { Faq } from "@/components/landing/Faq";
+import { ServiceArea } from "@/components/landing/ServiceArea";
 import { Contact } from "@/components/landing/Contact";
 import { Footer } from "@/components/landing/Footer";
 import { StickyCallBar } from "@/components/landing/StickyCallBar";
 import { scrollToSection } from "@/lib/scroll-to-section";
 
-const title = "KLIMATPRO - Pompy ciepła, klimatyzacja i kotły";
+const title = "AJM Technika - Pompy ciepła, klimatyzacja i kotły | Namysłów";
 const description =
-  "Instalacje HVAC: pompy ciepła, klimatyzacja, kotły gazowe i rekuperacja. Darmowy audyt, montaż w 2-3 dni, autoryzowany serwis.";
+  "AJM Technika: instalacje HVAC w Namysłowie i na Opolszczyźnie: pompy ciepła, klimatyzacja, kotły i rekuperacja. Bezpłatna wycena, montaż i serwis.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,6 +50,7 @@ function Index() {
       <main>
         <Hero />
         <div className="bg-background">
+          <About />
           <Services />
         </div>
         <div className="bg-navy">
@@ -55,11 +59,13 @@ function Index() {
         </div>
         <div className="bg-background">
           <Testimonials />
+          <WhyUs />
         </div>
         <div className="bg-navy">
           <Faq />
         </div>
         <div className="bg-background">
+          <ServiceArea />
           <Contact />
         </div>
       </main>

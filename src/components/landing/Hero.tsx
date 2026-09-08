@@ -3,15 +3,14 @@ import { ArrowRight, ChevronDown, Phone, ShieldCheck } from "lucide-react";
 import type { MouseEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/scroll-to-section";
-import { PHONE_HREF } from "@/lib/site";
+import { PHONE_HREF, SERVICE_AREA } from "@/lib/site";
 import { Counter } from "./Counter";
 import heroImage from "@/assets/hero-hvac.png";
 
 const STATS = [
   { value: 15, suffix: "+", label: "Lat doświadczenia" },
   { value: 2500, suffix: "+", label: "Instalacji" },
-  { value: 98, suffix: "%", label: "Zadowolonych klientów" },
-  { value: 24, suffix: "/7", label: "Serwis" },
+  { value: 5, suffix: ".0", label: "Ocena Google" },
 ];
 
 const goTo = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
@@ -25,7 +24,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-x-clip bg-navy max-md:min-h-[118svh] md:h-[calc(100svh-5rem)] md:min-h-[32rem] lg:h-[calc(100svh-5.5rem)]"
+      className="relative z-20 isolate overflow-x-clip bg-navy max-md:min-h-[118svh] md:h-[calc(100svh-5rem)] md:min-h-[32rem] lg:h-[calc(100svh-5.5rem)]"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="size-full origin-[80%_65%] scale-[1.18] -translate-x-[5%] translate-y-[2%] max-md:origin-[80%_42%] max-md:scale-[1.2] max-md:translate-x-0 max-md:-translate-y-[10%] lg:scale-[1.15] lg:-translate-x-[6%]">
@@ -70,7 +69,7 @@ export function Hero() {
 
             <p className="mt-4 max-w-xl text-sm text-navy-foreground/75 sm:mt-5 sm:text-lg">
               Jedna ekipa od doboru sprzętu po uruchomienie.
-              <br /> Twoje miasto i okolice.
+              <br /> {SERVICE_AREA}.
             </p>
 
             <div className="mt-6 flex w-full max-w-md flex-col items-stretch gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:gap-4">
@@ -94,7 +93,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Mobile stats — transparent badges with cyan underline */}
+          {/* Mobile stats */}
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -115,11 +114,10 @@ export function Hero() {
             ))}
           </motion.div>
 
-          {/* Mobile bounce arrow */}
           <motion.a
-            href="#uslugi"
+            href="#o-nas"
             aria-label="Przewiń dalej"
-            onClick={goTo("#uslugi")}
+            onClick={goTo("#o-nas")}
             initial={reduce ? false : { opacity: 0 }}
             animate={reduce ? { opacity: 1 } : { opacity: 1, y: [0, 8, 0] }}
             transition={
@@ -137,23 +135,21 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Desktop / tablet stats card — unchanged */}
+      {/* Desktop / tablet trust card */}
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-x-0 bottom-0 z-30 hidden translate-y-1/2 px-3 sm:px-5 md:block lg:px-6"
       >
-        <div className="mx-auto grid max-w-6xl grid-cols-2 overflow-hidden rounded-2xl bg-background shadow-card ring-1 ring-accent/25 sm:grid-cols-4 sm:rounded-3xl">
+        <div className="mx-auto grid max-w-6xl grid-cols-3 overflow-hidden rounded-2xl bg-background shadow-card ring-1 ring-accent/25 sm:rounded-3xl">
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
               className={
-                i >= 2
-                  ? "hidden flex-col items-center justify-center border-r border-accent/20 px-1.5 py-5 text-center last:border-r-0 sm:flex sm:px-4 sm:py-5 md:px-6 md:py-6"
-                  : i === 0
-                    ? "flex flex-col items-center justify-center border-r border-accent/20 px-1.5 py-5 text-center sm:px-4 sm:py-5 md:px-6 md:py-6"
-                    : "flex flex-col items-center justify-center border-accent/20 px-1.5 py-5 text-center sm:border-r sm:px-4 sm:py-5 md:px-6 md:py-6"
+                i < STATS.length - 1
+                  ? "flex flex-col items-center justify-center border-r border-accent/20 px-1.5 py-5 text-center sm:px-4 sm:py-5 md:px-6 md:py-6"
+                  : "flex flex-col items-center justify-center px-1.5 py-5 text-center sm:px-4 sm:py-5 md:px-6 md:py-6"
               }
             >
               <div className="text-gradient-cyan font-display text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">

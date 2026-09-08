@@ -26,65 +26,77 @@ import { ServiceRealizations } from "@/components/landing/ServiceRealizations";
 import { Reveal } from "@/components/landing/Reveal";
 import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
 import { motion, useReducedMotion } from "framer-motion";
-import imgPompy from "@/assets/service-pompy-ciepla.jpg";
-import imgKlima from "@/assets/service-klimatyzacja.png";
-import imgKotly from "@/assets/service-kotly.png";
-import imgPodlogowe from "@/assets/service-podlogowe.jpg";
-import imgRecup from "@/assets/service-rekuperacja.jpg";
-import imgSerwis from "@/assets/service-serwis.jpg";
-import thumbPompy from "@/assets/work-heatpump.jpg";
-import thumbKlima from "@/assets/work-ac.jpg";
-import thumbKotly from "@/assets/service-kotly.png";
-import thumbPodlogowe from "@/assets/work-underfloor.jpg";
-import thumbRecup from "@/assets/work-rekuperacja-2.jpg";
-import thumbSerwis from "@/assets/work-ac-outdoor.jpg";
+import thumbPompy from "@/assets/ajm-pompa-panasonic-aquarea.jpg";
+import thumbKlima from "@/assets/ajm-jednostki-zew-midea-duo.jpg";
+import thumbKotly from "@/assets/ajm-kociol-hlazar-pellet.jpg";
+import thumbPodlogowe from "@/assets/ajm-podlogowka-petle.jpg";
+import thumbRecup from "@/assets/ajm-kotlownia-rotenso-filtry.jpg";
+import thumbSerwis from "@/assets/ajm-pompa-midea-dach.jpg";
+import thumbHydro from "@/assets/ajm-kotlownia-midea-czerwone.jpg";
+import thumbWoda from "@/assets/ajm-kotlownia-galmet-pompy.jpg";
 
 const IMAGES: Record<
   string,
   { src: string; alt: string; position: string; heroPosition?: string; heroZoom?: number }
 > = {
   "pompy-ciepla": {
-    src: imgPompy,
-    alt: "Jednostka zewnętrzna pompy ciepła przy nowoczesnym domu",
-    position: "78% 48%",
+    src: thumbPompy,
+    alt: "Jednostka zewnętrzna Panasonic Aquarea przy domu",
+    position: "50% 45%",
   },
-  klimatyzacja: {
-    src: imgKlima,
-    alt: "Ścienna jednostka klimatyzacji w jasnym, nowoczesnym salonie",
-    position: "58% 48%",
-    heroPosition: "88% 16%",
-    heroZoom: 1.38,
-  },
-  kotly: {
-    src: imgKotly,
-    alt: "Nowoczesny kocioł gazowy kondensacyjny w kotłowni",
+  "kotly-pelletowe": {
+    src: thumbKotly,
+    alt: "Kocioł pelletowy Hlazar Smart Fire w kotłowni",
     position: "55% 45%",
   },
   "ogrzewanie-podlogowe": {
-    src: imgPodlogowe,
-    alt: "Rozdzielacz ogrzewania podłogowego w pomieszczeniu technicznym",
-    position: "76% 48%",
+    src: thumbPodlogowe,
+    alt: "Pętle ogrzewania podłogowego przed wylewką",
+    position: "50% 55%",
+  },
+  klimatyzacja: {
+    src: thumbKlima,
+    alt: "Jednostki zewnętrzne klimatyzacji Midea przy elewacji",
+    position: "50% 45%",
+  },
+  "instalacje-wodne": {
+    src: thumbHydro,
+    alt: "Kotłownia z instalacją wodną i grzewczą",
+    position: "50% 45%",
+  },
+  "instalacje-sanitarne": {
+    src: thumbHydro,
+    alt: "Instalacje w pomieszczeniu technicznym",
+    position: "50% 45%",
+  },
+  "instalacje-przemyslowe": {
+    src: thumbSerwis,
+    alt: "Jednostka zewnętrzna na dachu obiektu",
+    position: "48% 45%",
   },
   rekuperacja: {
-    src: imgRecup,
-    alt: "Centrala rekuperacji z kanałami w pomieszczeniu technicznym",
-    position: "82% 42%",
+    src: thumbRecup,
+    alt: "Pomieszczenie techniczne po montażu instalacji",
+    position: "50% 40%",
   },
-  serwis: {
-    src: imgSerwis,
-    alt: "Jednostki zewnętrzne instalacji HVAC przy budynku",
-    position: "74% 46%",
+  "uzdatnianie-wody": {
+    src: thumbWoda,
+    alt: "Zasobnik i instalacja wodna w kotłowni",
+    position: "52% 40%",
   },
 };
 
-/** Tight crops for „Inne usługi” cards — not the wide hero frames. */
+/** Tight crops for „Inne usługi” cards - not the wide hero frames. */
 const CARD_THUMBS: Record<string, { src: string; position: string }> = {
-  "pompy-ciepla": { src: thumbPompy, position: "55% 45%" },
-  klimatyzacja: { src: thumbKlima, position: "72% 18%" },
-  kotly: { src: thumbKotly, position: "55% 40%" },
-  "ogrzewanie-podlogowe": { src: thumbPodlogowe, position: "48% 42%" },
-  rekuperacja: { src: thumbRecup, position: "55% 40%" },
-  serwis: { src: thumbSerwis, position: "48% 45%" },
+  "pompy-ciepla": { src: thumbPompy, position: "50% 45%" },
+  "kotly-pelletowe": { src: thumbKotly, position: "55% 40%" },
+  "ogrzewanie-podlogowe": { src: thumbPodlogowe, position: "50% 55%" },
+  klimatyzacja: { src: thumbKlima, position: "50% 45%" },
+  "instalacje-wodne": { src: thumbHydro, position: "50% 45%" },
+  "instalacje-sanitarne": { src: thumbHydro, position: "50% 45%" },
+  "instalacje-przemyslowe": { src: thumbSerwis, position: "48% 45%" },
+  rekuperacja: { src: thumbRecup, position: "50% 40%" },
+  "uzdatnianie-wody": { src: thumbWoda, position: "52% 40%" },
 };
 
 function OtherServiceCard({ item }: { item: (typeof SERVICES)[number] }) {
@@ -167,7 +179,7 @@ function ServiceFaq({ service }: { service: Service }) {
             onValueChange={setOpenItem}
             className="mt-8 flex flex-col gap-3"
           >
-            {service.faq.slice(0, 2).map((item, i) => (
+            {service.faq.map((item, i) => (
               <AccordionItem
                 key={item.q}
                 value={`faq-${i}`}
@@ -222,13 +234,14 @@ export const Route = createFileRoute("/uslugi/$slug")({
   },
   head: ({ params }) => {
     const service = getService(params.slug);
-    const title = service ? `${service.title} | ${SITE_NAME}` : SITE_NAME;
+    const title = service?.seoTitle ?? SITE_NAME;
+    const description = service?.seoDescription ?? service?.intro ?? "";
     return {
       meta: [
         { title },
-        { name: "description", content: service?.intro ?? "" },
+        { name: "description", content: description },
         { property: "og:title", content: title },
-        { property: "og:description", content: service?.intro ?? "" },
+        { property: "og:description", content: description },
       ],
     };
   },
@@ -291,7 +304,7 @@ function ServicePage() {
               transition={{ duration: reduce ? 0 : 0.7, ease }}
             >
               <h1 className="max-w-3xl font-display text-4xl font-black tracking-tight text-navy-foreground sm:text-5xl lg:text-6xl">
-                {service.title}
+                {service.headline}
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-navy-foreground/92 sm:text-lg">
                 {service.intro}
@@ -363,6 +376,10 @@ function ServicePage() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-8 border-t border-accent/20 pt-6">
+                  <h3 className="font-display text-base font-bold text-foreground">Teren działania</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.area}</p>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -377,7 +394,7 @@ function ServicePage() {
                   Jak <span className="text-gradient-cyan">pracujemy</span>
                 </h2>
               </Reveal>
-              <ol className="mt-8 grid gap-5 sm:grid-cols-3 sm:gap-6">
+              <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
                 {SERVICE_PROCESS.map((item, i) => (
                   <Reveal key={item.step} delay={0.06 + i * 0.07} y={16} scale>
                     <li className="rounded-3xl bg-navy-foreground/8 p-7 ring-1 ring-navy-foreground/15 sm:p-8">

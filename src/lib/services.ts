@@ -1,12 +1,20 @@
-import { REALIZATIONS } from "./site";
+import { REALIZATIONS, SERVICE_AREA } from "./site";
 
 export type Service = {
   slug: string;
   title: string;
   /** Dopełniacz: "Nasze realizacje {titleOf}" */
   titleOf: string;
+  /** H1 na podstronie (z frazą lokalną). */
+  headline: string;
+  /** Title w <title> / OG. */
+  seoTitle: string;
+  /** Meta description. */
+  seoDescription: string;
   short: string;
   intro: string;
+  /** Krótki blok „teren działania”. */
+  area: string;
   sections: { heading: string; body: string }[];
   bullets: string[];
   faq: { q: string; a: string }[];
@@ -17,243 +25,410 @@ export type Service = {
 export const SERVICE_PROCESS = [
   {
     step: "01",
-    title: "Bezpłatna konsultacja",
-    body: "Rozmawiamy o budynku, zużyciu energii i oczekiwaniach. Pierwsza wizyta lub audyt zdalny nic nie kosztują.",
+    title: "Oględziny i bezpłatna konsultacja",
+    body: "Oglądamy budynek lub dokumentację, rozmawiamy o oczekiwaniach i dobieramy kierunek rozwiązania, bez zobowiązań.",
   },
   {
     step: "02",
-    title: "Dobór i wycena",
-    body: "Dobieramy moc urządzeń i przygotowujemy jasny kosztorys - bez zbędnych pozycji i niespodzianek.",
+    title: "Wycena",
+    body: "Przygotowujemy jasny kosztorys zakresu prac i urządzeń, bez zbędnych pozycji i niespodzianek.",
   },
   {
     step: "03",
     title: "Montaż i uruchomienie",
     body: "Montujemy instalację, uruchamiamy ją na miejscu i zostawiamy instrukcję obsługi oraz warunki gwarancji.",
   },
+  {
+    step: "04",
+    title: "Serwis",
+    body: "Po oddaniu instalacji jesteśmy do dyspozycji przy przeglądach, regulacji i wsparciu pogwarancyjnym.",
+  },
 ] as const;
+
+const AREA_DEFAULT = `Działamy w ${SERVICE_AREA}. Dojazd poza listę miejscowości uzgadniamy indywidualnie.`;
 
 export const SERVICES: Service[] = [
   {
     slug: "pompy-ciepla",
     title: "Pompy ciepła",
     titleOf: "pomp ciepła",
-    short: "Ogrzewanie i chłodzenie w jednym systemie. Montaż z gwarancją i pełnym doborem mocy.",
+    headline: "Pompy ciepła w Namysłowie i Opolu",
+    seoTitle: "Pompy ciepła Namysłów i Opole | montaż | AJM Technika",
+    seoDescription:
+      "Montaż pomp ciepła powietrze-woda w Namysłowie, Opolu i okolicach. Dobór mocy, uruchomienie i serwis. Bezpłatna konsultacja i wycena.",
+    short: "Dobór i montaż pomp powietrze-woda: ogrzewanie, chłodzenie i ciepła woda.",
     intro:
-      "Montujemy pompy ciepła powietrze-woda do ogrzewania domu i ciepłej wody. Dobór mocy po audycie, montaż w 2-3 dni, uruchomienie i ustawienia na miejscu.",
+      "Dobór i montaż pomp ciepła powietrze-woda dla domów i budynków użytkowych. Niższe koszty ogrzewania, chłodzenie i ciepło użytkowe w jednym systemie, z uruchomieniem i instruktażem. Montaż pomp ciepła Namysłów, Opole i okolice.",
+    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Dlaczego warto wybrać pompę ciepła",
-        body: "Jedna instalacja ogrzewa zimą i często chłodzi latem. Niższe rachunki niż przy gazie czy oleju, stabilna temperatura i możliwość połączenia z podłogówką. Moc liczymy do konkretnego budynku - nie z metrażu „na oko”.",
+        body: "Jedna instalacja ogrzewa zimą i często chłodzi latem. Niższe koszty eksploatacji niż przy wielu tradycyjnych źródłach ciepła, stabilny komfort i dobre sparowanie z podłogówką. Moc liczymy do konkretnego budynku, nie na oko z metrażu.",
       },
       {
-        heading: "Dobór, montaż i opieka",
-        body: "Dobieramy jednostkę zewnętrzną i hydrobox, prowadzimy rury i automatykę, ustawiamy krzywe grzania. Po rozruchu zostajesz z jasną instrukcją. Serwis gwarancyjny i pogwarancyjny robimy tą samą ekipą.",
+        heading: "Technologie, marki i montaż",
+        body: "Dobieramy jednostkę zewnętrzną i hydrobox, prowadzimy instalację i automatykę, ustawiamy krzywe grzania. Pracujemy na sprawdzonych urządzeniach (m.in. Midea). Po rozruchu zostajesz z jasną instrukcją i opieką serwisową.",
       },
     ],
     bullets: [
-      "Bezpłatna konsultacja techniczna z doradcą",
-      "Bezpłatna wycena po oględzinach lub dokumentacji",
+      "Bezpłatna konsultacja i oględziny",
+      "Bezpłatna wycena po audycie",
       "Dobór mocy do budynku i izolacji",
       "Montaż, uruchomienie i ustawienia",
+      "Integracja z podłogówką i CWU",
       "Serwis i opieka po montażu",
-      "Możliwość połączenia z kotłem i podłogówką",
     ],
     faq: [
       {
-        q: "Czy pompa ciepła nadaje się do starego domu?",
-        a: "Często tak - po sprawdzeniu izolacji, grzejników i rozprowadzenia. Czasem doradzamy dopracowanie instalacji albo hybrydę z kotłem. Decyzja po audycie, nie z katalogu.",
+        q: "Czy pompa ciepła ma sens w starszym domu?",
+        a: "Często tak, po sprawdzeniu izolacji, grzejników i rozprowadzenia. Czasem doradzamy dopracowanie instalacji albo inne źródło ciepła. Decyzja po oględzinach, nie z katalogu.",
       },
       {
-        q: "Ile trwa montaż?",
-        a: "Zwykle 2-3 dni robocze przy typowym domu jednorodzinnym. Termin zależy od zakresu (sama pompa, podłogówka, przebudowa kotłowni).",
+        q: "Jak głośna jest jednostka zewnętrzna?",
+        a: "Nowoczesne pompy są znacznie cichsze niż starsze generacje. Lokalizację dobieramy tak, by nie przeszkadzać domownikom i sąsiadom. Omawiamy to na miejscu.",
+      },
+      {
+        q: "Czy pomagacie z dofinansowaniem?",
+        a: "Doradzamy przy wyborze rozwiązania pod kątem programów wsparcia. Szczegóły aktualnych programów omawiamy indywidualnie przy wycenie.",
       },
     ],
     match: ["pomp", "pompa ciepła", "hydrobox"],
   },
   {
-    slug: "klimatyzacja",
-    title: "Klimatyzacja",
-    titleOf: "klimatyzacji",
-    short: "Split i Multi-split dla domu i biura. Ciche jednostki i estetyczny montaż.",
+    slug: "kotly-pelletowe",
+    title: "Kotły pelletowe",
+    titleOf: "kotłów pelletowych",
+    headline: "Kotły pelletowe w Namysłowie i na Opolszczyźnie",
+    seoTitle: "Kotły pelletowe Namysłów | montaż kotła na pellet Opole | AJM Technika",
+    seoDescription:
+      "Montaż kotłów na pellet w Namysłowie i Opolu. Dobór mocy, zbiornik na paliwo, integracja z CO. Bezpłatna konsultacja i wycena.",
+    short: "Kotły na pellet: dobór mocy, montaż i podłączenie do instalacji CO.",
     intro:
-      "Projektujemy i montujemy klimatyzację split oraz multi-split. Dobór mocy do pomieszczeń, estetyczny montaż i cicha praca - w domu i w biurze.",
+      "Montaż kotłów na pellet jako ekologiczne i wygodne źródło ciepła. Pomagamy dobrać moc, zbiornik na paliwo i integrację z instalacją CO. Kotły pelletowe Namysłów, montaż kotła na pellet Opole i okolice.",
+    area: AREA_DEFAULT,
     sections: [
       {
-        heading: "Komfort latem i zimą",
-        body: "Nowoczesne jednostki chłodzą, grzeją i osuszają powietrze. Multi-split pozwala obsłużyć kilka pomieszczeń jedną jednostką zewnętrzną. Dobieramy markę i moc tak, żeby nie było ani za głośno, ani za słabo.",
+        heading: "Dlaczego kocioł na pellet",
+        body: "Pellet to odnawialne paliwo z wygodnym, zautomatyzowanym podawaniem. Nowoczesny kocioł utrzymuje komfort przy rozsądnych kosztach eksploatacji i dobrze współpracuje z istniejącą instalacją grzewczą.",
       },
       {
-        heading: "Montaż bez chaosu",
-        body: "Prowadzimy freon, skropliny i zasilanie tak, żeby elewacja i wnętrze wyglądały czysto. Po montażu sprawdzamy szczelność, uruchamiamy układ i pokazujemy sterowanie.",
+        heading: "Dobór, kotłownia i uruchomienie",
+        body: "Dobieramy moc do strat ciepła budynku, planujemy miejsce na kocioł i magazyn pelletu, podłączamy instalację i uruchamiamy urządzenie z ustawieniami na miejscu.",
       },
     ],
     bullets: [
-      "Split i Multi-split",
-      "Dobór mocy do pomieszczeń",
-      "Ciche jednostki premium",
-      "Estetyczny montaż freonu i skroplin",
-      "Bezpłatna wycena",
-      "Serwis i przeglądy okresowe",
-    ],
-    faq: [
-      {
-        q: "Split czy multi-split?",
-        a: "Split - jedno pomieszczenie, jedna jednostka zewnętrzna. Multi - kilka pokoi na jednej zewnętrznej. Dobieramy po metrażu, nasłonecznieniu i układzie ścian.",
-      },
-      {
-        q: "Czy klimatyzacja też grzeje?",
-        a: "Tak, większość nowoczesnych jednostek pracuje w trybie grzania. To dobra uzupełniająca opcja poza sezonem, nie zawsze zastępstwo pełnego c.o.",
-      },
-    ],
-    match: ["klimatyz", "multi-split"],
-  },
-  {
-    slug: "kotly",
-    title: "Kotły gazowe",
-    titleOf: "kotłów gazowych",
-    short: "Kondensacyjne kotły gazowe do c.o. i ciepłej wody. Dobór, montaż i uruchomienie.",
-    intro:
-      "Montujemy kotły gazowe kondensacyjne do ogrzewania domu i ciepłej wody. Dobór mocy do budynku, podłączenie do instalacji i uruchomienie z ustawieniami na miejscu.",
-    sections: [
-      {
-        heading: "Kiedy kocioł ma sens",
-        body: "Gdy masz przyłącze gazu i chcesz sprawdzone, przewidywalne ogrzewanie. Nowoczesny kocioł kondensacyjny jest cichy, kompaktowy i dobrze współpracuje z grzejnikami albo podłogówką. Dobieramy moc do realnych strat ciepła budynku.",
-      },
-      {
-        heading: "Montaż i kotłownia",
-        body: "Wymieniamy stary kocioł albo stawiamy nową kotłownię: podłączenia, spalinę, zawory bezpieczeństwa, automatykę. Po uruchomieniu zostawiamy instrukcję i jasne warunki gwarancji.",
-      },
-    ],
-    bullets: [
-      "Kotły kondensacyjne sprawdzonych marek",
-      "Dobór mocy do budynku",
-      "Wymiana starego kotła lub nowa kotłownia",
+      "Dobór mocy kotła do budynku",
+      "Plan kotłowni i zbiornika na pellet",
       "Podłączenie do c.o. i ciepłej wody",
-      "Uruchomienie i ustawienia",
-      "Bezpłatna wycena i konsultacja",
+      "Uruchomienie i instruktaż",
+      "Bezpłatna konsultacja i wycena",
+      "Serwis po montażu",
     ],
     faq: [
       {
-        q: "Kocioł czy pompa ciepła?",
-        a: "Zależy od przyłącza gazu, izolacji budynku i rachunków. Czasem hybrydę. Decyzja po audycie, nie z folderu.",
+        q: "Pellet czy pompa ciepła?",
+        a: "Zależy od budynku, budżetu inwestycyjnego i kosztów energii. Często porównujemy oba warianty na oględzinach i pomagamy wybrać sensowniej dla Twojej sytuacji.",
       },
       {
-        q: "Ile trwa wymiana kotła?",
-        a: "Przy typowej wymianie 1-2 dni. Nowa kotłownia albo przebudowa instalacji może potrwać dłużej.",
+        q: "Ile miejsca potrzeba na kocioł i pellet?",
+        a: "Potrzebujesz kotłowni lub pomieszczenia technicznego oraz miejsca na zbiornik lub magazyn paliwa. Na wizycie mierzymy i proponujemy układ.",
       },
     ],
-    match: ["kotł", "kocioł", "gazow", "kotlown"],
+    match: ["kotł", "kocioł", "pellet", "kotlown"],
   },
   {
     slug: "ogrzewanie-podlogowe",
     title: "Ogrzewanie podłogowe",
     titleOf: "ogrzewania podłogowego",
-    short: "Komfort i oszczędność. Równomierne ciepło w całym domu przy niższych kosztach.",
+    headline: "Ogrzewanie podłogowe w Namysłowie",
+    seoTitle: "Ogrzewanie podłogowe Namysłów | montaż | AJM Technika",
+    seoDescription:
+      "Projekt i montaż ogrzewania podłogowego wodnego w Namysłowie i okolicach. Komfort, równomierna temperatura, współpraca z pompą ciepła lub kotłem.",
+    short: "Podłogówka wodna: równomierne ciepło, także z pompą ciepła lub kotłem.",
     intro:
-      "Montujemy ogrzewanie podłogowe mokre i systemy suche. Równomierne ciepło, niższa temperatura zasilania - idealnie z pompą ciepła.",
+      "Projekt i montaż ogrzewania podłogowego wodnego: komfort termiczny, równomierna temperatura, dobre sparowanie z pompą ciepła lub kotłem. Ogrzewanie podłogowe Namysłów, Opole i okolice.",
+    area: AREA_DEFAULT,
     sections: [
       {
-        heading: "Komfort bez grzejników na ścianach",
-        body: "Podłogówka oddaje ciepło całą powierzchnią. Brak „zimnych stref”, mniej kurzu unoszonego przy grzejnikach i swoboda aranżacji. Dobrze działa z pompą ciepła dzięki niskiej temperaturze wody.",
+        heading: "Komfort bez zimnych stref",
+        body: "Podłogówka oddaje ciepło całą powierzchnią. Mniej zimnych kątów, swoboda aranżacji bez grzejników na ścianach i bardzo dobre sparowanie z pompą ciepła.",
       },
       {
-        heading: "Rozdzielacz, pętle, uruchomienie",
-        body: "Układamy pętle, montujemy rozdzielacz, izolację i wylewkę albo system suchy. Po zalaniu i sezonowaniu uruchamiamy układ, odpowietrzamy i ustawiamy strefy.",
+        heading: "Pętle, rozdzielacz, uruchomienie",
+        body: "Układamy pętle, montujemy rozdzielacz i automatykę stref. Po wylewce i sezonowaniu uruchamiamy układ, odpowietrzamy i ustawiamy obiegi.",
       },
     ],
     bullets: [
-      "System mokry i suchy",
       "Dobór rozstawu pętli do pomieszczeń",
-      "Rozdzielacze i automatyka strefowa",
-      "Współpraca z pompą ciepła",
+      "Rozdzielacze i automatyka",
+      "Współpraca z pompą ciepła lub kotłem",
       "Montaż w nowym budownictwie i modernizacjach",
+      "Uruchomienie i regulacja",
       "Bezpłatna wycena",
     ],
     faq: [
       {
         q: "Podłogówka tylko do nowego domu?",
-        a: "Najczęściej tak - przy wylewce. W modernizacji da się iść w system suchy albo wybrane pomieszczenia. Decyzja po oględzinach.",
+        a: "Najczęściej przy wylewce w nowym budownictwie. W modernizacji da się wybrane pomieszczenia lub system dostosowany do warunków. Decyzja po oględzinach.",
       },
       {
         q: "Czy podłogówka wymaga pompy ciepła?",
-        a: "Nie, ale z pompą działa szczególnie dobrze. Może też iść z kotłem kondensacyjnym przy odpowiednio niskiej temperaturze zasilania.",
+        a: "Nie, ale z pompą działa szczególnie dobrze. Może też współpracować z kotłem przy odpowiednio niskiej temperaturze zasilania.",
       },
     ],
     match: ["podłogow", "rozdzielacz", "pętl"],
   },
   {
+    slug: "klimatyzacja",
+    title: "Klimatyzacja",
+    titleOf: "klimatyzacji",
+    headline: "Klimatyzacja w Namysłowie i Opolu",
+    seoTitle: "Klimatyzacja Namysłów | montaż klimatyzacji Opole | AJM Technika",
+    seoDescription:
+      "Montaż klimatyzacji split i multi-split w Namysłowie i Opolu. Chłodzenie, dogrzewanie, uruchomienie. Bezpłatna wycena.",
+    short: "Split i multi-split: chłodzenie latem i dogrzewanie poza sezonem.",
+    intro:
+      "Klimatyzacja split i multi-split: chłodzenie latem, dogrzewanie w przejściowych porach, montaż z odprowadzeniem skroplin i uruchomieniem. Klimatyzacja Namysłów, montaż klimatyzacji Opole i okolice.",
+    area: AREA_DEFAULT,
+    sections: [
+      {
+        heading: "Komfort przez cały rok",
+        body: "Dobrze dobrana klima to nie tylko chłód w upały. Wiele jednostek też dogrzewa, gdy na zewnątrz jest jeszcze chłodno. Dobieramy moc do pomieszczeń, nasłonecznienia i układu ścian.",
+      },
+      {
+        heading: "Montaż i uruchomienie",
+        body: "Prowadzimy freon i skropliny estetycznie, ustawiamy jednostki i uruchamiamy instalację. Pokazujemy obsługę pilota i podstawowe tryby pracy.",
+      },
+    ],
+    bullets: [
+      "Split i multi-split",
+      "Dobór mocy do pomieszczeń",
+      "Estetyczny montaż freonu i skroplin",
+      "Uruchomienie i instruktaż",
+      "Bezpłatna wycena",
+      "Serwis i przeglądy",
+    ],
+    faq: [
+      {
+        q: "Split czy multi-split?",
+        a: "Split: jedno pomieszczenie, jedna jednostka zewnętrzna. Multi: kilka pokoi na jednej zewnętrznej. Dobieramy po metrażu i układzie budynku.",
+      },
+      {
+        q: "Czy klimatyzacja też grzeje?",
+        a: "Tak, większość nowoczesnych jednostek pracuje w trybie grzania. To dobra opcja uzupełniająca poza sezonem, nie zawsze zastępstwo pełnego c.o.",
+      },
+    ],
+    match: ["klimatyz", "multi-split", "split"],
+  },
+  {
+    slug: "instalacje-wodne",
+    title: "Instalacje wodne",
+    titleOf: "instalacji wodnych",
+    headline: "Instalacje wodne w Namysłowie",
+    seoTitle: "Instalacje wodne Namysłów | montaż | AJM Technika",
+    seoDescription:
+      "Instalacje wody użytkowej w Namysłowie i okolicach: przyłącza, rozprowadzenie, modernizacje. Bezpłatna konsultacja i wycena.",
+    short: "Woda użytkowa: przyłącza, rozprowadzenie i modernizacje.",
+    intro:
+      "Instalacje wody użytkowej i obiegów w budynkach mieszkalnych oraz użytkowych: od przyłączy po rozprowadzenie i modernizacje. Instalacje wodne Namysłów, Opole i okolice.",
+    area: AREA_DEFAULT,
+    sections: [
+      {
+        heading: "Sprawna woda w całym budynku",
+        body: "Prawidłowo zaprojektowana instalacja wodna to stabilne ciśnienie, mniej awarii i łatwiejszy serwis. Dobieramy przekroje i trasę pod realne zużycie i układ pomieszczeń.",
+      },
+      {
+        heading: "Nowe instalacje i modernizacje",
+        body: "Robimy nowe rozprowadzenia oraz wymiany w istniejących budynkach. Po pracach sprawdzamy szczelność i zostawiamy przejrzysty opis wykonanego zakresu.",
+      },
+    ],
+    bullets: [
+      "Rozprowadzenie wody użytkowej",
+      "Przyłącza i modernizacje",
+      "Dobór materiałów do warunków",
+      "Próby szczelności",
+      "Bezpłatna konsultacja i wycena",
+      "Działamy lokalnie: Namysłów i okolice",
+    ],
+    faq: [
+      {
+        q: "Czy wymieniacie tylko fragment instalacji?",
+        a: "Tak, od punktu w łazience po większy zakres w budynku. Zakres ustalamy po oględzinach.",
+      },
+      {
+        q: "Czy łączycie instalację wodną z uzdatnianiem?",
+        a: "Tak. Często przy twardej wodzie od razu planujemy zmiękczanie lub filtrację, żeby chronić instalację i AGD.",
+      },
+    ],
+    match: ["wodn", "woda użytk", "przyłącz"],
+  },
+  {
+    slug: "instalacje-sanitarne",
+    title: "Instalacje sanitarne",
+    titleOf: "instalacji sanitarnych",
+    headline: "Instalacje sanitarne w Namysłowie i Opolu",
+    seoTitle: "Instalacje sanitarne Namysłów i Opole | AJM Technika",
+    seoDescription:
+      "Kompleksowe instalacje sanitarne w Namysłowie i Opolu: kanalizacja, podejścia, piony, modernizacja łazienek w zakresie instalacji.",
+    short: "Kanalizacja, podejścia, piony i instalacje pod łazienki.",
+    intro:
+      "Kompleksowe instalacje sanitarne: kanalizacja, podejścia, wymiana pionów i modernizacja łazienek w zakresie instalacji. Instalacje sanitarne Namysłów, Opole i okolice.",
+    area: AREA_DEFAULT,
+    sections: [
+      {
+        heading: "Solidna instalacja sanitarna",
+        body: "Dobrze wykonana kanalizacja i podejścia to mniej problemów z odpływami, hałasem i dostępem serwisowym. Planujemy trasę pod komfort użytkowania i przyszłe remonty.",
+      },
+      {
+        heading: "Modernizacje i nowe budynki",
+        body: "Pracujemy przy nowych inwestycjach i wymianach w istniejących obiektach. Koordynujemy zakres z innymi instalacjami (woda, ogrzewanie), gdy to potrzebne.",
+      },
+    ],
+    bullets: [
+      "Kanalizacja i podejścia",
+      "Wymiana pionów",
+      "Przygotowanie pod łazienki",
+      "Modernizacje w istniejących budynkach",
+      "Bezpłatna wycena po oględzinach",
+      "Lokalny montaż na Opolszczyźnie",
+    ],
+    faq: [
+      {
+        q: "Czy robicie samą instalację bez wykończenia łazienki?",
+        a: "Tak, skupiamy się na instalacji. Wykończenie może wykonać ekipa glazurnicza lub generalny wykonawca.",
+      },
+      {
+        q: "Jak zaplanować prace przy remoncie?",
+        a: "Najpierw oględziny i ustalenie kolejności (demontaż, nowe podejścia, próby). Dzięki temu unikasz poprawek pod płytkami.",
+      },
+    ],
+    match: ["sanitar", "kanaliz", "łazien", "pion"],
+  },
+  {
+    slug: "instalacje-przemyslowe",
+    title: "Instalacje przemysłowe",
+    titleOf: "instalacji przemysłowych",
+    headline: "Instalacje przemysłowe w Opolu i Namysłowie",
+    seoTitle: "Instalacje przemysłowe Opole i Namysłów | AJM Technika",
+    seoDescription:
+      "Instalacje dla obiektów firmowych i przemysłowych w Opolu, Namysłowie i regionie. Zakres po oględzinach. Bezpłatna konsultacja.",
+    short: "Instalacje dla firm i obiektów przemysłowych. Zakres po oględzinach.",
+    intro:
+      "Instalacje dla obiektów firmowych i przemysłowych: dobór rozwiązań pod ciągłość pracy, serwis i wymagania obiektu. Zakres ustalany po oględzinach. Instalacje przemysłowe Opole, Namysłów i okolice.",
+    area: AREA_DEFAULT,
+    sections: [
+      {
+        heading: "Rozwiązania pod obiekt, nie z katalogu",
+        body: "W obiektach firmowych liczy się niezawodność, dostęp serwisowy i jasny zakres prac. Ustalamy potrzeby techniczne na miejscu i proponujemy realny plan montażu.",
+      },
+      {
+        heading: "Od konsultacji do uruchomienia",
+        body: "Po konsultacji przygotowujemy wycenę, realizujemy uzgodniony zakres i uruchamiamy instalację. Możliwa dalsza opieka serwisowa według ustaleń.",
+      },
+    ],
+    bullets: [
+      "Oględziny obiektu i analiza potrzeb",
+      "Wycena dopasowana do zakresu",
+      "Montaż i uruchomienie",
+      "Uwzględnienie ciągłości pracy",
+      "Opieka serwisowa według ustaleń",
+      "Działamy w regionie Namysłowa i Opola",
+    ],
+    faq: [
+      {
+        q: "Jakie obiekty obsługujecie?",
+        a: "Obiekty firmowe i przemysłowe o różnej skali. Konkretny zakres (HVAC, woda, inne instalacje) ustalamy indywidualnie.",
+      },
+      {
+        q: "Czy pracujecie poza godzinami biurowymi obiektu?",
+        a: "Gdy obiekt tego wymaga, planujemy prace tak, by ograniczyć przestoje. Szczegóły w wycenie.",
+      },
+    ],
+    match: ["przemysł", "firmow", "obiekt"],
+  },
+  {
     slug: "rekuperacja",
     title: "Rekuperacja",
     titleOf: "rekuperacji",
-    short: "Czyste powietrze bez strat ciepła. Filtracja pyłów i stała wymiana powietrza.",
+    headline: "Rekuperacja w Namysłowie i Opolu",
+    seoTitle: "Rekuperacja Namysłów i Opole | montaż | AJM Technika",
+    seoDescription:
+      "Wentylacja mechaniczna z odzyskiem ciepła w Namysłowie i Opolu. Świeże powietrze, mniej wilgoci, lepszy komfort. Bezpłatna wycena.",
+    short: "Wentylacja z odzyskiem ciepła: świeże powietrze bez strat energii.",
     intro:
-      "Projektujemy i montujemy rekuperację z odzyskiem ciepła. Stała wymiana powietrza, filtracja pyłów i niższe straty energii w szczelnym domu.",
+      "Wentylacja mechaniczna z odzyskiem ciepła: świeże powietrze bez wychładzania budynku, mniej wilgoci i lepszy komfort. Rekuperacja Namysłów, rekuperacja Opole i okolice.",
+    area: AREA_DEFAULT,
     sections: [
       {
-        heading: "Świeże powietrze bez otwierania okien",
-        body: "W szczelnym budynku bez wentylacji mechanicznej pojawia się wilgoć i „stare” powietrze. Rekuperator wymienia powietrze i odzyskuje ciepło z wywiewu, więc nie ogrzewasz ulicy.",
+        heading: "Świeże powietrze bez strat ciepła",
+        body: "W szczelnym budynku bez wentylacji mechanicznej pojawia się wilgoć i „stare” powietrze. Rekuperator wymienia powietrze i odzyskuje ciepło z wywiewu.",
       },
       {
-        heading: "Projekt kanałów i centrala",
-        body: "Dobieramy centralę, prowadzimy kanały, czerpnie i wyrzutnie. Po montażu regulujemy przepływy i pokazujemy wymianę filtrów - to prosta czynność co kilka miesięcy.",
+        heading: "Centrala, kanały, regulacja",
+        body: "Dobieramy centralę, prowadzimy kanały, czerpnie i wyrzutnie. Po montażu regulujemy przepływy i pokazujemy wymianę filtrów.",
       },
     ],
     bullets: [
       "Dobór centrali do kubatury",
       "Kanały, czerpnie i wyrzutnie",
-      "Filtracja pyłów i pyłków",
+      "Filtracja powietrza",
       "Odzysk ciepła z wywiewu",
-      "Regulacja przepływów po montażu",
+      "Regulacja przepływów",
       "Bezpłatna konsultacja i wycena",
     ],
     faq: [
       {
         q: "Czy rekuperacja ma sens w starym domu?",
-        a: "Ma, jeśli dom jest już ocieplony i szczelny albo planujesz termomodernizację. W dziurawym budynku najpierw izolacja, potem wentylacja mechaniczna.",
+        a: "Ma, jeśli dom jest ocieplony i szczelny albo planujesz termomodernizację. W nieszczelnym budynku najpierw izolacja, potem wentylacja mechaniczna.",
       },
       {
         q: "Jak często wymieniać filtry?",
-        a: "Zwykle co 3-6 miesięcy, zależnie od lokalizacji i jakości powietrza. Pokazujemy to przy odbiorze.",
+        a: "Zwykle co 3-6 miesięcy, zależnie od lokalizacji. Pokazujemy to przy odbiorze.",
       },
     ],
     match: ["rekuper", "wentylac", "centrala"],
   },
   {
-    slug: "serwis",
-    title: "Serwis i konserwacja",
-    titleOf: "serwisów",
-    short: "Szybka reakcja, przeglądy okresowe oraz naprawy gwarancyjne i pogwarancyjne.",
+    slug: "uzdatnianie-wody",
+    title: "Uzdatnianie wody",
+    titleOf: "uzdatniania wody",
+    headline: "Uzdatnianie wody w Namysłowie i Opolu",
+    seoTitle: "Uzdatnianie wody Namysłów | zmiękczacz wody Opole | AJM Technika",
+    seoDescription:
+      "Stacje uzdatniania, zmiękczanie i filtracja w Namysłowie i Opolu. Ochrona instalacji i AGD, lepsza woda w domu. Bezpłatna konsultacja.",
+    short: "Zmiękczanie i filtracja: ochrona instalacji, AGD i lepsza woda.",
     intro:
-      "Serwisujemy pompy ciepła, kotły, klimatyzację i rekuperację. Przeglądy okresowe, diagnostyka i naprawy - gwarancyjne oraz pogwarancyjne.",
+      "Stacje uzdatniania, zmiękczanie i filtracja: ochrona instalacji i AGD, lepsza jakość wody w domu. Uzdatnianie wody Namysłów, zmiękczacz wody Opole i okolice.",
+    area: AREA_DEFAULT,
     sections: [
       {
-        heading: "Lepiej przegląd niż awaria w sezonie",
-        body: "Regularny przegląd przed zimą i latem ogranicza ryzyko postoju pompy albo klimy w szczycie sezonu. Sprawdzamy ciśnienia, filtry, skropliny, elektronikę i historię błędów.",
+        heading: "Dlaczego uzdatniać wodę",
+        body: "Twarda woda zostawia kamień, skraca życie bojlerów, baterii i sprzętów. Dobrze dobrane uzdatnianie ogranicza te problemy i poprawia jakość wody w kranie.",
       },
       {
-        heading: "Jedna ekipa od montażu do serwisu",
-        body: "Znasz ten sam zespół, który montował instalację - albo wdrażamy się w cudzy montaż po diagnostyce. Jasna wycena naprawy przed startem prac.",
+        heading: "Dobór stacji i montaż",
+        body: "Na podstawie parametrów wody i zużycia dobieramy zmiękczacz lub filtrację, montujemy na instalacji i uruchamiamy urządzenie z instruktażem obsługi.",
       },
     ],
     bullets: [
-      "Przeglądy okresowe HVAC i kotłów",
-      "Diagnostyka i usuwanie usterek",
-      "Czyszczenie i wymiana filtrów",
-      "Naprawy gwarancyjne i pogwarancyjne",
-      "Szybka reakcja w sezonie grzewczym",
-      "Umowy serwisowe na życzenie",
+      "Analiza potrzeb i dobór urządzenia",
+      "Zmiękczanie i filtracja",
+      "Ochrona instalacji i AGD",
+      "Montaż i uruchomienie",
+      "Bezpłatna konsultacja",
+      "Serwis według ustaleń",
     ],
     faq: [
       {
-        q: "Serwisujecie tylko własne montaże?",
-        a: "Nie. Bierzemy też instalacje po innych firmach - po oględzinach i diagnostyce.",
+        q: "Czy najpierw trzeba zbadać wodę?",
+        a: "Przy doborze zmiękczacza i filtracji warto znać twardość i podstawowe parametry. Pomożemy ustalić, co jest potrzebne w Twoim przypadku.",
       },
       {
-        q: "Jak często robić przegląd pompy ciepła?",
-        a: "Zalecamy raz w roku, najlepiej przed sezonem grzewczym. Klimatyzację - przed latem.",
+        q: "Czy uzdatnianie łączycie z nową instalacją wodną?",
+        a: "Tak, często planujemy to razem przy modernizacji lub nowym rozprowadzeniu wody.",
       },
     ],
-    match: ["serwis", "przegląd", "konserwac", "napraw"],
+    match: ["uzdatnian", "zmiękcz", "filtr"],
   },
 ];
 

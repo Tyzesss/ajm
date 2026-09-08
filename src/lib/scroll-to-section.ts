@@ -7,6 +7,9 @@ const SECTION_GAP = 20;
 const DESKTOP_NUDGE: Record<string, number> = {
   faq: -192,
   uslugi: -24,
+  "o-nas": -16,
+  "dlaczego-my": -16,
+  obszar: -16,
   kontakt: 8,
   "kontakt-formularz": 12,
 };
