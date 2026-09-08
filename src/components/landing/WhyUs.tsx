@@ -45,7 +45,9 @@ export function WhyUs() {
 
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-3xl text-navy-foreground">
-          <DarkEyebrow data-scroll-target>Dlaczego my</DarkEyebrow>
+          <DarkEyebrow data-scroll-target icon={BadgeCheck}>
+            Dlaczego my
+          </DarkEyebrow>
           <h2 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
             Co zyskujesz, wybierając{" "}
             <span className="text-gradient-cyan">nas</span>

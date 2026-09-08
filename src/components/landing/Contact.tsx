@@ -19,9 +19,9 @@ import {
   EMAIL_HREF,
   HOURS,
   MAPS_URL,
+  MAPS_EMBED_URL,
   PHONE_DISPLAY,
   PHONE_HREF,
-  SERVICE_AREA,
 } from "@/lib/site";
 
 const INFO = [
@@ -65,8 +65,12 @@ export function Contact() {
   const [service, setService] = useState("");
 
   return (
-    <section id="kontakt" className="pt-20 pb-10 md:py-20">
-      <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
+    <section id="kontakt" className="relative isolate overflow-hidden pt-20 pb-10 md:py-20">
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(36rem,70%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.02)_30%,oklch(0.59_0.14_242/0.06)_60%,oklch(0.59_0.14_242/0.11)_100%)] max-md:h-[min(28rem,75%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.03)_28%,oklch(0.59_0.14_242/0.07)_58%,oklch(0.59_0.14_242/0.12)_100%)]"
+        aria-hidden
+      />
+      <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-3xl text-left">
           <span
             data-scroll-target
@@ -124,31 +128,26 @@ export function Contact() {
             </Reveal>
 
             <Reveal delay={0.08} className="order-3 flex min-h-44 flex-col lg:min-h-0 lg:flex-1" scale>
-              <div className="relative flex min-h-44 overflow-hidden rounded-2xl border border-border/70 bg-[oklch(0.22_0.05_242)] shadow-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-full lg:flex-1 md:hover:-translate-y-0.5">
-                <div
-                  className="absolute inset-0 opacity-60"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(oklch(1 0 0 / 0.18) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0 / 0.18) 1px, transparent 1px)",
-                    backgroundSize: "44px 44px",
-                  }}
-                  aria-hidden
+              <div className="relative flex min-h-44 overflow-hidden rounded-2xl border border-border/70 bg-navy shadow-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-full lg:min-h-[16rem] lg:flex-1 md:hover:-translate-y-0.5">
+                <iframe
+                  title={`Mapa — ${ADDRESS}`}
+                  src={MAPS_EMBED_URL}
+                  className="absolute inset-0 size-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
                 />
-                <div className="relative flex h-full w-full flex-col items-center justify-center gap-3 p-8 text-center">
-                  <span className="flex size-12 items-center justify-center rounded-full bg-gradient-cyan shadow-glow">
-                    <MapPin className="size-5 text-white" />
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-navy/95 via-navy/55 to-transparent p-4 pt-14 transition-opacity hover:opacity-95"
+                >
+                  <span className="flex items-center gap-2 text-sm font-medium text-navy-foreground">
+                    <MapPin className="size-4 shrink-0 text-accent" />
+                    {ADDRESS}
                   </span>
-                  <p className="font-display text-lg font-semibold text-navy-foreground">
-                    Działamy w Twoim mieście i okolicach
-                  </p>
-                  <p className="max-w-xs text-sm text-navy-foreground/65">
-                    {SERVICE_AREA}.
-                    <br />
-                    <span className="mt-1 inline-block text-navy-foreground/45">
-                      (tutaj będzie mapa z pinezką)
-                    </span>
-                  </p>
-                </div>
+                </a>
               </div>
             </Reveal>
           </div>

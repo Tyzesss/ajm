@@ -14,6 +14,9 @@ export const WHATSAPP_HREF = `https://wa.me/${PHONE_E164.replace("+", "")}?text=
 
 export const ADDRESS = "Łączańska 22C, 46-100 Namysłów";
 export const SERVICE_AREA = "Namysłów, Opole i okolice";
+export const MAPS_URL = "https://maps.app.goo.gl/BDcWmc6Xc1RwhVsj9";
+export const MAPS_EMBED_URL =
+  "https://maps.google.com/maps?q=51.0732554,17.7261595&z=16&output=embed";
 /** Robocza lista miejscowości (do wglądu / zmiany). */
 export const SERVICE_TOWNS = [
   "Namysłów",
@@ -42,7 +45,6 @@ export const NIP = "5562796248";
 export const REGON = "521998239";
 export const HOURS = "Pn-Sb: 8:00-20:00, Nd: zamknięte";
 
-export const MAPS_URL = "https://maps.app.goo.gl/ksyT4XjYrnGUiFpv6";
 export const GOOGLE_REVIEWS_URL = MAPS_URL;
 export const GOOGLE_RATING = "5.0";
 export const GOOGLE_REVIEW_COUNT = 5;

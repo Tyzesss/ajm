@@ -10,7 +10,7 @@ import heroRightFill from "@/assets/hero-hvac-right.png";
 import { SERVICES } from "@/lib/services";
 
 /** Unikalne zdjęcia realizacji klienta (`ajm-*.jpg` w assets). */
-const INSTALLATION_PHOTOS = 16;
+const INSTALLATION_PHOTOS = 20;
 
 const STATS = [
   { value: 4, suffix: "+", label: "Lat doświadczenia" },
@@ -30,7 +30,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative z-20 isolate overflow-x-clip bg-navy max-md:min-h-[118svh] md:h-svh md:min-h-svh"
+      className="relative z-20 isolate overflow-x-clip bg-navy max-md:min-h-[118svh] md:h-[108svh] md:min-h-[108svh]"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Same crop as demo-v4; right fill is glued outside the photo so framing stays identical */}
@@ -38,12 +38,12 @@ export function Hero() {
           <motion.img
             src={heroImage}
             alt="Nowoczesny dom z pompą ciepła o zmierzchu"
-            width={1536}
-            height={1024}
+            width={1280}
+            height={720}
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: reduce ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="size-full object-cover object-[88%_60%] max-md:object-[88%_38%]"
+            className="size-full object-cover object-[70%_45%] max-md:object-[72%_35%]"
           />
           <div
             className="pointer-events-none absolute inset-y-0 left-full w-[18%] max-md:hidden"
@@ -53,7 +53,7 @@ export function Hero() {
               src={heroRightFill}
               alt=""
               width={276}
-              height={1024}
+              height={720}
               className="size-full object-cover object-left"
             />
           </div>
@@ -73,12 +73,12 @@ export function Hero() {
             transition={{ duration: reduce ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-4xl lg:max-w-5xl"
           >
-            <span className="glass-panel inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide text-navy-foreground uppercase">
+            <span className="glass-panel inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide text-navy-foreground uppercase md:text-[0.8125rem]">
               <ShieldCheck className="size-3.5 text-accent" />
               Certyfikowany instalator
             </span>
 
-            <h1 className="mt-4 font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:mt-5 sm:text-7xl sm:tracking-normal lg:text-[4.85rem]">
+            <h1 className="mt-4 font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:mt-5 sm:text-7xl sm:tracking-normal lg:text-[5rem]">
               <span className="sm:whitespace-nowrap">Instalacje grzewcze,</span>
               <br />
               <span className="text-gradient-cyan sm:whitespace-nowrap">
@@ -86,7 +86,7 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-sm text-navy-foreground/75 sm:mt-5 sm:max-w-3xl sm:text-lg">
+            <p className="mt-4 max-w-xl text-sm text-navy-foreground/75 sm:mt-5 sm:max-w-3xl sm:text-lg md:text-[1.2rem]">
               <span className="sm:whitespace-nowrap">
                 Jedna ekipa od doboru sprzętu przez montaż po uruchomienie i&nbsp;serwis.
               </span>
@@ -151,23 +151,55 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Desktop / tablet white trust card */}
-      <motion.div
-        initial={reduce ? false : { opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-x-0 bottom-0 z-30 hidden translate-y-1/2 px-3 sm:px-5 md:block lg:px-8"
+      {/* Desktop scroll cue — within first 100vh fold */}
+      <motion.a
+        href="#o-nas"
+        aria-label="Przewiń dalej"
+        onClick={goTo("#o-nas")}
+        initial={reduce ? false : { opacity: 0 }}
+        animate={reduce ? { opacity: 1 } : { opacity: 1, y: [0, 10, 0] }}
+        transition={
+          reduce
+            ? { duration: 0 }
+            : {
+                opacity: { duration: 0.6, delay: 1 },
+                y: { duration: 1.7, repeat: Infinity, ease: "easeInOut" },
+              }
+        }
+        className="absolute top-[calc(100svh-5.75rem)] left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-1 text-navy-foreground/55 transition-colors duration-300 hover:text-navy-foreground/90 md:flex"
       >
-        <div className="mx-auto grid max-w-[1360px] grid-cols-2 overflow-hidden rounded-2xl bg-background shadow-[0_4px_12px_oklch(0.155_0.045_242/0.12),0_28px_64px_oklch(0.155_0.045_242/0.22)] ring-1 ring-accent/25 sm:grid-cols-4 sm:rounded-3xl">
+        <span className="font-display text-[10px] font-semibold tracking-[0.18em] uppercase">
+          Przewiń
+        </span>
+        <ChevronDown className="size-6 stroke-[1.5]" />
+      </motion.a>
+
+      {/* Desktop / tablet white trust card — fully below 100vh fold */}
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 32 }}
+        whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: reduce ? 0 : 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-x-0 bottom-0 z-30 hidden translate-y-1/2 px-3 sm:px-5 md:block lg:px-6"
+      >
+        <div className="mx-auto grid max-w-6xl grid-cols-2 overflow-hidden rounded-2xl bg-background shadow-[0_18px_50px_-12px_oklch(0.155_0.045_242/0.28),0_8px_20px_-8px_oklch(0.155_0.045_242/0.12)] sm:grid-cols-4 sm:rounded-3xl">
           {STATS.map((stat, i) => (
-            <div
+            <motion.div
               key={stat.label}
+              initial={reduce ? false : { opacity: 0, y: 18 }}
+              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{
+                duration: reduce ? 0 : 0.5,
+                delay: reduce ? 0 : 0.08 + i * 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className={
                 i >= 2
-                  ? "hidden flex-col items-center justify-center border-r border-accent/20 px-3 py-5 text-center last:border-r-0 sm:flex sm:px-6 sm:py-6 md:px-8 md:py-7"
+                  ? "hidden flex-col items-center justify-center border-r border-accent/20 px-1.5 py-5 text-center last:border-r-0 sm:flex sm:px-4 sm:py-5 md:px-6 md:py-6"
                   : i === 0
-                    ? "flex flex-col items-center justify-center border-r border-accent/20 px-3 py-5 text-center sm:px-6 sm:py-6 md:px-8 md:py-7"
-                    : "flex flex-col items-center justify-center border-accent/20 px-3 py-5 text-center sm:border-r sm:px-6 sm:py-6 md:px-8 md:py-7"
+                    ? "flex flex-col items-center justify-center border-r border-accent/20 px-1.5 py-5 text-center sm:px-4 sm:py-5 md:px-6 md:py-6"
+                    : "flex flex-col items-center justify-center border-accent/20 px-1.5 py-5 text-center sm:border-r sm:px-4 sm:py-5 md:px-6 md:py-6"
               }
             >
               <div className="text-gradient-cyan font-display text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
@@ -178,7 +210,7 @@ export function Hero() {
                 {stat.label}
               </p>
               <span className="mt-2.5 h-0.5 w-7 rounded-full bg-accent/75 sm:mt-3" aria-hidden />
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.div>

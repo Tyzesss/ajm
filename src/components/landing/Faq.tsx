@@ -72,9 +72,9 @@ export function Faq() {
               <AccordionItem
                 key={item.q}
                 value={item.q}
-                className="border-border first:border-t"
+                className="border-accent/35 last:border-b-0"
               >
-                <AccordionTrigger className="py-5 text-left text-[0.95rem] font-bold text-foreground hover:no-underline sm:py-6 sm:text-base [&>svg]:size-4 [&>svg]:text-muted-foreground">
+                <AccordionTrigger className="py-5 text-left text-[0.95rem] font-bold text-foreground transition-colors hover:no-underline data-[state=open]:text-accent sm:py-6 sm:text-base [&>svg]:size-4 [&>svg]:text-muted-foreground data-[state=open]:[&>svg]:text-accent">
                   {item.q}
                 </AccordionTrigger>
                 <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground">

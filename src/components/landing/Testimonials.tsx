@@ -66,19 +66,21 @@ export function Testimonials() {
   return (
     <section id="opinie" className="py-16 sm:py-20 md:py-24">
       <div className="mx-auto w-full max-w-[1360px] px-5 lg:px-8">
-        <Reveal className="max-w-3xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <span
             data-scroll-target
-            className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
+            className="mx-auto block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
           >
             Opinie klientów
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-            Co mówią klienci z{" "}
-            <span className="text-gradient-cyan">Namysłowa i okolic</span>
+            Zaufało nam ponad{" "}
+            <span className="text-gradient-cyan">20 klientów</span>
+            <br className="hidden sm:block" /> z Namysłowa i okolic
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Opinie z wizytówki Google Maps.
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Profesjonalizm, terminowy montaż i realne wsparcie — to najczęstsze słowa w opiniach
+            naszych klientów.
           </p>
         </Reveal>
 
@@ -90,7 +92,7 @@ export function Testimonials() {
           ))}
         </div>
 
-        <Reveal delay={0.2} className="mt-10 flex justify-start">
+        <Reveal delay={0.2} className="mt-10 flex justify-center">
           <Button asChild variant="cyan" size="xl">
             <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
               Zobacz wszystkie opinie <ExternalLink className="size-4" />
