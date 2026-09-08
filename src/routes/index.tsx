@@ -51,10 +51,10 @@ function Index() {
         <div className="bg-background">
           <About />
           <Services />
+          <Brands />
         </div>
         <div className="bg-navy">
           <Realizations />
-          <Brands />
         </div>
         <div className="bg-background">
           <Testimonials />

@@ -71,7 +71,7 @@ export function Contact() {
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
-        <Reveal className="max-w-3xl text-left">
+        <Reveal className="mx-auto max-w-3xl text-center md:mx-0 md:text-left">
           <span
             className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
           >
@@ -80,7 +80,7 @@ export function Contact() {
           <h2 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
             Porozmawiajmy o <span className="text-gradient-cyan">Twojej instalacji</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:mx-0">
             Napisz lub zadzwoń. Odpowiadamy w ciągu jednego dnia roboczego.
           </p>
         </Reveal>

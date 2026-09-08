@@ -394,6 +394,33 @@
   text-transform: uppercase;
 }
 
+.brand-wordmark--stiebel {
+  font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand-wordmark--rotenso {
+  font-family: "Exo 2", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.brand-wordmark--lazar {
+  font-family: Poppins, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brand-wordmark--galmet {
+  font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .partners-marquee__fade {
   pointer-events: none;
   position: absolute;

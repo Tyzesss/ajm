@@ -38,7 +38,10 @@ export function About() {
                 <span className="text-accent">AJM</span> Technika
               </span>{" "}
               to lokalny partner instalacji grzewczych, chłodniczych i sanitarnych z bazą w{" "}
-              <span className="font-semibold text-foreground">Namysłowie</span>.{" "}
+              <span className="font-semibold text-foreground">Namysłowie</span>.
+              <span className="hidden md:inline"> </span>
+              <br className="md:hidden" />
+              <br className="md:hidden" />
               Pomagamy właścicielom domów i firmom dobrać rozwiązanie pod budynek, budżet i koszty
               eksploatacji: od{" "}
               <span className="font-semibold text-foreground">pomp ciepła</span> i{" "}

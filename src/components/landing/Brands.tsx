@@ -15,7 +15,7 @@ export function Brands() {
   const strip = [...BRANDS, ...BRANDS];
 
   return (
-    <section className="pb-10 pt-2 sm:pb-12 md:pb-14" aria-label="Marki, które montujemy">
+    <section className="relative z-10 pb-12 pt-2 sm:pb-14 md:pb-16" aria-label="Marki, które montujemy">
       <div className="mx-auto flex max-w-[1360px] justify-center px-5 lg:px-8">
         <Reveal>
           <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">

@@ -53,12 +53,8 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
 
 export function Services() {
   return (
-    <section id="uslugi" className="relative isolate overflow-hidden pt-24 pb-20 max-md:pb-10 sm:pt-28">
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(36rem,70%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.02)_30%,oklch(0.59_0.14_242/0.06)_60%,oklch(0.59_0.14_242/0.11)_100%)] max-md:h-[min(28rem,75%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.03)_28%,oklch(0.59_0.14_242/0.07)_58%,oklch(0.59_0.14_242/0.12)_100%)]"
-        aria-hidden
-      />
-      <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
+    <section id="uslugi" className="relative z-10 pt-24 pb-12 max-md:pb-8 sm:pt-28 sm:pb-14">
+      <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-4xl md:mx-auto">
           <div className="flex flex-col items-start text-left md:items-center md:text-center">
             <span

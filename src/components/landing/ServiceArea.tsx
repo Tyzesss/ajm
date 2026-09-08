@@ -181,7 +181,8 @@ export function ServiceArea() {
               Obszar działania
             </span>
             <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
-              Namysłów, Opole{" "}
+              Namysłów, Opole
+              <br />
               <span className="text-gradient-cyan">i okolice</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
