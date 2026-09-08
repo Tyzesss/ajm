@@ -7,11 +7,16 @@ import { PHONE_HREF, SERVICE_AREA } from "@/lib/site";
 import { Counter } from "./Counter";
 import heroImage from "@/assets/hero-hvac.png";
 import heroRightFill from "@/assets/hero-hvac-right.png";
+import { SERVICES } from "@/lib/services";
+
+/** Unikalne zdjęcia realizacji klienta (`ajm-*.jpg` w assets). */
+const INSTALLATION_PHOTOS = 16;
 
 const STATS = [
-  { value: 15, suffix: "+", label: "Lat doświadczenia" },
-  { value: 2500, suffix: "+", label: "Instalacji" },
+  { value: 4, suffix: "+", label: "Lat doświadczenia" },
+  { value: INSTALLATION_PHOTOS, suffix: "+", label: "Instalacji" },
   { value: 5, suffix: ".0", label: "Ocena Google" },
+  { value: SERVICES.length, suffix: "", label: "Usług w ofercie" },
 ];
 
 const goTo = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
@@ -61,7 +66,7 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex max-md:min-h-[118svh] flex-col md:h-full">
-        <div className="relative z-0 mx-auto flex w-full max-w-[1360px] flex-1 flex-col justify-center gap-6 px-5 pb-10 max-md:justify-start max-md:gap-0 max-md:pt-[calc(8rem+env(safe-area-inset-top,0px))] max-md:pb-6 md:pt-24 md:pb-16 lg:px-8 lg:pt-28 lg:pb-16 sm:gap-10">
+        <div className="relative z-0 mx-auto flex w-full max-w-[1360px] flex-1 flex-col justify-center gap-6 px-5 pb-10 max-md:justify-start max-md:gap-0 max-md:pt-[calc(8rem+env(safe-area-inset-top,0px))] max-md:pb-6 md:pt-24 md:pb-28 lg:px-8 lg:pt-28 lg:pb-28 sm:gap-10">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,17 +113,11 @@ export function Hero() {
               </Button>
             </div>
 
-            <div className="mt-8 flex w-full flex-wrap items-start justify-center gap-x-8 gap-y-5 sm:mt-14 sm:gap-x-10 md:mt-16 md:gap-x-12">
-              {STATS.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className={
-                    i === 2
-                      ? "hidden flex-col items-center text-center sm:flex"
-                      : "flex flex-col items-center text-center"
-                  }
-                >
-                  <div className="text-gradient-cyan font-display text-3xl font-bold md:text-4xl">
+            {/* Mobile stats — 2 badges */}
+            <div className="mt-10 flex w-full flex-wrap items-start justify-center gap-x-8 gap-y-5 md:hidden">
+              {STATS.slice(0, 2).map((stat) => (
+                <div key={stat.label} className="flex flex-col items-center text-center">
+                  <div className="text-gradient-cyan font-display text-3xl font-bold">
                     <Counter to={stat.value} />
                     <span>{stat.suffix}</span>
                   </div>
@@ -151,6 +150,38 @@ export function Hero() {
           </motion.a>
         </div>
       </div>
+
+      {/* Desktop / tablet white trust card */}
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-x-0 bottom-0 z-30 hidden translate-y-1/2 px-3 sm:px-5 md:block lg:px-8"
+      >
+        <div className="mx-auto grid max-w-[1360px] grid-cols-2 overflow-hidden rounded-2xl bg-background shadow-[0_4px_12px_oklch(0.155_0.045_242/0.12),0_28px_64px_oklch(0.155_0.045_242/0.22)] ring-1 ring-accent/25 sm:grid-cols-4 sm:rounded-3xl">
+          {STATS.map((stat, i) => (
+            <div
+              key={stat.label}
+              className={
+                i >= 2
+                  ? "hidden flex-col items-center justify-center border-r border-accent/20 px-3 py-5 text-center last:border-r-0 sm:flex sm:px-6 sm:py-6 md:px-8 md:py-7"
+                  : i === 0
+                    ? "flex flex-col items-center justify-center border-r border-accent/20 px-3 py-5 text-center sm:px-6 sm:py-6 md:px-8 md:py-7"
+                    : "flex flex-col items-center justify-center border-accent/20 px-3 py-5 text-center sm:border-r sm:px-6 sm:py-6 md:px-8 md:py-7"
+              }
+            >
+              <div className="text-gradient-cyan font-display text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
+                <Counter to={stat.value} />
+                <span>{stat.suffix}</span>
+              </div>
+              <p className="mt-1.5 max-w-[9rem] text-[9px] leading-snug font-medium tracking-[0.06em] text-muted-foreground uppercase sm:mt-1.5 sm:text-[10px] md:text-xs">
+                {stat.label}
+              </p>
+              <span className="mt-2.5 h-0.5 w-7 rounded-full bg-accent/75 sm:mt-3" aria-hidden />
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }

@@ -10,7 +10,10 @@ const STEPS = [
 
 export function About() {
   return (
-    <section id="o-nas" className="pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-24 lg:pt-28 lg:pb-24">
+    <section
+      id="o-nas"
+      className="pt-16 pb-16 sm:pt-20 sm:pb-20 md:pt-32 lg:pt-36 lg:pb-24"
+    >
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
           <Reveal className="order-2 lg:order-1 lg:col-span-5">

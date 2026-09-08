@@ -74,13 +74,11 @@ export function Testimonials() {
             Opinie klientów
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-            Zaufało nam ponad{" "}
-            <span className="text-gradient-cyan">2500 klientów</span>
-            <br className="hidden sm:block" /> z Namysłowa i okolic
+            Co mówią klienci z{" "}
+            <span className="text-gradient-cyan">Namysłowa i okolic</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Profesjonalizm, terminowy montaż i realne wsparcie — to najczęstsze słowa w opiniach
-            naszych klientów.
+            Opinie z wizytówki Google Maps.
           </p>
         </Reveal>
 
