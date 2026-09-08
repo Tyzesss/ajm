@@ -62,7 +62,6 @@ export function Services() {
         <Reveal className="max-w-4xl md:mx-auto">
           <div className="flex flex-col items-start text-left md:items-center md:text-center">
             <span
-              data-scroll-target
               className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
             >
               Nasze Usługi

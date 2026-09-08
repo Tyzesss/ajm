@@ -39,13 +39,12 @@ function Index() {
   useEffect(() => {
     if (!hash || hash === "#" || hash === "#top") return;
     const id = hash.startsWith("#") ? hash.slice(1) : hash;
-    const run = () => scrollToSection(`#${id}`);
-    const t = window.setTimeout(run, 80);
+    const t = window.setTimeout(() => scrollToSection(`#${id}`), 50);
     return () => window.clearTimeout(t);
   }, [hash]);
 
   return (
-    <div className="min-h-screen scroll-smooth">
+    <div className="min-h-screen">
       <Header />
       <main>
         <Hero />

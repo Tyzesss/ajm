@@ -68,7 +68,6 @@ export function Testimonials() {
       <div className="mx-auto w-full max-w-[1360px] px-5 lg:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <span
-            data-scroll-target
             className="mx-auto block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
           >
             Opinie klientów

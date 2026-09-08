@@ -1,4 +1,4 @@
-import aboutImage from "@/assets/ajm-kotlownia-midea-about.jpg";
+import aboutImage from "@/assets/about-ajm-real-tech.png";
 import { Reveal } from "./Reveal";
 
 const STEPS = [
@@ -19,7 +19,6 @@ export function About() {
           <Reveal className="order-1 lg:order-2 lg:col-span-7">
             <div>
               <span
-                data-scroll-target
                 className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
               >
                 O nas
@@ -39,9 +38,7 @@ export function About() {
                 <span className="text-accent">AJM</span> Technika
               </span>{" "}
               to lokalny partner instalacji grzewczych, chłodniczych i sanitarnych z bazą w{" "}
-              <span className="font-semibold text-foreground">Namysłowie</span>.
-              <br className="md:hidden" />
-              <br className="md:hidden" />
+              <span className="font-semibold text-foreground">Namysłowie</span>.{" "}
               Pomagamy właścicielom domów i firmom dobrać rozwiązanie pod budynek, budżet i koszty
               eksploatacji: od{" "}
               <span className="font-semibold text-foreground">pomp ciepła</span> i{" "}
@@ -58,10 +55,10 @@ export function About() {
             <figure className="relative h-[22rem] overflow-hidden rounded-2xl sm:h-[26rem] lg:h-[30rem]">
               <img
                 src={aboutImage}
-                alt="Kotłownia z hydroboxem Midea - realizacja AJM Technika"
-                width={768}
-                height={1024}
-                className="absolute inset-0 size-full object-cover object-[42%_46%] [filter:brightness(0.97)_contrast(1.08)_saturate(0.92)]"
+                alt="Nowoczesna pompa ciepła przy domu"
+                width={1024}
+                height={1365}
+                className="absolute inset-0 size-full object-cover object-[72%_45%] [filter:brightness(0.97)_contrast(1.04)_saturate(0.96)]"
               />
               <div
                 className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-navy/15"
@@ -72,7 +69,7 @@ export function About() {
                   <span className="text-accent">AJM</span> Technika
                 </p>
                 <p className="mt-1.5 text-sm font-medium text-navy-foreground/90 sm:text-base">
-                  Lokalny partner instalacji
+                  Montaż i serwis
                 </p>
                 <span className="mt-3 block h-0.5 w-10 rounded-full bg-accent" aria-hidden />
                 <p className="mt-2.5 text-sm text-navy-foreground/70">

@@ -117,9 +117,11 @@ export function Hero() {
             <div className="mt-10 flex w-full flex-wrap items-start justify-center gap-x-8 gap-y-5 md:hidden">
               {STATS.slice(0, 2).map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center text-center">
-                  <div className="text-gradient-cyan font-display text-3xl font-bold">
-                    <Counter to={stat.value} />
-                    <span>{stat.suffix}</span>
+                  <div className="font-display text-3xl font-bold">
+                    <span className="inline-block text-gradient-cyan">
+                      <Counter to={stat.value} />
+                      {stat.suffix}
+                    </span>
                   </div>
                   <p className="mt-1 text-[11px] leading-snug font-medium tracking-wide text-navy-foreground/70 uppercase">
                     {stat.label}
@@ -202,9 +204,11 @@ export function Hero() {
                     : "flex flex-col items-center justify-center border-accent/20 px-1.5 py-5 text-center sm:border-r sm:px-4 sm:py-5 md:px-6 md:py-6"
               }
             >
-              <div className="text-gradient-cyan font-display text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
-                <Counter to={stat.value} />
-                <span>{stat.suffix}</span>
+              <div className="font-display text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
+                <span className="inline-block text-gradient-cyan">
+                  <Counter to={stat.value} />
+                  {stat.suffix}
+                </span>
               </div>
               <p className="mt-1.5 max-w-[9rem] text-[9px] leading-snug font-medium tracking-[0.06em] text-muted-foreground uppercase sm:mt-1.5 sm:text-[10px] md:text-xs">
                 {stat.label}

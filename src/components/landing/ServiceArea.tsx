@@ -176,7 +176,6 @@ export function ServiceArea() {
             className="order-1 lg:col-span-7 lg:col-start-6 lg:row-start-1"
           >
             <span
-              data-scroll-target
               className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
             >
               Obszar działania

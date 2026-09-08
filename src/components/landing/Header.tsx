@@ -52,13 +52,14 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
   const goTo = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     e.stopPropagation();
+    const wasOpen = open;
     setOpen(false);
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        scrollToSection(href);
-      });
-    });
+    if (wasOpen) {
+      window.setTimeout(() => scrollToSection(href), 180);
+    } else {
+      scrollToSection(href);
+    }
   };
 
   const onNav = (hash: string) => (e: MouseEvent<HTMLAnchorElement>) => {

@@ -39,7 +39,6 @@ export function Faq() {
       <div className="mx-auto grid max-w-[1360px] gap-12 px-5 lg:grid-cols-2 lg:items-start lg:gap-16 lg:px-8">
         <Reveal className="flex flex-col items-start text-left lg:self-start">
           <span
-            data-scroll-target
             className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
           >
             FAQ

@@ -67,13 +67,12 @@ export function Contact() {
   return (
     <section id="kontakt" className="relative isolate overflow-hidden pt-20 pb-10 md:py-20">
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(36rem,70%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.02)_30%,oklch(0.59_0.14_242/0.06)_60%,oklch(0.59_0.14_242/0.11)_100%)] max-md:h-[min(28rem,75%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.03)_28%,oklch(0.59_0.14_242/0.07)_58%,oklch(0.59_0.14_242/0.12)_100%)]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(52rem,92%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.03)_22%,oklch(0.59_0.14_242/0.08)_52%,oklch(0.59_0.14_242/0.16)_100%)] max-md:h-[min(40rem,95%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.04)_20%,oklch(0.59_0.14_242/0.1)_55%,oklch(0.59_0.14_242/0.18)_100%)]"
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-3xl text-left">
           <span
-            data-scroll-target
             className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
           >
             Kontakt

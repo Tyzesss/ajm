@@ -255,7 +255,7 @@ export function Realizations() {
     <section id="realizacje" className="pt-16 pb-8 md:pt-20 md:pb-10">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-3xl text-left text-navy-foreground">
-          <DarkEyebrow data-scroll-target icon={Images}>
+          <DarkEyebrow icon={Images}>
             Realizacje
           </DarkEyebrow>
           <h2 className="mt-5 font-display text-3xl font-bold sm:text-5xl">
