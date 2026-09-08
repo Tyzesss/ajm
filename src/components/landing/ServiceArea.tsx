@@ -168,7 +168,7 @@ function AreaMap() {
 
 export function ServiceArea() {
   return (
-    <section id="obszar" className="pt-12 pb-8 sm:pt-24 sm:pb-20">
+    <section id="obszar" className="bg-muted pt-12 pb-8 sm:pt-24 sm:pb-20">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <div className="grid items-start gap-8 lg:grid-cols-12 lg:items-center lg:gap-x-14 lg:gap-y-8">
           <Reveal

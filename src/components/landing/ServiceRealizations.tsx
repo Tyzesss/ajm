@@ -5,7 +5,6 @@ import { MobileCarousel } from "./MobileCarousel";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
 import type { RealizationCard } from "@/lib/realization-cards";
-import ajmPompaPanasonic from "@/assets/ajm-pompa-panasonic-aquarea.jpg";
 
 const IMG_GRADE =
   "[filter:brightness(0.97)_contrast(1.1)_saturate(0.9)_hue-rotate(4deg)]";
@@ -19,10 +18,6 @@ function toGalleryItems(items: RealizationCard[]): GalleryItem[] {
     ...item,
     zoom: 1.03,
   }));
-}
-
-function isHiddenOnMobile(item: GalleryItem) {
-  return item.image === ajmPompaPanasonic;
 }
 
 function ProjectCard({
@@ -98,44 +93,19 @@ export function ServiceRealizations({
   items: RealizationCard[];
 }) {
   const projects = toGalleryItems(items);
-  const mobileProjects = projects.filter((p) => !isHiddenOnMobile(p));
   const [active, setActive] = useState<number | null>(null);
   const current = active != null ? projects[active] : null;
 
   const close = () => setActive(null);
   const openAt = (idx: number) => setActive(idx);
 
-  const showNext = useCallback(() => {
-    setActive((i) => {
-      if (i == null) return i;
-      const mobile =
-        typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
-      let next = (i + 1) % projects.length;
-      if (mobile) {
-        for (let n = 0; n < projects.length; n++) {
-          if (!isHiddenOnMobile(projects[next]!)) return next;
-          next = (next + 1) % projects.length;
-        }
-      }
-      return next;
-    });
-  }, [projects]);
-
   const showPrev = useCallback(() => {
-    setActive((i) => {
-      if (i == null) return i;
-      const mobile =
-        typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
-      let prev = (i - 1 + projects.length) % projects.length;
-      if (mobile) {
-        for (let n = 0; n < projects.length; n++) {
-          if (!isHiddenOnMobile(projects[prev]!)) return prev;
-          prev = (prev - 1 + projects.length) % projects.length;
-        }
-      }
-      return prev;
-    });
-  }, [projects]);
+    setActive((i) => (i == null ? i : (i - 1 + projects.length) % projects.length));
+  }, [projects.length]);
+
+  const showNext = useCallback(() => {
+    setActive((i) => (i == null ? i : (i + 1) % projects.length));
+  }, [projects.length]);
 
   useEffect(() => {
     if (active == null) return;
@@ -169,18 +139,10 @@ export function ServiceRealizations({
 
         <div className="mt-10 md:mt-14">
           <MobileCarousel
-            items={mobileProjects}
+            items={projects}
             className="animate-in fade-in duration-500 ease-out"
-            renderItem={(project) => (
-              <ProjectCard
-                item={project}
-                onOpen={() => {
-                  const idx = projects.findIndex(
-                    (p) => p.image === project.image && p.title === project.title,
-                  );
-                  if (idx >= 0) openAt(idx);
-                }}
-              />
+            renderItem={(project, i) => (
+              <ProjectCard item={project} onOpen={() => openAt(i)} />
             )}
           />
           <div

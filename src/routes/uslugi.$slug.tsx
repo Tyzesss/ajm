@@ -25,7 +25,6 @@ import { getServiceRealizationCards } from "@/lib/realization-cards";
 import { ServiceRealizations } from "@/components/landing/ServiceRealizations";
 import { Reveal } from "@/components/landing/Reveal";
 import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
-import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 import thumbPompy from "@/assets/ajm-pompa-panasonic-aquarea.jpg";
 import thumbKlima from "@/assets/ajm-jednostki-zew-midea-duo.jpg";
@@ -467,14 +466,7 @@ function ServicePage() {
               </div>
 
               {media ? (
-                <Reveal
-                  delay={0.1}
-                  className={cn(
-                    "relative lg:col-span-6 xl:col-span-5",
-                    media.src === thumbPompy && "max-md:hidden",
-                  )}
-                  scale
-                >
+                <Reveal delay={0.1} className="relative lg:col-span-6 xl:col-span-5" scale>
                   <div
                     className="absolute -inset-3 rounded-[2rem] bg-gradient-cyan opacity-25 blur-2xl"
                     aria-hidden
