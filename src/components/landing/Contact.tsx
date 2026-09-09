@@ -67,7 +67,7 @@ export function Contact() {
   return (
     <section id="kontakt" className="relative isolate overflow-hidden pt-12 pb-10 md:py-20">
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(52rem,92%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.03)_22%,oklch(0.59_0.14_242/0.08)_52%,oklch(0.59_0.14_242/0.16)_100%)] max-md:h-[min(40rem,95%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.04)_20%,oklch(0.59_0.14_242/0.1)_55%,oklch(0.59_0.14_242/0.18)_100%)]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(52rem,92%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.02)_22%,oklch(0.59_0.14_242/0.05)_52%,oklch(0.59_0.14_242/0.1)_100%)] max-md:h-[min(40rem,95%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.025)_20%,oklch(0.59_0.14_242/0.06)_55%,oklch(0.59_0.14_242/0.11)_100%)]"
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
@@ -154,11 +154,11 @@ export function Contact() {
                 (e.target as HTMLFormElement).reset();
                 setService("");
               }}
-              className="flex h-full flex-col scroll-mt-28 rounded-2xl border border-border/70 bg-card p-7 shadow-card sm:p-9 lg:scroll-mt-32 lg:shadow-lift"
+              className="flex h-full flex-col rounded-2xl border border-border/70 bg-card p-7 shadow-card sm:p-9 lg:shadow-lift"
             >
               <div className="mb-5 text-center">
                 <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
-                  Formularz bezpłatnej <span className="text-gradient-cyan">wyceny</span>
+                  Formularz <span className="text-gradient-cyan">bezpłatnej wyceny</span>
                 </h3>
                 <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
                   Skontaktujemy się z Tobą w ciągu 48 godzin

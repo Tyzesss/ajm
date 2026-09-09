@@ -48,10 +48,8 @@ function Index() {
       <Header />
       <main className="overflow-x-clip">
         <Hero />
-        <div className="bg-background">
+        <div className="overflow-x-clip bg-white">
           <About />
-        </div>
-        <div className="overflow-x-clip bg-muted">
           <Services />
           <Brands />
         </div>

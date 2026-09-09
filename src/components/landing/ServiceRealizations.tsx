@@ -116,16 +116,20 @@ export function ServiceRealizations({
 
   if (projects.length === 0) {
     return (
-      <section className="relative isolate overflow-hidden bg-muted pt-16 pb-8 md:pt-20 md:pb-10 lg:pt-24 lg:pb-12">
+      <section className="relative isolate overflow-hidden bg-white pt-10 pb-14 md:pt-12 md:pb-16 lg:pt-14 lg:pb-20">
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(52rem,92%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.02)_22%,oklch(0.59_0.14_242/0.05)_52%,oklch(0.59_0.14_242/0.1)_100%)] max-md:h-[min(40rem,95%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.025)_20%,oklch(0.59_0.14_242/0.06)_55%,oklch(0.59_0.14_242/0.11)_100%)]"
+          aria-hidden
+        />
         <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
-          <Reveal className="max-w-3xl">
-            <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <span className="mx-auto block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
               Montaż
             </span>
             <h2 className="mt-5 font-display text-3xl font-bold text-foreground sm:text-5xl">
               Jak wygląda <span className="text-gradient-cyan">montaż</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               Typowy przebieg prac przy {titleOf} - od oględzin po odbiór.
             </p>
           </Reveal>

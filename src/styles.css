@@ -175,7 +175,7 @@
   }
 
   html {
-    scroll-padding-top: 6.5rem;
+    scroll-padding-top: 0;
     min-height: 100%;
     background-color: var(--navy);
     overflow-x: clip;
@@ -236,7 +236,7 @@
 
   section[id],
   #kontakt-formularz {
-    scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 5.75rem);
+    scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 5.5rem);
   }
 }
 
@@ -431,12 +431,12 @@
 
 .partners-marquee__fade--left {
   left: 0;
-  background: linear-gradient(to right, var(--muted), transparent);
+  background: linear-gradient(to right, #fff, transparent);
 }
 
 .partners-marquee__fade--right {
   right: 0;
-  background: linear-gradient(to left, var(--muted), transparent);
+  background: linear-gradient(to left, #fff, transparent);
 }
 
 .partners-marquee--on-hero .partners-marquee__fade--left {
