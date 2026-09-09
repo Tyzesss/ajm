@@ -72,7 +72,7 @@ export function About() {
                   <span className="text-accent">AJM</span> Technika
                 </p>
                 <p className="mt-1.5 text-sm font-medium text-navy-foreground/90 sm:text-base">
-                  Montaż i serwis
+                  Dobór · Montaż · Serwis
                 </p>
                 <span className="mt-3 block h-0.5 w-10 rounded-full bg-accent" aria-hidden />
                 <p className="mt-2.5 text-sm text-navy-foreground/70">

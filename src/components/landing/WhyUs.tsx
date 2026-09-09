@@ -59,11 +59,11 @@ export function WhyUs() {
         </Reveal>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-5">
-          {ITEMS.map((item, i) => {
+          {ITEMS.map((item) => {
             const Icon = item.icon;
             return (
-              <Reveal key={item.title} delay={0.06 + i * 0.06} y={16} scale className="h-full">
-                <article className="glass-panel flex h-full flex-col rounded-2xl p-5 sm:p-6">
+              <Reveal key={item.title} className="h-full">
+                <article className="glass-panel flex h-full flex-col rounded-2xl p-5 backdrop-blur-[3px] sm:p-6">
                   <span className="inline-flex size-10 items-center justify-center rounded-xl bg-gradient-cyan text-white">
                     <Icon className="size-5" />
                   </span>

@@ -66,12 +66,12 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex max-md:min-h-[118svh] flex-col md:h-full">
-        <div className="relative z-0 mx-auto flex w-full max-w-[1360px] flex-1 flex-col justify-center gap-6 px-5 pb-10 max-md:justify-start max-md:gap-0 max-md:pt-[calc(8rem+env(safe-area-inset-top,0px))] max-md:pb-6 md:pt-14 md:pb-40 lg:px-8 lg:pt-16 lg:pb-44 sm:gap-10">
+        <div className="relative z-0 mx-auto flex w-full max-w-[1360px] flex-1 flex-col justify-center gap-6 px-5 pb-10 max-md:justify-start max-md:gap-0 max-md:pt-[calc(8rem+env(safe-area-inset-top,0px))] max-md:pb-6 md:pt-20 md:pb-32 lg:px-8 lg:pt-24 lg:pb-32 sm:gap-10">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduce ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-4xl md:-translate-y-6 lg:max-w-5xl lg:-translate-y-8"
+            className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-4xl md:-translate-y-3 lg:max-w-5xl lg:-translate-y-4"
           >
             <span className="glass-panel inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide text-navy-foreground uppercase md:text-[0.8125rem]">
               <ShieldCheck className="size-3.5 text-accent" />
@@ -181,7 +181,7 @@ export function Hero() {
         transition={{ duration: reduce ? 0 : 0.65, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-x-0 bottom-0 z-30 hidden translate-y-1/2 px-3 sm:px-5 md:block lg:px-6"
       >
-        <div className="mx-auto grid max-w-6xl grid-cols-2 overflow-hidden rounded-2xl bg-background shadow-[0_18px_50px_-12px_oklch(0.155_0.045_242/0.28),0_8px_20px_-8px_oklch(0.155_0.045_242/0.12)] sm:grid-cols-4 sm:rounded-3xl">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 overflow-hidden rounded-2xl bg-background shadow-[0_6px_18px_-8px_oklch(0.155_0.045_242/0.1),0_2px_8px_-4px_oklch(0.155_0.045_242/0.05)] sm:grid-cols-4 sm:rounded-3xl">
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.label}
