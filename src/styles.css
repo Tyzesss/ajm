@@ -81,7 +81,7 @@
   --muted-foreground: oklch(0.5 0.028 242);
 
   /* Logo AJM blue #0784C7 */
-  --accent: oklch(0.59 0.14 242);
+  --accent: #0784c7;
   --accent-foreground: oklch(0.985 0.01 242);
 
   --destructive: oklch(0.577 0.245 27.325);
@@ -89,13 +89,13 @@
 
   --border: oklch(0.91 0.014 242);
   --input: oklch(0.91 0.014 242);
-  --ring: oklch(0.59 0.14 242);
+  --ring: #0784c7;
 
   /* Deep navy in the same blue family as the logo */
   --navy: oklch(0.155 0.045 242);
   --navy-soft: oklch(0.22 0.05 242);
   --navy-foreground: oklch(0.97 0.01 242);
-  --cyan: oklch(0.66 0.13 240);
+  --cyan: #0784c7;
   --cyan-foreground: oklch(0.2 0.05 242);
 
   --chart-1: oklch(0.66 0.13 240);
@@ -133,7 +133,7 @@
     oklch(0 0 0 / 0.14) 48%,
     oklch(0 0 0 / 0.06) 100%
   );
-  --gradient-cyan: linear-gradient(135deg, oklch(0.7 0.12 238) 0%, oklch(0.55 0.145 242) 100%);
+  --gradient-cyan: #0784c7;
   --gradient-navy-from: var(--navy);
   --gradient-navy-to: var(--navy);
   --gradient-navy: var(--navy);
@@ -142,7 +142,7 @@
   /* Shadows */
   --shadow-card: 0 1px 2px oklch(0.155 0.045 242 / 0.06), 0 12px 32px oklch(0.155 0.045 242 / 0.1);
   --shadow-lift: 0 2px 6px oklch(0.155 0.045 242 / 0.09), 0 24px 56px oklch(0.155 0.045 242 / 0.18);
-  --shadow-glow: 0 12px 40px oklch(0.59 0.14 242 / 0.32);
+  --shadow-glow: 0 12px 40px oklch(0.55 0.12 242 / 0.28);
 
   /* Glass */
   --glass-bg: oklch(1 0 0 / 0.14);
@@ -162,7 +162,7 @@
   --secondary-foreground: oklch(0.97 0.01 242);
   --muted: oklch(0.28 0.045 242);
   --muted-foreground: oklch(0.72 0.03 242);
-  --accent: oklch(0.66 0.13 240);
+  --accent: #0784c7;
   --accent-foreground: oklch(0.18 0.05 242);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
@@ -246,8 +246,8 @@
 }
 
 @utility bg-gradient-cyan {
-  background-color: oklch(0.55 0.145 242);
-  background-image: var(--gradient-cyan);
+  background-color: var(--accent);
+  background-image: none;
 }
 
 @utility bg-gradient-navy {
@@ -272,11 +272,11 @@
 }
 
 @utility text-gradient-cyan {
-  background-image: var(--gradient-cyan);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  background-image: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  color: var(--accent);
+  -webkit-text-fill-color: unset;
 }
 
 @utility section-padding {

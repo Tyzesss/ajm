@@ -63,7 +63,7 @@ export function About() {
               />
               <figcaption className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
                 <p className="font-display text-2xl font-bold text-navy-foreground sm:text-3xl">
-                  <span className="text-accent">AJM</span> Technika
+                  <span className="text-gradient-cyan">AJM</span> Technika
                 </p>
                 <p className="mt-1.5 text-sm font-medium text-navy-foreground/90 sm:text-base">
                   Dobór / Montaż / Serwis
