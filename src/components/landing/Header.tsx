@@ -218,7 +218,7 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
                   onClick={() => setOpen(false)}
                 >
                   <Phone className="size-4 shrink-0" />
-                  <span>Zadzwoń · {PHONE_DISPLAY}</span>
+                    <span>Zadzwoń: {PHONE_DISPLAY}</span>
                 </a>
               </div>
             </div>

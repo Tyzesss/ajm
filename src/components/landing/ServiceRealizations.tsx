@@ -5,6 +5,7 @@ import { MobileCarousel } from "./MobileCarousel";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
 import type { RealizationCard } from "@/lib/realization-cards";
+import { SERVICE_MOUNT_STEPS, SERVICE_PROCESS } from "@/lib/services";
 
 const IMG_GRADE = "[filter:brightness(0.97)_contrast(1.1)_saturate(0.9)_hue-rotate(4deg)]";
 
@@ -79,15 +80,18 @@ function ProjectCard({ item, onOpen }: { item: GalleryItem; onOpen: () => void }
 }
 
 export function ServiceRealizations({
+  slug,
   titleOf,
   items,
 }: {
+  slug: string;
   titleOf: string;
   items: RealizationCard[];
 }) {
   const projects = toGalleryItems(items);
   const [active, setActive] = useState<number | null>(null);
   const current = active != null ? projects[active] : null;
+  const mountSteps = SERVICE_MOUNT_STEPS[slug] ?? SERVICE_PROCESS;
 
   const close = () => setActive(null);
   const openAt = (idx: number) => setActive(idx);
@@ -110,7 +114,39 @@ export function ServiceRealizations({
     return () => window.removeEventListener("keydown", onKey);
   }, [active, showPrev, showNext]);
 
-  if (projects.length === 0) return null;
+  if (projects.length === 0) {
+    return (
+      <section className="relative isolate overflow-hidden bg-muted pt-16 pb-8 md:pt-20 md:pb-10 lg:pt-24 lg:pb-12">
+        <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
+          <Reveal className="max-w-3xl">
+            <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
+              Montaż
+            </span>
+            <h2 className="mt-5 font-display text-3xl font-bold text-foreground sm:text-5xl">
+              Jak wygląda <span className="text-gradient-cyan">montaż</span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              Typowy przebieg prac przy {titleOf} - od oględzin po odbiór.
+            </p>
+          </Reveal>
+
+          <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-5">
+            {mountSteps.map((item, i) => (
+              <Reveal key={item.step} delay={0.05 + i * 0.06} y={16} scale className="h-full">
+                <li className="flex h-full flex-col rounded-2xl border border-border/70 bg-card p-6 shadow-card sm:p-7">
+                  <span className="font-display text-xs font-semibold tracking-[0.18em] text-accent uppercase">
+                    {item.step}
+                  </span>
+                  <p className="mt-4 font-semibold text-foreground">{item.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="relative isolate overflow-hidden bg-white pt-16 pb-8 md:pt-20 md:pb-10 lg:pt-24 lg:pb-12">

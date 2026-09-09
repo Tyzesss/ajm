@@ -45,6 +45,100 @@ export const SERVICE_PROCESS = [
   },
 ] as const;
 
+export type MountStep = { step: string; title: string; body: string };
+
+/** Kroki montażu na podstronach bez galerii realizacji. */
+export const SERVICE_MOUNT_STEPS: Record<string, MountStep[]> = {
+  "instalacje-wodne": [
+    {
+      step: "01",
+      title: "Oględziny i dobór",
+      body: "Punkt przyłącza, ciśnienie, układ pomieszczeń i dobór przekrojów pod zużycie.",
+    },
+    {
+      step: "02",
+      title: "Trasa instalacji",
+      body: "Planujemy przebieg rur tak, by był szczelny, dostępny i gotowy pod zabudowę.",
+    },
+    {
+      step: "03",
+      title: "Montaż",
+      body: "Przyłącza, rozprowadzenie wody użytkowej, armatura i przygotowanie pod wykończenie.",
+    },
+    {
+      step: "04",
+      title: "Próby i odbiór",
+      body: "Próba ciśnieniowa, uruchomienie, instrukcja i przekazanie gotowej instalacji.",
+    },
+  ],
+  "instalacje-sanitarne": [
+    {
+      step: "01",
+      title: "Oględziny i dobór",
+      body: "Piony, odpływy, dostęp do instalacji oraz miejsca pod armaturę w budynku.",
+    },
+    {
+      step: "02",
+      title: "Trasa instalacji",
+      body: "Podejścia, spadki i przebieg kanalizacji pod konkretny układ łazienki.",
+    },
+    {
+      step: "03",
+      title: "Montaż",
+      body: "Kanalizacja, podejścia, piony i przygotowanie instalacji pod dalsze prace.",
+    },
+    {
+      step: "04",
+      title: "Próby i odbiór",
+      body: "Kontrola szczelności przed zabudową i przekazanie pod wykończenie.",
+    },
+  ],
+  "instalacje-przemyslowe": [
+    {
+      step: "01",
+      title: "Analiza obiektu",
+      body: "Oględziny, ciągłość pracy, zakres instalacji i wymagania techniczne obiektu.",
+    },
+    {
+      step: "02",
+      title: "Wycena i plan",
+      body: "Kosztorys, harmonogram i kolejność prac dopasowane do działania firmy.",
+    },
+    {
+      step: "03",
+      title: "Montaż",
+      body: "Realizacja uzgodnionego zakresu na obiekcie, bez zbędnych przestojów.",
+    },
+    {
+      step: "04",
+      title: "Uruchomienie i serwis",
+      body: "Pomiary, odbiór techniczny oraz ustalenia przeglądów i wsparcia po oddaniu.",
+    },
+  ],
+  rekuperacja: [
+    {
+      step: "01",
+      title: "Oględziny i dobór",
+      body: "Centrala, nawiewniki i wydajność dobrane do budynku oraz potrzeb mieszkańców.",
+    },
+    {
+      step: "02",
+      title: "Trasa kanałów",
+      body: "Estetyczne i skuteczne prowadzenie instalacji, z myślą o izolacji i serwisie.",
+    },
+    {
+      step: "03",
+      title: "Montaż",
+      body: "Centrala, kanały, anemostaty, izolacja i przygotowanie pod regulację.",
+    },
+    {
+      step: "04",
+      title: "Regulacja i instruktaż",
+      body: "Bilans nawiewu z wywiewem, obsługa systemu, filtry i zasady eksploatacji.",
+    },
+  ],
+};
+
 const AREA_DEFAULT = `Działamy w ${SERVICE_AREA}. Dojazd poza listę miejscowości uzgadniamy indywidualnie.`;
 
 export const SERVICES: Service[] = [
@@ -58,7 +152,7 @@ export const SERVICES: Service[] = [
       "Montaż pomp ciepła powietrze-woda w Namysłowie, Opolu i okolicach. Dobór mocy, uruchomienie i serwis. Bezpłatna konsultacja i wycena.",
     short: "Dobór i montaż pomp powietrze-woda: ogrzewanie, chłodzenie i ciepła woda.",
     intro:
-      "Dobór i montaż pomp ciepła powietrze-woda dla domów i budynków użytkowych. Niższe koszty ogrzewania, chłodzenie i ciepło użytkowe w jednym systemie, z uruchomieniem i instruktażem. Montaż pomp ciepła Namysłów, Opole i okolice.",
+      "Dobór i montaż pomp powietrze-woda dla domów i budynków użytkowych. Niższe koszty ogrzewania, chłodzenie i CWU w jednym systemie, z uruchomieniem i instruktażem.",
     area: AREA_DEFAULT,
     sections: [
       {
@@ -100,7 +194,7 @@ export const SERVICES: Service[] = [
       "Montaż kotłów na pellet w Namysłowie i Opolu. Dobór mocy, zbiornik na paliwo, integracja z CO. Bezpłatna konsultacja i wycena.",
     short: "Kotły na pellet: dobór mocy, montaż i podłączenie do instalacji CO.",
     intro:
-      "Montaż kotłów na pellet jako ekologiczne i wygodne źródło ciepła. Pomagamy dobrać moc, zbiornik na paliwo i integrację z instalacją CO. Kotły pelletowe Namysłów, montaż kotła na pellet Opole i okolice.",
+      "Montaż kotłów na pellet jako ekologiczne i wygodne źródło ciepła. Dobór mocy, zbiornik na paliwo i integracja z instalacją CO.",
     area: AREA_DEFAULT,
     sections: [
       {
@@ -142,7 +236,7 @@ export const SERVICES: Service[] = [
       "Projekt i montaż ogrzewania podłogowego wodnego w Namysłowie i okolicach. Komfort, równomierna temperatura, współpraca z pompą ciepła lub kotłem.",
     short: "Podłogówka wodna: równomierne ciepło, także z pompą ciepła lub kotłem.",
     intro:
-      "Projekt i montaż ogrzewania podłogowego wodnego: komfort termiczny, równomierna temperatura, dobre sparowanie z pompą ciepła lub kotłem. Ogrzewanie podłogowe Namysłów, Opole i okolice.",
+      "Projekt i montaż ogrzewania podłogowego wodnego: równomierna temperatura i komfort, także z pompą ciepła lub kotłem.",
     area: AREA_DEFAULT,
     sections: [
       {
@@ -184,7 +278,7 @@ export const SERVICES: Service[] = [
       "Montaż klimatyzacji split i multi-split w Namysłowie i Opolu. Chłodzenie, dogrzewanie, uruchomienie. Bezpłatna wycena.",
     short: "Split i multi-split: chłodzenie latem i dogrzewanie poza sezonem.",
     intro:
-      "Klimatyzacja split i multi-split: chłodzenie latem, dogrzewanie w przejściowych porach, montaż z odprowadzeniem skroplin i uruchomieniem. Klimatyzacja Namysłów, montaż klimatyzacji Opole i okolice.",
+      "Klimatyzacja split i multi-split: chłodzenie latem, dogrzewanie poza sezonem, montaż ze skroplinami i uruchomieniem.",
     area: AREA_DEFAULT,
     sections: [
       {
@@ -226,7 +320,7 @@ export const SERVICES: Service[] = [
       "Instalacje wody użytkowej w Namysłowie i okolicach: przyłącza, rozprowadzenie, modernizacje. Bezpłatna konsultacja i wycena.",
     short: "Woda użytkowa: przyłącza, rozprowadzenie i modernizacje.",
     intro:
-      "Instalacje wody użytkowej i obiegów w budynkach mieszkalnych oraz użytkowych: od przyłączy po rozprowadzenie i modernizacje. Instalacje wodne Namysłów, Opole i okolice.",
+      "Instalacje wody użytkowej w budynkach mieszkalnych i użytkowych: od przyłączy po rozprowadzenie i modernizacje.",
     area: AREA_DEFAULT,
     sections: [
       {
@@ -268,7 +362,7 @@ export const SERVICES: Service[] = [
       "Kompleksowe instalacje sanitarne w Namysłowie i Opolu: kanalizacja, podejścia, piony, modernizacja łazienek w zakresie instalacji.",
     short: "Kanalizacja, podejścia, piony i instalacje pod łazienki.",
     intro:
-      "Kompleksowe instalacje sanitarne: kanalizacja, podejścia, wymiana pionów i modernizacja łazienek w zakresie instalacji. Instalacje sanitarne Namysłów, Opole i okolice.",
+      "Instalacje sanitarne: kanalizacja, podejścia, wymiana pionów i modernizacja łazienek w zakresie instalacji.",
     area: AREA_DEFAULT,
     sections: [
       {
@@ -310,7 +404,7 @@ export const SERVICES: Service[] = [
       "Instalacje dla obiektów firmowych i przemysłowych w Opolu, Namysłowie i regionie. Zakres po oględzinach. Bezpłatna konsultacja.",
     short: "Instalacje dla firm i obiektów przemysłowych. Zakres po oględzinach.",
     intro:
-      "Instalacje dla obiektów firmowych i przemysłowych: dobór rozwiązań pod ciągłość pracy, serwis i wymagania obiektu. Zakres ustalany po oględzinach. Instalacje przemysłowe Opole, Namysłów i okolice.",
+      "Instalacje dla firm i obiektów przemysłowych: rozwiązania pod ciągłość pracy i serwis. Zakres po oględzinach.",
     area: AREA_DEFAULT,
     sections: [
       {
@@ -352,7 +446,7 @@ export const SERVICES: Service[] = [
       "Wentylacja mechaniczna z odzyskiem ciepła w Namysłowie i Opolu. Świeże powietrze, mniej wilgoci, lepszy komfort. Bezpłatna wycena.",
     short: "Wentylacja z odzyskiem ciepła: świeże powietrze bez strat energii.",
     intro:
-      "Wentylacja mechaniczna z odzyskiem ciepła: świeże powietrze bez wychładzania budynku, mniej wilgoci i lepszy komfort. Rekuperacja Namysłów, rekuperacja Opole i okolice.",
+      "Wentylacja z odzyskiem ciepła: świeże powietrze bez wychładzania budynku, mniej wilgoci i lepszy komfort.",
     area: AREA_DEFAULT,
     sections: [
       {
@@ -394,7 +488,7 @@ export const SERVICES: Service[] = [
       "Stacje uzdatniania, zmiękczanie i filtracja w Namysłowie i Opolu. Ochrona instalacji i AGD, lepsza woda w domu. Bezpłatna konsultacja.",
     short: "Zmiękczanie i filtracja: ochrona instalacji, AGD i lepsza woda.",
     intro:
-      "Stacje uzdatniania, zmiękczanie i filtracja: ochrona instalacji i AGD, lepsza jakość wody w domu. Uzdatnianie wody Namysłów, zmiękczacz wody Opole i okolice.",
+      "Zmiękczanie i filtracja wody: ochrona instalacji i AGD oraz lepsza jakość wody w domu.",
     area: AREA_DEFAULT,
     sections: [
       {

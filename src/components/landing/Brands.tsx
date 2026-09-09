@@ -16,7 +16,7 @@ export function Brands() {
 
   return (
     <section
-      className="relative z-10 pb-12 pt-2 sm:pb-14 md:pb-16"
+      className="relative z-10 overflow-x-clip pb-12 pt-2 sm:pb-14 md:pb-16"
       aria-label="Marki, które montujemy"
     >
       <div className="mx-auto flex max-w-[1360px] justify-center px-5 lg:px-8">

@@ -53,7 +53,7 @@ function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
           <span className="block truncate font-semibold text-foreground">{review.name}</span>
           <span className="mt-0.5 block truncate text-sm text-muted-foreground">
             {review.place}
-            <span className="text-muted-foreground/50"> · </span>
+            <span className="text-muted-foreground/50"> / </span>
             <span className="text-accent">{review.service}</span>
           </span>
         </div>
@@ -66,8 +66,8 @@ export function Testimonials() {
   return (
     <section id="opinie" className="py-16 sm:py-20 md:py-24">
       <div className="mx-auto w-full max-w-[1360px] px-5 lg:px-8">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <span className="mx-auto block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
+        <Reveal className="max-w-3xl text-left md:mx-auto md:text-center">
+          <span className="block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase md:mx-auto">
             Opinie klientów
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
@@ -76,7 +76,7 @@ export function Testimonials() {
             <br className="sm:hidden" />
             <span className="hidden sm:inline"> </span>i okolic
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:mx-auto">
             Profesjonalizm, terminowy montaż i realne wsparcie - to najczęstsze słowa w opiniach
             naszych klientów.
           </p>

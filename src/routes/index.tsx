@@ -44,12 +44,14 @@ function Index() {
   }, [hash]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-clip">
       <Header />
-      <main>
+      <main className="overflow-x-clip">
         <Hero />
         <div className="bg-background">
           <About />
+        </div>
+        <div className="overflow-x-clip bg-muted">
           <Services />
           <Brands />
         </div>

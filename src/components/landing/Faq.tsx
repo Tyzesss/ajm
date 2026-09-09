@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import type { MouseEvent } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import { CheckList } from "./CheckList";
+import { scrollToSection } from "@/lib/scroll-to-section";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
 
 const ITEMS = [
@@ -33,6 +35,11 @@ const ITEMS = [
   },
 ];
 
+const goTo = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault();
+  scrollToSection(href);
+};
+
 export function Faq() {
   return (
     <section id="faq" className="pt-20 pb-8 md:py-24 lg:py-28">
@@ -45,7 +52,15 @@ export function Faq() {
             Często zadawane <span className="text-gradient-cyan">pytania</span>
           </h2>
           <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Nie znalazłeś odpowiedzi? Zadzwoń, oddzwonimy w ciągu jednego dnia roboczego.
+            Nie znalazłeś odpowiedzi?{" "}
+            <a
+              href="#kontakt"
+              onClick={goTo("#kontakt")}
+              className="font-medium text-foreground underline-offset-4 hover:text-accent hover:underline"
+            >
+              Napisz lub zadzwoń
+            </a>
+            , postaramy się odpowiedzieć jak najszybciej.
           </p>
           <CheckList
             items={[
@@ -57,7 +72,7 @@ export function Faq() {
           <div className="mt-8 hidden w-full lg:block">
             <Button asChild variant="cyan" size="xl">
               <a href={PHONE_HREF}>
-                <Phone className="size-4" /> Zadzwoń · {PHONE_DISPLAY}
+                <Phone className="size-4" /> Zadzwoń: {PHONE_DISPLAY}
               </a>
             </Button>
           </div>

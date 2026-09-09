@@ -66,10 +66,10 @@ export function About() {
                   <span className="text-accent">AJM</span> Technika
                 </p>
                 <p className="mt-1.5 text-sm font-medium text-navy-foreground/90 sm:text-base">
-                  Dobór · Montaż · Serwis
+                  Dobór / Montaż / Serwis
                 </p>
                 <span className="mt-3 block h-0.5 w-10 rounded-full bg-accent" aria-hidden />
-                <p className="mt-2.5 text-sm text-navy-foreground/70">Namysłów · Opole · okolice</p>
+                <p className="mt-2.5 text-sm text-navy-foreground/70">Namysłów, Opole i okolice</p>
               </figcaption>
             </figure>
           </Reveal>

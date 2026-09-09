@@ -34,7 +34,7 @@ export function WhyUs() {
           alt="Nowoczesny dom z pompą ciepła o zmierzchu"
           width={1536}
           height={864}
-          className="size-full object-cover object-[72%_48%]"
+          className="size-full object-cover object-[62%_52%]"
         />
       </div>
       <div
@@ -44,12 +44,12 @@ export function WhyUs() {
       />
 
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
-        <Reveal className="max-w-3xl text-navy-foreground">
+        <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center text-navy-foreground md:mx-0 md:items-start md:text-left">
           <DarkEyebrow icon={BadgeCheck}>Dlaczego my</DarkEyebrow>
           <h2 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
             Co zyskujesz, wybierając <span className="text-gradient-cyan">nas</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-navy-foreground/70 sm:text-lg">
+          <p className="mt-4 hidden max-w-2xl text-base leading-relaxed text-navy-foreground/70 sm:block sm:text-lg">
             Lokalny dojazd, czytelny proces i kompletna oferta instalacji grzewczych, chłodniczych i
             sanitarnych.
           </p>

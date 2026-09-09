@@ -71,21 +71,21 @@ export function Contact() {
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
-        <Reveal className="mx-auto max-w-3xl text-center md:mx-0 md:text-left">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
             Kontakt
           </span>
           <h2 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
             Porozmawiajmy o <span className="text-gradient-cyan">Twojej instalacji</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:mx-0">
-            Napisz lub zadzwoń. Odpowiadamy w ciągu jednego dnia roboczego.
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Napisz lub zadzwoń. Odpowiadamy w ciągu 48 godzin.
           </p>
         </Reveal>
 
         <div className="mt-14 grid gap-4 lg:grid-cols-2 lg:items-stretch lg:gap-8">
           <div className="contents lg:flex lg:h-full lg:flex-col lg:gap-4">
-            <Reveal className="order-1">
+            <Reveal className="order-1 lg:order-none">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {INFO.map((item) => {
                   const inner = (
@@ -124,7 +124,7 @@ export function Contact() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="order-3 flex min-h-44 flex-col lg:min-h-0 lg:flex-1">
+            <Reveal delay={0.08} className="order-2 flex min-h-44 flex-col lg:order-none lg:min-h-0 lg:flex-1">
               <div className="relative min-h-52 overflow-hidden rounded-2xl bg-muted shadow-card lg:h-full lg:min-h-0 lg:flex-1">
                 <iframe
                   title={`Mapa Google: ${ADDRESS}`}
@@ -138,7 +138,7 @@ export function Contact() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.12} className="order-2 flex h-full flex-col">
+          <Reveal delay={0.12} className="order-3 flex h-full flex-col lg:order-none">
             <div className="mb-4 flex items-center gap-4 lg:hidden" aria-hidden>
               <span className="h-px flex-1 bg-border" />
               <span className="text-[11px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
@@ -158,10 +158,10 @@ export function Contact() {
             >
               <div className="mb-5 text-center">
                 <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
-                  Bezpłatna <span className="text-gradient-cyan">wycena</span>
+                  Formularz bezpłatnej <span className="text-gradient-cyan">wyceny</span>
                 </h3>
                 <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                  Oddzwonimy z propozycją w ciągu 24 godzin
+                  Skontaktujemy się z Tobą w ciągu 48 godzin
                 </p>
               </div>
 

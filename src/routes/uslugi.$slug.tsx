@@ -26,14 +26,15 @@ import { ServiceRealizations } from "@/components/landing/ServiceRealizations";
 import { Reveal } from "@/components/landing/Reveal";
 import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
 import { motion, useReducedMotion } from "framer-motion";
-import thumbPompy from "@/assets/ajm-pompa-panasonic-aquarea.jpg";
-import thumbKlima from "@/assets/ajm-jednostki-zew-midea-duo.jpg";
-import thumbKotly from "@/assets/ajm-kociol-hlazar-pellet.jpg";
-import thumbPodlogowe from "@/assets/ajm-podlogowka-petle.jpg";
-import thumbRecup from "@/assets/ajm-kotlownia-rotenso-filtry.jpg";
-import thumbSerwis from "@/assets/ajm-pompa-midea-dach.jpg";
-import thumbHydro from "@/assets/ajm-kotlownia-midea-czerwone.jpg";
-import thumbWoda from "@/assets/ajm-kotlownia-galmet-pompy.jpg";
+import sidePompy from "@/assets/service-side-pompy-ciepla.png";
+import sideKotly from "@/assets/service-side-kotly-pelletowe.png";
+import sidePodlogowe from "@/assets/service-side-podlogowe.png";
+import sideKlima from "@/assets/service-side-klimatyzacja.png";
+import sideWodne from "@/assets/service-side-wodne.png";
+import sideSanitarne from "@/assets/service-side-sanitarne.png";
+import sidePrzemyslowe from "@/assets/service-side-przemyslowe.png";
+import sideRecup from "@/assets/service-side-rekuperacja.png";
+import sideWoda from "@/assets/service-side-uzdatnianie.png";
 import faqBgPompy from "@/assets/faq-bg-pompy-ciepla.png";
 import faqBgKotly from "@/assets/faq-bg-kotly-pelletowe.png";
 import faqBgPodlogowe from "@/assets/faq-bg-ogrzewanie-podlogowe.png";
@@ -118,63 +119,63 @@ const IMAGES: Record<
   { src: string; alt: string; position: string; heroPosition?: string; heroZoom?: number }
 > = {
   "pompy-ciepla": {
-    src: thumbPompy,
-    alt: "Jednostka zewnętrzna Panasonic Aquarea przy domu",
+    src: sidePompy,
+    alt: "Pompa ciepła powietrze-woda przy domu jednorodzinnym",
     position: "50% 45%",
   },
   "kotly-pelletowe": {
-    src: thumbKotly,
-    alt: "Kocioł pelletowy Lazar Smart Fire w kotłowni",
-    position: "55% 45%",
+    src: sideKotly,
+    alt: "Kocioł pelletowy w kotłowni z zasobnikami",
+    position: "48% 42%",
   },
   "ogrzewanie-podlogowe": {
-    src: thumbPodlogowe,
+    src: sidePodlogowe,
     alt: "Pętle ogrzewania podłogowego przed wylewką",
     position: "50% 55%",
   },
   klimatyzacja: {
-    src: thumbKlima,
-    alt: "Jednostki zewnętrzne klimatyzacji Midea przy elewacji",
+    src: sideKlima,
+    alt: "Jednostki zewnętrzne klimatyzacji przy elewacji",
     position: "50% 45%",
   },
   "instalacje-wodne": {
-    src: thumbHydro,
-    alt: "Kotłownia z instalacją wodną i grzewczą",
+    src: sideWodne,
+    alt: "Instalacja wody użytkowej z rozdzielaczami i armaturą",
     position: "50% 45%",
   },
   "instalacje-sanitarne": {
-    src: thumbHydro,
-    alt: "Instalacje w pomieszczeniu technicznym",
-    position: "50% 45%",
+    src: sideSanitarne,
+    alt: "Instalacje sanitarne i podejścia przed wykończeniem",
+    position: "50% 48%",
   },
   "instalacje-przemyslowe": {
-    src: thumbSerwis,
-    alt: "Jednostka zewnętrzna na dachu obiektu",
-    position: "48% 45%",
+    src: sidePrzemyslowe,
+    alt: "Jednostki HVAC na dachu obiektu użytkowego",
+    position: "50% 42%",
   },
   rekuperacja: {
-    src: thumbRecup,
-    alt: "Pomieszczenie techniczne po montażu instalacji",
-    position: "50% 40%",
+    src: sideRecup,
+    alt: "Centrala rekuperacji z zaizolowanymi kanałami",
+    position: "50% 42%",
   },
   "uzdatnianie-wody": {
-    src: thumbWoda,
-    alt: "Zasobnik i instalacja wodna w kotłowni",
-    position: "52% 40%",
+    src: sideWoda,
+    alt: "Stacja uzdatniania i zmiękczania wody",
+    position: "48% 40%",
   },
 };
 
-/** Tight crops for „Inne usługi” cards - not the wide hero frames. */
+/** Same generated shots as the right-side panel on service pages. */
 const CARD_THUMBS: Record<string, { src: string; position: string }> = {
-  "pompy-ciepla": { src: thumbPompy, position: "50% 45%" },
-  "kotly-pelletowe": { src: thumbKotly, position: "55% 40%" },
-  "ogrzewanie-podlogowe": { src: thumbPodlogowe, position: "50% 55%" },
-  klimatyzacja: { src: thumbKlima, position: "50% 45%" },
-  "instalacje-wodne": { src: thumbHydro, position: "50% 45%" },
-  "instalacje-sanitarne": { src: thumbHydro, position: "50% 45%" },
-  "instalacje-przemyslowe": { src: thumbSerwis, position: "48% 45%" },
-  rekuperacja: { src: thumbRecup, position: "50% 40%" },
-  "uzdatnianie-wody": { src: thumbWoda, position: "52% 40%" },
+  "pompy-ciepla": { src: sidePompy, position: "50% 45%" },
+  "kotly-pelletowe": { src: sideKotly, position: "48% 42%" },
+  "ogrzewanie-podlogowe": { src: sidePodlogowe, position: "50% 55%" },
+  klimatyzacja: { src: sideKlima, position: "50% 45%" },
+  "instalacje-wodne": { src: sideWodne, position: "50% 45%" },
+  "instalacje-sanitarne": { src: sideSanitarne, position: "50% 48%" },
+  "instalacje-przemyslowe": { src: sidePrzemyslowe, position: "50% 42%" },
+  rekuperacja: { src: sideRecup, position: "50% 42%" },
+  "uzdatnianie-wody": { src: sideWoda, position: "48% 40%" },
 };
 
 function OtherServiceCard({ item }: { item: (typeof SERVICES)[number] }) {
@@ -456,14 +457,6 @@ function ServicePage() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-6 border-t border-accent/20 pt-5">
-                      <h3 className="font-display text-base font-bold text-foreground">
-                        Teren działania
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {service.area}
-                      </p>
-                    </div>
                   </div>
                 </Reveal>
               </div>
@@ -486,35 +479,37 @@ function ServicePage() {
           </div>
         </div>
 
-        <div className="bg-navy">
-          <div className="mx-auto max-w-[1360px] px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
-            <section>
-              <Reveal>
-                <DarkEyebrow icon={Hammer}>Proces</DarkEyebrow>
-                <h2 className="mt-5 font-display text-3xl font-bold text-navy-foreground sm:text-5xl">
-                  Jak <span className="text-gradient-cyan">pracujemy</span>
-                </h2>
-              </Reveal>
-              <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
-                {SERVICE_PROCESS.map((item, i) => (
-                  <Reveal key={item.step} delay={0.06 + i * 0.07} y={16} scale className="h-full">
-                    <li className="flex h-full flex-col rounded-3xl bg-navy-foreground/8 p-7 ring-1 ring-navy-foreground/15 sm:p-8">
-                      <span className="font-display text-xs font-semibold tracking-[0.18em] text-accent uppercase">
-                        {item.step}
-                      </span>
-                      <p className="mt-4 font-semibold text-navy-foreground">{item.title}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-navy-foreground/65">
-                        {item.body}
-                      </p>
-                    </li>
-                  </Reveal>
-                ))}
-              </ol>
-            </section>
+        {related.length > 0 ? (
+          <div className="bg-navy">
+            <div className="mx-auto max-w-[1360px] px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
+              <section>
+                <Reveal>
+                  <DarkEyebrow icon={Hammer}>Proces</DarkEyebrow>
+                  <h2 className="mt-5 font-display text-3xl font-bold text-navy-foreground sm:text-5xl">
+                    Jak <span className="text-gradient-cyan">pracujemy</span>
+                  </h2>
+                </Reveal>
+                <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
+                  {SERVICE_PROCESS.map((item, i) => (
+                    <Reveal key={item.step} delay={0.06 + i * 0.07} y={16} scale className="h-full">
+                      <li className="flex h-full flex-col rounded-3xl bg-navy-foreground/8 p-7 ring-1 ring-navy-foreground/15 sm:p-8">
+                        <span className="font-display text-xs font-semibold tracking-[0.18em] text-accent uppercase">
+                          {item.step}
+                        </span>
+                        <p className="mt-4 font-semibold text-navy-foreground">{item.title}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-navy-foreground/65">
+                          {item.body}
+                        </p>
+                      </li>
+                    </Reveal>
+                  ))}
+                </ol>
+              </section>
+            </div>
           </div>
-        </div>
+        ) : null}
 
-        <ServiceRealizations titleOf={service.titleOf} items={related} />
+        <ServiceRealizations slug={service.slug} titleOf={service.titleOf} items={related} />
 
         <ServiceFaq service={service} />
 
