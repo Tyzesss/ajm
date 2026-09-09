@@ -58,8 +58,8 @@ function PolitykaPrywatnosci() {
             <p className="mt-2">
               Administratorem danych osobowych jest {COMPANY_LEGAL_NAME} (dalej: „Administrator”),
               prowadząca działalność pod marką {SITE_NAME}, z siedzibą: {ADDRESS}, obsługująca
-              klientów na terenie {SERVICE_AREA}, NIP: {NIP}, REGON: {REGON}. W sprawach związanych z
-              ochroną danych można kontaktować się pod adresem e-mail:{" "}
+              klientów na terenie {SERVICE_AREA}, NIP: {NIP}, REGON: {REGON}. W sprawach związanych
+              z ochroną danych można kontaktować się pod adresem e-mail:{" "}
               <a href={`mailto:${EMAIL}`} className="text-accent underline hover:text-foreground">
                 {EMAIL}
               </a>{" "}
@@ -68,7 +68,9 @@ function PolitykaPrywatnosci() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-foreground">2. Zakres i cele przetwarzania</h2>
+            <h2 className="text-lg font-semibold text-foreground">
+              2. Zakres i cele przetwarzania
+            </h2>
             <p className="mt-2">
               Przetwarzamy dane podane w formularzu kontaktowym (imię, telefon, e-mail, opcjonalnie
               rodzaj usługi i treść wiadomości) wyłącznie w celu:
@@ -123,7 +125,9 @@ function PolitykaPrywatnosci() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-foreground">7. Dobrowolność podania danych</h2>
+            <h2 className="text-lg font-semibold text-foreground">
+              7. Dobrowolność podania danych
+            </h2>
             <p className="mt-2">
               Podanie danych w formularzu jest dobrowolne, lecz niezbędne do kontaktu zwrotnego w
               sprawie zgłoszenia.
@@ -134,9 +138,9 @@ function PolitykaPrywatnosci() {
             <h2 className="text-lg font-semibold text-foreground">8. Pliki cookies</h2>
             <p className="mt-2">
               Strona może wykorzystywać pliki cookies niezbędne do prawidłowego działania serwisu
-              (np. sesja, preferencje wyświetlania) oraz narzędzia analityczne (np. Vercel Analytics)
-              w zakresie dopuszczonym przepisami. Użytkownik może zarządzać cookies w ustawieniach
-              przeglądarki.
+              (np. sesja, preferencje wyświetlania) oraz narzędzia analityczne (np. Vercel
+              Analytics) w zakresie dopuszczonym przepisami. Użytkownik może zarządzać cookies w
+              ustawieniach przeglądarki.
             </p>
           </section>
         </div>

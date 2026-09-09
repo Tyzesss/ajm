@@ -38,9 +38,7 @@ export function Faq() {
     <section id="faq" className="pt-20 pb-8 md:py-24 lg:py-28">
       <div className="mx-auto grid max-w-[1360px] gap-12 px-5 lg:grid-cols-2 lg:items-start lg:gap-16 lg:px-8">
         <Reveal className="flex flex-col items-center text-center lg:items-start lg:self-start lg:text-left">
-          <span
-            className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
-          >
+          <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
             FAQ
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">

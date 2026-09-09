@@ -40,9 +40,8 @@ export function Footer() {
             <div>
               <BrandMark />
               <p className="mt-5 max-w-xs text-sm text-navy-foreground/60">
-                Instalacje grzewcze, chłodnicze i sanitarne w Namysłowie i na
-                Opolszczyźnie: pompy ciepła, klimatyzacja, kotły pelletowe i więcej.
-                Montaż i serwis.
+                Instalacje grzewcze, chłodnicze i sanitarne w Namysłowie i na Opolszczyźnie: pompy
+                ciepła, klimatyzacja, kotły pelletowe i więcej. Montaż i serwis.
               </p>
             </div>
 

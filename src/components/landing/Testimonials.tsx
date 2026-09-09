@@ -67,18 +67,14 @@ export function Testimonials() {
     <section id="opinie" className="py-16 sm:py-20 md:py-24">
       <div className="mx-auto w-full max-w-[1360px] px-5 lg:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <span
-            className="mx-auto block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
-          >
+          <span className="mx-auto block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
             Opinie klientów
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-            Zaufało nam ponad{" "}
-            <span className="text-gradient-cyan">20 klientów</span>
+            Zaufało nam ponad <span className="text-gradient-cyan">20 klientów</span>
             <br className="hidden sm:block" /> z Namysłowa
             <br className="sm:hidden" />
-            <span className="hidden sm:inline"> </span>
-            i okolic
+            <span className="hidden sm:inline"> </span>i okolic
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             Profesjonalizm, terminowy montaż i realne wsparcie - to najczęstsze słowa w opiniach

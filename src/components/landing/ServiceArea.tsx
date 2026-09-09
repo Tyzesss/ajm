@@ -171,13 +171,8 @@ export function ServiceArea() {
     <section id="obszar" className="bg-muted pt-12 pb-8 sm:pt-24 sm:pb-20">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <div className="grid items-start gap-8 lg:grid-cols-12 lg:items-center lg:gap-x-14 lg:gap-y-8">
-          <Reveal
-            delay={0.08}
-            className="order-1 lg:col-span-7 lg:col-start-6 lg:row-start-1"
-          >
-            <span
-              className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
-            >
+          <Reveal delay={0.08} className="order-1 lg:col-span-7 lg:col-start-6 lg:row-start-1">
+            <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
               Obszar działania
             </span>
             <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
@@ -210,10 +205,7 @@ export function ServiceArea() {
                   <span className="text-[11px] font-semibold leading-tight text-foreground sm:text-sm sm:leading-snug">
                     {town}
                   </span>
-                  <span
-                    className="h-0.5 w-5 rounded-full bg-accent/70 sm:w-6"
-                    aria-hidden
-                  />
+                  <span className="h-0.5 w-5 rounded-full bg-accent/70 sm:w-6" aria-hidden />
                 </li>
               ))}
             </ul>

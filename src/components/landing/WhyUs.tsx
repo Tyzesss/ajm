@@ -45,16 +45,13 @@ export function WhyUs() {
 
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-3xl text-navy-foreground">
-          <DarkEyebrow icon={BadgeCheck}>
-            Dlaczego my
-          </DarkEyebrow>
+          <DarkEyebrow icon={BadgeCheck}>Dlaczego my</DarkEyebrow>
           <h2 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-            Co zyskujesz, wybierając{" "}
-            <span className="text-gradient-cyan">nas</span>
+            Co zyskujesz, wybierając <span className="text-gradient-cyan">nas</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-navy-foreground/70 sm:text-lg">
-            Lokalny dojazd, czytelny proces i kompletna oferta instalacji
-            grzewczych, chłodniczych i sanitarnych.
+            Lokalny dojazd, czytelny proces i kompletna oferta instalacji grzewczych, chłodniczych i
+            sanitarnych.
           </p>
         </Reveal>
 
@@ -70,7 +67,9 @@ export function WhyUs() {
                   <h3 className="mt-4 text-base font-semibold text-navy-foreground sm:text-lg">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-navy-foreground/70">{item.body}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-navy-foreground/70">
+                    {item.body}
+                  </p>
                 </article>
               </Reveal>
             );
