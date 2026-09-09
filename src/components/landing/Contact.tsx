@@ -79,7 +79,8 @@ export function Contact() {
             Porozmawiajmy o <span className="text-gradient-cyan">Twojej instalacji</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Napisz lub zadzwoń. Odpowiadamy w ciągu 48 godzin.
+            Napisz lub zadzwoń.
+            <br className="md:hidden" /> Odpowiadamy w ciągu 48 godzin.
           </p>
         </Reveal>
 

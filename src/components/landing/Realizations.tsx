@@ -13,10 +13,18 @@ import ajmPodlogowka from "@/assets/ajm-podlogowka-petle.jpg";
 import ajmPompaMideaDach from "@/assets/ajm-pompa-midea-dach.jpg";
 import ajmKotlowniaRotenso from "@/assets/ajm-kotlownia-rotenso-filtry.jpg";
 import ajmPompaStiebel from "@/assets/ajm-pompa-stiebel-outdoor.jpg";
+import ajmSanitarnaSciana from "@/assets/ajm-instalacja-sanitarna-sciana.jpg";
+import ajmKanalizacjaPex from "@/assets/ajm-instalacja-kanalizacja-pex.jpg";
+import ajmGalmetInstalacja from "@/assets/ajm-kotlownia-galmet-instalacja.jpg";
 
-type Category = "Pompy ciepła" | "Klimatyzacja" | "Kotły pelletowe" | "Ogrzewanie podłogowe";
+type Category =
+  | "Pompy ciepła"
+  | "Klimatyzacja"
+  | "Kotły pelletowe"
+  | "Ogrzewanie podłogowe"
+  | "Instalacje";
 
-/** Zdjęcia są portretowe - kafle 3:4, lekki zoom, focus na sprzęt. */
+/** Zdjęcia portretowe - kafle bento: lg 2×2, tall 1×2, wide 2×1, sm 1×1. */
 const PROJECTS: {
   image: string;
   imageMobile: string;
@@ -28,9 +36,8 @@ const PROJECTS: {
   focusMobile?: string;
   zoom?: number;
   zoomMobile?: number;
-  featured?: boolean;
-  /** PC: wąski wysoki kafelek (1×2) - domyka siatkę przy featured 2×2 */
-  tall?: boolean;
+  /** Rozmiar w siatce 4-kolumnowej (suma komórek musi być wielokrotnością 4). */
+  span?: "lg" | "tall" | "wide" | "sm";
 }[] = [
   {
     image: ajmPompaPanasonic,
@@ -43,7 +50,7 @@ const PROJECTS: {
     focusMobile: "50% 44%",
     zoom: 1.02,
     zoomMobile: 1.03,
-    featured: true,
+    span: "lg",
   },
   {
     image: ajmJednostkiDuo,
@@ -56,6 +63,7 @@ const PROJECTS: {
     focusMobile: "44% 36%",
     zoom: 1.05,
     zoomMobile: 1.04,
+    span: "wide",
   },
   {
     image: ajmPompaMideaDach,
@@ -68,6 +76,7 @@ const PROJECTS: {
     focusMobile: "50% 30%",
     zoom: 1.04,
     zoomMobile: 1.05,
+    span: "sm",
   },
   {
     image: ajmKociolHlazar,
@@ -80,7 +89,7 @@ const PROJECTS: {
     focusMobile: "80% 40%",
     zoom: 1.02,
     zoomMobile: 1.03,
-    tall: true,
+    span: "tall",
   },
   {
     image: ajmKotlowniaMidea,
@@ -93,6 +102,7 @@ const PROJECTS: {
     focusMobile: "40% 44%",
     zoom: 1.03,
     zoomMobile: 1.03,
+    span: "sm",
   },
   {
     image: ajmPodlogowka,
@@ -105,6 +115,7 @@ const PROJECTS: {
     focusMobile: "50% 58%",
     zoom: 1.06,
     zoomMobile: 1.05,
+    span: "sm",
   },
   {
     image: ajmKotlowniaRotenso,
@@ -117,6 +128,7 @@ const PROJECTS: {
     focusMobile: "48% 34%",
     zoom: 1.03,
     zoomMobile: 1.04,
+    span: "sm",
   },
   {
     image: ajmPompaStiebel,
@@ -129,22 +141,69 @@ const PROJECTS: {
     focusMobile: "56% 34%",
     zoom: 1.04,
     zoomMobile: 1.05,
+    span: "sm",
+  },
+  {
+    image: ajmSanitarnaSciana,
+    imageMobile: ajmSanitarnaSciana,
+    category: "Instalacje",
+    title: "Instalacja wodno-sanitarna",
+    place: "Budowa, woj. opolskie",
+    alt: "Rozprowadzenie wody i kanalizacji w ścianie na stelażu",
+    focus: "55% 42%",
+    focusMobile: "55% 40%",
+    zoom: 1.03,
+    zoomMobile: 1.04,
+    span: "sm",
+  },
+  {
+    image: ajmKanalizacjaPex,
+    imageMobile: ajmKanalizacjaPex,
+    category: "Instalacje",
+    title: "Kanalizacja i podejścia",
+    place: "Budowa, woj. opolskie",
+    alt: "Kanalizacja w posadzce oraz podejścia wody ciepłej i zimnej",
+    focus: "48% 48%",
+    focusMobile: "48% 46%",
+    zoom: 1.02,
+    zoomMobile: 1.03,
+    span: "sm",
+  },
+  {
+    image: ajmGalmetInstalacja,
+    imageMobile: ajmGalmetInstalacja,
+    category: "Instalacje",
+    title: "Zasobnik Galmet i pompy",
+    place: "Kotłownia, woj. opolskie",
+    alt: "Zasobnik Galmet z pompami obiegowymi i armaturą w kotłowni",
+    focus: "42% 40%",
+    focusMobile: "40% 38%",
+    zoom: 1.03,
+    zoomMobile: 1.04,
+    span: "sm",
   },
 ];
+
+const SPAN_CLASS: Record<NonNullable<(typeof PROJECTS)[number]["span"]>, string> = {
+  lg: "md:col-span-2 md:row-span-2",
+  tall: "md:col-span-1 md:row-span-2",
+  wide: "md:col-span-2 md:row-span-1",
+  sm: "md:col-span-1 md:row-span-1",
+};
 
 const IMG_GRADE = "[filter:brightness(0.97)_contrast(1.1)_saturate(0.9)_hue-rotate(4deg)]";
 
 function ProjectCard({
   project,
-  featured,
   onOpen,
 }: {
   project: (typeof PROJECTS)[number];
-  featured: boolean;
   onOpen: () => void;
 }) {
   const zoom = project.zoom ?? 1.03;
   const zoomMobile = project.zoomMobile ?? project.zoom ?? 1.03;
+  const span = project.span ?? "sm";
+  const large = span === "lg" || span === "wide";
 
   return (
     <button
@@ -155,8 +214,9 @@ function ProjectCard({
         "border border-navy-foreground/12 bg-navy max-md:aspect-[3/4] max-md:min-h-0 max-md:shadow-none",
         "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-0",
         "md:transition-all md:duration-500 md:ease-[cubic-bezier(0.22,1,0.36,1)] md:hover:-translate-y-1 md:hover:border-accent/40",
-        !featured && !project.tall && "md:aspect-[3/4]",
-        (featured || project.tall) && "md:min-h-full md:aspect-auto",
+        span === "sm" && "md:aspect-[3/4]",
+        span === "wide" && "md:aspect-[2/1] md:min-h-0",
+        (span === "lg" || span === "tall") && "md:min-h-full md:aspect-auto",
       )}
     >
       <div className="absolute inset-0 overflow-hidden transition-transform duration-700 ease-out md:group-hover:scale-[1.03]">
@@ -200,7 +260,7 @@ function ProjectCard({
         <h3
           className={cn(
             "mt-2 font-display font-semibold text-navy-foreground max-md:text-lg",
-            featured ? "text-lg sm:text-2xl" : "text-sm sm:text-base",
+            large ? "text-lg sm:text-2xl" : "text-sm sm:text-base",
           )}
         >
           {project.title}
@@ -266,26 +326,20 @@ export function Realizations() {
             dotsOnDark
             className="animate-in fade-in duration-500 ease-out"
             renderItem={(project, i) => (
-              <ProjectCard project={project} featured onOpen={() => openAt(i)} />
+              <ProjectCard project={project} onOpen={() => openAt(i)} />
             )}
           />
-          <div className="hidden gap-4 md:grid md:grid-cols-4 md:grid-flow-dense md:auto-rows-[minmax(14.5rem,auto)]">
+          <div className="hidden gap-4 md:grid md:grid-cols-4 md:grid-flow-dense md:auto-rows-[minmax(13.5rem,auto)]">
             {PROJECTS.map((project, i) => {
-              const featured = Boolean(project.featured);
-              const tall = Boolean(project.tall);
+              const span = project.span ?? "sm";
               return (
                 <Reveal
                   key={project.title}
-                  delay={Math.min(i, 4) * 0.06}
+                  delay={Math.min(i, 5) * 0.05}
                   scale
-                  className={cn(
-                    "h-full",
-                    featured && "md:col-span-2 md:row-span-2",
-                    tall && "md:col-span-1 md:row-span-2",
-                    !featured && !tall && "md:col-span-1",
-                  )}
+                  className={cn("h-full min-h-0", SPAN_CLASS[span])}
                 >
-                  <ProjectCard project={project} featured={featured} onOpen={() => openAt(i)} />
+                  <ProjectCard project={project} onOpen={() => openAt(i)} />
                 </Reveal>
               );
             })}
