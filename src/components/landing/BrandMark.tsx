@@ -19,8 +19,7 @@ export function BrandMark({ className, wordmarkClassName }: BrandMarkProps) {
         className={cn("h-8 w-auto sm:h-9", wordmarkClassName)}
         decoding="async"
         style={{
-          filter:
-            "brightness(1.22) contrast(1.04) drop-shadow(0 1px 1px rgb(0 0 0 / 0.18))",
+          filter: "brightness(1.22) contrast(1.04) drop-shadow(0 1px 1px rgb(0 0 0 / 0.18))",
         }}
       />
     </span>

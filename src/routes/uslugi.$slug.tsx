@@ -292,9 +292,7 @@ function ServiceFaq({ service }: { service: Service }) {
           <div
             className="flex min-h-[14rem] flex-col justify-between gap-6 self-start overflow-hidden rounded-3xl bg-gradient-cyan p-7 text-white sm:p-8 lg:h-[var(--service-cta-h,auto)] lg:min-h-0 lg:p-9"
             style={
-              ctaHeight
-                ? ({ "--service-cta-h": `${ctaHeight}px` } as CSSProperties)
-                : undefined
+              ctaHeight ? ({ "--service-cta-h": `${ctaHeight}px` } as CSSProperties) : undefined
             }
           >
             <div>
@@ -424,7 +422,10 @@ function ServicePage() {
                   <Reveal key={section.heading} delay={i * 0.08}>
                     <section>
                       <h2 className="flex items-center gap-3 font-display text-2xl font-black text-foreground sm:text-3xl">
-                        <span className="h-8 w-1 shrink-0 rounded-full bg-gradient-cyan" aria-hidden />
+                        <span
+                          className="h-8 w-1 shrink-0 rounded-full bg-gradient-cyan"
+                          aria-hidden
+                        />
                         {section.heading}
                       </h2>
                       <p className="mt-3 max-w-prose pl-4 text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-[1.05rem] sm:leading-8">
@@ -439,7 +440,9 @@ function ServicePage() {
                     <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
                       Oferta
                     </span>
-                    <h2 className="mt-2 font-display text-xl font-black text-foreground">Zakres prac</h2>
+                    <h2 className="mt-2 font-display text-xl font-black text-foreground">
+                      Zakres prac
+                    </h2>
                     <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                       {service.bullets.map((item) => (
                         <li
@@ -500,7 +503,9 @@ function ServicePage() {
                         {item.step}
                       </span>
                       <p className="mt-4 font-semibold text-navy-foreground">{item.title}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-navy-foreground/65">{item.body}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-navy-foreground/65">
+                        {item.body}
+                      </p>
                     </li>
                   </Reveal>
                 ))}

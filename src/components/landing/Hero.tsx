@@ -116,7 +116,10 @@ export function Hero() {
             {/* Mobile stats - 2 badges */}
             <div className="mt-10 flex w-full flex-wrap items-start justify-center gap-x-14 gap-y-5 px-2 md:hidden">
               {STATS.slice(0, 2).map((stat) => (
-                <div key={stat.label} className="flex min-w-[8.5rem] flex-col items-center text-center">
+                <div
+                  key={stat.label}
+                  className="flex min-w-[8.5rem] flex-col items-center text-center"
+                >
                   <div className="font-display text-3xl font-bold">
                     <Counter to={stat.value} suffix={stat.suffix} />
                   </div>

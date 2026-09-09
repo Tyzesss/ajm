@@ -1,6 +1,5 @@
 export const SITE_NAME = "AJM Technika";
-export const SITE_TITLE =
-  "AJM Technika - pompy ciepła, klimatyzacja, kotły | Namysłów";
+export const SITE_TITLE = "AJM Technika - pompy ciepła, klimatyzacja, kotły | Namysłów";
 export const COMPANY_LEGAL_NAME = "AJM Sp. z o.o.";
 export const EMAIL = "kontakt@ajmtechnika.pl";
 export const EMAIL_HREF = `mailto:${EMAIL}`;
@@ -35,12 +34,7 @@ export const SERVICE_TOWNS = [
   "Oleśnica",
   "Dobrzeń Wielki",
 ] as const;
-export const SERVICE_COUNTIES = [
-  "namysłowski",
-  "kluczborski",
-  "brzeski",
-  "opolski",
-] as const;
+export const SERVICE_COUNTIES = ["namysłowski", "kluczborski", "brzeski", "opolski"] as const;
 export const NIP = "5562796248";
 export const REGON = "521998239";
 export const HOURS = "Pn-Sb: 8:00-20:00, Nd: zamknięte";
