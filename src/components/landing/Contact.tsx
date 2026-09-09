@@ -72,9 +72,7 @@ export function Contact() {
       />
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="mx-auto max-w-3xl text-center md:mx-0 md:text-left">
-          <span
-            className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
-          >
+          <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
             Kontakt
           </span>
           <h2 className="mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
@@ -141,10 +139,7 @@ export function Contact() {
           </div>
 
           <Reveal delay={0.12} className="order-2 flex h-full flex-col">
-            <div
-              className="mb-4 flex items-center gap-4 lg:hidden"
-              aria-hidden
-            >
+            <div className="mb-4 flex items-center gap-4 lg:hidden" aria-hidden>
               <span className="h-px flex-1 bg-border" />
               <span className="text-[11px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
                 Lub
@@ -296,7 +291,12 @@ export function Contact() {
                 </label>
               </div>
 
-              <Button type="submit" variant="cyan" size="xl" className="mt-6 h-11 w-full rounded-xl text-sm">
+              <Button
+                type="submit"
+                variant="cyan"
+                size="xl"
+                className="mt-6 h-11 w-full rounded-xl text-sm"
+              >
                 Wyślij zapytanie <Send className="size-4" />
               </Button>
             </form>

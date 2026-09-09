@@ -14,11 +14,7 @@ import ajmPompaMideaDach from "@/assets/ajm-pompa-midea-dach.jpg";
 import ajmKotlowniaRotenso from "@/assets/ajm-kotlownia-rotenso-filtry.jpg";
 import ajmPompaStiebel from "@/assets/ajm-pompa-stiebel-outdoor.jpg";
 
-type Category =
-  | "Pompy ciepła"
-  | "Klimatyzacja"
-  | "Kotły pelletowe"
-  | "Ogrzewanie podłogowe";
+type Category = "Pompy ciepła" | "Klimatyzacja" | "Kotły pelletowe" | "Ogrzewanie podłogowe";
 
 /** Zdjęcia są portretowe - kafle 3:4, lekki zoom, focus na sprzęt. */
 const PROJECTS: {
@@ -136,8 +132,7 @@ const PROJECTS: {
   },
 ];
 
-const IMG_GRADE =
-  "[filter:brightness(0.97)_contrast(1.1)_saturate(0.9)_hue-rotate(4deg)]";
+const IMG_GRADE = "[filter:brightness(0.97)_contrast(1.1)_saturate(0.9)_hue-rotate(4deg)]";
 
 function ProjectCard({
   project,
@@ -255,12 +250,9 @@ export function Realizations() {
     <section id="realizacje" className="pt-16 pb-8 md:pt-20 md:pb-10">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-3xl text-left text-navy-foreground">
-          <DarkEyebrow icon={Images}>
-            Realizacje
-          </DarkEyebrow>
+          <DarkEyebrow icon={Images}>Realizacje</DarkEyebrow>
           <h2 className="mt-5 font-display text-3xl font-bold sm:text-5xl">
-            Instalacje, które{" "}
-            <br className="md:hidden" />
+            Instalacje, które <br className="md:hidden" />
             <span className="text-gradient-cyan">już działają</span>
           </h2>
           <p className="mt-4 max-w-2xl text-navy-foreground/70">
@@ -274,11 +266,7 @@ export function Realizations() {
             dotsOnDark
             className="animate-in fade-in duration-500 ease-out"
             renderItem={(project, i) => (
-              <ProjectCard
-                project={project}
-                featured
-                onOpen={() => openAt(i)}
-              />
+              <ProjectCard project={project} featured onOpen={() => openAt(i)} />
             )}
           />
           <div className="hidden gap-4 md:grid md:grid-cols-4 md:grid-flow-dense md:auto-rows-[minmax(14.5rem,auto)]">
@@ -297,11 +285,7 @@ export function Realizations() {
                     !featured && !tall && "md:col-span-1",
                   )}
                 >
-                  <ProjectCard
-                    project={project}
-                    featured={featured}
-                    onOpen={() => openAt(i)}
-                  />
+                  <ProjectCard project={project} featured={featured} onOpen={() => openAt(i)} />
                 </Reveal>
               );
             })}

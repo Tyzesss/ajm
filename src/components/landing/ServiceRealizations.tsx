@@ -6,8 +6,7 @@ import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
 import type { RealizationCard } from "@/lib/realization-cards";
 
-const IMG_GRADE =
-  "[filter:brightness(0.97)_contrast(1.1)_saturate(0.9)_hue-rotate(4deg)]";
+const IMG_GRADE = "[filter:brightness(0.97)_contrast(1.1)_saturate(0.9)_hue-rotate(4deg)]";
 
 type GalleryItem = RealizationCard & {
   zoom?: number;
@@ -20,13 +19,7 @@ function toGalleryItems(items: RealizationCard[]): GalleryItem[] {
   }));
 }
 
-function ProjectCard({
-  item,
-  onOpen,
-}: {
-  item: GalleryItem;
-  onOpen: () => void;
-}) {
+function ProjectCard({ item, onOpen }: { item: GalleryItem; onOpen: () => void }) {
   const zoom = item.zoom ?? 1.03;
   const focus = item.focus ?? "50% 42%";
 
@@ -141,9 +134,7 @@ export function ServiceRealizations({
           <MobileCarousel
             items={projects}
             className="animate-in fade-in duration-500 ease-out"
-            renderItem={(project, i) => (
-              <ProjectCard item={project} onOpen={() => openAt(i)} />
-            )}
+            renderItem={(project, i) => <ProjectCard item={project} onOpen={() => openAt(i)} />}
           />
           <div
             className={cn(

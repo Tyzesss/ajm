@@ -57,9 +57,7 @@ export function Services() {
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-4xl md:mx-auto">
           <div className="flex flex-col items-start text-left md:items-center md:text-center">
-            <span
-              className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase"
-            >
+            <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
               Nasze Usługi
             </span>
             <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
@@ -68,8 +66,8 @@ export function Services() {
               <span className="text-gradient-cyan">dla domu i biznesu</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Pompy ciepła, klimatyzacja, pellet, rekuperacja i instalacje wodno-sanitarne.
-              Dobór, montaż i serwis w Namysłowie, Opolu i okolicach.
+              Pompy ciepła, klimatyzacja, pellet, rekuperacja i instalacje wodno-sanitarne. Dobór,
+              montaż i serwis w Namysłowie, Opolu i okolicach.
             </p>
           </div>
         </Reveal>

@@ -13,13 +13,7 @@ type RevealProps = {
   scale?: boolean;
 };
 
-export function Reveal({
-  children,
-  delay = 0,
-  className,
-  y = 18,
-  scale = false,
-}: RevealProps) {
+export function Reveal({ children, delay = 0, className, y = 18, scale = false }: RevealProps) {
   const reduce = useReducedMotion();
 
   return (
