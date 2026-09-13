@@ -6,20 +6,20 @@ import { GOOGLE_REVIEWS_URL } from "@/lib/site";
 const REVIEWS = [
   {
     name: "Agata P.",
-    place: "Namysłów",
-    service: "Pompa ciepła",
+    place: "Oleśnica",
+    service: "Klimatyzacja",
     text: "Szczerze polecam, naprawdę firma godna polecenia",
   },
   {
     name: "M t",
-    place: "Namysłów",
+    place: "Opole",
     service: "Pompa ciepła",
     text: "Firmę cechuje profesjonalizm i doświadczenie w instalacji pomp ciepła.",
   },
   {
     name: "Adrian P.",
-    place: "Namysłów",
-    service: "Pompa ciepła",
+    place: "Nysa",
+    service: "Kotły pelletowe",
     text: "Super! Gorąco polecam",
   },
 ];

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { ChevronLeft, ChevronRight, Images, MapPin, X, ZoomIn } from "lucide-react";
+import { ChevronLeft, ChevronRight, Images, X, ZoomIn } from "lucide-react";
 import { DarkEyebrow } from "./DarkEyebrow";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
@@ -30,7 +30,7 @@ const PROJECTS: {
   imageMobile: string;
   category: Category;
   title: string;
-  place: string;
+  caption: string;
   alt: string;
   focus: string;
   focusMobile?: string;
@@ -44,7 +44,7 @@ const PROJECTS: {
     imageMobile: ajmPompaPanasonic,
     category: "Pompy ciepła",
     title: "Panasonic Aquarea",
-    place: "Dom jednorodzinny",
+    caption: "Dom jednorodzinny",
     alt: "Jednostka zewnętrzna Panasonic Aquarea na stopach betonowych",
     focus: "50% 46%",
     focusMobile: "50% 44%",
@@ -57,7 +57,7 @@ const PROJECTS: {
     imageMobile: ajmJednostkiDuo,
     category: "Klimatyzacja",
     title: "Jednostki zewnętrzne Midea",
-    place: "Dom jednorodzinny",
+    caption: "Dom jednorodzinny",
     alt: "Dwie jednostki zewnętrzne Midea na bloczkach betonowych",
     focus: "42% 38%",
     focusMobile: "44% 36%",
@@ -70,7 +70,7 @@ const PROJECTS: {
     imageMobile: ajmPompaMideaDach,
     category: "Pompy ciepła",
     title: "Montaż dachowy Midea",
-    place: "Obiekt",
+    caption: "Montaż na dachu",
     alt: "Jednostka zewnętrzna Midea zamontowana na dachu",
     focus: "50% 28%",
     focusMobile: "50% 30%",
@@ -83,7 +83,7 @@ const PROJECTS: {
     imageMobile: ajmKociolHlazar,
     category: "Kotły pelletowe",
     title: "Kocioł Lazar Smart Fire",
-    place: "Kotłownia",
+    caption: "Kotłownia",
     alt: "Kocioł pelletowy Lazar Smart Fire w kotłowni",
     focus: "82% 42%",
     focusMobile: "80% 40%",
@@ -96,7 +96,7 @@ const PROJECTS: {
     imageMobile: ajmKotlowniaMidea,
     category: "Pompy ciepła",
     title: "Kotłownia z hydroboxem Midea",
-    place: "Pomieszczenie techniczne",
+    caption: "Pomieszczenie techniczne",
     alt: "Kotłownia z jednostką Midea, zasobnikiem Galmet i orurowaniem",
     focus: "42% 46%",
     focusMobile: "40% 44%",
@@ -109,7 +109,7 @@ const PROJECTS: {
     imageMobile: ajmPodlogowka,
     category: "Ogrzewanie podłogowe",
     title: "Pętle przed wylewką",
-    place: "Remont",
+    caption: "Dom jednorodzinny",
     alt: "Pętle ogrzewania podłogowego na izolacji refleksyjnej",
     focus: "52% 62%",
     focusMobile: "50% 58%",
@@ -122,7 +122,7 @@ const PROJECTS: {
     imageMobile: ajmKotlowniaRotenso,
     category: "Pompy ciepła",
     title: "Rotenso z filtracją wody",
-    place: "Kotłownia",
+    caption: "Kotłownia",
     alt: "Hydrobox Rotenso, zasobnik Galmet i stacja filtrów",
     focus: "48% 36%",
     focusMobile: "48% 34%",
@@ -135,7 +135,7 @@ const PROJECTS: {
     imageMobile: ajmPompaStiebel,
     category: "Pompy ciepła",
     title: "Stiebel Eltron",
-    place: "Budowa",
+    caption: "Dom jednorodzinny",
     alt: "Jednostka zewnętrzna Stiebel Eltron na cegłach",
     focus: "58% 36%",
     focusMobile: "56% 34%",
@@ -148,7 +148,7 @@ const PROJECTS: {
     imageMobile: ajmSanitarnaSciana,
     category: "Instalacje",
     title: "Instalacja wodno-sanitarna",
-    place: "Budowa",
+    caption: "Dom w budowie",
     alt: "Rozprowadzenie wody i kanalizacji w ścianie na stelażu",
     focus: "55% 42%",
     focusMobile: "55% 40%",
@@ -161,7 +161,7 @@ const PROJECTS: {
     imageMobile: ajmKanalizacjaPex,
     category: "Instalacje",
     title: "Kanalizacja i podejścia",
-    place: "Budowa",
+    caption: "Dom w budowie",
     alt: "Kanalizacja w posadzce oraz podejścia wody ciepłej i zimnej",
     focus: "48% 48%",
     focusMobile: "48% 46%",
@@ -174,7 +174,7 @@ const PROJECTS: {
     imageMobile: ajmGalmetInstalacja,
     category: "Instalacje",
     title: "Zasobnik Galmet i pompy",
-    place: "Kotłownia",
+    caption: "Kotłownia",
     alt: "Zasobnik Galmet z pompami obiegowymi i armaturą w kotłowni",
     focus: "42% 40%",
     focusMobile: "40% 38%",
@@ -265,10 +265,7 @@ function ProjectCard({
         >
           {project.title}
         </h3>
-        <p className="mt-1 flex items-center gap-1 text-xs text-navy-foreground/75">
-          <MapPin className="size-3 shrink-0" />
-          {project.place}
-        </p>
+        <p className="mt-1 text-xs text-navy-foreground/75">{project.caption}</p>
       </div>
       <span
         className="absolute top-3 right-3 inline-flex size-9 items-center justify-center rounded-full bg-navy-foreground/15 text-navy-foreground opacity-100 backdrop-blur-sm transition-all duration-500 ease-out md:opacity-0 md:group-hover:opacity-100"
@@ -399,11 +396,10 @@ export function Realizations() {
                         IMG_GRADE,
                       )}
                     />
-                    <figcaption className="mt-4 flex items-center gap-1.5 text-sm text-navy-foreground/70">
-                      <MapPin className="size-3.5 shrink-0" />
-                      {current.place}
+                    <figcaption className="mt-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-navy-foreground/70">
+                      <span>{current.caption}</span>
                       {PROJECTS.length > 1 ? (
-                        <span className="ml-2 text-navy-foreground/40">
+                        <span className="text-navy-foreground/40">
                           {active! + 1} / {PROJECTS.length}
                         </span>
                       ) : null}

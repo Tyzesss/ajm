@@ -33,7 +33,7 @@ const BRANDS = [
   { name: "Honeywell", src: honeywell },
 ] as const;
 
-const logoClass = "h-8 w-auto max-w-[9.5rem] object-contain sm:h-9";
+const logoClass = "h-7 w-auto max-w-[85%] object-contain sm:h-8";
 
 export function Brands() {
   const [open, setOpen] = useState(false);
@@ -110,7 +110,7 @@ export function Brands() {
               {BRANDS.map((brand) => (
                 <li
                   key={brand.name}
-                  className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-border/70 bg-card px-3 py-5"
+                  className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-border/70 bg-card px-5 py-5 last:col-span-2 last:w-[calc((100%-0.75rem)/2)] last:justify-self-center sm:px-6 sm:last:col-span-1 sm:last:col-start-2 sm:last:w-auto"
                 >
                   <img
                     src={brand.src}
