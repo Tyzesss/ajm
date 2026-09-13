@@ -41,7 +41,7 @@ export function Brands() {
 
   return (
     <section
-      className="relative z-10 overflow-x-clip pb-5 pt-1 sm:pb-6"
+      className="relative z-10 overflow-x-clip pb-8 pt-1 sm:pb-9"
       aria-label="Marki, które montujemy"
     >
       <div className="mx-auto flex max-w-[1360px] justify-center px-5 lg:px-8">
@@ -63,7 +63,7 @@ export function Brands() {
               <img
                 src={brand.src}
                 alt={i >= BRANDS.length ? "" : brand.name}
-                className="h-6 w-auto max-w-[8.5rem] object-contain opacity-90 transition-opacity duration-300 hover:opacity-100 sm:h-7"
+                className="h-7 w-auto max-w-[9rem] object-contain opacity-80 transition-opacity duration-300 hover:opacity-100 sm:h-8"
                 loading="lazy"
                 decoding="async"
               />
@@ -74,14 +74,14 @@ export function Brands() {
         <div className="partners-marquee__fade partners-marquee__fade--right" aria-hidden />
       </div>
 
-      <Reveal delay={0.06} className="mt-2.5 flex justify-center px-5">
+      <Reveal delay={0.06} className="mt-5 flex justify-center px-5">
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground transition-all duration-300 hover:gap-2 hover:text-accent"
+          className="inline-flex items-center gap-1 text-[11px] font-semibold tracking-[0.14em] text-muted-foreground uppercase transition-all duration-300 hover:gap-1.5 hover:text-accent"
         >
           Zobacz wszystkie
-          <ArrowUpRight className="size-3.5" />
+          <ArrowUpRight className="size-3" />
         </button>
       </Reveal>
 
