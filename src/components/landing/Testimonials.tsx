@@ -79,11 +79,11 @@ export function Testimonials() {
             <br className="sm:hidden" />
             <span className="hidden sm:inline"> </span>
             <span className="text-gradient-cyan">100 klientów</span>
-            <br />
-            z Opola,
+            <span className="sm:hidden"> z Opola,</span>
             <br className="sm:hidden" />
-            <span className="hidden sm:inline"> </span>
-            Wrocławia i okolic
+            <br className="hidden sm:block" />
+            <span className="hidden sm:inline"> z Opola, Wrocławia i okolic</span>
+            <span className="sm:hidden">Wrocławia i okolic</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:mx-auto">
             Profesjonalizm, terminowy montaż i realne wsparcie - to najczęstsze słowa w opiniach
