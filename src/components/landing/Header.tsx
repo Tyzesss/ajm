@@ -1,27 +1,28 @@
 import { useEffect, useState, type MouseEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft, Menu, Phone, X } from "lucide-react";
+import { ArrowLeft, ChevronDown, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
+import { SERVICES } from "@/lib/services";
 import { BrandMark } from "./BrandMark";
 
 const NAV = [
   { label: "O nas", href: "#o-nas" },
-  { label: "Usługi", href: "#uslugi" },
+  { label: "Usługi", href: "#uslugi", services: true },
   { label: "Realizacje", href: "#realizacje" },
   { label: "Opinie", href: "#opinie" },
-  { label: "Obszar", href: "#obszar" },
   { label: "Kontakt", href: "#kontakt" },
-];
+] as const;
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const reduce = useReducedMotion();
 
   useEffect(() => {
@@ -45,6 +46,10 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
     return () => {
       delete document.body.dataset.mobileNavOpen;
     };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) setServicesOpen(false);
   }, [open]);
 
   const navHref = (hash: string) => (alwaysSolid ? `/${hash}` : hash);
@@ -121,16 +126,44 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
 
           {alwaysSolid ? null : (
             <nav className="hidden items-center gap-6 xl:gap-8 lg:flex">
-              {NAV.map((item) => (
-                <a
-                  key={item.href}
-                  href={navHref(item.href)}
-                  onClick={onNav(item.href)}
-                  className="text-sm font-medium text-navy-foreground/80 transition-colors duration-300 hover:text-accent"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {NAV.map((item) =>
+                "services" in item && item.services ? (
+                  <div key={item.href} className="group relative">
+                    <a
+                      href={navHref(item.href)}
+                      onClick={onNav(item.href)}
+                      className="inline-flex items-center gap-1 text-sm font-medium text-navy-foreground/80 transition-colors duration-300 hover:text-accent group-hover:text-accent"
+                    >
+                      {item.label}
+                      <ChevronDown className="size-3.5 opacity-70 transition-transform duration-300 group-hover:rotate-180" />
+                    </a>
+                    <div className="pointer-events-none invisible absolute left-1/2 top-full z-50 pt-3 opacity-0 transition-[opacity,visibility] duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100">
+                      <ul className="-translate-x-1/2 min-w-[15rem] rounded-2xl border border-navy-foreground/10 bg-navy py-2 shadow-lift">
+                        {SERVICES.map((service) => (
+                          <li key={service.slug}>
+                            <Link
+                              to="/uslugi/$slug"
+                              params={{ slug: service.slug }}
+                              className="block px-4 py-2 text-sm font-medium text-navy-foreground/85 transition-colors hover:bg-navy-foreground/8 hover:text-accent"
+                            >
+                              {service.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={navHref(item.href)}
+                    onClick={onNav(item.href)}
+                    className="text-sm font-medium text-navy-foreground/80 transition-colors duration-300 hover:text-accent"
+                  >
+                    {item.label}
+                  </a>
+                ),
+              )}
             </nav>
           )}
 
@@ -199,17 +232,69 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
             <div className="overflow-hidden">
               <div className="border-t border-navy-foreground/10 px-5 pt-2 pb-10">
                 <nav className="flex flex-col gap-0.5">
-                  {NAV.map((item) => (
-                    <a
-                      key={item.href}
-                      href={navHref(item.href)}
-                      tabIndex={open ? undefined : -1}
-                      onClick={onNav(item.href)}
-                      className="rounded-xl px-3.5 py-2.5 text-[0.95rem] font-semibold tracking-tight text-navy-foreground transition-colors duration-200 hover:bg-navy-foreground/10 hover:text-accent active:bg-navy-foreground/10"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+                  {NAV.map((item) =>
+                    "services" in item && item.services ? (
+                      <div key={item.href}>
+                        <button
+                          type="button"
+                          tabIndex={open ? undefined : -1}
+                          aria-expanded={servicesOpen}
+                          onClick={() => setServicesOpen((v) => !v)}
+                          className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-left text-[0.95rem] font-semibold tracking-tight text-navy-foreground transition-colors duration-200 hover:bg-navy-foreground/10 hover:text-accent active:bg-navy-foreground/10"
+                        >
+                          {item.label}
+                          <ChevronDown
+                            className={cn(
+                              "size-4 transition-transform duration-300",
+                              servicesOpen && "rotate-180",
+                            )}
+                          />
+                        </button>
+                        <div
+                          className={cn(
+                            "grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                            servicesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                          )}
+                        >
+                          <ul className="overflow-hidden pl-2">
+                            <li>
+                              <a
+                                href={navHref(item.href)}
+                                tabIndex={open && servicesOpen ? undefined : -1}
+                                onClick={onNav(item.href)}
+                                className="block rounded-xl px-3.5 py-2 text-sm font-medium text-navy-foreground/70 transition-colors hover:bg-navy-foreground/10 hover:text-accent"
+                              >
+                                Wszystkie usługi
+                              </a>
+                            </li>
+                            {SERVICES.map((service) => (
+                              <li key={service.slug}>
+                                <Link
+                                  to="/uslugi/$slug"
+                                  params={{ slug: service.slug }}
+                                  tabIndex={open && servicesOpen ? undefined : -1}
+                                  onClick={() => setOpen(false)}
+                                  className="block rounded-xl px-3.5 py-2 text-sm font-medium text-navy-foreground/70 transition-colors hover:bg-navy-foreground/10 hover:text-accent"
+                                >
+                                  {service.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ) : (
+                      <a
+                        key={item.href}
+                        href={navHref(item.href)}
+                        tabIndex={open ? undefined : -1}
+                        onClick={onNav(item.href)}
+                        className="rounded-xl px-3.5 py-2.5 text-[0.95rem] font-semibold tracking-tight text-navy-foreground transition-colors duration-200 hover:bg-navy-foreground/10 hover:text-accent active:bg-navy-foreground/10"
+                      >
+                        {item.label}
+                      </a>
+                    ),
+                  )}
                 </nav>
                 <a
                   href={PHONE_HREF}
@@ -218,7 +303,7 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
                   onClick={() => setOpen(false)}
                 >
                   <Phone className="size-4 shrink-0" />
-                    <span>Zadzwoń: {PHONE_DISPLAY}</span>
+                  <span>Zadzwoń: {PHONE_DISPLAY}</span>
                 </a>
               </div>
             </div>

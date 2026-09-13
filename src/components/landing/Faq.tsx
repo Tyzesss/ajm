@@ -27,7 +27,7 @@ const ITEMS = [
   },
   {
     q: "Na jakim terenie działacie?",
-    a: "Głównie województwo opolskie: Namysłów, Opole, Kluczbork, Brzeg i okoliczne miejscowości. Szczegóły w sekcji Obszar działania.",
+    a: "Województwo opolskie i dolnośląskie — m.in. Opole, Nysa, Niemodlin, Oleśnica, Wrocław i pozostałe miejscowości z naszej listy. Dojazd poza listę uzgadniamy indywidualnie.",
   },
   {
     q: "Czy robicie też serwis istniejących instalacji?",

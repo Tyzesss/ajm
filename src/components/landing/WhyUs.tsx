@@ -17,7 +17,7 @@ const ITEMS: { title: string; body: string; icon: LucideIcon }[] = [
   },
   {
     title: "Lokalny dojazd",
-    body: "Namysłów, Opole i okolice. Jesteśmy blisko inwestycji.",
+    body: "Woj. opolskie i dolnośląskie — Opole, Wrocław i okolice. Jesteśmy blisko inwestycji.",
     icon: MapPinned,
   },
 ];

@@ -296,7 +296,7 @@
   align-items: center;
   gap: 2.5rem;
   padding-inline-end: 2.5rem;
-  animation: partners-marquee-scroll 45s linear infinite;
+  animation: partners-marquee-scroll 70s linear infinite;
 }
 
 .partners-marquee__track:hover {
@@ -314,6 +314,14 @@
   transition:
     color 0.45s ease,
     opacity 0.45s ease;
+}
+
+.partners-marquee__item--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  opacity: 1;
 }
 
 .partners-marquee--on-hero .partners-marquee__item,

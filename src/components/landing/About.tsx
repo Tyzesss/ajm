@@ -21,7 +21,7 @@ export function About() {
               <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
                 Lokalny partner
                 <br />
-                instalacji <span className="text-gradient-cyan">z Namysłowa</span>
+                instalacji <span className="text-gradient-cyan">z Oleśnicy</span>
               </h2>
             </div>
           </Reveal>
@@ -31,8 +31,9 @@ export function About() {
               <span className="font-semibold text-foreground">
                 <span className="text-accent">AJM</span> Technika
               </span>{" "}
-              to lokalny partner instalacji grzewczych, chłodniczych i sanitarnych z bazą w{" "}
-              <span className="font-semibold text-foreground">Namysłowie</span>.
+              to lokalny partner instalacji grzewczych, chłodniczych i sanitarnych z siedzibą w{" "}
+              <span className="font-semibold text-foreground">Oleśnicy</span> i oddziałem w{" "}
+              <span className="font-semibold text-foreground">Szadurczycach</span> (woj. opolskie).
               <span className="hidden md:inline"> </span>
               <br className="md:hidden" />
               <br className="md:hidden" />
@@ -69,7 +70,9 @@ export function About() {
                   Dobór / Montaż / Serwis
                 </p>
                 <span className="mt-3 block h-0.5 w-10 rounded-full bg-accent" aria-hidden />
-                <p className="mt-2.5 text-sm text-navy-foreground/70">Namysłów, Opole i okolice</p>
+                <p className="mt-2.5 text-sm text-navy-foreground/70">
+                  Oleśnica · Opole · Wrocław i okolice
+                </p>
               </figcaption>
             </figure>
           </Reveal>
@@ -86,8 +89,8 @@ export function About() {
               <span className="font-semibold text-foreground">solidny montaż</span> z uruchomieniem
               oraz <span className="font-semibold text-foreground">wsparcie serwisowe</span>.
               Działamy na terenie{" "}
-              <span className="font-semibold text-foreground">województwa opolskiego</span> i w
-              sąsiednich miejscowościach.
+              <span className="font-semibold text-foreground">województwa opolskiego</span> i{" "}
+              <span className="font-semibold text-foreground">dolnośląskiego</span>.
             </p>
 
             <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">

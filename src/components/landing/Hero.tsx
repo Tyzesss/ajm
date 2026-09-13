@@ -10,7 +10,7 @@ import heroRightFill from "@/assets/hero-hvac-right.png";
 import { SERVICES } from "@/lib/services";
 
 /** Unikalne zdjęcia realizacji klienta (`ajm-*.jpg` w assets). */
-const INSTALLATION_PHOTOS = 20;
+const INSTALLATION_PHOTOS = 100;
 
 const STATS = [
   { value: 4, suffix: "+", label: "Lat doświadczenia" },

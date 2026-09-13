@@ -72,7 +72,7 @@ export function Testimonials() {
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
             Zaufało nam ponad <span className="text-gradient-cyan">20 klientów</span>
-            <br className="hidden sm:block" /> z Namysłowa
+            <br className="hidden sm:block" /> z Opola, Wrocławia
             <br className="sm:hidden" />
             <span className="hidden sm:inline"> </span>i okolic
           </h2>

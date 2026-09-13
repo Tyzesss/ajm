@@ -1,14 +1,33 @@
-import { cn } from "@/lib/utils";
+import midea from "@/assets/brands/midea.svg";
+import panasonic from "@/assets/brands/panasonic.svg";
+import stiebel from "@/assets/brands/stiebel-eltron.svg";
+import rotenso from "@/assets/brands/rotenso.svg";
+import lazar from "@/assets/brands/lazar.svg";
+import galmet from "@/assets/brands/galmet.svg";
+import afriso from "@/assets/brands/afriso.svg";
+import vilo from "@/assets/brands/vilo.svg";
+import grundfos from "@/assets/brands/grundfos.svg";
+import kaisai from "@/assets/brands/kaisai.svg";
+import bosch from "@/assets/brands/bosch.svg";
+import junkers from "@/assets/brands/junkers.svg";
+import honeywell from "@/assets/brands/honeywell.svg";
 import { Reveal } from "./Reveal";
 
-/** Marki z montaży AJM (realizacje). */
+/** Marki z montaży AJM — obecne + nowe z feedbacku klienta. */
 const BRANDS = [
-  { name: "Midea", className: "brand-wordmark--midea" },
-  { name: "Panasonic", className: "brand-wordmark--panasonic" },
-  { name: "Stiebel Eltron", className: "brand-wordmark--stiebel" },
-  { name: "Rotenso", className: "brand-wordmark--rotenso" },
-  { name: "Lazar", className: "brand-wordmark--lazar" },
-  { name: "Galmet", className: "brand-wordmark--galmet" },
+  { name: "Midea", src: midea },
+  { name: "Panasonic", src: panasonic },
+  { name: "Stiebel Eltron", src: stiebel },
+  { name: "Rotenso", src: rotenso },
+  { name: "Lazar", src: lazar },
+  { name: "Galmet", src: galmet },
+  { name: "Afriso", src: afriso },
+  { name: "Vilo", src: vilo },
+  { name: "Grundfos", src: grundfos },
+  { name: "Kaisai", src: kaisai },
+  { name: "Bosch", src: bosch },
+  { name: "Junkers", src: junkers },
+  { name: "Honeywell", src: honeywell },
 ] as const;
 
 export function Brands() {
@@ -28,41 +47,28 @@ export function Brands() {
       </div>
 
       <div
-        className="partners-marquee mt-7 md:hidden"
+        className="partners-marquee mt-7"
         aria-label={BRANDS.map((b) => b.name).join(", ")}
       >
         <ul className="partners-marquee__track">
           {strip.map((brand, i) => (
             <li
               key={`${brand.name}-${i}`}
-              className={cn("partners-marquee__item brand-wordmark", brand.className)}
+              className="partners-marquee__item partners-marquee__item--logo"
               aria-hidden={i >= BRANDS.length}
             >
-              {brand.name}
+              <img
+                src={brand.src}
+                alt={i >= BRANDS.length ? "" : brand.name}
+                className="h-8 w-auto max-w-[9.5rem] object-contain opacity-55 grayscale transition-[opacity,filter] duration-300 hover:opacity-90 hover:grayscale-0 sm:h-9"
+                loading="lazy"
+                decoding="async"
+              />
             </li>
           ))}
         </ul>
         <div className="partners-marquee__fade partners-marquee__fade--left" aria-hidden />
         <div className="partners-marquee__fade partners-marquee__fade--right" aria-hidden />
-      </div>
-
-      <div className="mx-auto hidden max-w-[1360px] px-5 md:block lg:px-8">
-        <ul className="mt-8 flex flex-nowrap items-center justify-between gap-x-3 lg:mt-10 lg:gap-x-5 xl:gap-x-8">
-          {BRANDS.map((brand, i) => (
-            <li key={brand.name} className="min-w-0 shrink">
-              <Reveal delay={0.04 + i * 0.05} y={12}>
-                <span
-                  className={cn(
-                    "brand-wordmark block truncate text-[clamp(1rem,1.5vw,1.75rem)] text-foreground/45 transition-colors duration-300 hover:text-foreground",
-                    brand.className,
-                  )}
-                >
-                  {brand.name}
-                </span>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );

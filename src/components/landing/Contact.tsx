@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
@@ -14,17 +15,25 @@ import {
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
 import {
-  ADDRESS,
+  ADDRESS_BRANCH,
+  ADDRESS_BRANCH_LABEL,
+  ADDRESS_HQ,
   EMAIL,
   EMAIL_HREF,
-  HOURS,
+  HOURS_SUNDAY,
+  HOURS_WEEKDAYS,
   MAPS_URL,
   MAPS_EMBED_URL,
   PHONE_DISPLAY,
   PHONE_HREF,
 } from "@/lib/site";
 
-const INFO = [
+const INFO: {
+  icon: typeof Phone;
+  label: string;
+  value: ReactNode;
+  href: string | null;
+}[] = [
   {
     icon: Phone,
     label: "Zadzwoń",
@@ -39,15 +48,34 @@ const INFO = [
   },
   {
     icon: MapPin,
-    label: "Adres",
-    value: ADDRESS,
+    label: "Adresy",
+    value: (
+      <span className="flex flex-col gap-1 leading-5">
+        <span className="whitespace-nowrap">
+          {ADDRESS_HQ}{" "}
+          <span className="text-muted-foreground">(Siedziba)</span>
+        </span>
+        <span className="whitespace-nowrap">
+          {ADDRESS_BRANCH}{" "}
+          <span className="text-muted-foreground">({ADDRESS_BRANCH_LABEL})</span>
+        </span>
+      </span>
+    ),
     href: MAPS_URL,
   },
   {
     icon: Clock,
     label: "Godziny",
-    value: HOURS,
-    href: null as string | null,
+    value: (
+      <span>
+        <span className="block">
+          {HOURS_WEEKDAYS}
+          <span className="sm:hidden">, {HOURS_SUNDAY}</span>
+        </span>
+        <span className="mt-0.5 hidden sm:block">{HOURS_SUNDAY}</span>
+      </span>
+    ),
+    href: null,
   },
 ];
 
@@ -90,7 +118,7 @@ export function Contact() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {INFO.map((item) => {
                   const inner = (
-                    <div className="group flex h-full min-h-[5.5rem] w-full min-w-0 items-center gap-3.5 rounded-2xl border border-border/70 bg-card px-4 py-4 shadow-card transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:min-h-[8.5rem] sm:flex-col sm:items-start sm:justify-center sm:gap-3 sm:p-5 md:hover:-translate-y-1 md:hover:border-accent/30 md:hover:shadow-lift">
+                    <div className="group flex h-full min-h-[5.5rem] w-full min-w-0 items-center gap-3.5 rounded-2xl border border-border/70 bg-card px-4 py-4 shadow-card transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:min-h-[7.5rem] sm:flex-col sm:items-start sm:justify-center sm:gap-3 sm:p-5 md:hover:-translate-y-1 md:hover:border-accent/30 md:hover:shadow-lift">
                       <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-cyan text-white sm:rounded-xl">
                         <item.icon className="size-5" />
                       </span>
@@ -98,7 +126,7 @@ export function Contact() {
                         <p className="text-[0.6875rem] leading-none font-semibold tracking-[0.08em] text-muted-foreground uppercase sm:text-xs sm:tracking-wide">
                           {item.label}
                         </p>
-                        <p className="mt-1.5 text-[0.9375rem] leading-snug font-semibold break-words text-foreground sm:text-sm sm:font-medium">
+                        <p className="mt-1.5 text-[0.875rem] leading-5 font-medium break-words text-foreground sm:text-sm">
                           {item.value}
                         </p>
                       </div>
@@ -128,7 +156,7 @@ export function Contact() {
             <Reveal delay={0.08} className="order-2 flex min-h-44 flex-col lg:order-none lg:min-h-0 lg:flex-1">
               <div className="relative min-h-52 overflow-hidden rounded-2xl bg-muted shadow-card lg:h-full lg:min-h-0 lg:flex-1">
                 <iframe
-                  title={`Mapa Google: ${ADDRESS}`}
+                  title={`Mapa Google: ${ADDRESS_HQ}`}
                   src={MAPS_EMBED_URL}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

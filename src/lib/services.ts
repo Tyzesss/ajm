@@ -1,4 +1,4 @@
-import { REALIZATIONS, SERVICE_AREA } from "./site";
+import { REALIZATIONS } from "./site";
 
 export type Service = {
   slug: string;
@@ -139,21 +139,42 @@ export const SERVICE_MOUNT_STEPS: Record<string, MountStep[]> = {
   ],
 };
 
-const AREA_DEFAULT = `Działamy w ${SERVICE_AREA}. Dojazd poza listę miejscowości uzgadniamy indywidualnie.`;
+const AREA_LEAD = "Działamy w województwie opolskim i dolnośląskim.";
+
+/**
+ * Spójny schemat lokalny (SEO + treść):
+ * - title/meta: Opole | Nysa | Niemodlin
+ * - H1: „… w Opolu, Nysie i Niemodlinie”
+ * - intro: naturalne zdanie + odesłanie do listy miast
+ * - area: lead pod kafelki (bez „fraz kluczowych”)
+ */
+function localCopy(opts: {
+  title: string;
+  introBody: string;
+  metaLead: string;
+}) {
+  return {
+    headline: `${opts.title} w Opolu, Nysie i Niemodlinie`,
+    seoTitle: `${opts.title} Opole | Nysa | Niemodlin | montaż | AJM Technika`,
+    seoDescription: `${opts.metaLead} Woj. opolskie i dolnośląskie: Opole, Nysa, Niemodlin, Wrocław, Oleśnica i okolice.`,
+    intro: `${opts.introBody} Montujemy w Opolu, Nysie, Niemodlinie oraz w pozostałych miejscowościach z listy poniżej.`,
+    area: `${AREA_LEAD} ${opts.title} montujemy m.in.\u00a0w:`,
+  };
+}
 
 export const SERVICES: Service[] = [
   {
     slug: "pompy-ciepla",
     title: "Pompy ciepła",
     titleOf: "pomp ciepła",
-    headline: "Pompy ciepła w Namysłowie i Opolu",
-    seoTitle: "Pompy ciepła Namysłów i Opole | montaż | AJM Technika",
-    seoDescription:
-      "Montaż pomp ciepła powietrze-woda w Namysłowie, Opolu i okolicach. Dobór mocy, uruchomienie i serwis. Bezpłatna konsultacja i wycena.",
+    ...localCopy({
+      title: "Pompy ciepła",
+      introBody:
+        "Dobór i montaż pomp powietrze-woda dla domów i budynków użytkowych. Niższe koszty ogrzewania, chłodzenie i CWU w jednym systemie, z uruchomieniem i instruktażem.",
+      metaLead:
+        "Montaż pomp ciepła powietrze-woda: dobór mocy, uruchomienie i serwis.",
+    }),
     short: "Dobór i montaż pomp powietrze-woda: ogrzewanie, chłodzenie i ciepła woda.",
-    intro:
-      "Dobór i montaż pomp powietrze-woda dla domów i budynków użytkowych. Niższe koszty ogrzewania, chłodzenie i CWU w jednym systemie, z uruchomieniem i instruktażem.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Dlaczego warto wybrać pompę ciepła",
@@ -188,14 +209,13 @@ export const SERVICES: Service[] = [
     slug: "kotly-pelletowe",
     title: "Kotły pelletowe",
     titleOf: "kotłów pelletowych",
-    headline: "Kotły pelletowe w Namysłowie i na Opolszczyźnie",
-    seoTitle: "Kotły pelletowe Namysłów | montaż kotła na pellet Opole | AJM Technika",
-    seoDescription:
-      "Montaż kotłów na pellet w Namysłowie i Opolu. Dobór mocy, zbiornik na paliwo, integracja z CO. Bezpłatna konsultacja i wycena.",
+    ...localCopy({
+      title: "Kotły pelletowe",
+      introBody:
+        "Montaż kotłów na pellet jako ekologiczne i wygodne źródło ciepła. Dobór mocy, zbiornik na paliwo i integracja z instalacją CO.",
+      metaLead: "Montaż kotłów na pellet: dobór mocy, zbiornik na paliwo, integracja z CO.",
+    }),
     short: "Kotły na pellet: dobór mocy, montaż i podłączenie do instalacji CO.",
-    intro:
-      "Montaż kotłów na pellet jako ekologiczne i wygodne źródło ciepła. Dobór mocy, zbiornik na paliwo i integracja z instalacją CO.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Dlaczego kocioł na pellet",
@@ -230,14 +250,14 @@ export const SERVICES: Service[] = [
     slug: "ogrzewanie-podlogowe",
     title: "Ogrzewanie podłogowe",
     titleOf: "ogrzewania podłogowego",
-    headline: "Ogrzewanie podłogowe w Namysłowie",
-    seoTitle: "Ogrzewanie podłogowe Namysłów | montaż | AJM Technika",
-    seoDescription:
-      "Projekt i montaż ogrzewania podłogowego wodnego w Namysłowie i okolicach. Komfort, równomierna temperatura, współpraca z pompą ciepła lub kotłem.",
+    ...localCopy({
+      title: "Ogrzewanie podłogowe",
+      introBody:
+        "Projekt i montaż ogrzewania podłogowego wodnego: równomierna temperatura i komfort, także z pompą ciepła lub kotłem.",
+      metaLead:
+        "Projekt i montaż ogrzewania podłogowego wodnego. Komfort, równomierna temperatura, współpraca z pompą ciepła lub kotłem.",
+    }),
     short: "Podłogówka wodna: równomierne ciepło, także z pompą ciepła lub kotłem.",
-    intro:
-      "Projekt i montaż ogrzewania podłogowego wodnego: równomierna temperatura i komfort, także z pompą ciepła lub kotłem.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Komfort bez zimnych stref",
@@ -272,14 +292,14 @@ export const SERVICES: Service[] = [
     slug: "klimatyzacja",
     title: "Klimatyzacja",
     titleOf: "klimatyzacji",
-    headline: "Klimatyzacja w Namysłowie i Opolu",
-    seoTitle: "Klimatyzacja Namysłów | montaż klimatyzacji Opole | AJM Technika",
-    seoDescription:
-      "Montaż klimatyzacji split i multi-split w Namysłowie i Opolu. Chłodzenie, dogrzewanie, uruchomienie. Bezpłatna wycena.",
+    ...localCopy({
+      title: "Klimatyzacja",
+      introBody:
+        "Klimatyzacja split i multi-split: chłodzenie latem, dogrzewanie poza sezonem, montaż ze skroplinami i uruchomieniem.",
+      metaLead:
+        "Montaż klimatyzacji split i multi-split. Chłodzenie, dogrzewanie, uruchomienie. Bezpłatna wycena.",
+    }),
     short: "Split i multi-split: chłodzenie latem i dogrzewanie poza sezonem.",
-    intro:
-      "Klimatyzacja split i multi-split: chłodzenie latem, dogrzewanie poza sezonem, montaż ze skroplinami i uruchomieniem.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Komfort przez cały rok",
@@ -314,14 +334,14 @@ export const SERVICES: Service[] = [
     slug: "instalacje-wodne",
     title: "Instalacje wodne",
     titleOf: "instalacji wodnych",
-    headline: "Instalacje wodne w Namysłowie",
-    seoTitle: "Instalacje wodne Namysłów | montaż | AJM Technika",
-    seoDescription:
-      "Instalacje wody użytkowej w Namysłowie i okolicach: przyłącza, rozprowadzenie, modernizacje. Bezpłatna konsultacja i wycena.",
+    ...localCopy({
+      title: "Instalacje wodne",
+      introBody:
+        "Instalacje wody użytkowej w budynkach mieszkalnych i użytkowych: od przyłączy po rozprowadzenie i modernizacje.",
+      metaLead:
+        "Instalacje wody użytkowej: przyłącza, rozprowadzenie, modernizacje. Bezpłatna konsultacja i wycena.",
+    }),
     short: "Woda użytkowa: przyłącza, rozprowadzenie i modernizacje.",
-    intro:
-      "Instalacje wody użytkowej w budynkach mieszkalnych i użytkowych: od przyłączy po rozprowadzenie i modernizacje.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Sprawna woda w całym budynku",
@@ -356,14 +376,14 @@ export const SERVICES: Service[] = [
     slug: "instalacje-sanitarne",
     title: "Instalacje sanitarne",
     titleOf: "instalacji sanitarnych",
-    headline: "Instalacje sanitarne w Namysłowie i Opolu",
-    seoTitle: "Instalacje sanitarne Namysłów i Opole | AJM Technika",
-    seoDescription:
-      "Kompleksowe instalacje sanitarne w Namysłowie i Opolu: kanalizacja, podejścia, piony, modernizacja łazienek w zakresie instalacji.",
+    ...localCopy({
+      title: "Instalacje sanitarne",
+      introBody:
+        "Instalacje sanitarne: kanalizacja, podejścia, wymiana pionów i modernizacja łazienek w zakresie instalacji.",
+      metaLead:
+        "Kompleksowe instalacje sanitarne: kanalizacja, podejścia, piony, modernizacja łazienek w zakresie instalacji.",
+    }),
     short: "Kanalizacja, podejścia, piony i instalacje pod łazienki.",
-    intro:
-      "Instalacje sanitarne: kanalizacja, podejścia, wymiana pionów i modernizacja łazienek w zakresie instalacji.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Solidna instalacja sanitarna",
@@ -398,14 +418,14 @@ export const SERVICES: Service[] = [
     slug: "instalacje-przemyslowe",
     title: "Instalacje przemysłowe",
     titleOf: "instalacji przemysłowych",
-    headline: "Instalacje przemysłowe w Opolu i Namysłowie",
-    seoTitle: "Instalacje przemysłowe Opole i Namysłów | AJM Technika",
-    seoDescription:
-      "Instalacje dla obiektów firmowych i przemysłowych w Opolu, Namysłowie i regionie. Zakres po oględzinach. Bezpłatna konsultacja.",
+    ...localCopy({
+      title: "Instalacje przemysłowe",
+      introBody:
+        "Instalacje dla firm i obiektów przemysłowych: rozwiązania pod ciągłość pracy i serwis. Zakres po oględzinach.",
+      metaLead:
+        "Instalacje dla obiektów firmowych i przemysłowych. Zakres po oględzinach. Bezpłatna konsultacja.",
+    }),
     short: "Instalacje dla firm i obiektów przemysłowych. Zakres po oględzinach.",
-    intro:
-      "Instalacje dla firm i obiektów przemysłowych: rozwiązania pod ciągłość pracy i serwis. Zakres po oględzinach.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Rozwiązania pod obiekt, nie z katalogu",
@@ -440,14 +460,14 @@ export const SERVICES: Service[] = [
     slug: "rekuperacja",
     title: "Rekuperacja",
     titleOf: "rekuperacji",
-    headline: "Rekuperacja w Namysłowie i Opolu",
-    seoTitle: "Rekuperacja Namysłów i Opole | montaż | AJM Technika",
-    seoDescription:
-      "Wentylacja mechaniczna z odzyskiem ciepła w Namysłowie i Opolu. Świeże powietrze, mniej wilgoci, lepszy komfort. Bezpłatna wycena.",
+    ...localCopy({
+      title: "Rekuperacja",
+      introBody:
+        "Wentylacja z odzyskiem ciepła: świeże powietrze bez wychładzania budynku, mniej wilgoci i lepszy komfort.",
+      metaLead:
+        "Wentylacja mechaniczna z odzyskiem ciepła. Świeże powietrze, mniej wilgoci, lepszy komfort. Bezpłatna wycena.",
+    }),
     short: "Wentylacja z odzyskiem ciepła: świeże powietrze bez strat energii.",
-    intro:
-      "Wentylacja z odzyskiem ciepła: świeże powietrze bez wychładzania budynku, mniej wilgoci i lepszy komfort.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Świeże powietrze bez strat ciepła",
@@ -482,14 +502,14 @@ export const SERVICES: Service[] = [
     slug: "uzdatnianie-wody",
     title: "Uzdatnianie wody",
     titleOf: "uzdatniania wody",
-    headline: "Uzdatnianie wody w Namysłowie i Opolu",
-    seoTitle: "Uzdatnianie wody Namysłów | zmiękczacz wody Opole | AJM Technika",
-    seoDescription:
-      "Stacje uzdatniania, zmiękczanie i filtracja w Namysłowie i Opolu. Ochrona instalacji i AGD, lepsza woda w domu. Bezpłatna konsultacja.",
+    ...localCopy({
+      title: "Uzdatnianie wody",
+      introBody:
+        "Zmiękczanie i filtracja wody: ochrona instalacji i AGD oraz lepsza jakość wody w domu.",
+      metaLead:
+        "Stacje uzdatniania, zmiękczanie i filtracja. Ochrona instalacji i AGD, lepsza woda w domu. Bezpłatna konsultacja.",
+    }),
     short: "Zmiękczanie i filtracja: ochrona instalacji, AGD i lepsza woda.",
-    intro:
-      "Zmiękczanie i filtracja wody: ochrona instalacji i AGD oraz lepsza jakość wody w domu.",
-    area: AREA_DEFAULT,
     sections: [
       {
         heading: "Dlaczego uzdatniać wodę",

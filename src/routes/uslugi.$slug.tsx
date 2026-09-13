@@ -24,7 +24,7 @@ import { getService, SERVICE_PROCESS, SERVICES, type Service } from "@/lib/servi
 import { getServiceRealizationCards } from "@/lib/realization-cards";
 import { ServiceRealizations } from "@/components/landing/ServiceRealizations";
 import { Reveal } from "@/components/landing/Reveal";
-import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_HREF, SERVICE_TOWNS, SITE_NAME } from "@/lib/site";
 import { motion, useReducedMotion } from "framer-motion";
 import sidePompy from "@/assets/service-side-pompy-ciepla.png";
 import sideKotly from "@/assets/service-side-kotly-pelletowe.png";
@@ -476,6 +476,33 @@ function ServicePage() {
                 </Reveal>
               ) : null}
             </div>
+
+            <Reveal delay={0.06} className="mt-12 sm:mt-14 lg:mt-16">
+              <section>
+                <h2 className="flex items-center gap-3 font-display text-2xl font-black text-foreground sm:text-3xl">
+                  <span className="h-8 w-1 shrink-0 rounded-full bg-gradient-cyan" aria-hidden />
+                  Teren działania
+                </h2>
+                <p className="mt-3 pl-4 text-base leading-relaxed text-muted-foreground sm:mt-4 lg:whitespace-nowrap">
+                  {service.area}
+                </p>
+                <ul className="mt-5 grid grid-cols-3 gap-2 pl-4 sm:gap-3 sm:mt-6">
+                  {SERVICE_TOWNS.map((town) => (
+                    <li
+                      key={town}
+                      className="flex items-center justify-center rounded-lg border border-accent/20 bg-accent/[0.08] px-1.5 py-2.5 text-center transition-colors duration-300 hover:border-accent/35 hover:bg-accent/12 sm:rounded-xl sm:px-3.5 sm:py-3"
+                    >
+                      <span className="text-[11px] font-semibold leading-tight text-foreground sm:text-sm sm:leading-snug">
+                        {town}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 pl-4 text-sm text-muted-foreground lg:pl-0 lg:text-center">
+                  Dojazd poza listę uzgadniamy indywidualnie.
+                </p>
+              </section>
+            </Reveal>
           </div>
         </div>
 

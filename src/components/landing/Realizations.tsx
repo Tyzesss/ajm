@@ -316,7 +316,7 @@ export function Realizations() {
             <span className="text-gradient-cyan">już działają</span>
           </h2>
           <p className="mt-4 max-w-2xl text-navy-foreground/70">
-            Pompy ciepła, klimatyzacja, kotły i instalacje u klientów z Namysłowa, Opola i okolic.
+            Pompy ciepła, klimatyzacja, kotły i instalacje u klientów z Opola, Wrocławia i okolic.
           </p>
         </Reveal>
 
