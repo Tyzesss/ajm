@@ -64,8 +64,12 @@ function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
 
 export function Testimonials() {
   return (
-    <section id="opinie" className="py-16 sm:py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[1360px] px-5 lg:px-8">
+    <section id="opinie" className="relative isolate overflow-hidden py-16 sm:py-20 md:py-24">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[min(28rem,70%)] bg-[linear-gradient(180deg,oklch(0.59_0.14_242/0.14)_0%,oklch(0.59_0.14_242/0.07)_35%,oklch(0.59_0.14_242/0.02)_70%,transparent_100%)] max-md:h-[min(22rem,65%)] max-md:bg-[linear-gradient(180deg,oklch(0.59_0.14_242/0.12)_0%,oklch(0.59_0.14_242/0.06)_40%,transparent_100%)]"
+        aria-hidden
+      />
+      <div className="relative z-10 mx-auto w-full max-w-[1360px] px-5 lg:px-8">
         <Reveal className="max-w-3xl text-left md:mx-auto md:text-center">
           <span className="block w-fit font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase md:mx-auto">
             Opinie klientów

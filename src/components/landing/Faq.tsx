@@ -42,8 +42,12 @@ const goTo = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
 
 export function Faq() {
   return (
-    <section id="faq" className="pt-20 pb-8 md:py-24 lg:py-28">
-      <div className="mx-auto grid max-w-[1360px] gap-12 px-5 lg:grid-cols-2 lg:items-start lg:gap-16 lg:px-8">
+    <section id="faq" className="relative isolate overflow-hidden pt-20 pb-8 md:py-24 lg:py-28">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[min(28rem,70%)] bg-[linear-gradient(180deg,oklch(0.59_0.14_242/0.14)_0%,oklch(0.59_0.14_242/0.07)_35%,oklch(0.59_0.14_242/0.02)_70%,transparent_100%)] max-md:h-[min(22rem,65%)] max-md:bg-[linear-gradient(180deg,oklch(0.59_0.14_242/0.12)_0%,oklch(0.59_0.14_242/0.06)_40%,transparent_100%)]"
+        aria-hidden
+      />
+      <div className="relative z-10 mx-auto grid max-w-[1360px] gap-12 px-5 lg:grid-cols-2 lg:items-start lg:gap-16 lg:px-8">
         <Reveal className="flex flex-col items-center text-center lg:items-start lg:self-start lg:text-left">
           <span className="font-display text-xs font-semibold tracking-[0.18em] text-gradient-cyan uppercase">
             FAQ
