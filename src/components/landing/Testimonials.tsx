@@ -75,10 +75,15 @@ export function Testimonials() {
             Opinie klientów
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-            Zaufało nam ponad <span className="text-gradient-cyan">20 klientów</span>
-            <br className="hidden sm:block" /> z Opola, Wrocławia
+            Zaufało nam ponad
             <br className="sm:hidden" />
-            <span className="hidden sm:inline"> </span>i okolic
+            <span className="hidden sm:inline"> </span>
+            <span className="text-gradient-cyan">100 klientów</span>
+            <br />
+            z Opola,
+            <br className="sm:hidden" />
+            <span className="hidden sm:inline"> </span>
+            Wrocławia i okolic
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:mx-auto">
             Profesjonalizm, terminowy montaż i realne wsparcie - to najczęstsze słowa w opiniach
