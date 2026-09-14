@@ -24,7 +24,9 @@ import { getService, SERVICE_PROCESS, SERVICES, type Service } from "@/lib/servi
 import { getServiceRealizationCards } from "@/lib/realization-cards";
 import { ServiceRealizations } from "@/components/landing/ServiceRealizations";
 import { Reveal } from "@/components/landing/Reveal";
-import { PHONE_DISPLAY, PHONE_HREF, SERVICE_TOWNS, SITE_NAME } from "@/lib/site";
+import { ServiceAreaMap } from "@/components/landing/ServiceAreaMap";
+import { ServiceTownTiles } from "@/components/landing/ServiceTownTiles";
+import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
 import { pageMeta, servicePageJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { motion, useReducedMotion } from "framer-motion";
@@ -483,24 +485,16 @@ function ServicePage() {
                   <span className="h-8 w-1 shrink-0 rounded-full bg-gradient-cyan" aria-hidden />
                   Teren działania
                 </h2>
-                <p className="mt-3 pl-4 text-base leading-relaxed text-muted-foreground sm:mt-4 lg:whitespace-nowrap">
+                <p className="mt-3 pl-4 text-base leading-relaxed text-muted-foreground sm:mt-4">
                   {service.area}
                 </p>
-                <ul className="mt-5 grid grid-cols-3 gap-2 pl-4 sm:gap-3 sm:mt-6">
-                  {SERVICE_TOWNS.map((town) => (
-                    <li
-                      key={town}
-                      className="flex items-center justify-center rounded-lg border border-accent/20 bg-accent/[0.08] px-1.5 py-2.5 text-center transition-colors duration-300 hover:border-accent/35 hover:bg-accent/12 sm:rounded-xl sm:px-3.5 sm:py-3"
-                    >
-                      <span className="text-[11px] font-semibold leading-tight text-foreground sm:text-sm sm:leading-snug">
-                        {town}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 pl-4 text-sm text-muted-foreground lg:pl-0 lg:text-center">
-                  Dojazd poza listę uzgadniamy indywidualnie.
-                </p>
+
+                <div className="mt-6 grid items-start gap-8 pl-0 sm:mt-8 lg:grid-cols-12 lg:items-center lg:gap-10 lg:pl-4">
+                  <ServiceAreaMap className="justify-self-center lg:col-span-5 lg:justify-self-stretch" />
+                  <div className="lg:col-span-7">
+                    <ServiceTownTiles serviceTitle={service.title} />
+                  </div>
+                </div>
               </section>
             </Reveal>
           </div>

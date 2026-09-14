@@ -27,7 +27,7 @@ export const MAPS_URL = "https://maps.app.goo.gl/Meb5wFKJMG7ojANK7";
 export const MAPS_EMBED_URL =
   "https://maps.google.com/maps?q=51.2089668,17.3894881&hl=pl&z=16&output=embed";
 
-/** Obszar działania – lista z feedbacku klienta. */
+/** Obszar działania – lista z feedbacku klienta (kolejność jak na kafelkach). */
 export const SERVICE_TOWNS = [
   "Nysa",
   "Opole",
@@ -45,6 +45,11 @@ export const SERVICE_TOWNS = [
   "Krapkowice",
   "Głuchołazy",
 ] as const;
+
+/** Kolejność kafelków = SERVICE_TOWNS. */
+export function serviceTownsForTiles(): string[] {
+  return [...SERVICE_TOWNS];
+}
 
 export const SERVICE_COUNTIES = ["opolskie", "dolnośląskie"] as const;
 export const NIP = "5562796248";

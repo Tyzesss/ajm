@@ -43,7 +43,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: reduce ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="size-full object-cover object-[70%_45%] max-md:object-[72%_35%]"
+            className="size-full object-cover object-[70%_45%] brightness-[1.12] contrast-[1.02] max-md:object-[72%_35%]"
           />
           <div
             className="pointer-events-none absolute inset-y-0 left-full w-[18%] max-md:hidden"
@@ -54,7 +54,7 @@ export function Hero() {
               alt=""
               width={276}
               height={720}
-              className="size-full object-cover object-left"
+              className="size-full object-cover object-left brightness-[1.12] contrast-[1.02]"
             />
           </div>
         </div>

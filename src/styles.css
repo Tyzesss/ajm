@@ -116,10 +116,10 @@
   /* Gradients - same --navy as navbar, hero, footer, and dark sections */
   --gradient-hero: linear-gradient(
     180deg,
-    oklch(from var(--navy) l c h / 0.94) 0%,
-    oklch(from var(--navy) l c h / 0.82) 10%,
-    oklch(from var(--navy) l c h / 0.7) 45%,
-    oklch(from var(--navy) l c h / 0.94) 100%
+    oklch(from var(--navy) l c h / 0.78) 0%,
+    oklch(from var(--navy) l c h / 0.55) 12%,
+    oklch(from var(--navy) l c h / 0.42) 48%,
+    oklch(from var(--navy) l c h / 0.72) 100%
   );
   --gradient-service-hero: linear-gradient(
     180deg,
