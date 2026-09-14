@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { FormEvent, ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
@@ -26,6 +26,9 @@ import {
   MAPS_EMBED_URL,
   PHONE_DISPLAY,
   PHONE_HREF,
+  SITE_NAME,
+  WEB3FORMS_ACCESS_KEY,
+  WEB3FORMS_ENDPOINT,
 } from "@/lib/site";
 
 const INFO: {
@@ -91,6 +94,42 @@ const selectTriggerClass = cn(
 
 export function Contact() {
   const [service, setService] = useState("");
+  const [pending, setPending] = useState(false);
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!service) {
+      toast.error("Wybierz rodzaj usługi.");
+      return;
+    }
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.set("access_key", WEB3FORMS_ACCESS_KEY);
+    data.set("subject", `Zapytanie ze strony ${SITE_NAME}: ${service}`);
+    data.set("from_name", SITE_NAME);
+    data.set("service", service);
+
+    setPending(true);
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, { method: "POST", body: data });
+      const json = (await res.json()) as { success?: boolean; message?: string };
+      if (!res.ok || !json.success) {
+        throw new Error(json.message || "Nie udało się wysłać formularza.");
+      }
+      toast.success("Dziękujemy! Odezwiemy się w ciągu 48 godzin.");
+      form.reset();
+      setService("");
+    } catch (err) {
+      toast.error(
+        err instanceof Error
+          ? err.message
+          : "Błąd wysyłki. Zadzwoń lub napisz na e-mail.",
+      );
+    } finally {
+      setPending(false);
+    }
+  }
 
   return (
     <section id="kontakt" className="relative isolate overflow-hidden pt-12 pb-10 md:py-20">
@@ -177,14 +216,11 @@ export function Contact() {
             </div>
             <form
               id="kontakt-formularz"
-              onSubmit={(e) => {
-                e.preventDefault();
-                toast.success("Dziękujemy! Odezwiemy się w ciągu 24 godzin.");
-                (e.target as HTMLFormElement).reset();
-                setService("");
-              }}
+              onSubmit={onSubmit}
               className="flex h-full flex-col rounded-2xl border border-border/70 bg-card p-7 shadow-card sm:p-9 lg:shadow-lift"
             >
+              <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+              <input type="hidden" name="service" value={service} />
               <div className="mb-5 text-center">
                 <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
                   Formularz <span className="text-gradient-cyan">bezpłatnej wyceny</span>
@@ -324,9 +360,11 @@ export function Contact() {
                 type="submit"
                 variant="cyan"
                 size="xl"
+                disabled={pending}
                 className="mt-6 h-11 w-full rounded-xl text-sm"
               >
-                Wyślij zapytanie <Send className="size-4" />
+                {pending ? "Wysyłanie…" : "Wyślij zapytanie"}{" "}
+                <Send className="size-4" />
               </Button>
             </form>
           </Reveal>
