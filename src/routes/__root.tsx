@@ -10,6 +10,7 @@ import {
 import { type ReactNode } from "react";
 
 import { CookieConsent } from "@/components/CookieConsent";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Toaster } from "@/components/ui/sonner";
 import { VercelAnalytics } from "@/components/VercelAnalytics";
 import { COMPANY_LEGAL_NAME, SITE_NAME, SITE_TITLE } from "@/lib/site";
@@ -154,6 +155,7 @@ function RootComponent() {
       <Toaster position="top-center" />
       <CookieConsent />
       <VercelAnalytics />
+      <GoogleAnalytics />
     </QueryClientProvider>
   );
 }

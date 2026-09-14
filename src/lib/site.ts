@@ -4,6 +4,9 @@ export const COMPANY_LEGAL_NAME = "AJM Sp. z o.o.";
 export const EMAIL = "kontakt@ajmtechnika.com.pl";
 export const EMAIL_HREF = `mailto:${EMAIL}`;
 
+/** Google Analytics 4 */
+export const GA4_MEASUREMENT_ID = "G-1FE38M6TNX";
+
 /** Web3Forms — klucz publiczny (frontend). */
 export const WEB3FORMS_ACCESS_KEY = "9586a83a-eb73-4bd1-b775-50fae02c76d8";
 export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
