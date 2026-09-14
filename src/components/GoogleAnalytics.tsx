@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { COOKIE_CONSENT_EVENT, getCookieConsent } from "@/lib/cookies";
 import { GA4_MEASUREMENT_ID } from "@/lib/site";
 
@@ -9,17 +9,34 @@ declare global {
   }
 }
 
-function loadGtag(id: string) {
-  if (document.getElementById("ga4-gtag")) return;
+function ensureGtag() {
+  if (typeof window.gtag === "function") return;
 
   window.dataLayer = window.dataLayer || [];
-  // Same queue semantics as Google's snippet (`push(arguments)`).
   window.gtag = function gtag() {
     // eslint-disable-next-line prefer-rest-params
     window.dataLayer?.push(arguments);
   };
-  window.gtag("js", new Date());
-  window.gtag("config", id);
+}
+
+/** Consent Mode v2 — tag zawsze obecny; storage dopiero po zgodzie. */
+function initGa4(id: string) {
+  if (document.getElementById("ga4-gtag")) return;
+
+  ensureGtag();
+
+  const granted = getCookieConsent()?.analytics === true;
+
+  window.gtag!("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: granted ? "granted" : "denied",
+    wait_for_update: 500,
+  });
+
+  window.gtag!("js", new Date());
+  window.gtag!("config", id);
 
   const script = document.createElement("script");
   script.id = "ga4-gtag";
@@ -28,21 +45,23 @@ function loadGtag(id: string) {
   document.head.appendChild(script);
 }
 
-/** GA4 — tylko po zgodzie na cookies analityczne. */
+function syncConsent() {
+  if (typeof window.gtag !== "function") return;
+  const granted = getCookieConsent()?.analytics === true;
+  window.gtag("consent", "update", {
+    analytics_storage: granted ? "granted" : "denied",
+  });
+}
+
+/** GA4 z Consent Mode — widoczny dla narzędzi Google; tracking po zgodzie. */
 export function GoogleAnalytics() {
-  const [allowed, setAllowed] = useState(false);
-
   useEffect(() => {
-    const sync = () => setAllowed(getCookieConsent()?.analytics === true);
-    sync();
-    window.addEventListener(COOKIE_CONSENT_EVENT, sync);
-    return () => window.removeEventListener(COOKIE_CONSENT_EVENT, sync);
+    if (!GA4_MEASUREMENT_ID) return;
+    initGa4(GA4_MEASUREMENT_ID);
+    syncConsent();
+    window.addEventListener(COOKIE_CONSENT_EVENT, syncConsent);
+    return () => window.removeEventListener(COOKIE_CONSENT_EVENT, syncConsent);
   }, []);
-
-  useEffect(() => {
-    if (!allowed || !GA4_MEASUREMENT_ID) return;
-    loadGtag(GA4_MEASUREMENT_ID);
-  }, [allowed]);
 
   return null;
 }

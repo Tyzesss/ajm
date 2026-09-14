@@ -74,7 +74,7 @@ export function CookieConsent() {
             </h2>
             <p id="cookie-consent-desc" className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">
               Używamy niezbędnych cookies do działania strony oraz opcjonalnych cookies
-              analitycznych (Vercel Analytics), by liczyć wizyty. Szczegóły w{" "}
+              analitycznych (Google Analytics, Vercel Analytics), by liczyć wizyty. Szczegóły w{" "}
               <Link
                 to="/polityka-prywatnosci"
                 className="font-medium text-accent underline underline-offset-2 hover:text-foreground"
