@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ajmtechnika.pl/sitemap.xml
+Sitemap: https://ajmtechnika.com.pl/sitemap.xml

@@ -1,7 +1,7 @@
 export const SITE_NAME = "AJM Technika";
 export const SITE_TITLE = "AJM Technika - Pompy ciepła, klimatyzacja i kotły | Oleśnica";
 export const COMPANY_LEGAL_NAME = "AJM Sp. z o.o.";
-export const EMAIL = "kontakt@ajmtechnika.pl";
+export const EMAIL = "kontakt@ajmtechnika.com.pl";
 export const EMAIL_HREF = `mailto:${EMAIL}`;
 
 export const PHONE_DISPLAY = "793 570 967";

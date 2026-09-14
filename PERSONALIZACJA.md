@@ -40,7 +40,7 @@ Dodatkowo z ustaleń mailowych:
 | KRS                       | 0000971177                                                                                    |
 | Adres (strona + mapa)     | Łączańska 22C, 46-100 Namysłów                                                                |
 | Telefon                   | 793 570 967 (`+48793570967`)                                                                  |
-| E-mail                    | kontakt@ajmtechnika.pl                                                                        |
+| E-mail                    | kontakt@ajmtechnika.com.pl                                                                        |
 | Godziny                   | Pn–Sb 8:00–20:00, Nd zamknięte                                                                |
 | Maps / opinie             | https://maps.app.goo.gl/ksyT4XjYrnGUiFpv6                                                     |
 | Ocena (orientacyjnie)     | 5.0 / 5 (kilka opinii Google)                                                                 |

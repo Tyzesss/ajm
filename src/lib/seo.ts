@@ -14,7 +14,7 @@ import {
 } from "./site";
 import type { Service } from "./services";
 
-export const SITE_URL = "https://ajmtechnika.pl";
+export const SITE_URL = "https://ajmtechnika.com.pl";
 
 export function absoluteUrl(path = "/") {
   if (path.startsWith("http")) return path;
