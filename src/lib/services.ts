@@ -143,7 +143,7 @@ const AREA_LEAD = "Działamy w województwie opolskim i dolnośląskim.";
 
 /**
  * Spójny schemat lokalny (SEO + treść):
- * - title/meta: Opole | Nysa | Niemodlin
+ * - title/meta: Opole | Nysa | Niemodlin (+ Oleśnica / Wrocław w description)
  * - H1: „… w Opolu, Nysie i Niemodlinie”
  * - intro: naturalne zdanie + odesłanie do listy miast
  * - area: lead pod kafelki (bez „fraz kluczowych”)
@@ -156,7 +156,7 @@ function localCopy(opts: {
   return {
     headline: `${opts.title} w Opolu, Nysie i Niemodlinie`,
     seoTitle: `${opts.title} Opole | Nysa | Niemodlin | montaż | AJM Technika`,
-    seoDescription: `${opts.metaLead} Woj. opolskie i dolnośląskie: Opole, Nysa, Niemodlin, Wrocław, Oleśnica i okolice.`,
+    seoDescription: `${opts.metaLead} Montaż w woj. opolskim i dolnośląskim: Opole, Nysa, Niemodlin, Oleśnica, Wrocław, Oława, Namysłów, Głuchołazy i okolice. Bezpłatna wycena.`,
     intro: `${opts.introBody} Montujemy w Opolu, Nysie, Niemodlinie oraz w pozostałych miejscowościach z listy poniżej.`,
     area: `${AREA_LEAD} ${opts.title} montujemy m.in.\u00a0w:`,
   };

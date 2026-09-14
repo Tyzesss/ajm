@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ajmtechnika.pl/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
+  <url><loc>https://ajmtechnika.pl/polityka-prywatnosci</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/pompy-ciepla</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/kotly-pelletowe</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/ogrzewanie-podlogowe</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/klimatyzacja</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/instalacje-wodne</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/instalacje-sanitarne</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/instalacje-przemyslowe</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/rekuperacja</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ajmtechnika.pl/uslugi/uzdatnianie-wody</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

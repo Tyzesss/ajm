@@ -2,6 +2,7 @@ import type { MouseEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { BrandMark } from "./BrandMark";
 import { Reveal } from "./Reveal";
+import { openCookieSettings } from "@/lib/cookies";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { SERVICES } from "@/lib/services";
 import {
@@ -34,7 +35,7 @@ const goTo = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
 
 export function Footer() {
   return (
-    <footer className="bg-navy pt-16 pb-[max(2rem,calc(2rem+env(safe-area-inset-bottom)))] text-navy-foreground">
+    <footer className="bg-navy pt-16 pb-[max(2rem,calc(2rem+env(safe-area-inset-bottom)))] text-navy-foreground max-md:pb-[calc(6.25rem+env(safe-area-inset-bottom,0px))]">
       <div className="mx-auto max-w-[1360px] px-5 lg:px-8">
         <Reveal>
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
@@ -106,12 +107,21 @@ export function Footer() {
           </div>
 
           <div className="mt-12 flex flex-col items-center gap-3 border-t border-navy-foreground/10 pt-6 text-center text-xs text-navy-foreground/45">
-            <Link
-              to="/polityka-prywatnosci"
-              className="transition-colors duration-300 hover:text-accent"
-            >
-              Polityka Prywatności (RODO)
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+              <Link
+                to="/polityka-prywatnosci"
+                className="transition-colors duration-300 hover:text-accent"
+              >
+                Polityka prywatności (RODO)
+              </Link>
+              <button
+                type="button"
+                onClick={() => openCookieSettings()}
+                className="transition-colors duration-300 hover:text-accent"
+              >
+                Ustawienia cookies
+              </button>
+            </div>
             <p>
               © {new Date().getFullYear()} {SITE_NAME}. Wszelkie prawa zastrzeżone.
             </p>

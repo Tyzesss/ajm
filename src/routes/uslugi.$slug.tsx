@@ -25,6 +25,8 @@ import { getServiceRealizationCards } from "@/lib/realization-cards";
 import { ServiceRealizations } from "@/components/landing/ServiceRealizations";
 import { Reveal } from "@/components/landing/Reveal";
 import { PHONE_DISPLAY, PHONE_HREF, SERVICE_TOWNS, SITE_NAME } from "@/lib/site";
+import { pageMeta, servicePageJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { motion, useReducedMotion } from "framer-motion";
 import sidePompy from "@/assets/service-side-pompy-ciepla.png";
 import sideKotly from "@/assets/service-side-kotly-pelletowe.png";
@@ -329,14 +331,11 @@ export const Route = createFileRoute("/uslugi/$slug")({
     const service = getService(params.slug);
     const title = service?.seoTitle ?? SITE_NAME;
     const description = service?.seoDescription ?? service?.intro ?? "";
-    return {
-      meta: [
-        { title },
-        { name: "description", content: description },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-      ],
-    };
+    return pageMeta({
+      title,
+      description,
+      path: `/uslugi/${params.slug}`,
+    });
   },
   component: ServicePage,
 });
@@ -353,6 +352,7 @@ function ServicePage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <JsonLd data={servicePageJsonLd(service)} />
       <Header alwaysSolid />
       <main>
         <section className="relative isolate overflow-hidden bg-navy">
@@ -360,7 +360,7 @@ function ServicePage() {
             <div className="absolute inset-0 overflow-hidden">
               <motion.img
                 src={hero.src}
-                alt=""
+                alt={`${service.title} — realizacja AJM Technika`}
                 initial={reduce ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: reduce ? 0 : 1.05, ease }}

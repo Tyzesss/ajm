@@ -1,5 +1,5 @@
 export const SITE_NAME = "AJM Technika";
-export const SITE_TITLE = "AJM Technika - pompy ciepła, klimatyzacja, kotły | Oleśnica";
+export const SITE_TITLE = "AJM Technika - Pompy ciepła, klimatyzacja i kotły | Oleśnica";
 export const COMPANY_LEGAL_NAME = "AJM Sp. z o.o.";
 export const EMAIL = "kontakt@ajmtechnika.pl";
 export const EMAIL_HREF = `mailto:${EMAIL}`;
@@ -22,9 +22,10 @@ export const ADDRESS = ADDRESS_HQ;
 export const SERVICE_AREA = "województwo opolskie i dolnośląskie";
 export const SERVICE_AREA_SHORT = "Opole, Wrocław i okolice";
 
-export const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Lwowska+31%2F101,+56-400+Ole%C5%9Bnica";
+/** Oficjalna wizytówka Google: Pompy ciepła AJM Sp.z o.o. (Oleśnica). */
+export const MAPS_URL = "https://maps.app.goo.gl/Meb5wFKJMG7ojANK7";
 export const MAPS_EMBED_URL =
-  "https://maps.google.com/maps?q=Lwowska+31%2F101,+56-400+Ole%C5%9Bnica&hl=pl&z=16&output=embed";
+  "https://maps.google.com/maps?q=51.2089668,17.3894881&hl=pl&z=16&output=embed";
 
 /** Obszar działania – lista z feedbacku klienta. */
 export const SERVICE_TOWNS = [
@@ -52,7 +53,7 @@ export const HOURS_WEEKDAYS = "Pn–Sb: 8:00–20:00";
 export const HOURS_SUNDAY = "Nd: zamknięte";
 export const HOURS = `${HOURS_WEEKDAYS}, ${HOURS_SUNDAY}`;
 
-export const GOOGLE_REVIEWS_URL = "https://maps.app.goo.gl/BDcWmc6Xc1RwhVsj9";
+export const GOOGLE_REVIEWS_URL = "https://maps.app.goo.gl/Meb5wFKJMG7ojANK7";
 export const GOOGLE_RATING = "5.0";
 export const GOOGLE_REVIEW_COUNT = 5;
 

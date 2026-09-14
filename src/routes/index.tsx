@@ -12,23 +12,19 @@ import { Faq } from "@/components/landing/Faq";
 import { Contact } from "@/components/landing/Contact";
 import { Footer } from "@/components/landing/Footer";
 import { StickyCallBar } from "@/components/landing/StickyCallBar";
+import { JsonLd } from "@/components/JsonLd";
 import { scrollToSection } from "@/lib/scroll-to-section";
-
-const title = "AJM Technika - Pompy ciepła, klimatyzacja i kotły | Oleśnica";
-const description =
-  "AJM Technika: instalacje grzewcze, chłodnicze i sanitarne w woj. opolskim i dolnośląskim — pompy ciepła, klimatyzacja, kotły i rekuperacja. Siedziba Oleśnica, oddział Szadurczyce. Bezpłatna wycena.";
+import {
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  homeFaqJsonLd,
+  localBusinessJsonLd,
+  pageMeta,
+  websiteJsonLd,
+} from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => pageMeta({ title: HOME_TITLE, description: HOME_DESCRIPTION, path: "/" }),
   component: Index,
 });
 
@@ -44,6 +40,7 @@ function Index() {
 
   return (
     <div className="min-h-screen overflow-x-clip">
+      <JsonLd data={[localBusinessJsonLd(), websiteJsonLd(), homeFaqJsonLd()]} />
       <Header />
       <main className="overflow-x-clip">
         <Hero />

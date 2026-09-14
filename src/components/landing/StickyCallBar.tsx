@@ -7,6 +7,7 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 export function StickyCallBar() {
   const [show, setShow] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const [cookieOpen, setCookieOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setShow(window.scrollY > 150);
@@ -26,7 +27,18 @@ export function StickyCallBar() {
     return () => observer.disconnect();
   }, []);
 
-  const visible = show && !navOpen;
+  useEffect(() => {
+    const sync = () => setCookieOpen(document.body.dataset["cookieBanner"] === "open");
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-cookie-banner"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  const visible = show && !navOpen && !cookieOpen;
 
   return (
     <AnimatePresence>

@@ -11,29 +11,9 @@ import { Reveal } from "./Reveal";
 import { CheckList } from "./CheckList";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
+import { HOME_FAQ } from "@/lib/seo";
 
-const ITEMS = [
-  {
-    q: "Czy dojazd i pierwsza konsultacja są płatne?",
-    a: "Pierwsze oględziny i konsultacja w naszym obszarze działania są bezpłatne. Na ich podstawie przygotowujemy wycenę.",
-  },
-  {
-    q: "Jak długo trwa montaż pompy ciepła lub klimatyzacji?",
-    a: "Zależy od zakresu i przygotowania budynku. Po oględzinach podajemy realistyczny termin, zwykle od kilku dni roboczych przy typowych instalacjach.",
-  },
-  {
-    q: "Czy pomagacie z dofinansowaniem (np. Czyste Powietrze)?",
-    a: "Doradzamy przy wyborze rozwiązania pod kątem programów wsparcia. Szczegóły aktualnych programów omawiamy indywidualnie.",
-  },
-  {
-    q: "Na jakim terenie działacie?",
-    a: "Województwo opolskie i dolnośląskie — m.in. Opole, Nysa, Niemodlin, Oleśnica, Wrocław i pozostałe miejscowości z naszej listy. Dojazd poza listę uzgadniamy indywidualnie.",
-  },
-  {
-    q: "Czy robicie też serwis istniejących instalacji?",
-    a: "Tak. Przeglądy, uruchomienia i wsparcie pogwarancyjne w ramach oferty serwisowej powiązanej z montażami.",
-  },
-];
+const ITEMS = HOME_FAQ;
 
 const goTo = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault();

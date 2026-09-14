@@ -1,8 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { BrandMark } from "@/components/landing/BrandMark";
+import { openCookieSettings } from "@/lib/cookies";
+import { pageMeta } from "@/lib/seo";
 import {
-  ADDRESS,
+  ADDRESS_BRANCH,
+  ADDRESS_BRANCH_LABEL,
+  ADDRESS_HQ,
   COMPANY_LEGAL_NAME,
   EMAIL,
   NIP,
@@ -15,15 +19,12 @@ import {
 
 export const Route = createFileRoute("/polityka-prywatnosci")({
   component: PolitykaPrywatnosci,
-  head: () => ({
-    meta: [
-      { title: `Polityka Prywatności (RODO) | ${SITE_NAME}` },
-      {
-        name: "description",
-        content: `Polityka prywatności i informacja o przetwarzaniu danych osobowych (${SITE_NAME}).`,
-      },
-    ],
-  }),
+  head: () =>
+    pageMeta({
+      title: `Polityka prywatności (RODO) | ${SITE_NAME}`,
+      description: `Polityka prywatności i informacja o przetwarzaniu danych osobowych (${SITE_NAME}).`,
+      path: "/polityka-prywatnosci",
+    }),
 });
 
 function PolitykaPrywatnosci() {
@@ -57,9 +58,10 @@ function PolitykaPrywatnosci() {
             <h2 className="text-lg font-semibold text-foreground">1. Administrator danych</h2>
             <p className="mt-2">
               Administratorem danych osobowych jest {COMPANY_LEGAL_NAME} (dalej: „Administrator”),
-              prowadząca działalność pod marką {SITE_NAME}, z siedzibą: {ADDRESS}, obsługująca
-              klientów na terenie {SERVICE_AREA}, NIP: {NIP}, REGON: {REGON}. W sprawach związanych
-              z ochroną danych można kontaktować się pod adresem e-mail:{" "}
+              prowadząca działalność pod marką {SITE_NAME}. Siedziba: {ADDRESS_HQ}. Oddział:{" "}
+              {ADDRESS_BRANCH} ({ADDRESS_BRANCH_LABEL}). Obszar działania: {SERVICE_AREA}. NIP:{" "}
+              {NIP}, REGON: {REGON}. W sprawach związanych z ochroną danych można kontaktować się
+              pod adresem e-mail:{" "}
               <a href={`mailto:${EMAIL}`} className="text-accent underline hover:text-foreground">
                 {EMAIL}
               </a>{" "}
@@ -119,8 +121,10 @@ function PolitykaPrywatnosci() {
           <section>
             <h2 className="text-lg font-semibold text-foreground">6. Odbiorcy danych</h2>
             <p className="mt-2">
-              Dane mogą być powierzane podmiotom świadczącym usługi hostingu oraz poczty e-mail,
-              wyłącznie na podstawie umów powierzenia i w zakresie niezbędnym do realizacji usług.
+              Dane mogą być powierzane podmiotom świadczącym usługi hostingu (np. Vercel), poczty
+              e-mail oraz — wyłącznie po wyrażeniu zgody — analityki ruchu na stronie. Przekazanie
+              odbywa się na podstawie umów powierzenia / odpowiednich zabezpieczeń i tylko w zakresie
+              niezbędnym do realizacji usług.
             </p>
           </section>
 
@@ -137,10 +141,39 @@ function PolitykaPrywatnosci() {
           <section>
             <h2 className="text-lg font-semibold text-foreground">8. Pliki cookies</h2>
             <p className="mt-2">
-              Strona może wykorzystywać pliki cookies niezbędne do prawidłowego działania serwisu
-              (np. sesja, preferencje wyświetlania) oraz narzędzia analityczne (np. Vercel
-              Analytics) w zakresie dopuszczonym przepisami. Użytkownik może zarządzać cookies w
-              ustawieniach przeglądarki.
+              Strona wykorzystuje pliki cookies oraz podobne technologie w następujących
+              kategoriach:
+            </p>
+            <ul className="mt-2 list-inside list-disc space-y-1">
+              <li>
+                <span className="font-medium text-foreground">Niezbędne</span> — zapewniają
+                działanie serwisu i zapamiętanie decyzji o cookies (podstawa: prawnie uzasadniony
+                interes / wymóg świadczenia usługi).
+              </li>
+              <li>
+                <span className="font-medium text-foreground">Analityczne</span> — Vercel Analytics
+                (statystyki odwiedzin). Uruchamiane dopiero po Twojej zgodzie w banerze cookies.
+              </li>
+            </ul>
+            <p className="mt-2">
+              Zgodę możesz w każdej chwili zmienić lub wycofać poprzez{" "}
+              <button
+                type="button"
+                onClick={() => openCookieSettings()}
+                className="font-medium text-accent underline underline-offset-2 hover:text-foreground"
+              >
+                ustawienia cookies
+              </button>{" "}
+              albo w ustawieniach przeglądarki. Odrzucenie cookies analitycznych nie wpływa na
+              korzystanie z treści strony.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-foreground">9. Zmiany polityki</h2>
+            <p className="mt-2">
+              Możemy aktualizować niniejszą politykę. Aktualna wersja jest zawsze dostępna pod tym
+              adresem. Data aktualizacji: {new Date().getFullYear()}.
             </p>
           </section>
         </div>
