@@ -149,9 +149,9 @@
   --glass-border: oklch(1 0 0 / 0.16);
 }
 
-/* Mobile: kadr na środek; desktop: pozycja z --service-hero-pos */
+/* Mobile: kadr na sprzęt usługi; desktop: pozycja z --service-hero-pos */
 .service-hero-photo {
-  object-position: 50% 40%;
+  object-position: var(--service-hero-pos-mobile, 78% 42%);
 }
 @media (min-width: 768px) {
   .service-hero-photo {

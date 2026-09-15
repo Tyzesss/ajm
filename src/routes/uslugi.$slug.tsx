@@ -65,18 +65,33 @@ import heroPrzemyslowe from "@/assets/service-hero-instalacje-przemyslowe.png";
 import heroRekuperacja from "@/assets/service-hero-rekuperacja.png";
 import heroUzdatnianie from "@/assets/service-hero-uzdatnianie-wody.png";
 
-const HERO_IMAGES: Record<string, { src: string; position?: string }> = {
-  "pompy-ciepla": { src: heroPompy, position: "65% 45%" },
-  fotowoltaika: { src: heroFotowoltaika, position: "60% 40%" },
-  "magazyny-energii": { src: heroMagazyny, position: "55% 45%" },
-  "kotly-pelletowe": { src: heroKotly, position: "55% 40%" },
-  "ogrzewanie-podlogowe": { src: heroPodlogowe, position: "60% 45%" },
-  klimatyzacja: { src: heroKlima, position: "70% 40%" },
-  "instalacje-wodne": { src: heroWodne, position: "55% 45%" },
-  "instalacje-sanitarne": { src: heroSanitarne, position: "55% 40%" },
-  "instalacje-przemyslowe": { src: heroPrzemyslowe, position: "60% 40%" },
-  rekuperacja: { src: heroRekuperacja, position: "55% 45%" },
-  "uzdatnianie-wody": { src: heroUzdatnianie, position: "55% 45%" },
+const HERO_IMAGES: Record<
+  string,
+  { src: string; position?: string; positionMobile?: string }
+> = {
+  "pompy-ciepla": { src: heroPompy, position: "65% 45%", positionMobile: "82% 48%" },
+  fotowoltaika: { src: heroFotowoltaika, position: "60% 40%", positionMobile: "78% 32%" },
+  "magazyny-energii": { src: heroMagazyny, position: "55% 45%", positionMobile: "80% 42%" },
+  "kotly-pelletowe": { src: heroKotly, position: "55% 40%", positionMobile: "78% 45%" },
+  "ogrzewanie-podlogowe": {
+    src: heroPodlogowe,
+    position: "60% 45%",
+    positionMobile: "82% 48%",
+  },
+  klimatyzacja: { src: heroKlima, position: "70% 40%", positionMobile: "86% 20%" },
+  "instalacje-wodne": { src: heroWodne, position: "55% 45%", positionMobile: "40% 42%" },
+  "instalacje-sanitarne": {
+    src: heroSanitarne,
+    position: "55% 40%",
+    positionMobile: "74% 45%",
+  },
+  "instalacje-przemyslowe": {
+    src: heroPrzemyslowe,
+    position: "60% 40%",
+    positionMobile: "84% 40%",
+  },
+  rekuperacja: { src: heroRekuperacja, position: "55% 45%", positionMobile: "86% 42%" },
+  "uzdatnianie-wody": { src: heroUzdatnianie, position: "55% 45%", positionMobile: "68% 42%" },
 };
 
 const FAQ_BACKGROUNDS: Record<string, { src: string; alt: string; position?: string }> = {
@@ -523,6 +538,7 @@ function ServicePage() {
                 style={
                   {
                     "--service-hero-pos": hero.position ?? "50% 45%",
+                    "--service-hero-pos-mobile": hero.positionMobile ?? "78% 42%",
                   } as CSSProperties
                 }
               />
