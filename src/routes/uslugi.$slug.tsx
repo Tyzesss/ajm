@@ -366,7 +366,7 @@ function ServicePage() {
                 initial={reduce ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: reduce ? 0 : 1.05, ease }}
-                className="size-full object-cover"
+                className="size-full object-cover brightness-[1.1] contrast-[1.02]"
                 style={{ objectPosition: hero.position ?? "50% 45%" }}
               />
             </div>

@@ -26,7 +26,7 @@ export const ADDRESS_BRANCH_LABEL = "Oddział woj. Opolskie";
 /** Główny adres kontaktowy (mapa / skrót) = siedziba */
 export const ADDRESS = ADDRESS_HQ;
 
-export const SERVICE_AREA = "województwo opolskie i dolnośląskie";
+export const SERVICE_AREA = "Województwo opolskie i dolnośląskie";
 export const SERVICE_AREA_SHORT = "Opole, Wrocław i okolice";
 
 /** Oficjalna wizytówka Google: Pompy ciepła AJM Sp.z o.o. (Oleśnica). */
