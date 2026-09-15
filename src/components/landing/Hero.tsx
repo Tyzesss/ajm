@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { PHONE_HREF, SERVICE_AREA } from "@/lib/site";
 import { Counter } from "./Counter";
-import heroImage from "@/assets/hero-hvac.png";
-import heroRightFill from "@/assets/hero-hvac-right.png";
+import heroImage from "@/assets/hero-hvac-bright.png";
+import heroImageMobile from "@/assets/hero-hvac-bright-mobile.png";
 import { SERVICES } from "@/lib/services";
 
 /** Unikalne zdjęcia realizacji klienta (`ajm-*.jpg` w assets). */
@@ -33,35 +33,35 @@ export function Hero() {
       className="relative z-20 isolate overflow-x-clip bg-navy max-md:min-h-[118svh] md:h-[108svh] md:min-h-[108svh]"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Same crop as demo-v4; right fill is glued outside the photo so framing stays identical */}
-        <div className="relative size-full origin-[80%_65%] scale-[1.2] -translate-x-[1%] translate-y-[2%] max-md:origin-[80%_42%] max-md:scale-[1.2] max-md:translate-x-0 max-md:-translate-y-[10%] lg:scale-[1.18] lg:translate-x-[1%]">
-          <motion.img
-            src={heroImage}
-            alt="Nowoczesny dom z pompą ciepła o zmierzchu"
-            width={1280}
-            height={720}
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: reduce ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="size-full object-cover object-[70%_45%] brightness-[1.12] contrast-[1.02] max-md:object-[72%_35%]"
-          />
-          <div
-            className="pointer-events-none absolute inset-y-0 left-full w-[18%] max-md:hidden"
-            aria-hidden
-          >
+        <motion.div
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: reduce ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
+          className="size-full"
+        >
+          <picture className="block size-full">
+            <source media="(min-width: 768px)" srcSet={heroImage} />
             <img
-              src={heroRightFill}
-              alt=""
-              width={276}
-              height={720}
-              className="size-full object-cover object-left brightness-[1.12] contrast-[1.02]"
+              src={heroImageMobile}
+              alt="Montaż pompy ciepła przy nowoczesnym domu - instalacje grzewcze AJM Technika"
+              width={1080}
+              height={1920}
+              className="size-full origin-center object-cover object-[50%_55%] brightness-[0.92] contrast-[1.02] md:object-[72%_48%] md:brightness-[0.72]"
             />
-          </div>
-        </div>
+          </picture>
+        </motion.div>
       </div>
       <div
         className="absolute inset-0 z-[1]"
         style={{ backgroundImage: "var(--gradient-hero)" }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 md:h-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, oklch(from var(--navy) l c h / 0.78) 0%, oklch(from var(--navy) l c h / 0.35) 55%, transparent 100%)",
+        }}
         aria-hidden
       />
 
@@ -78,7 +78,7 @@ export function Hero() {
               Certyfikowany instalator
             </span>
 
-            <h1 className="mt-4 font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:mt-5 sm:text-7xl sm:tracking-normal lg:text-[5rem]">
+            <h1 className="mt-4 font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground [text-shadow:0_1px_18px_oklch(0.1_0.04_242/0.35),0_1px_6px_oklch(0.1_0.04_242/0.2)] sm:mt-5 sm:text-7xl sm:tracking-normal lg:text-[5rem]">
               <span className="sm:whitespace-nowrap">Instalacje grzewcze,</span>
               <br />
               <span className="text-gradient-cyan sm:whitespace-nowrap">
@@ -106,7 +106,7 @@ export function Hero() {
               <Button asChild variant="hero" size="xl">
                 <a
                   href={PHONE_HREF}
-                  className="w-full rounded-full uppercase sm:w-auto sm:rounded-xl sm:normal-case"
+                  className="w-full rounded-full uppercase backdrop-blur-[2px] sm:w-auto sm:rounded-xl sm:normal-case"
                 >
                   <Phone className="size-4 text-accent" /> Zadzwoń teraz
                 </a>
@@ -118,7 +118,7 @@ export function Hero() {
               {STATS.slice(0, 2).map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex min-w-[8.5rem] flex-col items-center text-center"
+                  className="flex min-w-[8.5rem] flex-col items-center text-center [text-shadow:0_1px_8px_oklch(0.1_0.04_242/0.28)]"
                 >
                   <div className="font-display text-3xl font-bold">
                     <Counter to={stat.value} suffix={stat.suffix} />
