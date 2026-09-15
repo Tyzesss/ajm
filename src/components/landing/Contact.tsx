@@ -108,7 +108,7 @@ export function Contact() {
     data.set("access_key", WEB3FORMS_ACCESS_KEY);
     data.set("subject", `Zapytanie ze strony ${SITE_NAME}: ${service}`);
     data.set("from_name", SITE_NAME);
-    data.set("Rodzaj usługi", service);
+    data.set("Rodzaj uslugi", service);
     data.delete("service");
 
     setPending(true);
@@ -221,7 +221,7 @@ export function Contact() {
               className="flex h-full flex-col rounded-2xl border border-border/70 bg-card p-7 shadow-card sm:p-9 lg:shadow-lift"
             >
               <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
-              <input type="hidden" name="Rodzaj usługi" value={service} />
+              <input type="hidden" name="Rodzaj uslugi" value={service} />
               <div className="mb-5 text-center">
                 <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
                   Formularz <span className="text-gradient-cyan">bezpłatnej wyceny</span>
@@ -239,7 +239,7 @@ export function Contact() {
                     </Label>
                     <input
                       id="name"
-                      name="Imię"
+                      name="Imie"
                       type="text"
                       required
                       autoComplete="given-name"
@@ -312,7 +312,7 @@ export function Contact() {
                   </Label>
                   <textarea
                     id="message"
-                    name="Wiadomość"
+                    name="Wiadomosc"
                     rows={4}
                     placeholder="Opisz krótko swój budynek i oczekiwania..."
                     className="min-h-28 w-full resize-none rounded-xl border border-[#e2e8f0] bg-card px-3.5 py-3 text-sm text-foreground outline-none transition-all duration-300 placeholder:text-muted-foreground focus:border-accent focus:ring-2 focus:ring-accent/20"
