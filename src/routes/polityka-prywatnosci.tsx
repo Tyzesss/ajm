@@ -122,7 +122,7 @@ function PolitykaPrywatnosci() {
             <h2 className="text-lg font-semibold text-foreground">6. Odbiorcy danych</h2>
             <p className="mt-2">
               Dane mogą być powierzane podmiotom świadczącym usługi hostingu (np. Vercel), poczty
-              e-mail oraz — wyłącznie po wyrażeniu zgody — analityki ruchu na stronie. Przekazanie
+              e-mail oraz (wyłącznie po wyrażeniu zgody) analityki ruchu na stronie. Przekazanie
               odbywa się na podstawie umów powierzenia / odpowiednich zabezpieczeń i tylko w zakresie
               niezbędnym do realizacji usług.
             </p>
@@ -146,12 +146,12 @@ function PolitykaPrywatnosci() {
             </p>
             <ul className="mt-2 list-inside list-disc space-y-1">
               <li>
-                <span className="font-medium text-foreground">Niezbędne</span> — zapewniają
+                <span className="font-medium text-foreground">Niezbędne</span> - zapewniają
                 działanie serwisu i zapamiętanie decyzji o cookies (podstawa: prawnie uzasadniony
                 interes / wymóg świadczenia usługi).
               </li>
               <li>
-                <span className="font-medium text-foreground">Analityczne</span> — Vercel Analytics
+                <span className="font-medium text-foreground">Analityczne</span> - Vercel Analytics
                 (statystyki odwiedzin). Uruchamiane dopiero po Twojej zgodzie w banerze cookies.
               </li>
             </ul>

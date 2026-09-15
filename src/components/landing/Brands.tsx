@@ -16,7 +16,7 @@ import junkers from "@/assets/brands/junkers-mono.png";
 import honeywell from "@/assets/brands/honeywell-mono.png";
 import { Reveal } from "./Reveal";
 
-/** Marki z montaży AJM — logotypy mono (kolor w *.png). */
+/** Marki z montaży AJM - logotypy mono (kolor w *.png). */
 const BRANDS = [
   { name: "Midea", src: midea },
   { name: "Panasonic", src: panasonic },

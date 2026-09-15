@@ -7,7 +7,7 @@ export const EMAIL_HREF = `mailto:${EMAIL}`;
 /** Google Analytics 4 */
 export const GA4_MEASUREMENT_ID = "G-1FE38M6TNX";
 
-/** Web3Forms — klucz publiczny (frontend). */
+/** Web3Forms - klucz publiczny (frontend). */
 export const WEB3FORMS_ACCESS_KEY = "c5bc5acf-5fd9-47eb-8e8a-c19e3778b01f";
 export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
@@ -20,7 +20,7 @@ export const WHATSAPP_HREF = `https://wa.me/${PHONE_E164.replace("+", "")}?text=
 
 /** Siedziba firmy */
 export const ADDRESS_HQ = "Oleśnica ul. Lwowska 31/101";
-/** Oddział – woj. opolskie */
+/** Oddział - woj. opolskie */
 export const ADDRESS_BRANCH = "Szadurczyce 22a";
 export const ADDRESS_BRANCH_LABEL = "Oddział woj. Opolskie";
 /** Główny adres kontaktowy (mapa / skrót) = siedziba */
@@ -34,7 +34,7 @@ export const MAPS_URL = "https://maps.app.goo.gl/Meb5wFKJMG7ojANK7";
 export const MAPS_EMBED_URL =
   "https://maps.google.com/maps?q=51.2089668,17.3894881&hl=pl&z=16&output=embed";
 
-/** Obszar działania – lista z feedbacku klienta (kolejność jak na kafelkach). */
+/** Obszar działania - lista z feedbacku klienta (kolejność jak na kafelkach). */
 export const SERVICE_TOWNS = [
   "Nysa",
   "Opole",
@@ -61,7 +61,7 @@ export function serviceTownsForTiles(): string[] {
 export const SERVICE_COUNTIES = ["opolskie", "dolnośląskie"] as const;
 export const NIP = "5562796248";
 export const REGON = "521998239";
-export const HOURS_WEEKDAYS = "Pn–Sb: 8:00–20:00";
+export const HOURS_WEEKDAYS = "Pn-Sb: 8:00-20:00";
 export const HOURS_SUNDAY = "Nd: zamknięte";
 export const HOURS = `${HOURS_WEEKDAYS}, ${HOURS_SUNDAY}`;
 

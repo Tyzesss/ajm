@@ -25,9 +25,9 @@ export const OG_IMAGE = absoluteUrl("/og-image.png");
 
 export const HOME_TITLE = "AJM Technika - Pompy ciepła, klimatyzacja i kotły | Oleśnica";
 export const HOME_DESCRIPTION =
-  "AJM Technika: instalacje grzewcze, chłodnicze i sanitarne w woj. opolskim i dolnośląskim — pompy ciepła, klimatyzacja, kotły i rekuperacja. Siedziba Oleśnica, oddział Szadurczyce. Bezpłatna wycena.";
+  "AJM Technika: instalacje grzewcze, chłodnicze i sanitarne w woj. opolskim i dolnośląskim - pompy ciepła, klimatyzacja, kotły i rekuperacja. Siedziba Oleśnica, oddział Szadurczyce. Bezpłatna wycena.";
 
-/** FAQ ze strony głównej — treść + schema. */
+/** FAQ ze strony głównej - treść + schema. */
 export const HOME_FAQ = [
   {
     q: "Czy dojazd i pierwsza konsultacja są płatne?",
@@ -43,7 +43,7 @@ export const HOME_FAQ = [
   },
   {
     q: "Na jakim terenie działacie?",
-    a: `Województwo opolskie i dolnośląskie — m.in. ${SERVICE_TOWNS.slice(0, 8).join(", ")} oraz pozostałe miejscowości z naszej listy. Dojazd poza listę uzgadniamy indywidualnie.`,
+    a: `Województwo opolskie i dolnośląskie - m.in. ${SERVICE_TOWNS.slice(0, 8).join(", ")} oraz pozostałe miejscowości z naszej listy. Dojazd poza listę uzgadniamy indywidualnie.`,
   },
   {
     q: "Czy robicie też serwis istniejących instalacji?",

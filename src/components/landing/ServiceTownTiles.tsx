@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { serviceTownsForTiles } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-/** Zgodne z `sm:` w Tailwind (640px) — 4 na mobile, 9 na PC. */
+/** Zgodne z `sm:` w Tailwind (640px) - 4 na mobile, 9 na PC. */
 const SM_MQ = "(min-width: 640px)";
 const FADE_MS = 280;
 
@@ -61,7 +61,7 @@ function TownTile({
   );
 }
 
-/** Kafelki „Usługa Miasto” — 4 na mobile / 9 na PC, reszta pod „Zobacz wszystkie”. */
+/** Kafelki „Usługa Miasto” - 4 na mobile / 9 na PC, reszta pod „Zobacz wszystkie”. */
 export function ServiceTownTiles({ serviceTitle }: { serviceTitle: string }) {
   const reduce = useReducedMotion();
   const preview = usePreviewCount();
@@ -71,7 +71,7 @@ export function ServiceTownTiles({ serviceTitle }: { serviceTitle: string }) {
   const headLast = head.length - 1;
   const restLast = rest.length - 1;
 
-  /** `mounted` trzyma DOM; `open` steruje opacity — zwijanie: fade → potem unmount. */
+  /** `mounted` trzyma DOM; `open` steruje opacity - zwijanie: fade → potem unmount. */
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);

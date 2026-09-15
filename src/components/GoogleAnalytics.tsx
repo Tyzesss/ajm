@@ -19,7 +19,7 @@ function ensureGtag() {
   };
 }
 
-/** Consent Mode v2 — tag zawsze obecny; storage dopiero po zgodzie. */
+/** Consent Mode v2 - tag zawsze obecny; storage dopiero po zgodzie. */
 function initGa4(id: string) {
   if (document.getElementById("ga4-gtag")) return;
 
@@ -53,7 +53,7 @@ function syncConsent() {
   });
 }
 
-/** GA4 z Consent Mode — widoczny dla narzędzi Google; tracking po zgodzie. */
+/** GA4 z Consent Mode - widoczny dla narzędzi Google; tracking po zgodzie. */
 export function GoogleAnalytics() {
   useEffect(() => {
     if (!GA4_MEASUREMENT_ID) return;

@@ -1,6 +1,6 @@
 /** Mapa obszaru: oficjalne granice woj. dolnośląskiego + opolskiego (PRG / ORSIP).
- * TERYT 02 / 16, projekcja equirectangular (× cos φ) → SVG bez rozciągnięcia E–W.
- * Miasta: Nominatim. Douglas–Peucker ~0.006°.
+ * TERYT 02 / 16, projekcja equirectangular (× cos φ) → SVG bez rozciągnięcia E-W.
+ * Miasta: Nominatim. Douglas-Peucker ~0.006°.
  */
 
 export const AREA_MAP_VIEWBOX = "0 0 640 520";

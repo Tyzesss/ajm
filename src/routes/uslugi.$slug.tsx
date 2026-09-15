@@ -362,11 +362,11 @@ function ServicePage() {
             <div className="absolute inset-0 overflow-hidden">
               <motion.img
                 src={hero.src}
-                alt={`${service.title} — realizacja AJM Technika`}
+                alt={`${service.title} - realizacja AJM Technika`}
                 initial={reduce ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: reduce ? 0 : 1.05, ease }}
-                className="size-full object-cover brightness-[1.1] contrast-[1.02]"
+                className="size-full object-cover brightness-[1.04] contrast-[1.02]"
                 style={{ objectPosition: hero.position ?? "50% 45%" }}
               />
             </div>
