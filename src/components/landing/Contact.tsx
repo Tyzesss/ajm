@@ -269,7 +269,7 @@ export function Contact() {
                   </Label>
                   <input
                     id="email"
-                    name="email"
+                    name="Adres email"
                     type="email"
                     required
                     autoComplete="email"
