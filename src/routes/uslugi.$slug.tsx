@@ -69,29 +69,29 @@ const HERO_IMAGES: Record<
   string,
   { src: string; position?: string; positionMobile?: string }
 > = {
-  "pompy-ciepla": { src: heroPompy, position: "65% 45%", positionMobile: "82% 48%" },
-  fotowoltaika: { src: heroFotowoltaika, position: "60% 40%", positionMobile: "78% 32%" },
-  "magazyny-energii": { src: heroMagazyny, position: "55% 45%", positionMobile: "80% 42%" },
-  "kotly-pelletowe": { src: heroKotly, position: "55% 40%", positionMobile: "78% 45%" },
+  "pompy-ciepla": { src: heroPompy, position: "58% 50%", positionMobile: "62% 52%" },
+  fotowoltaika: { src: heroFotowoltaika, position: "52% 38%", positionMobile: "54% 34%" },
+  "magazyny-energii": { src: heroMagazyny, position: "42% 48%", positionMobile: "38% 46%" },
+  "kotly-pelletowe": { src: heroKotly, position: "50% 48%", positionMobile: "50% 48%" },
   "ogrzewanie-podlogowe": {
     src: heroPodlogowe,
-    position: "60% 45%",
-    positionMobile: "82% 48%",
+    position: "50% 58%",
+    positionMobile: "50% 62%",
   },
-  klimatyzacja: { src: heroKlima, position: "70% 40%", positionMobile: "86% 20%" },
-  "instalacje-wodne": { src: heroWodne, position: "55% 45%", positionMobile: "40% 42%" },
+  klimatyzacja: { src: heroKlima, position: "62% 30%", positionMobile: "72% 22%" },
+  "instalacje-wodne": { src: heroWodne, position: "42% 48%", positionMobile: "40% 45%" },
   "instalacje-sanitarne": {
     src: heroSanitarne,
-    position: "55% 40%",
-    positionMobile: "74% 45%",
+    position: "48% 45%",
+    positionMobile: "48% 42%",
   },
   "instalacje-przemyslowe": {
     src: heroPrzemyslowe,
-    position: "60% 40%",
-    positionMobile: "84% 40%",
+    position: "68% 52%",
+    positionMobile: "78% 55%",
   },
-  rekuperacja: { src: heroRekuperacja, position: "55% 45%", positionMobile: "86% 42%" },
-  "uzdatnianie-wody": { src: heroUzdatnianie, position: "55% 45%", positionMobile: "68% 42%" },
+  rekuperacja: { src: heroRekuperacja, position: "40% 50%", positionMobile: "36% 52%" },
+  "uzdatnianie-wody": { src: heroUzdatnianie, position: "50% 48%", positionMobile: "50% 48%" },
 };
 
 const FAQ_BACKGROUNDS: Record<string, { src: string; alt: string; position?: string }> = {
@@ -534,7 +534,7 @@ function ServicePage() {
                 initial={reduce ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: reduce ? 0 : 1.05, ease }}
-                className="service-hero-photo size-full object-cover brightness-[0.92] contrast-[1.02] md:brightness-[1.06]"
+                className="service-hero-photo size-full object-cover brightness-[0.92] contrast-[1.02] md:brightness-[0.72]"
                 style={
                   {
                     "--service-hero-pos": hero.position ?? "50% 45%",
@@ -545,18 +545,20 @@ function ServicePage() {
             </div>
           ) : null}
           <div
-            className="absolute inset-0"
-            style={{ backgroundImage: "var(--gradient-service-hero)" }}
+            className="absolute inset-0 z-[1]"
+            style={{ backgroundImage: "var(--gradient-hero)" }}
             aria-hidden
           />
-          <div className="absolute inset-0 bg-black/12 md:hidden" aria-hidden />
           <div
-            className="absolute inset-0 hidden md:block"
-            style={{ backgroundImage: "var(--gradient-service-hero-side)" }}
+            className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 md:h-40"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, oklch(from var(--navy) l c h / 0.78) 0%, oklch(from var(--navy) l c h / 0.35) 55%, transparent 100%)",
+            }}
             aria-hidden
           />
 
-          <div className="relative mx-auto flex min-h-[28rem] max-w-[1360px] flex-col justify-end px-5 pt-32 pb-14 sm:min-h-[32rem] sm:pt-36 sm:pb-16 lg:min-h-[36rem] lg:px-8 lg:pb-20">
+          <div className="relative z-10 mx-auto flex min-h-[28rem] max-w-[1360px] flex-col justify-end px-5 pt-32 pb-14 sm:min-h-[32rem] sm:pt-36 sm:pb-16 lg:min-h-[36rem] lg:px-8 lg:pb-20">
             <motion.div
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -564,7 +566,7 @@ function ServicePage() {
             >
               <div className="relative isolate max-w-3xl">
                 <div
-                  className="pointer-events-none absolute top-1/2 left-0 z-0 h-[130%] w-[110%] -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_20%_50%,oklch(0.12_0.04_242/0.55)_0%,oklch(0.12_0.04_242/0.28)_42%,transparent_72%)] blur-2xl sm:blur-3xl md:left-[-4%]"
+                  className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-[120%] w-[115%] max-w-none -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,oklch(0.12_0.04_242/0.55)_0%,oklch(0.12_0.04_242/0.28)_42%,transparent_72%)] blur-2xl sm:blur-3xl md:left-[20%] md:translate-x-0"
                   aria-hidden
                 />
                 <h1 className="relative z-[1] font-display text-[2.65rem] font-black leading-[1.2] tracking-[-0.01em] text-navy-foreground sm:text-5xl sm:leading-[1.18] lg:text-6xl lg:leading-[1.15]">
@@ -578,9 +580,15 @@ function ServicePage() {
                   )}
                 </h1>
               </div>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-navy-foreground/92 sm:text-lg">
-                {service.intro}
-              </p>
+              <div className="relative isolate mt-5 max-w-2xl">
+                <div
+                  className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-[160%] w-[108%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,oklch(0.12_0.04_242/0.42)_0%,oklch(0.12_0.04_242/0.2)_48%,transparent_74%)] blur-xl sm:blur-2xl md:left-[18%] md:translate-x-0"
+                  aria-hidden
+                />
+                <p className="relative z-[1] text-base leading-relaxed text-navy-foreground/92 sm:text-lg">
+                  {service.intro}
+                </p>
+              </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button asChild variant="cyan" size="xl">
                   <Link to="/" hash="kontakt-formularz">
