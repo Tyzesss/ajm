@@ -19,6 +19,7 @@ import { Link } from "@tanstack/react-router";
 import { useReducedMotion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { SERVICES } from "@/lib/services";
+import { scrollToSection } from "@/lib/scroll-to-section";
 import { cn } from "@/lib/utils";
 
 const ICONS: Record<string, LucideIcon> = {
@@ -122,8 +123,17 @@ export function Services() {
               )}
               style={{ transitionTimingFunction: EXPAND_EASE }}
             >
-              <div className="min-h-0 overflow-hidden">
-                <ul className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-6" aria-hidden={!open}>
+              <div
+                className={cn(
+                  "min-h-0",
+                  // overflow-hidden tylko przy zwijaniu — inaczej tnie box-shadow kart
+                  open ? "overflow-visible" : "overflow-hidden",
+                )}
+              >
+                <ul
+                  className="mt-6 grid gap-6 pb-2 md:grid-cols-2 lg:grid-cols-6"
+                  aria-hidden={!open}
+                >
                   {rest.map((service, i) => {
                     const globalIndex = DESKTOP_PREVIEW + i;
                     const isFirstOfCenteredPair =
@@ -162,7 +172,19 @@ export function Services() {
             <div className="mt-10 flex justify-center">
               <button
                 type="button"
-                onClick={() => setOpen((v) => !v)}
+                onClick={() => {
+                  if (!open) {
+                    setOpen(true);
+                    return;
+                  }
+                  // Najpierw smooth scroll, potem zwijanie — bez skoku od zmiany wysokości.
+                  scrollToSection("#uslugi");
+                  if (reduce) {
+                    setOpen(false);
+                    return;
+                  }
+                  window.setTimeout(() => setOpen(false), 320);
+                }}
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-cyan px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
                 aria-expanded={open}
               >
