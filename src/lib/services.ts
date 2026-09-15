@@ -158,7 +158,7 @@ function localCopy(opts: {
     seoTitle: `${opts.title} Opole | Nysa | Niemodlin | montaż | AJM Technika`,
     seoDescription: `${opts.metaLead} Montaż w woj. opolskim i dolnośląskim: Opole, Nysa, Niemodlin, Oleśnica, Wrocław, Oława, Namysłów, Głuchołazy i okolice. Bezpłatna wycena.`,
     intro: `${opts.introBody} Montujemy w Opolu, Nysie, Niemodlinie oraz w pozostałych miejscowościach z listy poniżej.`,
-    area: `${AREA_LEAD} ${opts.title} montujemy m.in.\u00a0w:`,
+    area: `${AREA_LEAD} Głównie w miejscowościach wypisanych poniżej.`,
   };
 }
 
