@@ -519,7 +519,7 @@ function ServicePage() {
                 initial={reduce ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: reduce ? 0 : 1.05, ease }}
-                className="service-hero-photo size-full object-cover brightness-[0.78] contrast-[1.02] md:brightness-[1.04]"
+                className="service-hero-photo size-full object-cover brightness-[0.92] contrast-[1.02] md:brightness-[1.06]"
                 style={
                   {
                     "--service-hero-pos": hero.position ?? "50% 45%",
@@ -533,7 +533,7 @@ function ServicePage() {
             style={{ backgroundImage: "var(--gradient-service-hero)" }}
             aria-hidden
           />
-          <div className="absolute inset-0 bg-black/30 md:hidden" aria-hidden />
+          <div className="absolute inset-0 bg-black/12 md:hidden" aria-hidden />
           <div
             className="absolute inset-0 hidden md:block"
             style={{ backgroundImage: "var(--gradient-service-hero-side)" }}
@@ -546,16 +546,22 @@ function ServicePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduce ? 0 : 0.7, ease }}
             >
-              <h1 className="max-w-3xl font-display text-4xl font-black tracking-tight text-navy-foreground sm:text-5xl lg:text-6xl">
-                {headlineParts ? (
-                  <>
-                    {headlineParts[1]} w{" "}
-                    <span className="text-gradient-cyan">{headlineParts[2]}</span>
-                  </>
-                ) : (
-                  service.headline
-                )}
-              </h1>
+              <div className="relative isolate max-w-3xl">
+                <div
+                  className="pointer-events-none absolute top-1/2 left-0 z-0 h-[130%] w-[110%] -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_20%_50%,oklch(0.12_0.04_242/0.55)_0%,oklch(0.12_0.04_242/0.28)_42%,transparent_72%)] blur-2xl sm:blur-3xl md:left-[-4%]"
+                  aria-hidden
+                />
+                <h1 className="relative z-[1] font-display text-4xl font-black tracking-tight text-navy-foreground sm:text-5xl lg:text-6xl">
+                  {headlineParts ? (
+                    <>
+                      {headlineParts[1]} w{" "}
+                      <span className="text-gradient-cyan">{headlineParts[2]}</span>
+                    </>
+                  ) : (
+                    service.headline
+                  )}
+                </h1>
+              </div>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-navy-foreground/92 sm:text-lg">
                 {service.intro}
               </p>

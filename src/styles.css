@@ -123,9 +123,9 @@
   );
   --gradient-service-hero: linear-gradient(
     180deg,
-    oklch(0 0 0 / 0.42) 0%,
-    oklch(0 0 0 / 0.36) 42%,
-    oklch(0 0 0 / 0.52) 100%
+    oklch(0 0 0 / 0.3) 0%,
+    oklch(0 0 0 / 0.24) 42%,
+    oklch(0 0 0 / 0.38) 100%
   );
   --gradient-service-hero-side: linear-gradient(
     90deg,
