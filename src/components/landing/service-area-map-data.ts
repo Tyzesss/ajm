@@ -36,4 +36,11 @@ export const AREA_MAP_TOWNS: AreaMapTown[] = [
   { name: "Strzelce Opolskie", x: 569.66, y: 356.82 },
   { name: "Krapkowice", x: 515.76, y: 366.09 },
   { name: "Głuchołazy", x: 421.37, y: 406.50 },
+  { name: "Strzelin", x: 369.41, y: 288.14 },
+  { name: "Świdnica", x: 273.90, y: 270.60 },
+  { name: "Wałbrzych", x: 242.84, y: 290.72 },
+  { name: "Kłodzko", x: 304.06, y: 377.39 },
+  { name: "Legnica", x: 223.01, y: 177.89 },
+  { name: "Trzebnica", x: 369.23, y: 152.12 },
+  { name: "Milicz", x: 403.05, y: 96.20 },
 ];

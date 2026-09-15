@@ -6,7 +6,7 @@
 
 /*
  * AJM Technika design system - premium HVAC.
- * Brand blue from logo AJM: #0784C7 → oklch(0.59 0.14 242).
+ * Brand blue from logo AJM: #04A2F7 → oklch(0.685 0.166 243).
  */
 
 @theme inline {
@@ -80,8 +80,8 @@
   --muted: oklch(0.955 0.012 242);
   --muted-foreground: oklch(0.5 0.028 242);
 
-  /* Logo AJM blue #0784C7 */
-  --accent: #0784c7;
+  /* Logo AJM blue #04A2F7 */
+  --accent: #04a2f7;
   --accent-foreground: oklch(0.985 0.01 242);
 
   --destructive: oklch(0.577 0.245 27.325);
@@ -89,17 +89,17 @@
 
   --border: oklch(0.91 0.014 242);
   --input: oklch(0.91 0.014 242);
-  --ring: #0784c7;
+  --ring: #04a2f7;
 
   /* Deep navy in the same blue family as the logo */
   --navy: oklch(0.155 0.045 242);
   --navy-soft: oklch(0.22 0.05 242);
   --navy-foreground: oklch(0.97 0.01 242);
-  --cyan: #0784c7;
+  --cyan: #04a2f7;
   --cyan-foreground: oklch(0.2 0.05 242);
 
-  --chart-1: oklch(0.66 0.13 240);
-  --chart-2: oklch(0.59 0.14 242);
+  --chart-1: oklch(0.72 0.15 243);
+  --chart-2: oklch(0.685 0.166 243);
   --chart-3: oklch(0.42 0.07 242);
   --chart-4: oklch(0.78 0.08 242);
   --chart-5: oklch(0.55 0.12 245);
@@ -111,7 +111,7 @@
   --sidebar-accent: oklch(0.955 0.012 242);
   --sidebar-accent-foreground: oklch(0.28 0.055 242);
   --sidebar-border: oklch(0.91 0.014 242);
-  --sidebar-ring: oklch(0.59 0.14 242);
+  --sidebar-ring: #04a2f7;
 
   /* Gradients - same --navy as navbar, hero, footer, and dark sections */
   --gradient-hero: linear-gradient(
@@ -133,7 +133,7 @@
     oklch(0 0 0 / 0.1) 48%,
     oklch(0 0 0 / 0.04) 100%
   );
-  --gradient-cyan: #0784c7;
+  --gradient-cyan: #04a2f7;
   --gradient-navy-from: var(--navy);
   --gradient-navy-to: var(--navy);
   --gradient-navy: var(--navy);
@@ -142,11 +142,21 @@
   /* Shadows */
   --shadow-card: 0 1px 2px oklch(0.155 0.045 242 / 0.06), 0 12px 32px oklch(0.155 0.045 242 / 0.1);
   --shadow-lift: 0 2px 6px oklch(0.155 0.045 242 / 0.09), 0 24px 56px oklch(0.155 0.045 242 / 0.18);
-  --shadow-glow: 0 12px 40px oklch(0.55 0.12 242 / 0.28);
+  --shadow-glow: 0 12px 40px oklch(0.685 0.166 243 / 0.32);
 
   /* Glass */
   --glass-bg: oklch(1 0 0 / 0.14);
   --glass-border: oklch(1 0 0 / 0.16);
+}
+
+/* Mobile: kadr na środek; desktop: pozycja z --service-hero-pos */
+.service-hero-photo {
+  object-position: 50% 40%;
+}
+@media (min-width: 768px) {
+  .service-hero-photo {
+    object-position: var(--service-hero-pos, 50% 45%);
+  }
 }
 
 .dark {
@@ -162,11 +172,11 @@
   --secondary-foreground: oklch(0.97 0.01 242);
   --muted: oklch(0.28 0.045 242);
   --muted-foreground: oklch(0.72 0.03 242);
-  --accent: #0784c7;
+  --accent: #04a2f7;
   --accent-foreground: oklch(0.18 0.05 242);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.66 0.13 240);
+  --ring: #04a2f7;
 }
 
 @layer base {

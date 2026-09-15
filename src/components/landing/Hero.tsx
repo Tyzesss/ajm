@@ -78,13 +78,19 @@ export function Hero() {
               Certyfikowany instalator
             </span>
 
-            <h1 className="mt-4 font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground [text-shadow:0_1px_18px_oklch(0.1_0.04_242/0.35),0_1px_6px_oklch(0.1_0.04_242/0.2)] sm:mt-5 sm:text-7xl sm:tracking-normal lg:text-[5rem]">
-              <span className="sm:whitespace-nowrap">Instalacje grzewcze,</span>
-              <br />
-              <span className="text-gradient-cyan sm:whitespace-nowrap">
-                chłodnicze i&nbsp;sanitarne.
-              </span>
-            </h1>
+            <div className="relative mt-4 isolate w-full sm:mt-5">
+              <div
+                className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-[120%] w-[115%] max-w-none -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,oklch(0.12_0.04_242/0.55)_0%,oklch(0.12_0.04_242/0.28)_42%,transparent_72%)] blur-2xl sm:blur-3xl"
+                aria-hidden
+              />
+              <h1 className="relative z-[1] font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:text-7xl sm:tracking-normal lg:text-[5rem]">
+                <span className="sm:whitespace-nowrap">Instalacje grzewcze,</span>
+                <br />
+                <span className="text-gradient-cyan sm:whitespace-nowrap">
+                  chłodnicze i&nbsp;sanitarne.
+                </span>
+              </h1>
+            </div>
 
             <p className="mt-4 max-w-xl text-sm text-navy-foreground/75 sm:mt-5 sm:max-w-3xl sm:text-lg md:text-[1.2rem]">
               <span className="sm:whitespace-nowrap">
@@ -106,7 +112,7 @@ export function Hero() {
               <Button asChild variant="hero" size="xl">
                 <a
                   href={PHONE_HREF}
-                  className="w-full rounded-full uppercase backdrop-blur-[2px] sm:w-auto sm:rounded-xl sm:normal-case"
+                  className="w-full rounded-full uppercase backdrop-blur-[4px] sm:w-auto sm:rounded-xl sm:normal-case"
                 >
                   <Phone className="size-4 text-accent" /> Zadzwoń teraz
                 </a>

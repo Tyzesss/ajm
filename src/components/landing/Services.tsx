@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowUpRight,
+  BatteryCharging,
   Droplets,
   Factory,
   Fan,
@@ -8,6 +9,7 @@ import {
   Gauge,
   Pipette,
   Snowflake,
+  Sun,
   Thermometer,
   Waves,
 } from "lucide-react";
@@ -17,6 +19,8 @@ import { SERVICES } from "@/lib/services";
 
 const ICONS: Record<string, LucideIcon> = {
   "pompy-ciepla": Thermometer,
+  fotowoltaika: Sun,
+  "magazyny-energii": BatteryCharging,
   "kotly-pelletowe": Flame,
   "ogrzewanie-podlogowe": Gauge,
   klimatyzacja: Snowflake,
@@ -66,8 +70,8 @@ export function Services() {
               <span className="text-gradient-cyan">dla domu i biznesu</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Pompy ciepła, klimatyzacja, pellet, rekuperacja i instalacje wodno-sanitarne. Dobór,
-              montaż i serwis w Namysłowie, Opolu i okolicach.
+              Pompy ciepła, fotowoltaika, magazyny energii, klimatyzacja, pellet i instalacje.
+              Dobór, montaż i serwis w woj. opolskim i dolnośląskim.
             </p>
           </div>
         </Reveal>

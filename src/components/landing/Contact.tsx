@@ -30,6 +30,7 @@ import {
   WEB3FORMS_ACCESS_KEY,
   WEB3FORMS_ENDPOINT,
 } from "@/lib/site";
+import { SERVICES } from "@/lib/services";
 
 const INFO: {
   icon: typeof Phone;
@@ -135,7 +136,7 @@ export function Contact() {
   return (
     <section id="kontakt" className="relative isolate overflow-hidden pt-12 pb-10 md:py-20">
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(52rem,92%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.02)_22%,oklch(0.59_0.14_242/0.05)_52%,oklch(0.59_0.14_242/0.1)_100%)] max-md:h-[min(40rem,95%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.025)_20%,oklch(0.59_0.14_242/0.06)_55%,oklch(0.59_0.14_242/0.11)_100%)]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(52rem,92%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.685_0.166_243/0.02)_22%,oklch(0.685_0.166_243/0.05)_52%,oklch(0.685_0.166_243/0.1)_100%)] max-md:h-[min(40rem,95%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.685_0.166_243/0.025)_20%,oklch(0.685_0.166_243/0.06)_55%,oklch(0.685_0.166_243/0.11)_100%)]"
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
@@ -287,19 +288,9 @@ export function Contact() {
                       <SelectValue placeholder="Wybierz z listy" />
                     </SelectTrigger>
                     <SelectContent className="rounded-lg">
-                      {[
-                        "Pompy ciepła",
-                        "Kotły pelletowe",
-                        "Ogrzewanie podłogowe",
-                        "Klimatyzacja",
-                        "Instalacje wodne",
-                        "Instalacje sanitarne",
-                        "Instalacje przemysłowe",
-                        "Rekuperacja",
-                        "Uzdatnianie wody",
-                      ].map((option) => (
-                        <SelectItem key={option} value={option}>
-                          {option}
+                      {SERVICES.map((item) => (
+                        <SelectItem key={item.slug} value={item.title}>
+                          {item.title}
                         </SelectItem>
                       ))}
                     </SelectContent>

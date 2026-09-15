@@ -75,22 +75,22 @@ export const SERVICE_MOUNT_STEPS: Record<string, MountStep[]> = {
     {
       step: "01",
       title: "Oględziny i dobór",
-      body: "Piony, odpływy, dostęp do instalacji oraz miejsca pod armaturę w budynku.",
+      body: "Przyłącze wody do budynku, instalacje wodne, CWU oraz odpływy w łazience i kuchni.",
     },
     {
       step: "02",
       title: "Trasa instalacji",
-      body: "Podejścia, spadki i przebieg kanalizacji pod konkretny układ łazienki.",
+      body: "Przebieg instalacji wodnych i CWU oraz kanalizacji pod układ pomieszczeń.",
     },
     {
       step: "03",
       title: "Montaż",
-      body: "Kanalizacja, podejścia, piony i przygotowanie instalacji pod dalsze prace.",
+      body: "Przyłącza wody, rozprowadzenie zimnej wody i CWU, podejścia sanitarne.",
     },
     {
       step: "04",
       title: "Próby i odbiór",
-      body: "Kontrola szczelności przed zabudową i przekazanie pod wykończenie.",
+      body: "Próby szczelności instalacji wodnych i CWU oraz kontrola odpływów przed zabudową.",
     },
   ],
   "instalacje-przemyslowe": [
@@ -137,6 +137,50 @@ export const SERVICE_MOUNT_STEPS: Record<string, MountStep[]> = {
       body: "Bilans nawiewu z wywiewem, obsługa systemu, filtry i zasady eksploatacji.",
     },
   ],
+  fotowoltaika: [
+    {
+      step: "01",
+      title: "Analiza i dobór",
+      body: "Zużycie energii, dach lub grunt, moc PV i ewentualny magazyn albo pompa ciepła.",
+    },
+    {
+      step: "02",
+      title: "Projekt i wycena",
+      body: "Układ paneli, inwerter, zabezpieczenia i jasny kosztorys zakresu prac.",
+    },
+    {
+      step: "03",
+      title: "Montaż",
+      body: "Konstrukcja, panele, okablowanie, inwerter i przyłącza zgodnie z projektem.",
+    },
+    {
+      step: "04",
+      title: "Uruchomienie",
+      body: "Pomiary, konfiguracja, instruktaż oraz wsparcie przy dokumentacji.",
+    },
+  ],
+  "magazyny-energii": [
+    {
+      step: "01",
+      title: "Analiza zużycia",
+      body: "Profil zużycia, moc PV i cele: autokonsumpcja albo rezerwa awaryjna.",
+    },
+    {
+      step: "02",
+      title: "Dobór pojemności",
+      body: "Bateria i inwerter hybrydowy dopasowane do instalacji i miejsca montażu.",
+    },
+    {
+      step: "03",
+      title: "Montaż",
+      body: "Montaż magazynu, okablowanie, zabezpieczenia i integracja z PV.",
+    },
+    {
+      step: "04",
+      title: "Konfiguracja",
+      body: "Tryby pracy, testy i instruktaż obsługi systemu.",
+    },
+  ],
 };
 
 const AREA_LEAD = "Działamy w województwie opolskim i dolnośląskim.";
@@ -163,7 +207,7 @@ function localCopy(opts: {
 }
 
 export const SERVICES: Service[] = [
-  {
+{
     slug: "pompy-ciepla",
     title: "Pompy ciepła",
     titleOf: "pomp ciepła",
@@ -205,7 +249,7 @@ export const SERVICES: Service[] = [
     ],
     match: ["pomp", "pompa ciepła", "hydrobox"],
   },
-  {
+{
     slug: "kotly-pelletowe",
     title: "Kotły pelletowe",
     titleOf: "kotłów pelletowych",
@@ -246,7 +290,7 @@ export const SERVICES: Service[] = [
     ],
     match: ["kotł", "kocioł", "pellet", "kotlown"],
   },
-  {
+{
     slug: "ogrzewanie-podlogowe",
     title: "Ogrzewanie podłogowe",
     titleOf: "ogrzewania podłogowego",
@@ -288,7 +332,91 @@ export const SERVICES: Service[] = [
     ],
     match: ["podłogow", "rozdzielacz", "pętl"],
   },
-  {
+{
+    slug: "fotowoltaika",
+    title: "Fotowoltaika",
+    titleOf: "fotowoltaiki",
+    ...localCopy({
+      title: "Fotowoltaika",
+      introBody:
+        "Projekt i montaż instalacji PV na dachu lub gruncie: dobór mocy, inwerter, uruchomienie i dokumentacja. Własny prąd obniża rachunki i dobrze łączy się z pompą ciepła oraz magazynem energii.",
+      metaLead:
+        "Montaż fotowoltaiki: panele, inwerter, uruchomienie. Własny prąd dla domu i firmy.",
+    }),
+    short: "Panele PV, inwerter i uruchomienie: własny prąd dla domu i firmy.",
+    sections: [
+      {
+        heading: "Dlaczego fotowoltaika",
+        body: "Instalacja PV produkuje prąd z słońca i obniża koszty energii. Dobrze dobrana moc pokrywa zużycie domu lub firmy, a nadwyżkę możesz magazynować albo oddawać do sieci według obowiązujących zasad rozliczeń.",
+      },
+      {
+        heading: "Dobór, montaż i uruchomienie",
+        body: "Analizujemy dach lub działkę, nasłonecznienie i profil zużycia. Montujemy konstrukcję, panele i inwerter, wykonujemy przyłącza i uruchamiamy system z jasną instrukcją oraz wsparciem przy formalnościach.",
+      },
+    ],
+    bullets: [
+      "Analiza zużycia i dobór mocy instalacji",
+      "Panele na dachu lub instalacji gruntowej",
+      "Inwerter, zabezpieczenia i okablowanie",
+      "Uruchomienie i pomiary powykonawcze",
+      "Integracja z pompą ciepła / magazynem",
+      "Wsparcie przy zgłoszeniach i dokumentacji",
+    ],
+    faq: [
+      {
+        q: "Jaka moc instalacji ma sens dla domu?",
+        a: "Zależy od rachunków, powierzchni dachu i planów (np. pompa ciepła, auto). Liczymy moc do realnego zużycia, nie „na zapas z katalogu”.",
+      },
+      {
+        q: "Czy łączycie PV z pompą ciepła i magazynem?",
+        a: "Tak. Często projektujemy zestaw tak, by jak najwięcej energii zużywać na miejscu: ogrzewanie, CWU i magazyn.",
+      },
+    ],
+    match: ["fotowolt", "pv", "panel", "inwerter", "solar"],
+  },
+{
+    slug: "magazyny-energii",
+    title: "Magazyny energii",
+    titleOf: "magazynów energii",
+    ...localCopy({
+      title: "Magazyny energii",
+      introBody:
+        "Dobór i montaż domowych magazynów energii: większa autokonsumpcja z PV, rezerwa przy zaniku zasilania i lepsze wykorzystanie własnego prądu.",
+      metaLead:
+        "Magazyny energii do fotowoltaiki: dobór pojemności, montaż i uruchomienie.",
+    }),
+    short: "Magazyn energii do PV: więcej własnego prądu, rezerwa przy awarii sieci.",
+    sections: [
+      {
+        heading: "Po co magazyn energii",
+        body: "Magazyn zbiera nadwyżkę z fotowoltaiki i oddaje ją wieczorem lub w szczycie zużycia. Zwiększa autokonsumpcję, ogranicza pobór z sieci i w wybranych konfiguracjach daje rezerwę przy zaniku zasilania.",
+      },
+      {
+        heading: "Dobór pojemności i montaż",
+        body: "Dobieramy pojemność do profilu zużycia i mocy PV, montujemy baterię, hybrydę lub rozbudowę istniejącego systemu i uruchamiamy z konfiguracją trybów pracy oraz instruktażem.",
+      },
+    ],
+    bullets: [
+      "Dobór pojemności do PV i zużycia",
+      "Montaż baterii ściennej lub wolnostojącej",
+      "Integracja z inwerterem hybrydowym",
+      "Tryby pracy i priorytety ładowania",
+      "Opcjonalna rezerwa / backup wybranych obwodów",
+      "Uruchomienie, pomiary i instruktaż",
+    ],
+    faq: [
+      {
+        q: "Czy magazyn działa bez fotowoltaiki?",
+        a: "Największy sens ma z PV. Sam magazyn też bywa stosowany, ale opłacalność i konfigurację oceniamy indywidualnie.",
+      },
+      {
+        q: "Jaką pojemność wybrać?",
+        a: "Zależy od zużycia wieczornego, mocy paneli i celów (autokonsumpcja vs awaryjne zasilanie). Dobieramy po analizie, nie „największy model z oferty”.",
+      },
+    ],
+    match: ["magazyn", "bater", "energia", "storage", "akumulator"],
+  },
+{
     slug: "klimatyzacja",
     title: "Klimatyzacja",
     titleOf: "klimatyzacji",
@@ -330,7 +458,7 @@ export const SERVICES: Service[] = [
     ],
     match: ["klimatyz", "multi-split", "split"],
   },
-  {
+{
     slug: "instalacje-wodne",
     title: "Instalacje wodne",
     titleOf: "instalacji wodnych",
@@ -372,49 +500,49 @@ export const SERVICES: Service[] = [
     ],
     match: ["wodn", "woda użytk", "przyłącz"],
   },
-  {
+{
     slug: "instalacje-sanitarne",
     title: "Instalacje sanitarne",
     titleOf: "instalacji sanitarnych",
     ...localCopy({
       title: "Instalacje sanitarne",
       introBody:
-        "Instalacje sanitarne: kanalizacja, podejścia, wymiana pionów i modernizacja łazienek w zakresie instalacji.",
+        "Instalacje sanitarne z naciskiem na instalacje wodne, CWU (ciepła woda użytkowa) oraz przyłącza wody do budynku - od wejścia wody po rozprowadzenie i odpływy.",
       metaLead:
-        "Kompleksowe instalacje sanitarne: kanalizacja, podejścia, piony, modernizacja łazienek w zakresie instalacji.",
+        "Instalacje sanitarne: instalacje wodne, CWU (ciepła woda użytkowa), przyłącza wody do budynku.",
     }),
-    short: "Kanalizacja, podejścia, piony i instalacje pod łazienki.",
+    short: "Instalacje wodne, CWU i przyłącza wody do budynku.",
     sections: [
       {
-        heading: "Solidna instalacja sanitarna",
-        body: "Dobrze wykonana kanalizacja i podejścia to mniej problemów z odpływami, hałasem i dostępem serwisowym. Planujemy trasę pod komfort użytkowania i przyszłe remonty.",
+        heading: "Woda, CWU i przyłącze do budynku",
+        body: "W zakresie instalacji sanitarnych wykonujemy instalacje wodne, CWU (ciepłą wodę użytkową) oraz przyłącza wody do budynku. Dobieramy trasę i przekroje pod zużycie, ciśnienie i układ pomieszczeń.",
       },
       {
-        heading: "Modernizacje i nowe budynki",
-        body: "Pracujemy przy nowych inwestycjach i wymianach w istniejących obiektach. Koordynujemy zakres z innymi instalacjami (woda, ogrzewanie), gdy to potrzebne.",
+        heading: "Komplet z odpływami i modernizacjami",
+        body: "Łączymy przyłącze i instalacje wodne z podejściami sanitarnymi oraz kanalizacją. Pracujemy przy nowych inwestycjach i wymianach w istniejących budynkach, ze sprawdzeniem szczelności przed zabudową.",
       },
     ],
     bullets: [
-      "Kanalizacja sanitarna i odpływy",
-      "Podejścia pod umywalki, WC, prysznic",
-      "Wymiana pionów w budynkach istniejących",
-      "Syfony, rewizje i dostęp serwisowy",
-      "Koordynacja z wodą i ogrzewaniem",
-      "Próby szczelności przed glazurą",
+      "Przyłącza wody do budynku",
+      "Instalacje wodne (zimna woda)",
+      "CWU - ciepła woda użytkowa",
+      "Rozprowadzenie wody w budynku",
+      "Podejścia sanitarne i odpływy",
+      "Próby szczelności przed zabudową",
     ],
     faq: [
       {
-        q: "Czy robicie samą instalację bez wykończenia łazienki?",
-        a: "Tak, skupiamy się na instalacji. Wykończenie może wykonać ekipa glazurnicza lub generalny wykonawca.",
+        q: "Czy robicie przyłącze wody do budynku i CWU?",
+        a: "Tak. W ramach instalacji sanitarnych zajmujemy się przyłączami wody do budynku, instalacjami wodnymi oraz CWU (ciepłą wodą użytkową), a także odpływami.",
       },
       {
-        q: "Jak zaplanować prace przy remoncie?",
-        a: "Najpierw oględziny i ustalenie kolejności (demontaż, nowe podejścia, próby). Dzięki temu unikasz poprawek pod płytkami.",
+        q: "Czy to osobno od instalacji wodnych w ofercie?",
+        a: "Na stronie masz też osobną usługę instalacji wodnych. Tu łączymy wodę, CWU i zakres sanitarny w jednym, spójnym montażu - zakres doprecyzujemy na oględzinach.",
       },
     ],
-    match: ["sanitar", "kanaliz", "łazien", "pion"],
+    match: ["sanitar", "kanaliz", "łazien", "pion", "cwu", "przyłącz"],
   },
-  {
+{
     slug: "instalacje-przemyslowe",
     title: "Instalacje przemysłowe",
     titleOf: "instalacji przemysłowych",
@@ -456,7 +584,7 @@ export const SERVICES: Service[] = [
     ],
     match: ["przemysł", "firmow", "obiekt"],
   },
-  {
+{
     slug: "rekuperacja",
     title: "Rekuperacja",
     titleOf: "rekuperacji",
@@ -498,7 +626,7 @@ export const SERVICES: Service[] = [
     ],
     match: ["rekuper", "wentylac", "centrala"],
   },
-  {
+{
     slug: "uzdatnianie-wody",
     title: "Uzdatnianie wody",
     titleOf: "uzdatniania wody",

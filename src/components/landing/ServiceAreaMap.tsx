@@ -22,9 +22,9 @@ function RegionPath({
   return (
     <motion.path
       d={d}
-      fill="oklch(0.59 0.14 242)"
+      fill="var(--accent)"
       fillRule="evenodd"
-      stroke="oklch(0.59 0.14 242)"
+      stroke="var(--accent)"
       strokeWidth={2}
       strokeLinejoin="round"
       strokeLinecap="round"

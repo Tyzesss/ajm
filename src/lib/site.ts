@@ -51,6 +51,13 @@ export const SERVICE_TOWNS = [
   "Strzelce Opolskie",
   "Krapkowice",
   "Głuchołazy",
+  "Strzelin",
+  "Świdnica",
+  "Wałbrzych",
+  "Kłodzko",
+  "Legnica",
+  "Trzebnica",
+  "Milicz",
 ] as const;
 
 /** Kolejność kafelków = SERVICE_TOWNS. */

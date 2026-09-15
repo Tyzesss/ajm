@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import { BadgeCheck, ClipboardCheck, MapPinned } from "lucide-react";
-import whyUsImage from "@/assets/why-us-hvac.png";
+import whyUsImage from "@/assets/ajm-kotlownia-galmet-instalacja.jpg";
+import whyUsImageMobile from "@/assets/ajm-instalacja-sanitarna-sciana.jpg";
 import { DarkEyebrow } from "./DarkEyebrow";
 import { Reveal } from "./Reveal";
 
@@ -29,13 +30,16 @@ export function WhyUs() {
       className="relative isolate overflow-hidden bg-navy py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img
-          src={whyUsImage}
-          alt="Nowoczesny dom z pompą ciepła o zmierzchu"
-          width={1536}
-          height={864}
-          className="size-full object-cover object-[62%_52%]"
-        />
+        <picture className="block size-full">
+          <source media="(min-width: 768px)" srcSet={whyUsImage} />
+          <img
+            src={whyUsImageMobile}
+            alt="Instalacja grzewcza i rurociągi - realizacja AJM Technika"
+            width={1200}
+            height={1600}
+            className="size-full object-cover object-[48%_35%] brightness-[0.88] contrast-[1.05] md:object-[42%_45%] md:brightness-[0.82]"
+          />
+        </picture>
       </div>
       <div
         className="absolute inset-0 z-[1]"

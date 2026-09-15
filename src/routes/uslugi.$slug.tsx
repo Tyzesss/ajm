@@ -7,7 +7,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
-import { ArrowRight, ArrowUpRight, Check, CircleHelp, Hammer, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ChevronDown, CircleHelp, Hammer, Phone } from "lucide-react";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { StickyCallBar } from "@/components/landing/StickyCallBar";
@@ -29,8 +29,11 @@ import { ServiceTownTiles } from "@/components/landing/ServiceTownTiles";
 import { PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
 import { pageMeta, servicePageJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 import sidePompy from "@/assets/service-side-pompy-ciepla.png";
+import sideFotowoltaika from "@/assets/service-side-fotowoltaika.png";
+import sideMagazyny from "@/assets/service-side-magazyny-energii.png";
 import sideKotly from "@/assets/service-side-kotly-pelletowe.png";
 import sidePodlogowe from "@/assets/service-side-podlogowe.png";
 import sideKlima from "@/assets/service-side-klimatyzacja.png";
@@ -40,6 +43,8 @@ import sidePrzemyslowe from "@/assets/service-side-przemyslowe.png";
 import sideRecup from "@/assets/service-side-rekuperacja.png";
 import sideWoda from "@/assets/service-side-uzdatnianie.png";
 import faqBgPompy from "@/assets/faq-bg-pompy-ciepla.png";
+import faqBgFotowoltaika from "@/assets/faq-bg-fotowoltaika.png";
+import faqBgMagazyny from "@/assets/faq-bg-magazyny-energii.png";
 import faqBgKotly from "@/assets/faq-bg-kotly-pelletowe.png";
 import faqBgPodlogowe from "@/assets/faq-bg-ogrzewanie-podlogowe.png";
 import faqBgKlima from "@/assets/faq-bg-klimatyzacja.png";
@@ -49,6 +54,8 @@ import faqBgPrzemyslowe from "@/assets/faq-bg-instalacje-przemyslowe.png";
 import faqBgRekuperacja from "@/assets/faq-bg-rekuperacja.png";
 import faqBgUzdatnianie from "@/assets/faq-bg-uzdatnianie-wody.png";
 import heroPompy from "@/assets/service-hero-pompy-ciepla.png";
+import heroFotowoltaika from "@/assets/service-hero-fotowoltaika.png";
+import heroMagazyny from "@/assets/service-hero-magazyny-energii.png";
 import heroKotly from "@/assets/service-hero-kotly-pelletowe.png";
 import heroPodlogowe from "@/assets/service-hero-ogrzewanie-podlogowe.png";
 import heroKlima from "@/assets/service-hero-klimatyzacja.png";
@@ -60,6 +67,8 @@ import heroUzdatnianie from "@/assets/service-hero-uzdatnianie-wody.png";
 
 const HERO_IMAGES: Record<string, { src: string; position?: string }> = {
   "pompy-ciepla": { src: heroPompy, position: "65% 45%" },
+  fotowoltaika: { src: heroFotowoltaika, position: "60% 40%" },
+  "magazyny-energii": { src: heroMagazyny, position: "55% 45%" },
   "kotly-pelletowe": { src: heroKotly, position: "55% 40%" },
   "ogrzewanie-podlogowe": { src: heroPodlogowe, position: "60% 45%" },
   klimatyzacja: { src: heroKlima, position: "70% 40%" },
@@ -75,6 +84,16 @@ const FAQ_BACKGROUNDS: Record<string, { src: string; alt: string; position?: str
     src: faqBgPompy,
     alt: "Pompa ciepła przy nowoczesnym domu o zmierzchu",
     position: "70% 45%",
+  },
+  fotowoltaika: {
+    src: faqBgFotowoltaika,
+    alt: "Panele fotowoltaiczne na dachu domu",
+    position: "55% 40%",
+  },
+  "magazyny-energii": {
+    src: faqBgMagazyny,
+    alt: "Magazyn energii w pomieszczeniu technicznym",
+    position: "50% 45%",
   },
   "kotly-pelletowe": {
     src: faqBgKotly,
@@ -127,6 +146,16 @@ const IMAGES: Record<
     alt: "Pompa ciepła powietrze-woda przy domu jednorodzinnym",
     position: "50% 45%",
   },
+  fotowoltaika: {
+    src: sideFotowoltaika,
+    alt: "Panele fotowoltaiczne na dachu budynku mieszkalnego",
+    position: "50% 40%",
+  },
+  "magazyny-energii": {
+    src: sideMagazyny,
+    alt: "Domowy magazyn energii na ścianie pomieszczenia technicznego",
+    position: "48% 42%",
+  },
   "kotly-pelletowe": {
     src: sideKotly,
     alt: "Kocioł pelletowy w kotłowni z zasobnikami",
@@ -174,6 +203,8 @@ const CARD_THUMBS: Record<string, { src: string; position: string }> = {
   "pompy-ciepla": { src: sidePompy, position: "50% 45%" },
   "kotly-pelletowe": { src: sideKotly, position: "48% 42%" },
   "ogrzewanie-podlogowe": { src: sidePodlogowe, position: "50% 55%" },
+  fotowoltaika: { src: sideFotowoltaika, position: "50% 40%" },
+  "magazyny-energii": { src: sideMagazyny, position: "50% 42%" },
   klimatyzacja: { src: sideKlima, position: "50% 45%" },
   "instalacje-wodne": { src: sideWodne, position: "50% 45%" },
   "instalacje-sanitarne": { src: sideSanitarne, position: "50% 48%" },
@@ -213,6 +244,128 @@ function OtherServiceCard({ item }: { item: (typeof SERVICES)[number] }) {
         <span className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{item.short}</span>
       </span>
     </Link>
+  );
+}
+
+const OTHER_PREVIEW = 4;
+const OTHER_FADE_MS = 280;
+
+function OtherServicesGrid({ others }: { others: Service[] }) {
+  const reduce = useReducedMotion();
+  const head = others.slice(0, OTHER_PREVIEW);
+  const rest = others.slice(OTHER_PREVIEW);
+  const hasMore = rest.length > 0;
+
+  const [mounted, setMounted] = useState(false);
+  const [open, setOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  const toggle = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+
+    if (open || mounted) {
+      setOpen(false);
+      if (reduce) {
+        setMounted(false);
+      } else {
+        closeTimer.current = setTimeout(() => {
+          setMounted(false);
+          closeTimer.current = null;
+        }, OTHER_FADE_MS);
+      }
+      return;
+    }
+
+    setMounted(true);
+    if (reduce) {
+      setOpen(true);
+    } else {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setOpen(true));
+      });
+    }
+  };
+
+  const visibleCount = mounted ? others.length : head.length;
+  const centerLastPair = visibleCount % 4 === 2;
+  const fade = cn(
+    "transition-[opacity,transform] ease-[cubic-bezier(0.22,1,0.36,1)]",
+    reduce ? "duration-0" : "duration-[280ms]",
+    open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
+  );
+
+  return (
+    <div className="mt-8">
+      <MobileCarousel
+        items={others}
+        renderItem={(item) => <OtherServiceCard item={item} />}
+      />
+      <div className="hidden md:block">
+        <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {head.map((item, i) => {
+            const isFirstOfCenteredPair =
+              !mounted && centerLastPair && i === head.length - 2;
+            return (
+              <li
+                key={item.slug}
+                className={cn("min-w-0", isFirstOfCenteredPair && "lg:col-start-2")}
+              >
+                <Reveal delay={Math.min(i, 3) * 0.05} scale className="h-full">
+                  <OtherServiceCard item={item} />
+                </Reveal>
+              </li>
+            );
+          })}
+          {mounted
+            ? rest.map((item, i) => {
+                const globalIndex = OTHER_PREVIEW + i;
+                const isFirstOfCenteredPair =
+                  centerLastPair && globalIndex === visibleCount - 2;
+                return (
+                  <li
+                    key={item.slug}
+                    className={cn(
+                      "min-w-0",
+                      fade,
+                      isFirstOfCenteredPair && "lg:col-start-2",
+                    )}
+                  >
+                    <OtherServiceCard item={item} />
+                  </li>
+                );
+              })
+            : null}
+        </ul>
+        {hasMore ? (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={toggle}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-cyan px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
+              aria-expanded={open}
+            >
+              {open || mounted ? "Zwiń" : "Więcej"}
+              <ChevronDown
+                className={cn(
+                  "size-4 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  (open || mounted) && "rotate-180",
+                )}
+                aria-hidden
+              />
+            </button>
+          </div>
+        ) : null}
+      </div>
+    </div>
   );
 }
 
@@ -366,8 +519,12 @@ function ServicePage() {
                 initial={reduce ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: reduce ? 0 : 1.05, ease }}
-                className="size-full object-cover brightness-[1.04] contrast-[1.02]"
-                style={{ objectPosition: hero.position ?? "50% 45%" }}
+                className="service-hero-photo size-full object-cover brightness-[0.78] contrast-[1.02] md:brightness-[1.04]"
+                style={
+                  {
+                    "--service-hero-pos": hero.position ?? "50% 45%",
+                  } as CSSProperties
+                }
               />
             </div>
           ) : null}
@@ -376,8 +533,9 @@ function ServicePage() {
             style={{ backgroundImage: "var(--gradient-service-hero)" }}
             aria-hidden
           />
+          <div className="absolute inset-0 bg-black/30 md:hidden" aria-hidden />
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 hidden md:block"
             style={{ backgroundImage: "var(--gradient-service-hero-side)" }}
             aria-hidden
           />
@@ -536,7 +694,7 @@ function ServicePage() {
 
         <section className="relative isolate overflow-hidden bg-white pt-12 pb-8 text-center sm:py-16 lg:py-20">
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(36rem,70%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.02)_30%,oklch(0.59_0.14_242/0.06)_60%,oklch(0.59_0.14_242/0.11)_100%)] max-md:h-[min(28rem,75%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.59_0.14_242/0.03)_28%,oklch(0.59_0.14_242/0.07)_58%,oklch(0.59_0.14_242/0.12)_100%)]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[min(36rem,70%)] bg-[linear-gradient(180deg,transparent_0%,oklch(0.685_0.166_243/0.02)_30%,oklch(0.685_0.166_243/0.06)_60%,oklch(0.685_0.166_243/0.11)_100%)] max-md:h-[min(28rem,75%)] max-md:bg-[linear-gradient(180deg,transparent_0%,oklch(0.685_0.166_243/0.03)_28%,oklch(0.685_0.166_243/0.07)_58%,oklch(0.685_0.166_243/0.12)_100%)]"
             aria-hidden
           />
           <div className="relative z-10 mx-auto max-w-[1360px] px-5 lg:px-8">
@@ -548,22 +706,7 @@ function ServicePage() {
                 Inne <span className="text-gradient-cyan">usługi</span>
               </h2>
             </Reveal>
-            <div className="mt-8">
-              <MobileCarousel
-                key={service.slug}
-                items={others}
-                renderItem={(item) => <OtherServiceCard item={item} />}
-              />
-              <ul className="hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-4">
-                {others.map((item, i) => (
-                  <li key={item.slug} className="min-w-0">
-                    <Reveal delay={Math.min(i, 7) * 0.05} scale className="h-full">
-                      <OtherServiceCard item={item} />
-                    </Reveal>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <OtherServicesGrid key={service.slug} others={others} />
           </div>
         </section>
       </main>
