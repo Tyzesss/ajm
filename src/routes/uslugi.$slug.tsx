@@ -551,7 +551,7 @@ function ServicePage() {
                   className="pointer-events-none absolute top-1/2 left-0 z-0 h-[130%] w-[110%] -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_20%_50%,oklch(0.12_0.04_242/0.55)_0%,oklch(0.12_0.04_242/0.28)_42%,transparent_72%)] blur-2xl sm:blur-3xl md:left-[-4%]"
                   aria-hidden
                 />
-                <h1 className="relative z-[1] font-display text-4xl font-black tracking-tight text-navy-foreground sm:text-5xl lg:text-6xl">
+                <h1 className="relative z-[1] font-display text-[2.65rem] font-black tracking-tight text-navy-foreground sm:text-5xl lg:text-6xl">
                   {headlineParts ? (
                     <>
                       {headlineParts[1]} w{" "}

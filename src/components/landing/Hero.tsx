@@ -83,7 +83,7 @@ export function Hero() {
                 className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-[120%] w-[115%] max-w-none -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,oklch(0.12_0.04_242/0.55)_0%,oklch(0.12_0.04_242/0.28)_42%,transparent_72%)] blur-2xl sm:blur-3xl"
                 aria-hidden
               />
-              <h1 className="relative z-[1] font-display text-[clamp(2.7rem,7.8vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:text-7xl sm:tracking-normal lg:text-[5rem]">
+              <h1 className="relative z-[1] font-display text-[clamp(3rem,8.2vw+0.55rem,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-navy-foreground sm:text-7xl sm:tracking-normal lg:text-[5rem]">
                 <span className="sm:whitespace-nowrap">Instalacje grzewcze,</span>
                 <br />
                 <span className="text-gradient-cyan sm:whitespace-nowrap">
