@@ -92,12 +92,18 @@ export function Hero() {
               </h1>
             </div>
 
-            <p className="mt-4 max-w-xl text-sm text-navy-foreground/75 sm:mt-5 sm:max-w-3xl sm:text-lg md:text-[1.2rem]">
-              <span className="sm:whitespace-nowrap">
-                Jedna ekipa od doboru sprzętu przez montaż po uruchomienie i&nbsp;serwis.
-              </span>
-              <br /> {SERVICE_AREA}.
-            </p>
+            <div className="relative isolate mt-4 w-full max-w-xl sm:mt-5 sm:max-w-3xl">
+              <div
+                className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-[160%] w-[108%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,oklch(0.12_0.04_242/0.42)_0%,oklch(0.12_0.04_242/0.2)_48%,transparent_74%)] blur-xl sm:blur-2xl"
+                aria-hidden
+              />
+              <p className="relative z-[1] text-sm text-navy-foreground/90 sm:text-lg md:text-[1.2rem]">
+                <span className="sm:whitespace-nowrap">
+                  Jedna ekipa od doboru sprzętu przez montaż po uruchomienie i&nbsp;serwis.
+                </span>
+                <br /> {SERVICE_AREA}.
+              </p>
+            </div>
 
             <div className="mt-6 flex w-full max-w-md flex-col items-stretch gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
               <Button asChild variant="cyan" size="xl">
