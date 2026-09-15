@@ -246,7 +246,7 @@
 
   section[id],
   #kontakt-formularz {
-    scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 5.5rem);
+    scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 4.25rem);
   }
 }
 

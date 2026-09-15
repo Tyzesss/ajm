@@ -1,10 +1,20 @@
 /** Scroll to a home-page section, stopping just under the fixed navbar. */
 
-function headerOffsetPx() {
+/** Sekcje z klasycznym offsetem (bez wjeżdżania w padding). */
+const CLASSIC_OFFSET_IDS = new Set(["o-nas", "faq", "opinie"]);
+
+function scrollOffsetPx(el: HTMLElement, id: string) {
   const header = document.querySelector("header");
-  const height = header?.getBoundingClientRect().height ?? 88;
-  // Small gap under the bar so the section eyebrow isn't flush with it.
-  return height + 12;
+  const headerH = header?.getBoundingClientRect().height ?? 88;
+
+  if (CLASSIC_OFFSET_IDS.has(id)) {
+    return headerH + 12;
+  }
+
+  const padTop = parseFloat(getComputedStyle(el).paddingTop) || 0;
+  // Wjeżdżamy w padding sekcji — treść bliżej navbara (np. Kontakt).
+  const intoPadding = Math.max(0, padTop - 8);
+  return headerH - intoPadding;
 }
 
 export function scrollToSection(href: string) {
@@ -26,6 +36,6 @@ export function scrollToSection(href: string) {
     history.replaceState(null, "", `#${id}`);
   }
 
-  const top = el.getBoundingClientRect().top + window.scrollY - headerOffsetPx();
+  const top = el.getBoundingClientRect().top + window.scrollY - scrollOffsetPx(el, id);
   window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
 }
