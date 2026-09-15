@@ -1,7 +1,7 @@
 import { useEffect, useState, type MouseEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ArrowLeft, ChevronDown, ChevronRight, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { scrollToSection } from "@/lib/scroll-to-section";
@@ -14,6 +14,7 @@ const NAV = [
   { label: "Usługi", href: "#uslugi", services: true },
   { label: "Realizacje", href: "#realizacje" },
   { label: "Opinie", href: "#opinie" },
+  { label: "FAQ", href: "#faq" },
   { label: "Kontakt", href: "#kontakt" },
 ] as const;
 
@@ -132,10 +133,9 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
                     <a
                       href={navHref(item.href)}
                       onClick={onNav(item.href)}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-navy-foreground/80 transition-colors duration-300 hover:text-accent group-hover:text-accent"
+                      className="text-sm font-medium text-navy-foreground/80 transition-colors duration-300 hover:text-accent group-hover:text-accent"
                     >
                       {item.label}
-                      <ChevronDown className="size-3.5 opacity-70 transition-transform duration-300 group-hover:rotate-180" />
                     </a>
                     <div className="pointer-events-none invisible absolute left-1/2 top-full z-50 pt-3 opacity-0 transition-[opacity,visibility] duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100">
                       <ul className="-translate-x-1/2 min-w-[15rem] rounded-2xl border border-navy-foreground/10 bg-navy py-2 shadow-lift">
@@ -289,9 +289,10 @@ export function Header({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
                         href={navHref(item.href)}
                         tabIndex={open ? undefined : -1}
                         onClick={onNav(item.href)}
-                        className="rounded-xl px-3.5 py-2.5 text-[0.95rem] font-semibold tracking-tight text-navy-foreground transition-colors duration-200 hover:bg-navy-foreground/10 hover:text-accent active:bg-navy-foreground/10"
+                        className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[0.95rem] font-semibold tracking-tight text-navy-foreground transition-colors duration-200 hover:bg-navy-foreground/10 hover:text-accent active:bg-navy-foreground/10"
                       >
                         {item.label}
+                        <ChevronRight className="size-4 opacity-70" aria-hidden />
                       </a>
                     ),
                   )}

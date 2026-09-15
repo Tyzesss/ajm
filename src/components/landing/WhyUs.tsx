@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import { BadgeCheck, ClipboardCheck, MapPinned } from "lucide-react";
-import whyUsImage from "@/assets/ajm-kotlownia-midea-czerwone.jpg";
-import whyUsImageMobile from "@/assets/ajm-instalacja-pompy-wilo.jpg";
+import whyUsImage from "@/assets/why-us-desktop.png";
+import whyUsImageMobile from "@/assets/why-us-mobile.png";
 import { DarkEyebrow } from "./DarkEyebrow";
 import { Reveal } from "./Reveal";
 
@@ -34,10 +34,10 @@ export function WhyUs() {
           <source media="(min-width: 768px)" srcSet={whyUsImage} />
           <img
             src={whyUsImageMobile}
-            alt="Profesjonalna kotłownia z instalacją rur - realizacja AJM Technika"
+            alt="Profesjonalna instalacja grzewcza - rury, zawory i pompy obiegowe"
             width={1200}
             height={1600}
-            className="size-full object-cover object-[55%_35%] brightness-[0.88] contrast-[1.04] md:object-[42%_45%] md:brightness-[0.84]"
+            className="size-full object-cover object-[50%_40%] brightness-[0.9] contrast-[1.03] md:object-[60%_45%] md:brightness-[0.62]"
           />
         </picture>
       </div>

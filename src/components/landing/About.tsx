@@ -56,7 +56,7 @@ export function About() {
                 alt="Nowoczesna pompa ciepła przy domu"
                 width={1024}
                 height={1365}
-                className="absolute inset-0 size-full object-cover object-[55%_40%] [filter:brightness(1.02)_contrast(1.03)_saturate(0.98)]"
+                className="absolute inset-0 size-full object-cover object-[58%_38%] [filter:brightness(1.02)_contrast(1.03)_saturate(0.98)]"
               />
               <div
                 className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-navy/15"

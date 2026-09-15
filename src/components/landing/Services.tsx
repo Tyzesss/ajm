@@ -14,7 +14,7 @@ import {
   Thermometer,
   Waves,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useReducedMotion } from "framer-motion";
 import { Reveal } from "./Reveal";
@@ -36,7 +36,7 @@ const ICONS: Record<string, LucideIcon> = {
 };
 
 const DESKTOP_PREVIEW = 6;
-const FADE_MS = 280;
+const EXPAND_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
   const Icon = ICONS[service.slug] ?? Thermometer;
@@ -67,54 +67,10 @@ export function Services() {
   const head = SERVICES.slice(0, DESKTOP_PREVIEW);
   const rest = SERVICES.slice(DESKTOP_PREVIEW);
   const hasMore = rest.length > 0;
-
-  const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
-    return () => {
-      if (closeTimer.current) clearTimeout(closeTimer.current);
-    };
-  }, []);
-
-  const toggle = () => {
-    if (closeTimer.current) {
-      clearTimeout(closeTimer.current);
-      closeTimer.current = null;
-    }
-
-    if (open || mounted) {
-      setOpen(false);
-      if (reduce) {
-        setMounted(false);
-      } else {
-        closeTimer.current = setTimeout(() => {
-          setMounted(false);
-          closeTimer.current = null;
-        }, FADE_MS);
-      }
-      return;
-    }
-
-    setMounted(true);
-    if (reduce) {
-      setOpen(true);
-    } else {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => setOpen(true));
-      });
-    }
-  };
-
-  const visibleCount = mounted ? SERVICES.length : head.length;
   /** Ostatni rząd z 2 kartami w siatce 3-kolumnowej — wyśrodkowany. */
-  const centerLastPairLg = visibleCount % 3 === 2;
-  const fade = cn(
-    "transition-[opacity,transform] ease-[cubic-bezier(0.22,1,0.36,1)]",
-    reduce ? "duration-0" : "duration-[280ms]",
-    open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
-  );
+  const centerLastPairLg = SERVICES.length % 3 === 2;
 
   return (
     <section id="uslugi" className="relative z-10 overflow-x-clip pt-12 pb-12 max-md:pb-8 sm:pt-28 sm:pb-14">
@@ -155,41 +111,68 @@ export function Services() {
                 </Reveal>
               </li>
             ))}
-            {mounted
-              ? rest.map((service, i) => {
-                  const globalIndex = DESKTOP_PREVIEW + i;
-                  const isFirstOfCenteredPair =
-                    centerLastPairLg && globalIndex === visibleCount - 2;
-                  return (
-                    <li
-                      key={service.slug}
-                      className={cn(
-                        "min-w-0 lg:col-span-2",
-                        fade,
-                        isFirstOfCenteredPair && "lg:col-start-2",
-                      )}
-                    >
-                      <ServiceCard service={service} />
-                    </li>
-                  );
-                })
-              : null}
           </ul>
+
+          {hasMore ? (
+            <div
+              className={cn(
+                "grid transition-[grid-template-rows] will-change-[grid-template-rows]",
+                reduce ? "duration-0" : "duration-500",
+                open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+              )}
+              style={{ transitionTimingFunction: EXPAND_EASE }}
+            >
+              <div className="min-h-0 overflow-hidden">
+                <ul className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-6" aria-hidden={!open}>
+                  {rest.map((service, i) => {
+                    const globalIndex = DESKTOP_PREVIEW + i;
+                    const isFirstOfCenteredPair =
+                      centerLastPairLg && globalIndex === SERVICES.length - 2;
+                    return (
+                      <li
+                        key={service.slug}
+                        className={cn(
+                          "min-w-0 lg:col-span-2",
+                          "transition-[opacity,transform]",
+                          reduce ? "duration-0" : "duration-400",
+                          open
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-3 opacity-0",
+                          isFirstOfCenteredPair && "lg:col-start-2",
+                        )}
+                        style={{
+                          transitionTimingFunction: EXPAND_EASE,
+                          transitionDelay: reduce
+                            ? "0ms"
+                            : open
+                              ? `${80 + i * 55}ms`
+                              : `${Math.max(0, (rest.length - 1 - i) * 35)}ms`,
+                        }}
+                      >
+                        <ServiceCard service={service} />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          ) : null}
 
           {hasMore ? (
             <div className="mt-10 flex justify-center">
               <button
                 type="button"
-                onClick={toggle}
+                onClick={() => setOpen((v) => !v)}
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-cyan px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
                 aria-expanded={open}
               >
-                {open || mounted ? "Zwiń" : "Pokaż więcej"}
+                {open ? "Zwiń" : "Pokaż więcej"}
                 <ChevronDown
                   className={cn(
-                    "size-4 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                    (open || mounted) && "rotate-180",
+                    "size-4 transition-transform duration-400",
+                    open && "rotate-180",
                   )}
+                  style={{ transitionTimingFunction: EXPAND_EASE }}
                   aria-hidden
                 />
               </button>
